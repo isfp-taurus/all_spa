@@ -1,0 +1,231 @@
+<ul *ngIf="isDisplayPaymentMethodselection || (!isSp && isChangePaymentMethod)" class="l-tab-menu__list">
+    <!-- マタブ機能のSP版ここから -->
+    <li
+      *ngIf="isSp && !isHandleStoreChanges"
+      class="l-tab-menu01_list-item l-tab-menu01_list-item--change is-open u-display-block-sp"
+    >
+      <div class="l-tab-menu01__change">
+        <div class="l-tab-menu01__change-title">
+        <!-- 特典の場合（クレジットカードのみ表示、PFC徴収あり空港の場合） -->
+        <div
+        *ngIf="isAwardBooking && selectedPaymentMethod === 'CD' && isPFCChargeApplicable"
+        class="l-tab-menu01__list-item l-tab-menu01__list-item--change c-float-list01__title-item--mt0 is-open"
+        >
+        <span class="l-tab-menu01__change-title-icon">
+          <img
+            src="assets/images/icon_credit_card_24.svg"
+            width="24" 
+            height="24"
+            alt="{{ 'alt.creditCard' | staticMsg }}"
+          />
+        </span>
+        <span
+          class="l-tab-menu01__menu-title-label l-tab-menu01__menu-title-label--em"
+          [innerHTML]="
+            posCountryCode === 'JP'
+              ? ('label.creditCard' | staticMsg)
+              : ('heading.creditCardOrDebitCardForTitle' | staticMsg)"
+        ></span>
+        </div>
+            <!-- クレジットカード（SP版） -->
+          <div
+            *ngIf="selectedPaymentMethod === 'CD'"
+            class="l-tab-menu01__list-item l-tab-menu01__list-item--change c-float-list01__title-item--mt0 is-open"
+          >
+            <span class="l-tab-menu01__change-title-icon">
+              <img
+                src="assets/images/icon_credit_card_24.svg"
+                width="24" 
+                height="24"
+                alt="{{ 'alt.creditCard' | staticMsg }}"
+              />
+            </span>
+            <span
+              class="l-tab-menu01__menu-title-label l-tab-menu01__menu-title-label--em"
+              [innerHTML]="
+                posCountryCode === 'JP'
+                  ? ('label.creditCard' | staticMsg)
+                  : ('heading.creditCardOrDebitCardForTitle' | staticMsg)"
+            ></span>
+          </div>
+          <!-- コンビニエンスストア（SP版） -->
+          <div
+            *ngIf="selectedPaymentMethod === 'CV'"
+            class="l-tab-menu01__list-item l-tab-menu01__list-item--change c-float-list01__title-item--mt0 is-open"
+          >
+            <span class="l-tab-menu01__change-title-icon">
+              <img
+                src="assets/images/icon_convenience_store_24.svg"
+                width="24" 
+                height="24"
+                alt="{{ 'alt.convenienceStore' | staticMsg }}"
+              />
+            </span>
+            <span
+              class="l-tab-menu01__menu-title-label l-tab-menu01__menu-title-label--em"
+              [innerHTML]="'alt.convenienceStore' | staticMsg"
+            ></span>
+          </div>
+          <!-- Pay Easy (SP版) -->
+          <div
+            *ngIf="selectedPaymentMethod === 'PE'"
+            class="l-tab-menu01__list-item l-tab-menu01__list-item--change c-float-list01__title-item--mt0 is-open"
+          >
+            <span class="l-tab-menu01__change-title-icon">
+              <img
+                src="assets/images/logo_payeasy.svg"
+                width="54"
+                height="40"
+                alt="{{ 'label.payeasy' | staticMsg }}"
+              />
+            </span>
+          </div>
+          <!-- 予約のみ（SP版） -->
+          <div
+            *ngIf="selectedPaymentMethod === 'RE' && isReservationOnly"
+            class="l-tab-menu01__list-item l-tab-menu01__list-item--change c-float-list01__title-item--mt0 is-open"
+          >
+            <span
+              class="l-tab-menu01__menu-title-label l-tab-menu01__menu-title-label--em"
+              [innerHTML]="'label.paymentMethodAppointmentOnly' | staticMsg"
+            ></span>
+          </div>
+        </div>
+        <div class="l-tab-menu01__change-btn">
+          <button
+            *ngIf="!isReservationOnly"
+            id="payment-input-payment-methods-button-1" 
+            class="c-btn-tertiary c-btn-tertiary--xs"
+            aswThrottleClick
+            (throttleClick$)="handleStoreChanges()"
+          >
+            <span class="c-btn-tertiary__text" [innerHTML]="'label.cardChange' | staticMsg"></span>
+          </button>
+          <button
+            *ngIf="isReservationOnly"
+            id="payment-input-payment-methods-button-reserved" 
+            class="c-btn-tertiary c-btn-tertiary--xs"
+            (click)="handleStoreChanges()"
+          >
+            <span class="c-btn-tertiary__text" [innerHTML]="'label.payNow' | staticMsg"></span>
+          </button>
+        </div>
+      </div>
+    </li>  
+    <!-- タブ機能のPC版 ここから -->
+    <li *ngIf="!isSp || isHandleStoreChanges" class="l-tab-menu01__list-item l-tab-menu01__list-item--menu"> 
+      <div class="l-tab-menu01__menu l-tab-menu01_menu--tb-pc-2col" role="tablist">
+        <!-- クレジットカード（PC版） -->
+        <button
+          *ngIf="paymentMethod.get('CD')"
+          aswThrottleClick
+          (throttleClick$)="handleStore('CD')"
+          [ngClass]="{ 'is-current': selectedPaymentMethod === 'CD' }"
+          class="l-tab-menu01__menu-item"
+          type="button"
+          id="payment-input-payment-methods-button-2"
+          role="tab"
+          aria-controls="panel-cc"
+          [attr.aria-selected]="selectedPaymentMethod === 'CD' ? 'true' : 'false'" 
+          [attr.tabindex]="selectedPaymentMethod === 'CD' ? '-1' : '0'"
+        >
+          <span class="l-tab-menu01__menu-title">
+            <span class="l-tab-menu01__menu-title-icon">
+              <img
+                src="assets/images/icon_credit_card_24.svg"
+                width="24" 
+                height="24"
+                alt="{{ 'alt.creditCard' | staticMsg }}"
+              />
+            </span>
+            <span
+              class="l-tab-menu01__menu-title-label l-tab-menu01__menu-title-label--em"
+              [innerHTML]="
+                posCountryCode === 'JP'
+                  ? ('label.creditCard' | staticMsg)
+                  : ('heading.creditCardOrDebitCardForTitle' | staticMsg)"
+            ></span>
+          </span>
+          <span class="l-tab-menu01__menu-mark"></span>
+        </button>
+        <!-- コンビニエンスストア（PC版） -->
+        <button
+          *ngIf="paymentMethod.get('CV')"
+          aswThrottleClick
+          (throttleClick$)="handleStore('CV')"
+          [ngClass]="{ 'is-current': selectedPaymentMethod === 'CV' }"
+          class="l-tab-menu01__menu-item"
+          type="button"
+          id="payment-input-tab-cvs"
+          role="tab"
+          aria-controls="panel-cvs"
+          [attr.aria-selected]="selectedPaymentMethod === 'CV' ? 'true' : 'false'"
+          [attr.tabindex]="selectedPaymentMethod === 'CV' ? '-1' : '0'"
+        >
+          <span class="l-tab-menu01__menu-title">
+            <span class="l-tab-menu01__menu-title-icon">
+              <img
+                src="assets/images/icon_convenience_store_24.svg"
+                width="24"
+                height="24"
+                alt="{{ 'alt.convenienceStore' | staticMsg }}"
+              />
+            </span>
+            <span
+              class="l-tab-menu01__menu-title-label l-tab-menu01__menu-title-label--em"
+              [innerHTML]="'alt.convenienceStore' | staticMsg"
+            ></span>
+          </span>
+          <span class="l-tab-menu01__menu-mark"></span>
+        </button>  
+        <!-- Pay Easy (PC版) -->
+        <button
+          *ngIf="paymentMethod.get('PE')"
+          (click)="handleStore('PE')"
+          [ngClass]="{ 'is-current': selectedPaymentMethod === 'PE' }"
+          class="l-tab-menu01__menu-item"
+          type="button"
+          id="payment-input-tab-pe"
+          role="tab"
+          aria-controls="panel-net-tfr"
+          [attr.aria-selected]="selectedPaymentMethod === 'PE' ? 'true' : 'false'"
+          [attr.tabindex]="selectedPaymentMethod === 'PE' ? '-1' : '0'"
+        >
+          <span class="l-tab-menu01__menu-title"> 
+            <span class="l-tab-menu01__menu-title-icon">
+              <img
+                src="assets/images/logo_payeasy.svg"
+                width="54"
+                height="40"
+                alt="{{ 'label.payeasy' | staticMsg }}"
+              />
+            </span>
+          </span>
+          <span class="l-tab-menu01__menu-mark"></span>
+        </button>
+      </div>
+    </li>
+    <!-- 予約のみ（PC版） -->
+    <li *ngIf="!isSp && isHandleStoreChanges" class="l-tab-menu01__list-item l-tab-menu01__list-item--appt">
+      <div class="l-tab-menu01__menu" role="tablist">
+        <button
+          class="l-tab-menu01__menu-item"
+          type="button"
+          *ngIf="paymentMethod.get('RE')"
+          id="payment-input-tab-appt"
+          role="tab" 
+          aria-controls="panel-appt"
+          [ngClass]="{ 'is-current': selectedPaymentMethod === 'RE' }"
+          [attr.aria-selected]="isReservationOnly"
+          [attr.tabindex]="isReservationOnly ? '-1' : '0'" 
+          (click)="handleStore('RE')"
+        >
+          <span class="l-tab-menu01__menu-title">
+            <span class="l-tab-menu01__menu-title-label" [innerHTML]="'label.appointmentOnly' | staticMsg"></span>
+          </span>
+          <span class="l-tab-menu01__menu-mark"></span>
+        </button>
+      </div>
+    </li>
+  </ul>
+  

@@ -1,0 +1,55 @@
+<div class="p-sub-column-layout01">
+    <div class="p-sub-column-layout01__title p-sub-column-layout01__title--has-btn">
+      <div class="p-heading-area01">
+        <h2 class="p-heading-area01__title c-heading-2" [innerHTML]="'heading-price' | staticMsg"></h2>
+      </div>
+      <button
+        id="payment-amount-detail-button"
+        class="c-btn-tertiary c-btn-tentiary--xs"
+        (click)="this.clickPaymentDetails($event)"
+      >
+        <span class="c-btn-tertiary__text" [innerHTML]="'label.details2' | staticMsg"></span>
+      </button>
+    </div>
+    <div class="p-sub-column-layout01__body">
+      <div class="p-sub-column-layout01__item">
+        <dl class="c-flex-list01">
+          <div class="c-flex-list01__item c-flex-listO1__item--sb c-flex-list01__item--center">
+            <dt class="c-flex-list01__title">
+                <!-- 支払い総額の表示 -->
+              <div>
+                <span
+                  class="c-flex-list01__text-strong p-sub-column-layout01__text-total"
+                  [innerHTML]="isAwardBooking ? 'お支払い総額（特典）' : 'label.totalAmount' | staticMsg"
+                ></span>
+              </div>
+            </dt>
+            <dd class="c-flex-list01__contents">
+              <div class="c-flex-list01__contents-item">
+                <span class="c-amount c-amount--price c-flex-list01__text-strong">
+                <!-- 支払い総額または特典マイルの表示 -->
+                <span
+                  class="c-amount__num c-amount__num--fs24"
+                  [innerHTML]="isAwardBooking ? sumRequiredMiles : totalPrice | amountFormat : undefined : currencyCode"
+                ></span>
+                </span>
+              </div>
+            </dd>
+          </div>
+        </dl>
+      </div>
+      <div *ngIf="isPc && isDisplayPlanReviewLink" class="p-sub-column-layout01__item">
+        <ul class="p-sub-column-layout01__list">
+          <li class="p-sub-column-layout01__list-item">
+            <a
+              id="payment-amount-external_primary8"
+              (click)="clickPrevPlanInfo()"
+              class="p-sub-column-layout01__list-link"
+              [innerHTML]="'label backToPlanConfirmation' | staticMsg"
+            >
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>

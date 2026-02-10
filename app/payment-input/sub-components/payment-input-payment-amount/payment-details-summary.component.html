@@ -1,0 +1,74 @@
+
+  <div class="c-flex-float-list">
+    <div class="p-sub-column-layout02-flex">
+      <dl class="p-payment-detailes-summary-block">
+        <div class="c-float-list01__item">
+          <dt
+            class="c-float-list01__title c-float-list01__title--em c-float-list01__contents--fs16 c-float-list01__title--gray90"
+            [innerHTML]="'label. totalAmount' | staticMsg"
+          ></dt>
+          <dd class="c-float-list01__contents c-float-list01__contents--fs24">
+            <span class="u-font-24 c-modified-element">
+              <!--支払い総額 -->
+              <span [innerHTML]="data.totalAmount | amountFormat : undefined : data.currencyCode"></span>
+            </span>
+          </dd>
+        </div>
+        <div class="c-float-list01__item">
+          <dt class="c-float-list01__title"><!--見出しなし--></dt>
+          <!--搭乗者種別毎の人数-->
+          <dd class="c-float-list01__contents c-float-list01__contents--fs16 u-weight-normal">
+            <ng-container *ngFor="let temp of data.numPerptc; index as i">
+              <ng-container [ngSwitch]="temp.ptc">
+                <span *ngSwitchCase="'ADT'" [innerHTML]="'label.passengerAdult' | staticMsg : { '0': temp.num }"></span>
+                <span *ngSwitchCase="'CHD'" [innerHTML]="'label.passengerChild' | staticMsg : { '0': temp.num }"></span>
+                <span *ngSwitchCase="'INF'" [innerHTML]="'label.passengerInfant' | staticMsg : { '0': temp.num }"></span>
+              </ng-container>
+              <span *ngIf="data.numPerPtc[i + 1]" [innerHTML]="'label.separaterComma' | staticMsg"></span>
+            </ng-container>
+          </dd>
+        </div>
+      </dl>
+    </div>
+    <div class="p-sub-column-layout02-flex p-payment-detailes-line-sp-only">
+      <dl class="p-payment-detailes-summary-block">
+        <div *ngIf="!(isCanada && data.totalFlightSurcharge)" class="c-float-list01__item">
+          <!--運賃総額-->
+          <dt class="c-float-list01__title" [innerHTML]="'label.fare' | staticMsg"></dt>
+          <dd class="c-float-list01__contents">
+            <span
+              class="c-float-list01_contents--fs16 u-weight-bold"
+              [innerHTML]="data.totalFare | amountFormat : undefined : data.currencyCode"
+            ></span>
+          </dd>
+        </div>
+        <div *ngIf="isCanada" class="c-float-list01__item">
+          <!--税金総額-->
+          <dt class="c-float-list01__title" [innerHTML]="'label.taxFare2' | staticMsg"></dt>
+          <dd class="c-float-list01__contents">
+            <span
+              class="c-float-list01__contents--fs16 u-weight-normal"
+              [innerHTML]="data.totalTax | amountFormat : undefined : data.currencyCode"
+            ></span>
+          </dd>
+        </div>
+        <div *ngIf="!isCanada" class="c-float-list01__item">
+          <!-- 発券手数料-->
+          <dt class="c-float-list01__title" [innerHTML]="'label.fee' | staticMsg"></dt>
+          <dd class="c-float-list01__contents">
+            <!--※固定値0を出力-->
+            <span
+              class="c-float-list01 contents--fs16 u-weight-normal"
+              [innerHTML]="0 | amountFormat : undefined : data.currencyCode"
+            ></span>
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+
+  <div *ngIf="data.alertLabelTxt.length !== 0" class="p-alert-1abel-txt">
+    <div *ngFor="let str of data.alertLabelTxt" class="p-alert-label-txt_content">
+      <em class="p-alert-1abel-txt_content_txt" [innerHTML]="str | staticMsg"></em>
+    </div>
+  </div>

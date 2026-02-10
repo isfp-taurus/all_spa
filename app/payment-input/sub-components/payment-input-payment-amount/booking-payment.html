@@ -1,0 +1,115 @@
+<div class="p-sub-column-layout02">
+    <!--［1.2.1］支払情報サマリ-->
+    <div class="p-sub-column-layout02__title p-sub-column-layout02__title--has-btn" *ngIf="showPaymentInforSummary">
+        <!--（1.2.2）支払情報サマリタイトル-->
+        <div class="p-heading-area01">
+            <h2
+                class="p-heading-area01 title c-heading-2"
+                [innerHTML]="isAwardBooking ? ('heading mileageTax' | staticMsg) : ('heading price' | staticMsg)"
+            ></h2>
+        </div>
+        <!--（1.2.3）支払情報詳細モーダル表示 -->
+        <button
+            class="c-btn-tertiary c-btn-tertiary--xs c-btn-tertiary--border-white"
+            id="btn-payment-detail-id"
+            (click)="openPaymentDetailsModal()"
+        >
+            <span class="c-btn-tertiary_text" [innerHTML]="'label.detail' | staticMsg"></span>
+        </button>
+    </div>
+    <!--/［1.2.1］支払情報サマリ-->
+    <div class="p-sub-column-layout02__body">
+        <!--［1.2.1］支払情報サマリ-->
+        <div class="p-sub-column-layout02_body-item" *ngIf="showPaymentInforSummary">
+            <div class="p-sub-column-layout02_payment">
+                <div class="p-sub-column-layout02_payment-head">
+                    <dl class="c-float-list01">
+                        <!-- (1.2.4) 必要マイル -->
+                        <div class="c-float-list01__item" *ngIf="showRequiredMileage">
+                            <dt
+                                class="c-float-list01__title c-float-list01__title--em c-float-list01__title--gray90"
+                                [innerHTML]="'label.requiredMileage' | staticMsg"
+                            ></dt>
+                            <dd class="c-float-list01__contents c-float-list01__contents--fs16">
+                                <span class="c-amount c-amount--price" [ngStyle]="isDifferentRequiredMileage ? { color: 'red' } : {}">
+                                    <span
+                                        class="c-amount num c-amount num--fs24 c-amount num--pc-fs28"
+                                        [innerHTML]="getRequiredMileage | milesFormat : 'currencyUnit.MIL'"
+                                    ></span>
+                                </span>
+                            </dd>
+                        </div>
+                        <div class="c-float-list01__item">
+                            <!--（1.2.5） 支払総額ラベル-->
+                            <dt
+                                class="c-float-list01__title c-float-list01__title--em c-float-list01__title--gray90"
+                                [innerHTML]="getPaymentTotalLabel | staticMsg"
+                            ></dt>
+                            <!--（1.2.6） 支払総額-->
+                            <dd class="c-float-list01__contents c-float-list01__contents--fs16">
+                                <ng-container *ngFor="let item of getTotalPrices">
+                                    <div class="c-amount c-amount--price" [ngStyle]="isDifferentTotalPrices ? { color: 'red' } : {}">
+                                       <!--差分が発生している旨い--> 
+                                        <span class="c-amount_num c-amount_num--fs24 c-amount_num--pc-fs28">
+                                            {{ item?.value ?? 0 | amountFormat : undefined : item?.currencyCode }}
+                                        </span>
+                                    </div>
+                                </ng-container>
+                            </dd>
+                        </div>
+                    </dl>
+                </div>
+                <div class="p-sub-column-layout02__payment-body">
+                    <dl class="c-float-list01">
+                        <!--（1.2.10）航空券金額情報-->
+                        <ng-container *ngIf="showTicketTotalPrices">
+                            <!--（1.2.11）運賃総額-->
+                            <div class="c-float-list01__item" *ngIf="showFareTotalPrices">
+                                <!--TODO（mongon ID運賃総額-->
+                                <dt class="c-float-list01__title" [innerHTML]="'運賃総額'"></dt>
+                                <dd class="c-float-list01__contents">
+                                    <ng-container *ngFor="let item of ticketPricesTotal">
+                                        <div class="c-amount c-amount--price">
+                                            <span class="c-amount__num c-amount__num--fs18">
+                                                {{ item?.value ?? 0 | amountFormat : undefined : item?.currencyCode }}
+                                            </span>
+                                        </div>
+                                    </ng-container>
+                                </dd>
+                            </div>
+                            <!--（1.2.14）税金総額-->
+                            <div class="c-float-list01__item">
+                                <dt class="c-float-list01__title" [innerHTML]="'label.taxFare2' | staticMsg"></dt>
+                                <dd class="c-float-list01__contents c-float-list01__contents--fs16">
+                                    <ng-container *ngFor="let item of getTaxTotalPrices">
+                                        <div class="c-amount c-amount--price">
+                                            <span class="c-amount_num c-amount_num--fs18">
+                                                {{ item?.value ?? 0 | amountFormat : undefined : item?.currencyCode }}
+                                            </span>
+                                        </div>
+                                    </ng-container>
+                                </dd>
+                            </div>
+                            <!--（1.2.15）発券手数料、交換発行手数料総額-->
+                            <div class="c-float-list01__item" *ngIf="showTicketFeeTotalPrices">
+                                <!--TODO（mongon ID交換発行手数料総額-->
+                                <dt class="c-float-list01__title" [innerHTML]="'発券手数料、交換発行手数料総額'"></dt>
+                                <dd class="c-float-list01__contents">
+                                    <ng-container *ngFor="let item of ticketPricesTotalFee">
+                                        <div class="c-amount c-amount--price">
+                                            <span class="c-amount__num c-amount__num--fs18">
+                                                {{ item?.value ?? 0 | amountFormat : undefined : item?.currencyCode }}
+                                            </span>
+                                        </div>
+                                    </ng-container>
+                                </dd>
+                            </div>
+                        </ng-container>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <!--/［1.2.1］ 支払情報サマリ-->
+        <asw-my-booking-slidebar-menu></asw-my-booking-slidebar-menu>
+    </div>
+</div>
