@@ -1,0 +1,23 @@
+<div class="l-section u-mt-pc-32">
+  <div class="p-travel-summary">
+    <div class="p-travel-summary__inner">
+      <h3 class="p-travel-summary__title">
+        <em>{{ 'm_static_message-label.summary' | staticMsg }}</em>
+      </h3>
+      <dl class="p-travel-summary__list">
+        <div class="p-travel-summary__list-box">
+          <dt class="p-travel-summary__list-box-title">
+            {{ 'm_static_message-label.numberOfConnection' | staticMsg }}
+          </dt>
+          <dd class="p-travel-summary__list-box-text">
+            {{ 'm_static_message-label.connectionCount' | staticMsg : { '0': numberOfConnections } }}
+          </dd>
+        </div>
+        <div class="p-travel-summary__list-box">
+          <dt class="p-travel-summary__list-box-title">{{ 'm_static_message-label.totalTime' | staticMsg }}</dt>
+          <dd class="p-travel-summary__list-box-text">{{ duration | dateFormat : 'default_flightTotalTime' }}</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,722 @@
+<!-- 以下、本体 -->
+
+<ng-container *ngIf="isShow">
+  <div class="l-section u-mt-sp-20 u-mt-tb-24 u-mt-pc-48">
+    <div class="p-heading-area01">
+      <!-- ▼ ▼ ▼ 旅程全体変更ボタン ▼ ▼ ▼ -->
+      <div class="search-again-btn-wrapper">
+        <asw-button
+          id="plan-review-trip-summary-component-search-again-btn"
+          size="xs"
+          (click$)="searchAgain()"
+          throttleClick
+          [label]="'label.searchAgain' | staticMsg"
+          [disabled]="isPlanValidForPastDay"
+        ></asw-button>
+      </div>
+      <h2 class="p-heading-area01__title c-heading-2" [innerHTML]="'label.itinerary2' | staticMsg"></h2>
+    </div>
+
+    <div class="p-trip-summary">
+      <!-- 以下、バウンド情報 -->
+      <ng-container *ngFor="let bound of outputBounds; index as boundIndex">
+        <div class="p-trip-summary__item" [ngClass]="{ 'grey-bg': !isPlanValid }">
+          <div class="p-trip-summary__title">
+            <!-- ▼ ▼ ▼ バウンド変更ボタン ▼ ▼ ▼ -->
+            <!-- FY25: DCS移行開始日以降かつ日本国内単独旅程の場合非表示 -->
+            <ng-container *ngIf="outputBounds.length < 3">
+              <div *ngIf="!(isDomestic && isAfterDcs)" class="change-by-bound-btn-wrapper">
+                <asw-button
+                  [id]="'plan-review-trip-summary-component-change-by-bd-btn-' + boundIndex"
+                  type="secondary"
+                  size="xs"
+                  [attr.aria-labelledby]="'label.searchAgain' | staticMsg"
+                  (click$)="changeBound(boundIndex)"
+                  throttleClick
+                  [disabled]="!isPlanValid && isPlanValidForPastDay"
+                >
+                  <span [innerHTML]="'label.changeByBound' | staticMsg"></span>
+                  <!-- バウンド数が1または2の場合 -->
+                  <span
+                    *ngIf="outputBounds && outputBounds.length <= 2"
+                    class="u-visually-hidden"
+                    [innerHTML]="'label.searchAgain' | staticMsg"
+                  ></span>
+                </asw-button>
+              </div>
+            </ng-container>
+            <!-- バウンド番号 -->
+            <h3
+              class="p-trip-summary__title-label c-bound-title01"
+              [innerHTML]="'label.number.section.n' | staticMsg : { '0': boundIndex + 1 }"
+            ></h3>
+
+            <!-- 出発日(バウンド) -->
+            <div
+              class="p-trip-summary__title-date"
+              [innerHTML]="bound.originDepartureDateTime ?? '' | dateFormat : 'default_itineraryRsDate'"
+            ></div>
+
+            <!-- 総所要時間 -->
+            <div
+              class="p-trip-summary__title-elapsed"
+              [innerHTML]="bound.formattedDuration ?? '' | dateFormat : 'default_flightTotalTime'"
+            ></div>
+          </div>
+
+          <!-- ここからflight（セグメント情報）エリア -->
+          <div class="p-trip-summary__contents">
+            <ng-container *ngFor="let segment of bound.flights; index as segIndex">
+              <div class="p-trip-summary__contents-item" [ngClass]="{ 'grey-bg': !isPlanValid }">
+                <div class="p-flight-detail01" [ngClass]="{ 'grey-bg': !isPlanValid }">
+                  <div class="p-flight-detail01__block">
+                    <!-- 出発日(セグメント) -->
+                    <div
+                      *ngIf="segment.departureDaysDifferenceByBound && segment.departureDaysDifferenceByBound >= 1"
+                      class="p-flight-detail01__departure-date"
+                      [innerHTML]="segment.departure?.dateTime ?? '' | dateFormat : 'default_itineraryRsDate'"
+                    ></div>
+                    <!-- フライト時間ライン (開始) -->
+                    <div
+                      #interSegLineBegin
+                      class="p-flight-detail01__item p-flight-detail01__item--2col p-flight-detail01__item--departure"
+                      [ngClass]="{
+                        'p-flight-detail01__item--changed': segment.emphedDepArrDate?.etd?.value,
+                        'p-flight-detail01__item--other': !segment?.isNhGroupOperated
+                      }"
+                    >
+                      <div class="p-flight-detail01__time">
+                        <!-- 出発時刻 -->
+                        <div
+                          class="p-flight-detail01__time-item"
+                          [ngClass]="{ 'p-flight-detail01__time-item--begin': segment.emphedDepArrDate?.etd?.value }"
+                        >
+                          <ng-container *ngIf="segment.emphedDepArrDate?.etd?.value">
+                            <!--最新出発時刻が存在する場合-->
+                            <div class="p-flight-detail01__time-item--begin">
+                              <em
+                                [ngClass]="
+                                  segment.emphedDepArrDate?.std?.type === 'del' ||
+                                  segment.emphedDepArrDate?.std?.type === 'diff'
+                                    ? 'c-modified-element c-modified-element--has-icon'
+                                    : ''
+                                "
+                              >
+                                <span
+                                  [ngClass]="{
+                                    del: segment.emphedDepArrDate?.std?.type === 'del'
+                                  }"
+                                  [innerHTML]="
+                                    segment.emphedDepArrDate?.std?.value ?? ''
+                                      | dateFormat : 'flightDetail_departuredate.time.old'
+                                  "
+                                ></span>
+                                <span
+                                  *ngIf="
+                                    segment.emphedDepArrDate?.std?.type === 'del' ||
+                                    segment.emphedDepArrDate?.std?.type === 'diff'
+                                  "
+                                  class="c-modified-element__icon"
+                                >
+                                  <img
+                                    class="c-modified-element__icon-img"
+                                    src="{{ appConstants.IMG.R01_P040_S01_U__ICON_CHANGE_10 }}"
+                                    width="10"
+                                    height="10"
+                                    alt="変更箇所"
+                                  />
+                                </span>
+                                <!-- 差分強調表示用読み上げ用ラベル -->
+                                <span
+                                  *ngIf="
+                                    segment.emphedDepArrDate?.std?.type === 'del' ||
+                                    segment.emphedDepArrDate?.std?.type === 'diff'
+                                  "
+                                  class="u-visually-hidden"
+                                  [innerHTML]="'reader.diffIcon' | staticMsg"
+                                ></span>
+                                <span
+                                  *ngIf="segment.emphedDepArrDate?.std?.type === 'del'"
+                                  class="u-visually-hidden"
+                                  [innerHTML]="'reader.revokedService' | staticMsg"
+                                ></span>
+                              </em>
+                            </div>
+                            <div class="p-flight-detail01__time-item--end">
+                              <em
+                                [ngClass]="
+                                  segment.emphedDepArrDate?.etd?.type === 'del' ||
+                                  segment.emphedDepArrDate?.etd?.type === 'diff'
+                                    ? 'c-modified-element c-modified-element--has-icon'
+                                    : ''
+                                "
+                              >
+                                <span
+                                  [ngClass]="{
+                                    del: segment.emphedDepArrDate?.etd?.type === 'del'
+                                  }"
+                                  [innerHTML]="
+                                    segment.emphedDepArrDate?.etd?.value ?? ''
+                                      | dateFormat : 'flightDetail_departuredate.time.latest'
+                                  "
+                                ></span>
+                                <span
+                                  *ngIf="
+                                    segment.emphedDepArrDate?.etd?.type === 'del' ||
+                                    segment.emphedDepArrDate?.etd?.type === 'diff'
+                                  "
+                                  class="c-modified-element__icon"
+                                >
+                                  <img
+                                    class="c-modified-element__icon-img"
+                                    src="{{ appConstants.IMG.R01_P040_S01_U__ICON_CHANGE_10 }}"
+                                    width="10"
+                                    height="10"
+                                    alt="変更箇所"
+                                  />
+                                </span>
+                                <!-- 差分強調表示用読み上げ用ラベル -->
+                                <span
+                                  *ngIf="
+                                    segment.emphedDepArrDate?.etd?.type === 'del' ||
+                                    segment.emphedDepArrDate?.etd?.type === 'diff'
+                                  "
+                                  class="u-visually-hidden"
+                                  [innerHTML]="'reader.diffIcon' | staticMsg"
+                                ></span>
+                                <span
+                                  *ngIf="segment.emphedDepArrDate?.etd?.type === 'del'"
+                                  class="u-visually-hidden"
+                                  [innerHTML]="'reader.revokedService' | staticMsg"
+                                ></span>
+                              </em>
+                            </div>
+                          </ng-container>
+                          <ng-container *ngIf="!segment.emphedDepArrDate?.etd?.value">
+                            <em
+                              [ngClass]="
+                                segment.emphedDepArrDate?.std?.type === 'del' ||
+                                segment.emphedDepArrDate?.std?.type === 'diff'
+                                  ? 'c-modified-element c-modified-element--has-icon'
+                                  : ''
+                              "
+                            >
+                              <!--最新出発時刻が存在しない場合-->
+                              <span
+                                [ngClass]="{
+                                  del: segment.emphedDepArrDate?.std?.type === 'del'
+                                }"
+                                [innerHTML]="
+                                  segment.emphedDepArrDate?.std?.value ?? ''
+                                    | dateFormat : 'flightDetail_departuredate.time'
+                                "
+                              ></span>
+                              <span
+                                *ngIf="
+                                  segment.emphedDepArrDate?.std?.type === 'del' ||
+                                  segment.emphedDepArrDate?.std?.type === 'diff'
+                                "
+                                class="c-modified-element__icon"
+                              >
+                                <img
+                                  class="c-modified-element__icon-img"
+                                  src="{{ appConstants.IMG.R01_P040_S01_U__ICON_CHANGE_10 }}"
+                                  width="10"
+                                  height="10"
+                                  alt="変更箇所"
+                                />
+                              </span>
+                              <!-- 差分強調表示用読み上げ用ラベル -->
+                              <span
+                                *ngIf="
+                                  segment.emphedDepArrDate?.std?.type === 'del' ||
+                                  segment.emphedDepArrDate?.std?.type === 'diff'
+                                "
+                                class="u-visually-hidden"
+                                [innerHTML]="'reader.diffIcon' | staticMsg"
+                              ></span>
+                              <span
+                                *ngIf="segment.emphedDepArrDate?.std?.type === 'del'"
+                                class="u-visually-hidden"
+                                [innerHTML]="'reader.revokedService' | staticMsg"
+                              ></span>
+                            </em>
+                          </ng-container>
+                        </div>
+                        <!-- 出発日(セグメント) ・深夜出発日時 -->
+                        <ng-container *ngIf="isCjk && segment.isLateNightDeparture">
+                          <em
+                            [ngClass]="
+                              segment.emphedDepArrDate?.std?.type === 'del' ||
+                              segment.emphedDepArrDate?.std?.type === 'diff'
+                                ? 'c-modified-element c-modified-element--has-icon'
+                                : ''
+                            "
+                          >
+                            <span
+                              class="p-flight-detail01__time-apm"
+                              [ngClass]="{
+                                del: segment.emphedDepArrDate?.std?.type === 'del'
+                              }"
+                            >
+                              <!-- ETDに基づく場合 -->
+                              <span
+                                *ngIf="segment.emphedDepArrDate?.etd?.value"
+                                [innerHTML]="
+                                  segment.emphedDepArrDate?.etd?.value ?? ''
+                                    | dateFormat : 'flightDetail_departuredate.datetime.lateNight.latest' : true
+                                "
+                              ></span>
+                              <!-- 差分強調表示用読み上げ用ラベル -->
+                              <span
+                                *ngIf="
+                                  segment.emphedDepArrDate?.etd?.type === 'del' ||
+                                  segment.emphedDepArrDate?.etd?.type === 'diff'
+                                "
+                                class="u-visually-hidden"
+                                [innerHTML]="'reader.diffIcon' | staticMsg"
+                              ></span>
+                              <span
+                                *ngIf="segment.emphedDepArrDate?.etd?.type === 'del'"
+                                class="u-visually-hidden"
+                                [innerHTML]="'reader.revokedService' | staticMsg"
+                              ></span>
+                              <!-- STDに基づく場合 -->
+                              <span
+                                *ngIf="!segment.emphedDepArrDate?.etd?.value"
+                                [innerHTML]="
+                                  segment.emphedDepArrDate?.std?.value ?? ''
+                                    | dateFormat : 'flightDetail_departuredate.datetime.lateNight' : true
+                                "
+                              ></span>
+                              <span
+                                *ngIf="
+                                  segment.emphedDepArrDate?.etd?.type === 'del' ||
+                                  segment.emphedDepArrDate?.etd?.type === 'diff' ||
+                                  segment.emphedDepArrDate?.std?.type === 'del' ||
+                                  segment.emphedDepArrDate?.std?.type === 'diff'
+                                "
+                                class="c-modified-element__icon"
+                              >
+                                <img
+                                  class="c-modified-element__icon-img"
+                                  src="{{ appConstants.IMG.R01_P040_S01_U__ICON_CHANGE_10 }}"
+                                  width="10"
+                                  height="10"
+                                  alt="変更箇所"
+                                />
+                              </span>
+                              <!-- 差分強調表示用読み上げ用ラベル -->
+                              <span
+                                *ngIf="
+                                  segment.emphedDepArrDate?.std?.type === 'del' ||
+                                  segment.emphedDepArrDate?.std?.type === 'diff'
+                                "
+                                class="u-visually-hidden"
+                                [innerHTML]="'reader.diffIcon' | staticMsg"
+                              ></span>
+                              <span
+                                *ngIf="segment.emphedDepArrDate?.std?.type === 'del'"
+                                class="u-visually-hidden"
+                                [innerHTML]="'reader.revokedService' | staticMsg"
+                              ></span>
+                            </span>
+                          </em>
+                        </ng-container>
+                      </div>
+                      <div class="p-flight-detail01__detail">
+                        <div class="p-flight-detail01__detail-item">
+                          <!-- 出発地 -->
+                          <p class="p-flight-detail01__detail-airport">
+                            {{ segment.departure?.outputLocationName }}
+                          </p>
+                          <!-- 出発ターミナル・出発搭乗口　-->
+                          <ng-container *ngIf="segment.departure?.outputTerminal">
+                            <p
+                              class="p-flight-detail01__detail-terminal"
+                              [innerHTML]="
+                                'label.terminal.departure'
+                                  | staticMsg : { '0': segment.departure?.outputTerminal ?? '' }
+                              "
+                            ></p>
+                          </ng-container>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- フライト時間ライン（中間）-->
+                    <div
+                      class="p-flight-detail01__item p-flight-detail01__item--2col p-flight-detail01__item--wait"
+                      [ngClass]="{ 'p-flight-detail01__item--other': !segment.isNhGroupOperated }"
+                    >
+                      <!-- フライト時間 -->
+                      <div class="p-flight-detail01__time">
+                        <div class="p-flight-detail01__time-item">
+                          <span
+                            class="p-flight-detail01__time-elapsed"
+                            [innerHTML]="segment.formattedDuration ?? '' | dateFormat : 'default_flightTotalTime'"
+                          ></span>
+                        </div>
+                      </div>
+
+                      <div class="p-flight-detail01__detail">
+                        <div class="p-flight-detail01__detail-item">
+                          <dl class="p-flight-detail01__detail-info">
+                            <div class="p-flight-detail01__detail-info-item">
+                              <dt
+                                class="p-flight-detail01__detail-info-title"
+                                [innerHTML]="'label.flightName' | staticMsg"
+                              ></dt>
+                              <dd class="p-flight-detail01__detail-info-contents">
+                                <!-- 便名 -->
+                                <div class="c-flight-detail-overview01__item">
+                                  <strong>{{ segment.marketingAirlineCode }}{{ segment.marketingFlightNumber }}</strong>
+                                </div>
+                              </dd>
+                            </div>
+                            <div class="p-flight-detail01__detail-info-item">
+                              <dt
+                                class="p-flight-detail01__detail-info-title"
+                                [innerHTML]="'label.operate' | staticMsg"
+                              ></dt>
+                              <dd class="p-flight-detail01__detail-info-contents">
+                                <div class="c-flight-detail-overview01">
+                                  <div class="c-flight-detail-overview01__item">
+                                    <!-- 運航キャリア識別 -->
+                                    <span class="c-ana-icon01">
+                                      <ng-container *ngIf="segment.isNhGroupOperated">
+                                        <img
+                                          class="c-ana-icon01__img"
+                                          src="{{ appConstants.IMG.PARTNER_COMPANY_ICON }}"
+                                          width="{{ appConstants.IMG.LOGO_S_WIDTH }}"
+                                          height="{{ appConstants.IMG.LOGO_S_HEIGHT }}"
+                                          [attr.alt]="'alt.nhFlight' | staticMsg"
+                                        />
+                                      </ng-container>
+                                      <ng-container *ngIf="segment.operatingAirlineCode !== this.operatingAirline">
+                                        <!-- NH運航便でない場合文字列を表示 -->
+                                        <!-- リンクなしの場合 -->
+                                        <span
+                                          *ngIf="!segment.outputOperatingAirlineLink"
+                                          [innerHTML]="segment.outputOperatingAirlineName"
+                                        ></span>
+                                      </ng-container>
+                                    </span>
+                                  </div>
+                                </div>
+                              </dd>
+                            </div>
+                            <div class="p-flight-detail01__detail-info-item">
+                              <dt
+                                class="p-flight-detail01__detail-info-title"
+                                [innerHTML]="'label.itineraryDetailsBoarding' | staticMsg"
+                              ></dt>
+                              <dd class="p-flight-detail01__detail-info-contents">
+                                <!-- 機種コード -->
+                                <ng-container *ngIf="!(segment.aircraftUrl && segment.isNhGroupOperated)">
+                                  {{ segment.aircraftCode }}
+                                  <!-- SP版用読み上げ用ラベル -->
+                                  <span *ngIf="isSP" class="u-visually-hidden">
+                                    {{ segment.aircraftName }}
+                                  </span>
+                                </ng-container>
+                                <a
+                                  *ngIf="segment.aircraftUrl && segment.isNhGroupOperated"
+                                  class="p-flight-detail01__item-text-link"
+                                  [attr.href]="segment.aircraftUrl | metaUrl"
+                                  target="_blank"
+                                  id="plan-review-trip-summary-component-aircraft-link"
+                                >
+                                  {{ segment.aircraftCode }}
+                                  <!-- SP版用読み上げ用ラベル -->
+                                  <span *ngIf="isSP" class="u-visually-hidden">
+                                    {{ segment.aircraftName }}
+                                  </span>
+                                  <img
+                                    class="c-text-link-external c-text-link-external--large"
+                                    src="assets/images/icon_external_primary_20.svg"
+                                    width="20"
+                                    height="20"
+                                    [attr.alt]="'alt.openLinkInNewTab' | staticMsg"
+                                  />
+                                </a>
+                              </dd>
+                            </div>
+                            <div class="p-flight-detail01__detail-info-item">
+                              <!-- #2 (No.83) Branded Fare (国際対応): FF名称 -->
+                              <dt
+                                class="p-flight-detail01__detail-info-title"
+                                [innerHTML]="'label.fareName' | staticMsg"
+                              ></dt>
+                              <dd class="p-flight-detail01__detail-info-contents">
+                                {{ segment.fareInfos?.fareFamilyName }}
+                              </dd>
+                            </div>
+
+                            <!-- ステータス -->
+                            <div class="p-flight-detail01__detail-info-item">
+                              <dt
+                                class="p-flight-detail01__detail-info-title"
+                                [innerHTML]="'label.reservationStatus1' | staticMsg"
+                              ></dt>
+                              <dd class="p-flight-detail01__detail-info-contents">
+                                <span *ngIf="!isPlanValid" [innerHTML]="'label.flightInvalid1' | staticMsg"></span>
+                                <span
+                                  *ngIf="isPlanValid && !isWaitlisted"
+                                  [innerHTML]="'label.remainSeat' | staticMsg"
+                                ></span>
+                                <span
+                                  *ngIf="isPlanValid && isWaitlisted"
+                                  [innerHTML]="'label.waitinglist' | staticMsg"
+                                ></span>
+                              </dd>
+                            </div>
+
+                            <!-- 乗継情報 -->
+                            <div *ngIf="segment.stopsStr" class="p-flight-detail01__detail-info-item">
+                              <dt class="p-flight-detail01__detail-info-title"><!--見出しなし--></dt>
+                              <dd class="p-flight-detail01__detail-info-contents">
+                                <div class="c-information-list01__item">
+                                  <!-- 途中寄港数・寄港地点名称 -->
+                                  {{ segment.stopsStr }}
+                                </div>
+                              </dd>
+                            </div>
+                          </dl>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- フライト時間ライン（終了）-->
+                    <div
+                      #interSegLineEnd
+                      class="p-flight-detail01__item p-flight-detail01__item--2col p-flight-detail01__item--arrival"
+                      [ngClass]="{
+                        'p-flight-detail01__item--changed': segment.emphedDepArrDate?.eta?.value,
+                        'p-flight-detail01__item--other':
+                          !segment.emphedDepArrDate?.eta?.value && !segment.isNhGroupOperated
+                      }"
+                    >
+                      <div class="p-flight-detail01__time">
+                        <div
+                          class="p-flight-detail01__time-item"
+                          [ngClass]="{ 'p-flight-detail01__time-item--end': segment.emphedDepArrDate?.eta?.value }"
+                        >
+                          <!-- 到着時刻 -->
+
+                          <ng-container *ngIf="segment.emphedDepArrDate?.eta?.value">
+                            <!--最新到着時刻が存在する場合-->
+                            <div class="p-flight-detail01__time-item--begin">
+                              <em
+                                [ngClass]="{
+                                  del: segment.emphedDepArrDate?.sta?.type === 'del',
+                                  'c-modified-element':
+                                    segment.emphedDepArrDate?.sta?.type === 'del' ||
+                                    segment.emphedDepArrDate?.sta?.type === 'diff',
+                                  'c-modified-element--has-icon':
+                                    segment.emphedDepArrDate?.sta?.type === 'del' ||
+                                    segment.emphedDepArrDate?.sta?.type === 'diff'
+                                }"
+                              >
+                                <span
+                                  [innerHTML]="
+                                    segment.emphedDepArrDate?.sta?.value ?? ''
+                                      | dateFormat : 'flightDetail_departuredate.time.old'
+                                  "
+                                ></span>
+                                <span
+                                  *ngIf="
+                                    segment.emphedDepArrDate?.sta?.type === 'del' ||
+                                    segment.emphedDepArrDate?.sta?.type === 'diff'
+                                  "
+                                  class="c-modified-element__icon"
+                                >
+                                  <img
+                                    class="c-modified-element__icon-img"
+                                    src="{{ appConstants.IMG.R01_P040_S01_U__ICON_CHANGE_10 }}"
+                                    width="10"
+                                    height="10"
+                                    alt="変更箇所"
+                                  />
+                                </span>
+                              </em>
+                            </div>
+                            <div class="p-flight-detail01__time-item--end">
+                              <em
+                                [ngClass]="{
+                                  del: segment.emphedDepArrDate?.eta?.type === 'del',
+                                  'c-modified-element':
+                                    segment.emphedDepArrDate?.eta?.type === 'del' ||
+                                    segment.emphedDepArrDate?.eta?.type === 'diff',
+                                  'c-modified-element--has-icon':
+                                    segment.emphedDepArrDate?.eta?.type === 'del' ||
+                                    segment.emphedDepArrDate?.eta?.type === 'diff'
+                                }"
+                              >
+                                <span
+                                  [innerHTML]="
+                                    segment.emphedDepArrDate?.eta?.value ?? ''
+                                      | dateFormat : 'flightDetail_departuredate.time.latest'
+                                  "
+                                ></span>
+                                <span
+                                  *ngIf="
+                                    segment.emphedDepArrDate?.eta?.type === 'del' ||
+                                    segment.emphedDepArrDate?.eta?.type === 'diff'
+                                  "
+                                  class="c-modified-element__icon"
+                                >
+                                  <img
+                                    class="c-modified-element__icon-img"
+                                    src="{{ appConstants.IMG.R01_P040_S01_U__ICON_CHANGE_10 }}"
+                                    width="10"
+                                    height="10"
+                                    alt="変更箇所"
+                                  />
+                                </span>
+                              </em>
+                            </div>
+                          </ng-container>
+                          <ng-container *ngIf="!segment.emphedDepArrDate?.eta?.value">
+                            <!--最新到着時刻が存在しない場合-->
+                            <div>
+                              <em
+                                [ngClass]="{
+                                  del: segment.emphedDepArrDate?.sta?.type === 'del',
+                                  'c-modified-element':
+                                    segment.emphedDepArrDate?.sta?.type === 'del' ||
+                                    segment.emphedDepArrDate?.sta?.type === 'diff',
+                                  'c-modified-element--has-icon':
+                                    segment.emphedDepArrDate?.sta?.type === 'del' ||
+                                    segment.emphedDepArrDate?.sta?.type === 'diff'
+                                }"
+                              >
+                                <span
+                                  [innerHTML]="
+                                    segment.emphedDepArrDate?.sta?.value ?? ''
+                                      | dateFormat : 'flightDetail_departuredate.time'
+                                  "
+                                ></span>
+                                <span
+                                  *ngIf="
+                                    segment.emphedDepArrDate?.sta?.type === 'del' ||
+                                    segment.emphedDepArrDate?.sta?.type === 'diff'
+                                  "
+                                  class="c-modified-element__icon"
+                                >
+                                  <img
+                                    class="c-modified-element__icon-img"
+                                    src="{{ appConstants.IMG.R01_P040_S01_U__ICON_CHANGE_10 }}"
+                                    width="10"
+                                    height="10"
+                                    alt="変更箇所"
+                                  />
+                                </span>
+                              </em>
+                            </div>
+                          </ng-container>
+                          <span
+                            *ngIf="
+                              segment.emphedDepArrDate?.sta?.type === 'del' ||
+                              segment.emphedDepArrDate?.sta?.type === 'diff'
+                            "
+                            class="u-visually-hidden"
+                            [innerHTML]="'reader.diffIcon' | staticMsg"
+                          ></span>
+                          <span
+                            *ngIf="segment.emphedDepArrDate?.sta?.type === 'del'"
+                            class="u-visually-hidden"
+                            [innerHTML]="'reader.revokedService' | staticMsg"
+                          ></span>
+                        </div>
+                      </div>
+                      <div class="p-flight-detail01__detail p-flight-detail01__detail--arrival">
+                        <div class="p-flight-detail01__detail-item">
+                          <!-- 到着地-->
+                          <p class="p-flight-detail01__detail-airport">
+                            {{ segment.arrival?.outputLocationName }}
+                          </p>
+                          <!-- 到着ターミナル -->
+                          <ng-container *ngIf="segment.arrival?.outputTerminal">
+                            <p
+                              class="p-flight-detail01__detail-terminal"
+                              [innerHTML]="
+                                'label.terminal.departure' | staticMsg : { '0': segment.arrival?.outputTerminal ?? '' }
+                              "
+                            ></p>
+                          </ng-container>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 乗継情報 (セグメント間) -->
+              <ng-container *ngIf="bound.flights && bound.flights.length > segIndex + 1">
+                <div class="p-flight-detail01__block">
+                  <div
+                    class="p-flight-detail01__item p-flight-detail01__item--2col"
+                    [ngClass]="{
+                      'p-flight-detail01__item--transit':
+                        segment.arrival?.locationCode === bound.flights[segIndex + 1].departure?.locationCode,
+                      'p-flight-detail01__item--transfer':
+                        segment.arrival?.locationCode !== bound.flights[segIndex + 1].departure?.locationCode
+                    }"
+                  >
+                    <div
+                      *ngIf="!!interSegLineStyleListByBound[boundIndex]?.[segIndex]"
+                      class="p-flight-detail01__line js-fix-vl-1"
+                      [style]="interSegLineStyleListByBound[boundIndex][segIndex]"
+                    ></div>
+                    <div #interSegArea class="p-flight-detail01__time">
+                      <div class="p-flight-detail01__time-item">
+                        <!-- 乗継時間 -->
+                        <span
+                          class="p-flight-detail01__time-elapsed"
+                          [innerHTML]="segment.formattedConnectionTime ?? '' | dateFormat : 'default_flightTotalTime'"
+                        ></span>
+                      </div>
+                    </div>
+                    <div class="p-flight-detail01__detail">
+                      <div class="p-flight-detail01__detail-item">
+                        <!-- 乗継情報 -->
+                        <!-- 発着地が異なる場合 -->
+                        <span
+                          *ngIf="segment.arrival?.locationCode !== bound.flights?.[segIndex + 1]?.departure?.locationCode"
+                          class="p-flight-detail01__detail-transfer"
+                          [innerHTML]="'label.arnk' | staticMsg"
+                        ></span>
+                        <!-- 発着地が一致する場合 -->
+                        <span
+                          *ngIf="segment.arrival?.locationCode === bound.flights?.[segIndex + 1]?.departure?.locationCode"
+                          class="p-flight-detail01__detail-transit"
+                          [innerHTML]="'lable.transitPoint' | staticMsg : { '0': segment.arrival?.outputLocationName }"
+                        ></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+            </ng-container>
+            <!-- ここまでflightエリア -->
+          </div>
+          <!-- ここまでflight（セグメント情報）エリア -->
+        </div>
+
+        <!-- 乗継情報(バウンド間) -->
+        <ng-container *ngIf="outputBounds && outputBounds.length > boundIndex + 1">
+          <div class="p-trip-summary__other">
+            <div class="p-trip-summary__other-item">
+              <div
+                *ngIf="bound.isOtherMethodsConnection"
+                class="p-trip-summary__other-text"
+                [innerHTML]="'label.arnk' | staticMsg"
+              ></div>
+            </div>
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+</ng-container>

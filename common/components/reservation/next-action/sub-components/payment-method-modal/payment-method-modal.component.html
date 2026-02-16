@@ -1,0 +1,144 @@
+<div #modalContents [class]="lmodalContentsClassWithWidth" aria-modal="true" role="dialog" aria-labelledby="modalTitle">
+  <div #modalHead [class]="lmodalHeaderClass">
+    <div class="p-modal-head02">
+      <h1 id="modalTitle" class="p-modal-head02__title">
+        <span class="c-text-with-tooltip">
+          <span class="c-text-with-tooltip__text" [innerHTML]="'label.convinienceStore2' | staticMsg"></span>
+          <span class="c-text-with-tooltip__tooltip js-tooltip">
+            <asw-tooltip
+              iconImage="<img src=&quot;assets/images/icon_help_primary_20.svg&quot; alt={{
+                'm_static_message-alt.helpIcon2' | staticMsg
+              }} width=&quot;20&quot; height=&quot;20&quot;>"
+              [tooltipContent]="'tooltip.convinienceStore' | staticMsg"
+              tooltipDisplayType="tap"
+              [tooltipTop]="-55"
+              [displayAreaClass]="'p-modal-head02'"
+            ></asw-tooltip>
+          </span>
+        </span>
+      </h1>
+      <button class="p-modal-head02__close js-modal-close" id="payment-method-close" (click)="closePaymentModal()">
+        <span class="u-visually-hidden" [innerHTML]="'alt.closeModal' | staticMsg"></span>
+      </button>
+    </div>
+  </div>
+  <div #modalBody [class]="lmodalBodyClass">
+    <div class="p-modal-body07">
+      <div class="p-mybooking-cvs">
+        <div class="p-mybooking-cvs__item" *ngIf="!isHideSevenEleven">
+          <button id="seven-eleven-payment" (click)="clickSevenEleven()" class="c-next-action02 c-next-action02--blank">
+            <div class="c-next-action02__body">
+              <div class="c-next-action02__title">
+                <span class="c-next-action02__icon c-next-action02__icon--has-text">
+                  <img
+                    src="assets/images/logo_seven_eleven_24.svg"
+                    width="24"
+                    height="24"
+                    [alt]="'alt.seveneleven' | staticMsg"
+                  />
+                  <span
+                    class="c-next-action02__icon-text c-next-action02__icon-text--em"
+                    [innerHTML]="'alt.seveneleven' | staticMsg"
+                    [attr.aria-label]="'reader.totalPayment.convenience.sevenEleven' | staticMsg"
+                  ></span>
+                </span>
+              </div>
+              <span
+                class="u-visually-hidden"
+                [innerHTML]="'reader.totalPayment.convenience.sevenEleven' | staticMsg"
+              ></span>
+            </div>
+          </button>
+        </div>
+        <div class="p-mybooking-cvs__item">
+          <button
+            (click)="clickConvinience()"
+            id="not-seven-eleven-payment"
+            class="c-next-action02 c-next-action02--blank"
+          >
+            <div
+              class="c-next-action02__body"
+              [attr.aria-label]="'reader.totalPayment.convenience.dailyYamazaki' | staticMsg"
+            >
+              <div class="c-next-action02__title c-next-action02__title--inline">
+                <div class="c-next-action02__title-item">
+                  <span class="c-next-action02__icon">
+                    <img src="assets/images/logo_lawson.svg" width="100" height="16" [alt]="'alt.lawson' | staticMsg" />
+                  </span>
+                </div>
+                <div class="c-next-action02__title-item">
+                  <span class="c-next-action02__icon">
+                    <img
+                      src="assets/images/logo_ministop.svg"
+                      width="94"
+                      height="17"
+                      [alt]="'alt.ministop' | staticMsg"
+                    />
+                  </span>
+                </div>
+                <div class="c-next-action02__title-item">
+                  <span class="c-next-action02__icon">
+                    <img
+                      src="assets/images/logo_family_mart.svg"
+                      width="82"
+                      height="17"
+                      [alt]="'alt.familymart' | staticMsg"
+                    />
+                  </span>
+                </div>
+                <div class="c-next-action02__title-item">
+                  <span class="c-next-action02__icon">
+                    <img
+                      src="assets/images/logo_seicomart.svg"
+                      width="103"
+                      height="26"
+                      [alt]="'alt.seicomart' | staticMsg"
+                    />
+                  </span>
+                </div>
+              </div>
+              <span
+                class="u-visually-hidden"
+                [innerHTML]="'reader.totalPayment.convenience.dailyYamazaki' | staticMsg"
+              ></span>
+            </div>
+          </button>
+        </div>
+        <div class="p-mybooking-cvs__item">
+          <button
+            id="daily-yamazaki-payment"
+            (click)="clickDailyYamazaki()"
+            class="c-next-action02 c-next-action02--blank"
+          >
+            <div class="c-next-action02__body">
+              <div class="c-next-action02__title c-next-action02__title--em">
+                <div class="c-next-action02__title-item">
+                  <span class="c-next-action02__icon c-next-action02__icon--has-text">
+                    <img src="assets/images/logo_daily_yamazaki_24.svg" width="24" height="24" alt="" />
+                    <span
+                      class="c-next-action02__icon-text c-next-action02__icon-text--em"
+                      [innerHTML]="'label.dailyYamazaki' | staticMsg"
+                      [attr.aria-label]="'reader.totalPayment.convenience.other' | staticMsg"
+                    ></span>
+                  </span>
+                </div>
+                <div class="c-next-action02__title-item">
+                  <span class="c-next-action02__icon c-next-action02__icon--has-text">
+                    <img src="assets/images/logo_yamazaki_daily_store_24.svg" width="24" height="24" alt="" />
+                    <span
+                      class="c-next-action02__icon-text c-next-action02__icon-text--em"
+                      [innerHTML]="'label.yamazakiDailyStore' | staticMsg"
+                      [attr.aria-label]="'reader.totalPayment.convenience.other' | staticMsg"
+                    ></span>
+                  </span>
+                </div>
+              </div>
+              <span class="u-visually-hidden" [innerHTML]="'reader.totalPayment.convenience.other' | staticMsg"></span>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div #modalFooter [class]="lmodalFooterClass" class="is-shadow"></div>
+</div>

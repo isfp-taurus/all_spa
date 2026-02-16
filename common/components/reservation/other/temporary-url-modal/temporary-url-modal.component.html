@@ -1,0 +1,60 @@
+<div
+  #modalContents
+  [class]="lmodalContentsClassWithWidth"
+  aria-modal="true"
+  role="dialog"
+  [attr.aria-labelledby]="modalTitle"
+>
+  <div #modalHead [class]="lmodalHeaderClass">
+    <div class="p-modal-head01">
+      <h1 id="modalTitle" class="p-modal-head01__title" [innerHTML]="modalTitle"></h1>
+      <button id="close-temporary-rul-modal" class="p-modal-head01__close js-modal-close" (click)="clickClose()">
+        <span class="u-visually-hidden" [innerHTML]="'alt.closeModal' | staticMsg"></span>
+      </button>
+    </div>
+  </div>
+
+  <div #modalBody [class]="lmodalBodyClass">
+    <!-- 一時URL種別に応じた説明文 -->
+    <div class="lmodalBodyClass__url-description">
+      <p [innerHTML]="urlDescription"></p>
+    </div>
+
+    <div class="c-form-element-input">
+      <div class="c-form-element-input__box">
+        <!-- URL表示エリア -->
+        <label class="c-form-element-input__wrap">
+          <span class="c-form-element-input__label">
+            <span class="c-form-element-input__label-text" [innerHTML]="'label.copyUrl' | staticMsg"></span>
+          </span>
+          <span class="c-form-element-input__input">
+            <input
+              type="text"
+              id="temporary-url-modal-temporary-url-box"
+              name="temporaryUrl"
+              [value]="temporaryUrl"
+              readonly="readonly"
+              class="c-form-element-input__input-item"
+              placeholder=""
+              aria-invalid="false"
+              #temporaryUrlBox
+            />
+          </span>
+        </label>
+
+        <!-- URLのコピーボタン -->
+        <button
+          id="temporary-url-modal-clipboard-btn"
+          type="button"
+          class="c-form-element-input__copy-url-btn"
+          (click)="copyUrlToClipboard()"
+        >
+          <!-- 一時URL種別毎の読み上げ用ラベル -->
+          <span class="u-visually-hidden" [innerHTML]="copyBtnReader"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div #modalFooter [class]="lmodalFooterClass"></div>
+</div>

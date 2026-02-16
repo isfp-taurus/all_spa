@@ -1,0 +1,10 @@
+<asw-plan-list-pres
+  [displayPlanList]="displayPlanList"
+  [finishGetPlan]="finishGetPlan"
+  [finishGetCart]="finishGetCart"
+  [isPlanChanged]="isPlanChanged"
+  (setInfoToPlanReview)="setInfoToPlanReview($event.index)"
+  (openPlanOperationModal)="openPlanOperationModal($event.selectPlan)"
+  (deletePlan)="deletePlan($event.cartIds)"
+>
+</asw-plan-list-pres>

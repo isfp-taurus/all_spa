@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+@use "ado-common";
+@use "ado-page-style";
+@use "custom";
+@import "~@angular/cdk/overlay-prebuilt.css";
+
+// モーダル表示などをjQueryでdisplay noneを消して操作していたためngClassで似た動作をさせるために作成
+.display-none-to-inline {
+  display: inline;
+}
+
+// hrefを張らないaタグ用
+.u-focus-cursor-pointer:hover {
+  cursor: pointer;
+}

@@ -1,0 +1,171 @@
+<ng-container *ngIf="isShow">
+  <div class="l-section u-mt-sp-32 u-mt-tb-40">
+    <div class="p-sub-column-layout02__title p-sub-column-layout02__title--has-btn">
+      <div class="p-heading-area01" style="max-width: 60%">
+        <!-- ボタン　文字折り返し対応 -->
+        <h2 class="p-heading-area01__title c-heading-2" [innerHTML]="'heading.price1' | staticMsg"></h2>
+      </div>
+      <asw-button
+        id="plan-review-payment-summary-component-open-payment-detail-modal-btn"
+        type="tertiary"
+        size="xs"
+        (click$)="showPaymentDetails()"
+        throttleClick
+        [disabled]="!isPlanValid"
+        [label]="'label.paymentBreakdown' | staticMsg"
+      ></asw-button>
+    </div>
+    <div class="p-sub-column-layout02__body">
+      <div class="p-sub-column-layout02__body-item">
+        <div class="p-sub-column-layout02__payment" [ngClass]="{ 'grey-bg': !isPlanValid }">
+          <div class="p-sub-column-layout02__payment-head">
+            <!-- 支払総額～プロモーションコード -->
+            <dl class="c-float-list01">
+              <!-- ▼ ▼ ▼ プロモーション非適用の場合 ▼ ▼ ▼ -->
+              <div class="c-float-list01__item">
+                <dt
+                  *ngIf="!isAwardBooking"
+                  class="c-float-list01__title c-float-list01__title--em c-float-list01__contents--fs16 c-float-list01__title--gray90"
+                  [innerHTML]="'label.totalAmount' | staticMsg"
+                ></dt>
+                <!-- 提携：特典の場合必要マイル・お支払い合計を表示 -->
+                <dt
+                  *ngIf="isAwardBooking"
+                  class="c-float-list01__title c-float-list01__title--em c-float-list01__contents--fs16 c-float-list01__title--gray90"
+                  [innerHTML]="'label.requiredMileage' | staticMsg"
+                ></dt>
+                <dd class="c-float-list01__contents c-float-list01__contents--fs16">
+                  <em
+                    [ngClass]="
+                      total.type === 'del' || total.type === 'diff'
+                        ? 'c-modified-element c-modified-element--has-icon'
+                        : ''
+                    "
+                  >
+                    <span class="c-amount c-amount--price" [ngClass]="{ del: total.type === 'del' }">
+                      <span
+                        *ngIf="!isAwardBooking"
+                        class="c-amount__num c-amount__num--fs24"
+                        [innerHTML]="total.value ?? 0 | amountFormat : undefined : currencyCode"
+                      ></span>
+                      <!-- 提携：特典の場合マイルを表示 -->
+                      <span
+                        *ngIf="isAwardBooking"
+                        class="c-amount__num c-amount__num--fs24"
+                        [innerHTML]="sumRequiredMiles ?? 0 | milesFormat : 'currencyUnit.MIL'"
+                      ></span>
+                      <span *ngIf="total.type === 'del' || total.type === 'diff'" class="c-modified-element__icon">
+                        <img
+                          class="c-modified-element__icon-img"
+                          src="{{ appConstants.IMG.R01_P040_S01_U__ICON_CHANGE_10 }}"
+                          width="10"
+                          height="10"
+                          alt="変更箇所"
+                        />
+                      </span>
+                      <span
+                        *ngIf="total.type === 'del' || total.type === 'diff'"
+                        class="u-visually-hidden"
+                        [innerHTML]="'reader.diffIcon' | staticMsg"
+                      ></span>
+                      <span
+                        *ngIf="total.type === 'del'"
+                        class="u-visually-hidden"
+                        [innerHTML]="'reader.revokedService' | staticMsg"
+                      ></span>
+                    </span>
+                  </em>
+                </dd>
+              </div>
+              <div *ngIf="isAwardBooking" class="c-float-list01__item">
+                <dt
+                  class="c-float-list01__title c-float-list01__title--em c-float-list01__contents--fs16 c-float-list01__title--gray90"
+                  [innerHTML]="'label.paymentTotalAmount3' | staticMsg"
+                ></dt>
+                <dd class="c-float-list01__contents c-float-list01__contents--fs16">
+                  <em
+                    [ngClass]="
+                      total.type === 'del' || total.type === 'diff'
+                        ? 'c-modified-element c-modified-element--has-icon'
+                        : ''
+                    "
+                  >
+                    <span class="c-amount c-amount--price" [ngClass]="{ del: total.type === 'del' }">
+                      <!-- 提携：お支払い合計(税金、料金等) -->
+                      <span
+                        class="c-amount__num c-amount__num--fs24"
+                        [innerHTML]="
+                          outputPrices.totalPrices?.ticketPrices?.totalTaxes?.value ?? 0
+                            | amountFormat : undefined : currencyCode
+                        "
+                      ></span>
+                      <span *ngIf="total.type === 'del' || total.type === 'diff'" class="c-modified-element__icon">
+                        <img
+                          class="c-modified-element__icon-img"
+                          src="{{ appConstants.IMG.R01_P040_S01_U__ICON_CHANGE_10 }}"
+                          width="10"
+                          height="10"
+                          alt="変更箇所"
+                        />
+                      </span>
+                      <span
+                        *ngIf="total.type === 'del' || total.type === 'diff'"
+                        class="u-visually-hidden"
+                        [innerHTML]="'reader.diffIcon' | staticMsg"
+                      ></span>
+                      <span
+                        *ngIf="total.type === 'del'"
+                        class="u-visually-hidden"
+                        [innerHTML]="'reader.revokedService' | staticMsg"
+                      ></span>
+                    </span>
+                  </em>
+                </dd>
+              </div>
+            </dl>
+          </div>
+          <div *ngIf="!isAwardBooking" class="p-sub-column-layout02__payment-body">
+            <dl class="c-float-list01">
+              <!-- 運賃総額 -->
+              <div class="c-float-list01__item">
+                <dt class="c-float-list01__title" [innerHTML]="'label.fare' | staticMsg"></dt>
+                <dd class="c-float-list01__contents">
+                  <span
+                    class="c-amount c-amount--price"
+                    [innerHTML]="
+                      outputPrices.totalPrices?.ticketPrices?.base?.value ?? 0 | amountFormat : undefined : currencyCode
+                    "
+                  ></span>
+                </dd>
+              </div>
+              <!-- 税金総額 -->
+              <div class="c-float-list01__item">
+                <dt class="c-float-list01__title" [innerHTML]="'label.taxFare2' | staticMsg"></dt>
+                <dd class="c-float-list01__contents">
+                  <span
+                    class="c-amount c-amount--price"
+                    [innerHTML]="
+                      outputPrices.totalPrices?.ticketPrices?.totalTaxes?.value ?? 0
+                        | amountFormat : undefined : currencyCode
+                    "
+                  ></span>
+                </dd>
+              </div>
+              <!-- 発券手数料 -->
+              <div class="c-float-list01__item">
+                <dt class="c-float-list01__title" [innerHTML]="'label.fee' | staticMsg"></dt>
+                <dd class="c-float-list01__contents">
+                  <span
+                    class="c-amount c-amount--price"
+                    [innerHTML]="0 | amountFormat : undefined : currencyCode"
+                  ></span
+                  ><!-- ※金額ゼロを固定出力 -->
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

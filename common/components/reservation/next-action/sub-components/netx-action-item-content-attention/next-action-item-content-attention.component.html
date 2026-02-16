@@ -1,0 +1,15 @@
+<ng-template #template>
+  <ng-template [ngIf]="canBeClicked" [ngIfElse]="templateCantBeClicked">
+    <div class="c-next-action01__contents-item">
+      <span class="c-next-action01__message c-next-action01__message--attention">
+        <em class="c-next-action01__text">{{ attentionMessage }}</em>
+      </span>
+    </div>
+  </ng-template>
+
+  <ng-template #templateCantBeClicked>
+    <div class="c-next-action03__contents-item">
+      <span class="c-next-action03__text c-next-action03__text--attention">{{ attentionMessage }}</span>
+    </div>
+  </ng-template>
+</ng-template>

@@ -1,0 +1,74 @@
+<div
+  #modalContents
+  class="l-modal01__contents js-modal-contents"
+  aria-modal="true"
+  role="dialog"
+  aria-labelledby="other-booking-passengermodal-title"
+>
+  <!-- ヘッダー部 -->
+  <div #modalHead class="l-modal01__header js-modal-head">
+    <div class="p-modal-head01">
+      <h1 id="modalTitle" class="p-modal-head01__title" [innerHTML]="'label.umnr.title' | staticMsg"></h1>
+      <button
+        id="other-booking-passengermodal-button-1"
+        class="p-modal-head01__close js-modal-close"
+        (click)="cancelOtherBookingPassenger()"
+      >
+        <span class="u-visually-hidden" [innerHTML]="'alt.closeModal' | staticMsg"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ボディ部 -->
+  <div #modalBody class="l-modal01__body js-modal-body">
+    <ul class="c-passenger-select-list">
+      <div class="c-passenger-select-list__item-head">
+        <div class="c-passenger-select-list__item">
+          <h3 class="p-input-list-area01__heading-title" [innerHTML]="'label.umnrCheck' | staticMsg"></h3>
+        </div>
+        <div>
+          <div class="c-form-element-checkbox p-important-notice__headline">
+            <div class="c-form-element-checkbox__wrap">
+              <asw-checkbox
+                id="other-booking-passengermodal-checkbox-1"
+                label="{{ 'label.useJuniorPilot' | staticMsg }}"
+                [disabled]="formControlOtherBookingPassengerList[1].value ?? false"
+                (change$)="changeNotHaveOtherBookingPassenger($event)"
+                id="roundtrip-checkbox-3"
+                [formControl]="formControlOtherBookingPassengerList[0]"
+              >
+              </asw-checkbox>
+            </div>
+          </div>
+          <div class="c-form-element-checkbox p-important-notice__headline">
+            <div class="c-form-element-checkbox__wrap">
+              <asw-checkbox
+                id="other-booking-passengermodal-checkbox-2"
+                label="{{ 'label.adultsWillAccompanyAnother' | staticMsg }}"
+                [disabled]="formControlOtherBookingPassengerList[0].value ?? false"
+                (change$)="changeHaveOtherBookingPassenger($event)"
+                id="roundtrip-checkbox-4"
+                [formControl]="formControlOtherBookingPassengerList[1]"
+              >
+              </asw-checkbox>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ul>
+  </div>
+
+  <!-- フッター部 -->
+  <div #modalFooter class="js-modal-footer l-modal01__footer">
+    <div class="p-modal-foot01">
+      <button
+        id="other-booking-passengermodal-button-2"
+        class="c-btn-primary c-btn-primary--s c-btn-primary--min-w100"
+        (click)="this.applyOtherBookingPassenger()"
+        [disabled]="!isApplyEnabled"
+      >
+        <span class="c-btn-primary__text" [innerHTML]="'label.proceed' | staticMsg"></span>
+      </button>
+    </div>
+  </div>
+</div>

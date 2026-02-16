@@ -1,0 +1,93 @@
+<div
+  #modalContents
+  class="l-modal01__contents js-modal-contents"
+  aria-modal="true"
+  role="dialog"
+  aria-labelledby="fare-type-selector-modal-title"
+>
+  <!-- ヘッダー部 -->
+  <div #modalHead class="l-modal01__header js-modal-head">
+    <div class="p-modal-head01">
+      <h1
+        id="fare-type-selector-modal-title"
+        class="p-modal-head01__title"
+        [innerHTML]="'label.spesifyFareType.title' | staticMsg"
+        aria-hidden="true"
+      ></h1>
+      <button
+        id="fare-type-selector-modal-button-1"
+        class="p-modal-head01__close js-modal-close"
+        (throttleClick$)="cancelFareTypeSelector()"
+        aswThrottleClick
+      >
+        <span class="u-visually-hidden" [innerHTML]="'alt.closeModal' | staticMsg"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ボディ部 -->
+  <div #modalBody class="l-modal01__body js-modal-body">
+    <fieldset class="c-fare-check-list" role="radiogroup" aria-invalid="false">
+      <legend class="c-fare-check-list__legend">検索方法</legend>
+      <div class="c-fare-check-list__wrap">
+        <!-- フォームグループで選択値を取得できる -->
+        <ul class="c-fare-check-list" [formGroup]="formGroupFareType">
+          <!-- 渡された運賃オプションリストをループで表示 -->
+          <li
+            class="c-fare-check-list__item"
+            *ngFor="let fareTypeOption of this.fareTypeOptionList; index as fareTypeIndex"
+          >
+            <div class="c-fare-check-list__item-head">
+              <label for="fare-type-selector-modal-radio-{{ fareTypeIndex }}" class="c-fare-check-list__item-wrap">
+                <!-- ラベル太字 -->
+                <span class="c-fare-check-list__item-label">
+                  <em class="c-fare-check-list__item-em">{{ fareTypeOption.fareType }}</em>
+                </span>
+                <!-- ラベル説明文 -->
+                <span class="c-fare-check-list__item-lead">{{ fareTypeOption.description }}</span>
+              </label>
+            </div>
+            <!-- ラジオボタン部品 -->
+            <div class="c-fare-check-list__item-body">
+              <div class="c-form-element-radio">
+                <div class="c-form-element-radio__wrap">
+                  <input
+                    type="radio"
+                    name="{{ this.FORM_GROUP_NAME }}"
+                    id="fare-type-selector-modal-radio-{{ fareTypeIndex }}"
+                    class="c-form-element-radio__input"
+                    aria-invalid="false"
+                    formControlName="{{ this.FORM_GROUP_NAME }}"
+                    value="{{ fareTypeOption.value }}"
+                  />
+                  <label for="fare-type-selector-modal-radio-{{ fareTypeIndex }}" class="c-form-element-radio__label">
+                    <span class="c-form-element-radio__check"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </fieldset>
+  </div>
+
+  <!-- フッター部 -->
+  <div #modalFooter class="l-modal01__footer js-modal-footer">
+    <div class="p-modal-foot01">
+      <button
+        id="fare-type-selector-modal-button-2"
+        class="c-btn-primary c-btn-primary--s c-btn-primary--min-w100"
+        (throttleClick$)="this.applyFareTypeSelector()"
+        aswThrottleClick
+      >
+        <span
+          class="c-btn-primary__text"
+          (throttleClick$)="this.applyFareTypeSelector()"
+          [innerHTML]="'label.apply1' | staticMsg"
+          aswThrottleClick
+        ></span>
+      </button>
+    </div>
+  </div>
+</div>

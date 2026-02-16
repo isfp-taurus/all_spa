@@ -1,0 +1,63 @@
+<div
+  #modalContents
+  [class]="lmodalContentsClassWithWidth"
+  aria-modal="true"
+  role="dialog"
+  aria-labelledby="seatmap-select-child-seat-modal-title"
+>
+  <div #modalHead [class]="lmodalHeaderClass">
+    <div class="p-modal-head01 l-core-contents__inner">
+      <h1
+        id="seatmap-select-child-seat-modal-title"
+        class="p-modal-head01__title"
+        innerHTML="{{ 'label.bringChildseat' | staticMsg }}"
+      ></h1>
+      <asw-tooltip
+        iconImage="<img src=&quot;assets/images/icon_help_primary_24.svg&quot; alt=&quot;{{
+          'alt.helpIcon2' | staticMsg
+        }}&quot; width=&quot;20&quot; height=&quot;20&quot;>"
+        tooltipContent="{{ 'tooltip.childSeat' | staticMsg }}"
+        [tooltipTop]="-20"
+      >
+      </asw-tooltip>
+      <button
+        id="seatmap-select-child-seat-modal-close"
+        class="p-modal-head01__close js-modal-close"
+        aswThrottleClick
+        (throttleClick$)="close()"
+      >
+        <span class="u-visually-hidden" innerHTML="{{ 'reader.modalClose' | staticMsg }}"></span>
+      </button>
+    </div>
+  </div>
+
+  <div #modalBody [class]="lmodalBodyClass">
+    <div class="p-modal-seatmap-child">
+      <div class="p-modal-seatmap-child__message">
+        <p innerHTML="{{ 'label.behest' | staticMsg }}"></p>
+      </div>
+      <ul class="p-modal-seatmap-child__list">
+        <!-- チャイルドシート選択エリア -->
+        <li class="p-modal-seatmap-child__list-item" *ngFor="let childId of childIdList">
+          <asw-servicing-seatmap-select-child-seat-modal-passenger
+            [childSeatRequestInfo]="getOriginalDisplayChildRequestInfo(childId)"
+            [passengerId]="childId"
+            [seatNumber]="getSeatNumber(childId)"
+            [childSeatTypes]="childSeatTypes"
+            (childSeatCheckboxChangeEvent)="checkboxChange($event)"
+            (childSeatSeatTypeChangeEvent)="seatTypeChange($event)"
+          ></asw-servicing-seatmap-select-child-seat-modal-passenger>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div #modalFooter [class]="lmodalFooterClass">
+    <div class="p-modal-foot01">
+      <!-- 適用ボタン -->
+      <asw-button id="select-child-seat-apply" type="primary" size="s" throttleClick (click$)="onApply()">
+        <span innerHTML="{{ 'label.apply2Button' | staticMsg }}"></span>
+      </asw-button>
+    </div>
+  </div>
+</div>

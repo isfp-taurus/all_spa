@@ -1,0 +1,25 @@
+<div class="p-modal-head02">
+  <h1 id="modalTitle" class="p-modal-head02__title p-modal-head02__title--blue">
+    <span class="c-text-with-tooltip">
+      <span class="c-text-with-tooltip__text" [innerHTML]="'label.advancedLounge' | staticMsg"></span>
+      <span class="c-text-with-tooltip__tooltip js-tooltip">
+        <!--TODO ツールチップ内文言は追加文系で対応-->
+        <button
+          id="lounge-application-modal-button-h1"
+          class="c-text-with-tooltip__btn js-tooltip-btn"
+          [aswTooltip]="'tooltip.advancedLounge' | staticMsg"
+          [tooltipTop]="-55"
+          aria-controls="texttooltip02"
+          aria-expanded="false"
+          displayAreaClass="p-modal-head02"
+        >
+          <!--TODO WCAG対応で必要？　文言なし-->
+          <span class="u-visually-hidden">Hint</span>
+        </button>
+      </span>
+    </span>
+  </h1>
+  <button id="lounge-application-modal-h2" class="p-modal-head01__close js-modal-close" (click)="clickClose()">
+    <span class="u-visually-hidden" [innerHTML]="'alt.closeModal' | staticMsg"></span>
+  </button>
+</div>

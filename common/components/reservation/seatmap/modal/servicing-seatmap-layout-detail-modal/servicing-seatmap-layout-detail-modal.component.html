@@ -1,0 +1,87 @@
+<div
+  #modalContents
+  [class]="lmodalContentsClassWithWidth"
+  aria-modal="true"
+  role="dialog"
+  aria-labelledby="seatmap-layout-detail-modal-title"
+>
+  <div #modalHead [class]="[lmodalHeaderClass, 'p-modal-head07']">
+    <!-- （モーダルのヘッダ部分のHMML） -->
+    <h1
+      id="seatmap-layout-detail-modal-title"
+      class="p-modal-head07__title"
+      innerHTML="{{ 'm_static_message-alt.aircraftLayoutDetail' | staticMsg }}"
+    ></h1>
+    <button
+      id="seatmap-layout-detail-modal-close"
+      class="p-modal-head07__close js-modal-close"
+      aswThrottleClick
+      (throttleClick$)="close()"
+    >
+      <span class="u-visually-hidden" innerHTML="{{ 'm_static_message-alt.closeModal' | staticMsg }}"></span>
+    </button>
+  </div>
+  <!-- （モーダルのメイン部分のHTML） -->
+  <div #modalBody [ngClass]="{ 'p-modal-seatmap-detail': !isSp, 'p-modal-seatmap-detail l-modal04__body': isSp }">
+    <div class="p-modal-seatmap-detail__head">
+      <h2 class="p-modal-seatmap-detail__head-label">
+        <span>{{ this.payload.displayTargetSegment.aircraftCode }}</span>
+      </h2>
+      <div
+        class="p-modal-seatmap-detail__head-lead p-modal-seatmap-detail__head-lead--gray60"
+        innerHTML="{{ 'm_static_message-message.seatMapLayoutLegendComment' | staticMsg }}"
+      ></div>
+    </div>
+    <div class="p-modal-seatmap-detail__body">
+      <div class="p-modal-seatmap-detail__body-item">
+        <h3 class="p-modal-seatmap-detail__title p-modal-seatmap-detail__title--em">
+          {{ getClassNameByCabinCode() }}
+        </h3>
+        <div class="p-modal-seatmap-detail__detail">
+          <!-- レイアウト詳細画像イメージ -->
+          <div class="p-modal-seatmap-detail__layout">
+            <div class="p-modal-seatmap-detail__img" *ngIf="layoutImage">
+              <img src="{{ layoutImage }}" alt="{{ 'm_static_message-alt.seatMapLayout' | staticMsg }}" />
+            </div>
+          </div>
+
+          <div class="p-modal-seatmap-detail__legend">
+            <!-- レイアウト詳細凡例グループ -->
+            <div class="p-seatmap-legend02">
+              <ul class="p-seatmap-legend02__list">
+                <li class="p-seatmap-legend02__list-item" *ngFor="let legend of legendList">
+                  <div class="p-seatmap-legend02__list-title">
+                    <span class="p-seatmap-legend02__list-title-icon"><img src="{{ legend.imageUrl }}" alt="" /></span>
+                    <span
+                      class="p-seatmap-legend02__list-title-label"
+                      innerHTML="{{ legend.staticMessageKey | staticMsg }}"
+                    ></span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- 詳細表示ボタン -->
+            <div class="p-modal-seatmap-detail__btn">
+              <asw-button
+                id="seatmap-layout-detail-modal-legend-more"
+                type="primary"
+                size="s"
+                icon="external"
+                throttleClick
+                (click$)="onClickSeatmapDetail()"
+                *ngIf="!!productUrl"
+              >
+                <span class="c-btn-primary__text" innerHTML="{{ 'm_static_message-label.more' | staticMsg }}"> </span>
+                <span
+                  class="u-visually-hidden"
+                  innerHTML="{{ 'm_static_message-alt.anotherWindow' | staticMsg }}"
+                ></span>
+              </asw-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

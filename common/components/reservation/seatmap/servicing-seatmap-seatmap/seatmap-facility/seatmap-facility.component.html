@@ -1,0 +1,53 @@
+<div class="p-seatmap__facility p-seatmap__col--{{ numberOfColumn }}col">
+  <ng-container *ngFor="let code of codes">
+    <!-- テーブル -->
+    <div *ngIf="code === 'TA'" class="p-seatmap__table">
+      <span class="u-visually-hidden" innerHTML="{{ 'm_static_message-label.table' | staticMsg }}"></span>
+    </div>
+
+    <!-- 化粧室 -->
+    <img
+      *ngIf="code === 'LA'"
+      src="{{ this.appConstants.IMG.R01_P070_S01_U__SEAT_LAVATORY_24 }}"
+      width="24"
+      height="24"
+      alt="{{ 'm_static_message-label.restroom' | staticMsg }}"
+    />
+
+    <!-- 多目的ルーム -->
+    <img
+      *ngIf="code === 'GF'"
+      src="{{ this.appConstants.IMG.R01_P070_S01_U__SEAT_MULTI_PURPOSE_ROOM_24 }}"
+      width="24"
+      height="24"
+      alt="{{ 'm_static_message-label.multipurposeRoom' | staticMsg }}"
+    />
+
+    <!-- ギャレー -->
+    <img
+      *ngIf="code === 'GN'"
+      src="{{ this.appConstants.IMG.R01_P070_S01_U__SEAT_GALLEY_24 }}"
+      width="24"
+      height="24"
+      alt="{{ 'm_static_message-label.galley' | staticMsg }}"
+    />
+
+    <!-- バー -->
+    <img
+      *ngIf="code === 'BA'"
+      src="{{ this.appConstants.IMG.R01_P070_S01_U__SEAT_BAR_24 }}"
+      width="24"
+      height="24"
+      alt="{{ 'm_static_message-label.barCounter' | staticMsg }}"
+    />
+
+    <!-- 階段 -->
+    <img
+      *ngIf="code === 'ST'"
+      src="{{ this.appConstants.IMG.R01_P070_S01_U__SEAT_STAIR_24 }}"
+      width="24"
+      height="24"
+      alt="{{ 'm_static_message-label.stairs' | staticMsg }}"
+    />
+  </ng-container>
+</div>

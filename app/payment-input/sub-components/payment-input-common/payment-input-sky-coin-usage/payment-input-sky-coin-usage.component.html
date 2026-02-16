@@ -1,0 +1,82 @@
+<div id="sky-coins01" [formGroup]="skyCoinForm">
+  <p class="p-sky-coins__item-text" [innerHTML]="'label.noteOfSkyCoinForCreditCard' | staticMsg"></p>
+  <table class="p-sky-coins__table" *ngIf="!isSp">
+    <!-- 表見出し -->
+    <thead class="p-sky-coins__table-head">
+      <tr class="p-sky-coins__table-inner">
+        <th class="p-sky-coins__table-col" scope="col" [innerHTML]="'label.anaSkycoinsUseMember' | staticMsg"></th>
+        <th class="p-sky-coins__table-col" scope="col" [innerHTML]="'label.availableAnaSkyCoins' | staticMsg"></th>
+        <th class="p-sky-coins__table-col" scope="col" [innerHTML]="'label.amountOfSkyCoin' | staticMsg"></th>
+      </tr>
+    </thead>
+    <!-- 搭乗者ごとの利用額入力 -->
+    <tbody class="p-sky-coins__table-body" formArrayName="skyCoinUsageControl">
+      <ng-container *ngFor="let skyCoinUsage of skyCoinUsageControl.controls; let i = index">
+        <tr class="p-sky-coins__table-inner">
+          <!-- 搭乗者名 -->
+          <th class="p-sky-coins__table-col" scope="row">{{ parts.anaSkyCoinInfo[i].travelerName }}</th>
+          <!-- ANA SKY コイン利用可能額 -->
+          <td class="p-sky-coins__table-col">
+            <span class="c-amount"
+              ><span class="c-amount__num c-amount__num--fs24">{{ parts.anaSkyCoinInfo[i].ticketPrice | number }}</span
+              ><span class="c-amount__unit c-amount__unit--fs16" [innerHTML]="'label.coin' | staticMsg"> </span>
+            </span>
+          </td>
+          <!-- ANA SKY コイン利用額 -->
+          <td class="p-sky-coins__table-col">
+            <div class="c-form-element-input c-form-element-input--coins-pc is-typed">
+              <asw-input-amounts
+                type="text"
+                id="payment-input-sky-coin-usage-input-{{ i }}"
+                name="payment-input-sky-coin-usage-input-{{ i }}"
+                label="{{ 'label.skyCoinRate' | staticMsg }}"
+                (focus$)="usageCoinFocus(i)"
+                (blur$)="usageCoinBlur()"
+                [formControl]="skyCoinUsage"
+              ></asw-input-amounts>
+            </div>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+  <ng-container *ngIf="isSp">
+    <div class="p-sky-coins__use-item" *ngFor="let skyCoinUsage of skyCoinUsageControl.controls; let i = index">
+      <!-- 搭乗者名 -->
+      <div class="p-sky-coins__use-title">{{ parts.anaSkyCoinInfo[i].travelerName }}</div>
+      <!-- ANA SKY コイン利用可能額 -->
+      <div class="p-sky-coins__use-table">
+        <dl class="c-flex-list01">
+          <div class="c-flex-list01__item c-flex-list01__item--sb c-flex-list01__item--center">
+            <dt class="c-flex-list01__title">
+              <span class="p-sky-coins__item-text-em" [innerHTML]="'label.availableAnaSkyCoins' | staticMsg"></span>
+            </dt>
+            <dd class="c-flex-list01__contents">
+              <span class="c-amount p-sky-coins__item-text-em"
+                ><span class="c-amount__num c-amount__num--fs24">{{
+                  parts.anaSkyCoinInfo[i].ticketPrice | number
+                }}</span
+                ><span class="c-amount__unit c-amount__unit--fs18" [innerHTML]="'label.coin' | staticMsg"></span
+              ></span>
+            </dd>
+          </div>
+        </dl>
+      </div>
+      <!-- ANA SKY コイン利用額 -->
+      <div class="p-sky-coins__use-input">
+        <div class="c-form-element-input c-form-element-input--coins-sp is-typed">
+          <asw-input-sub
+            type="text"
+            id="payment-input-sky-coin-usage-input-sp-{{ i }}"
+            name="payment-input-sky-coin-usage-input-sp-{{ i }}"
+            [label]="'label.amountOfSkyCoin' | staticMsg"
+            [subLabel]="'label.skyCoinRate' | staticMsg"
+            [formControl]="skyCoinUsage"
+            (focus$)="usageCoinFocus(i)"
+            (blur$)="usageCoinBlur()"
+          ></asw-input-sub>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

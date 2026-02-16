@@ -1,0 +1,35 @@
+<div
+  *ngIf="show"
+  [ngClass]="modalClass"
+  [@slideContent]="animationState"
+  (@slideContent.start)="onAnimationStart($event)"
+  (@slideContent.done)="onAnimationDone($event)"
+  aria-modal="true"
+  role="dialog"
+  attr.aria-labelledby="{{ tiltleId }}"
+  #modalContents
+>
+  <asw-emergency-area #emergencyArea [isModal]="true"></asw-emergency-area>
+  <div class="l-modal{{ modalType }}__header" #modalHead>
+    <!-- モーダルヘッダーが入ります -->
+    <div class="p-modal-head{{ headClassType }}">
+      <h1 id="{{ tiltleId }}" class="p-modal-head{{ headClassType }}__title" [innerHTML]="title | staticMsg"></h1>
+      <button id="base-modal-close-btn" class="p-modal-head{{ headClassType }}__close" (click)="close()" #closeBtn>
+        <span class="u-visually-hidden" [innerHTML]="'alt.closeModal' | staticMsg"></span>
+      </button>
+    </div>
+    <!-- //モーダルヘッダーが入ります -->
+  </div>
+  <div class="l-modal{{ modalType }}__body" #modalBody>
+    <asw-alert-area [isModal]="true"></asw-alert-area>
+    <!-- モーダルの中身が入ります -->
+    <ng-content select="[body]"></ng-content>
+    <!-- //モーダルの中身が入ります -->
+    <asw-guidance-area [isModal]="true"></asw-guidance-area>
+  </div>
+  <div *ngIf="hasFooter" class="l-modal{{ modalType }}__footer" #modalFooter>
+    <!-- モーダルフッターが入ります -->
+    <ng-content select="[footer]"></ng-content>
+    <!-- //モーダルフッターが入ります -->
+  </div>
+</div>

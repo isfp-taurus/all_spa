@@ -1,0 +1,11 @@
+<div class="p-modal-foot01">
+  <asw-button
+    id="lounge-application-modal-footer-button1"
+    type="primary"
+    size="s-min-w100"
+    [label]="'label.apply.button' | staticMsg"
+    [disabled]="!isSubmitEnable"
+    (click$)="clickSubmit()"
+    [throttleClick]="true"
+  ></asw-button>
+</div>

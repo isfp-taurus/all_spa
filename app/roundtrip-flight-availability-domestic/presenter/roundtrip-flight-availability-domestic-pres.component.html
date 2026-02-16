@@ -1,0 +1,138 @@
+<div class="l-core-contents__inner l-core-contents__inner--full">
+  <div class="l-core-contents__main">
+    <div class="l-section" *ngIf="outSearchResult || returnSearchResult">
+      <asw-result-flight-function-cont
+        [outSearchResult]="outSearchResult"
+        [returnSearchResult]="returnSearchResult"
+        [outFilterSearchResult]="outFilterSearchResult"
+        [returnFilterSearchResult]="returnFilterSearchResult"
+        [outFareFamilies]="outFareFamilies"
+        [returnFareFamilies]="returnFareFamilies"
+        [outSeatAvailability]="outSeatAvailability"
+        [returnSeatAvailability]="returnSeatAvailability"
+        [outAirCalendar]="outAirCalendar"
+        [returnDepartureDate]="returnDepartureDate"
+        [outDepartureDate]="outDepartureDate"
+        [searchCondition]="searchCondition"
+        [outStatus]="outStatus"
+        [returnStatus]="returnStatus"
+        [currentSortOrder]="currentSortOrder"
+        [isFareOptionDisplay]="isFareOptionDisplay"
+        [outSelectedTS]="outSelectedTS"
+        [filterConditionInit$]="filterConditionInit$"
+        [filterClick$]="filterClick$"
+        [sortClick$]="sortClick$"
+        (filterApply$)="filterApply($event)"
+        (sortApply$)="sortApply($event)"
+      ></asw-result-flight-function-cont>
+    </div>
+    <div class="l-section u-mt-pc-32" *ngIf="(outSearchResult || returnSearchResult) && travelers">
+      <asw-traveler-numbers-pres [travelers]="travelers"></asw-traveler-numbers-pres>
+    </div>
+    <div class="l-section u-mt-pc-24" *ngIf="outSearchResult">
+      <asw-flight-bound-cont
+        [travelSolution]="outFilterSearchResult"
+        [departureDate]="outDepartureDate"
+        [fareFamilies]="outFareFamilies"
+        [itinerary]="outItinerary"
+        [airBoundInfos]="outAirBoundInfos"
+        (selectFareFamily$)="selectOutFareFamily($event)"
+        (showOtherFlights$)="showOtherOutFlights()"
+        [ffSummaryDisplay]="outFFSummaryDisplay"
+        [selectedAirBound]="outSelectedAirBound"
+        [outSelectedAirBound]="outSelectedAirBound"
+        [selectedTS]="outSelectedTS"
+        [departureLocation]="outDepartureLocation"
+        [arrivalLocation]="outArrivalLocation"
+        [transferAirport]="outTransferAirport"
+        [status]="outStatus"
+        [departureDates]="outAirCalendar?.airCalendarPeriod?.departureDates"
+        [filterCondition]="outFilterCondition"
+        [type]="'out'"
+        (selectCalendar$)="selectOutCalendar($event)"
+        [searchCondition]="searchCondition"
+        (changeDisplay$)="changeOutDisplay($event)"
+        (selectedCancel$)="outSelectedCancel($event)"
+      ></asw-flight-bound-cont>
+    </div>
+    <div class="l-section u-mt-pc-24" *ngIf="returnSearchResult">
+      <asw-flight-bound-cont
+        [travelSolution]="returnFilterSearchResult"
+        [departureDate]="returnDepartureDate"
+        [fareFamilies]="returnFareFamilies"
+        [itinerary]="returnItinerary"
+        [airBoundInfos]="returnAirBoundInfos"
+        (selectFareFamily$)="selectReturnFareFamily($event)"
+        (showOtherFlights$)="showOtherReturnFlights()"
+        [ffSummaryDisplay]="returnFFSummaryDisplay"
+        [selectedAirBound]="returnSelectedAirBound"
+        [selectedTS]="returnSelectedTS"
+        [departureLocation]="returnDepartureLocation"
+        [arrivalLocation]="returnArrivalLocation"
+        [transferAirport]="returnTransferAirport"
+        [scrollEvent$]="scrollEvent$"
+        [status]="returnStatus"
+        [departureDates]="returnAirCalendar?.airCalendarPeriod?.returnDates"
+        [filterCondition]="returnFilterCondition"
+        [type]="'return'"
+        (selectCalendar$)="selectReturnCalendar($event)"
+        [searchCondition]="searchCondition"
+        (changeDisplay$)="changeReturnDisplay($event)"
+        (isHasPromotionsResult$)="isReturnHasPromotionsResult($event)"
+        (selectedCancel$)="returnSelectedCancel($event)"
+      ></asw-flight-bound-cont>
+    </div>
+    <!-- 検索時刻 -->
+    <div class="l-section">
+      <div class="p-date-display01" *ngIf="searchTime">
+        <div class="p-date-display01__time" [innerHTML]="searchTime | dateFormat : 'default_currentDate'"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="l-bottom-float">
+  <!-- [下部固定エリア内機能ボタンエリア] -->
+  <div class="p-bottom-float-function-icon" *aswDeviceIf="'sp'">
+    <div class="p-bottom-float-function-icon__item p-bottom-float-function-icon__item--left01">
+      <button
+        class="p-bottom-float-function-icon__btn"
+        title="Filter"
+        id="result-function-domestic-pres-filter-btn-sp"
+        (click)="openFilter()"
+      >
+        <span class="u-visually-hidden" [innerHTML]="'label.filter' | staticMsg"></span>
+        <img
+          src="{{ appConstants.IMG.R01_P031_S01_U__ICON_FILTER_20 }}"
+          width="20"
+          height="20"
+          alt="{{ 'alt.searchConditionsFilter' | staticMsg }}"
+        />
+      </button>
+    </div>
+    <div class="p-bottom-float-function-icon__item p-bottom-float-function-icon__item--left02">
+      <button
+        class="p-bottom-float-function-icon__btn"
+        title="Sort"
+        id="result-function-domestic-pres-sort-btn-sp"
+        [attr.aria-label]="'reader.sort' | staticMsg"
+        (click)="openSort()"
+      >
+        <span class="u-visually-hidden" [innerHTML]="'reader.sort' | staticMsg"></span>
+        <img
+          src="{{ appConstants.IMG.R01_P031_S01_U__ICON_SORT_20 }}"
+          width="20"
+          height="20"
+          alt="{{ 'alt.searchConditionsSort' | staticMsg }}"
+        />
+      </button>
+    </div>
+  </div>
+  <!-- //[下部固定エリア内機能ボタンエリア] -->
+  <asw-search-result-footer
+    [boundInfo]="searchCondition?.itineraries"
+    [outSelectedAirBound]="outSelectedAirBound"
+    [returnSelectedAirBound]="returnSelectedAirBound"
+    [travelers]="travelers"
+    (continue$)="continue()"
+  ></asw-search-result-footer>
+</div>

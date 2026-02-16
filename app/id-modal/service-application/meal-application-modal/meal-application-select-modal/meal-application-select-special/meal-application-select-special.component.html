@@ -1,0 +1,31 @@
+<ng-container *ngIf="data.length !== 0">
+  <div class="p-modal-menu02__title" [ngClass]="{ 'u-border-top-meal-list': useBorder }">
+    <h2 class="p-modal-menu02__title-label" [innerHTML]="'label.specialMeal' | staticMsg"></h2>
+    <ul class="c-inline-list01">
+      <li class="c-inline-list01__item" [innerHTML]="'label.mealMenuDetail.special' | staticMsg"></li>
+      <li class="c-inline-list01__item" [innerHTML]="'label.ruleDetail.meal.sub.special' | staticMsg"></li>
+    </ul>
+  </div>
+  <!--　特別機内食、カテゴリー分表示 -->
+  <ng-container *ngFor="let sp of data; index as i">
+    <div class="p-modal-menu02__title-sub">
+      <h3 class="p-modal-menu02__title-sub-label--em">{{ sp.category }}</h3>
+    </div>
+    <ul class="p-modal-menu02__list">
+      <!--　特別機内食、カテゴリー、機内食分表示 -->
+      <li *ngFor="let item of sp.items; index as j" class="p-modal-menu02__list-item">
+        <button
+          id="meal-appplication-modal-select-special-button1-{{ i }}-{{ j }}"
+          type="button"
+          class="p-modal-menu02__btn p-modal-menu02__btn--arrow"
+          (throttleClick$)="clickItem(item)"
+          aswThrottleClick
+        >
+          <span class="p-modal-menu02__btn-inner">
+            <span class="p-modal-menu02__btn-label">{{ item.disp }}</span>
+          </span>
+        </button>
+      </li>
+    </ul>
+  </ng-container>
+</ng-container>

@@ -1,0 +1,81 @@
+<ng-container *ngIf="pnrInfo">
+  <!-- メールアドレス登録(直営PNR、NDC PNRの場合) -->
+  <asw-register-email
+    *ngIf="!displayDisabledNextActions.emailAddressRegistration"
+    [pnr]="pnrInfo"
+    [canBeClicked]="canClickNextAction"
+    [isFirstInTheList]="true"
+  ></asw-register-email>
+
+  <!-- イレギュラー振替(Acknowledge) -->
+  <asw-acknowledge
+    *ngIf="!displayDisabledNextActions.acknowledge"
+    [pnr]="pnrInfo"
+    [canBeClicked]="canClickNextAction"
+  ></asw-acknowledge>
+
+  <!-- イレギュラー振替(Self Reaccommodation) -->
+  <asw-self-reaccommodation
+    *ngIf="!displayDisabledNextActions.selfReaccommodation"
+    [pnr]="pnrInfo"
+    [canBeClicked]="canClickNextAction"
+  ></asw-self-reaccommodation>
+
+  <!-- 発券 -->
+  <asw-ticketing
+    *ngIf="!displayDisabledNextActions.ticketing"
+    [pnr]="pnrInfo"
+    [canBeClicked]="canClickNextAction"
+  ></asw-ticketing>
+
+  <!-- 払込 -->
+  <asw-payment
+    *ngIf="!displayDisabledNextActions.payment"
+    [pnr]="pnrInfo"
+    [canBeClicked]="canClickNextAction"
+  ></asw-payment>
+
+  <!-- 証憑登録(障がい者) -->
+  <asw-register-evidence-disabled-person
+    *ngIf="!displayDisabledNextActions.registrationOfEvidenceForDisabledPerson"
+    [pnr]="pnrInfo"
+    [canBeClicked]="canClickNextAction"
+  ></asw-register-evidence-disabled-person>
+
+  <!-- 証憑登録(離島) -->
+  <asw-register-evidence-island
+    *ngIf="!displayDisabledNextActions.registrationOfEvidenceForIslandsTicket"
+    [pnr]="pnrInfo"
+    [canBeClicked]="canClickNextAction"
+  ></asw-register-evidence-island>
+
+  <!-- ジュニアパイロット -->
+  <asw-junior-pilot
+    *ngIf="!displayDisabledNextActions.juniorPilotApplication"
+    [pnr]="pnrInfo"
+    [canBeClicked]="canClickNextAction"
+  ></asw-junior-pilot>
+
+  <!-- オンラインチェックイン -->
+  <asw-online-check-in
+    *ngIf="!displayDisabledNextActions.onlineCheckin"
+    [pnr]="pnrInfo"
+    [canBeClicked]="canClickNextAction"
+  ></asw-online-check-in>
+
+  <!-- 事前座席指定 -->
+  <asw-advance-seat-selection
+    *ngIf="!displayDisabledNextActions.advancedSeatSelection"
+    [pnr]="pnrInfo"
+    [canBeClicked]="canClickNextAction"
+  ></asw-advance-seat-selection>
+
+  <!-- メ ールアドレス登録(GDS PNRまたは国内代理店作成PNR) -->
+  <!-- duplicate because nextAction list can have RegisterEmailComponent at the start or the end of the list -->
+  <asw-register-email
+    *ngIf="!displayDisabledNextActions.emailAddressRegistration"
+    [pnr]="pnrInfo"
+    [canBeClicked]="canClickNextAction"
+    [isFirstInTheList]="false"
+  ></asw-register-email>
+</ng-container>

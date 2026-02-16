@@ -1,0 +1,20 @@
+<!-- [入力フォーム] -->
+<div class="c-form-element-button is-typed">
+  <button
+    id="fare-type-selector-button-1"
+    type="button"
+    class="c-form-element-button__box c-form-element-button__box--select"
+    (throttleClick$)="openModal()"
+    aswThrottleClick
+  >
+    <span class="c-form-element-button__wrap">
+      <span class="c-form-element-button__label"
+        ><span class="c-form-element-button__label-text" [innerHTML]="'label.selectFareOption' | staticMsg"></span
+      ></span>
+      <span class="c-form-element-button__button">
+        <span class="c-form-element-button__button-item">{{ this.fareType }}</span>
+      </span>
+    </span>
+  </button>
+  <input type="hidden" name="select3" value="String" class="c-form-element-button__hidden" />
+</div>

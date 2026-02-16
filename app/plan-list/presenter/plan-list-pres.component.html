@@ -1,0 +1,61 @@
+<ng-container>
+  <!-- [ヘッダエリア] -->
+  <ng-container *ngIf="isPlanChanged">
+    <asw-plan-list-plan-header-area [isPlanChanged]="isPlanChanged"></asw-plan-list-plan-header-area>
+  </ng-container>
+  <!-- [//ヘッダエリア] -->
+</ng-container>
+
+<div class="l-core-contents l-wrap plan-list__width">
+  <div class="l-wrap__inner">
+    <div
+      id="planList-panel"
+      class="l-core-contents__tabpanel is-current"
+      role="tabpanel"
+      aria-labelledby="tab2"
+      tabindex="0"
+    >
+      <div class="l-core-contents__inner--full">
+        <div class="l-core-contents__main l-tab-menu01__list">
+          <!-- [プラン情報一覧] -->
+          <asw-plan-list-plan-info-list
+            [displayPlanList]="displayPlans"
+            [finishGetPlan]="finishGetPlan"
+            [finishGetCart]="finishGetCart"
+            [select]="select"
+            [isPlanZero]="isPlanZero"
+            [isSelectAll]="this.isSelectAll"
+            (changeAllselect)="changeAllSelectCheck($event.checked)"
+            (changeSelect)="changeSelectPlan($event.id, $event.check)"
+            (openPlanOperationModal)="this.clickMenu($event.selectPlan)"
+            (goToPlanReview)="this.goToPlanReview($event.index)"
+          >
+          </asw-plan-list-plan-info-list>
+          <!-- [//プラン情報一覧] -->
+
+          <!-- [会員プランリストへのマージ案内] -->
+          <asw-plan-list-merge-info *ngIf="isNeedToLogin"></asw-plan-list-merge-info>
+          <!-- [//会員プランリストへのマージ案内] -->
+
+          <!-- [フライト検索案内] -->
+          <asw-plan-list-search-flight-info *ngIf="isPlanZero" class="l-mybooking__option-item">
+          </asw-plan-list-search-flight-info>
+          <!-- [//フライト検索案内] -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-container>
+  <!-- [選択中プラン削除フッタ] -->
+  <asw-plan-list-plan-delete-footer
+    class="l-bottom-float"
+    [displayPlanList]="displayPlanList"
+    [select]="this.select"
+    [countPlans]="this.countPlans"
+    (deletePlans)="clickDelete($event.cartIds)"
+  >
+  </asw-plan-list-plan-delete-footer>
+  <!-- [//選択中プラン削除フッタ] -->
+</ng-container>

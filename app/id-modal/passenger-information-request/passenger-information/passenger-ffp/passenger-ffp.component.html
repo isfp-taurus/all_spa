@@ -1,0 +1,23 @@
+<div class="p-booking-info-mdl__section">
+  <div class="p-booking-info-mdl__block">
+    <div class="p-booking-info-mdl__heading p-booking-info-mdl__heading--01">
+      <h3 class="p-booking-info-mdl__heading-title" [innerHTML]="'label.mileageProgramForMandatory' | staticMsg"></h3>
+    </div>
+    <div class="p-booking-info-mdl__row p-booking-info-mdl__row--01">
+      <div class="p-booking-info-mdl__row-item">
+        <span class="c-form-element-input__input">
+          <asw-input
+            id="{{ id }}-imileage-number"
+            name="{{ id }}-imileage-number"
+            label="{{ 'label.mileageNumber' | staticMsg }}"
+            placeholder="{{ 'placeholder.mileageNumber' | staticMsg }}"
+            [formControl]="FFPNumberFc"
+            (change$)="update()"
+            maxlength="16"
+            [conversionType]="'common'"
+          ></asw-input>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

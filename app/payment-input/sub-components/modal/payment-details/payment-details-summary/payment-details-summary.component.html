@@ -1,104 +1,105 @@
 <div class="c-flex-float-list">
-    <div class="p-sub-column-layout02-flex">
-      <dl class="p-payment-detailes-summary-block">
-        <!--有償の場合、お支払い総額-->
-        <div *ngIf="!isAwardBooking" class="c-float-list01 item">
-          <dt 
-            class="c-float-list01_title c-float-list01_title--em c-float-list01_contents--fs16 c-float-list01_title--gray90" 
-              [innerHTML]="'label totalAmount' | staticMsg"
-          ></dt>
-          <dd class="c-float-list01_contents c-float-list01_contents--fs24">
-            <span class="u-font-24 c-modified-element">
-              <span [innerHTML]="data.totalAmount || 0 | amountFormat : undefined : data.currencyCode"></span>
-            </span>
-          </dd>
-        </div>
-        <!--特典の場合、必要マイル数-->
-        <div *ngIf="isAwardBooking" class="c-float-list01 item">
-          <dt 
-            class="c-float-list01_title c-float-list01_title--em c-float-list01_contents--fs16 c-float-list01_title--gray90" 
-              [innerHTML]="'label requiredMileage' | staticMsg"
-          ></dt>
-          <dd class="c-float-list01_contents c-float-list01_contents--fs24">
-            <span class="u-font-24 c-modified-element">
-              <span [innerHTML]="sumRequiredMiles | milesFormat : 'currencyUnit.MIL'"></span>
-            </span>
-          </dd>
-        </div>
-        <!--特典の場合、お支払い合計-->
-        <div *ngIf="isAwardBooking" class="c-float-list01_item">
-          <dt 
-            class="c-float-list01_title c-float-list01_title--em c-float-list01_contents--fs16 c-float-list01_title--gray90" 
-              [innerHTML]="'label paymentTotal' | staticMsg"
-          ></dt>
-          <dd class="c-float-list01_contents c-float-list01_contents--fs24">
-            <span class="u-font-24 c-modified-element">
-              <span [innerHTML]="data.totalTax | amountFormat : undefined : data.currencyCode"></span>
-            </span>
-          </dd>
-        </div>
-        <!--搭乗者種別毎の人数 -->
-        <div class="c-float-list01_item">
-          <dd class="c-float-list01_contents c-float-list01_contents--fs16 u-weight-normal">
-            {{ passengerNumbersText }}
-          </dd>
-        </div>
-      </dl>
-    </div>
-    <div class="p-sub-column-layout02-flex p-payment-detailes-line-sp-only">
-      <dl class="p-payment-detailes-summary-block">
-        <!-- 有償の場合、運賃総額 -->
-        <div *ngIf="isTotalFare && isAwardBooking" class="c-float-list01_item">
-          <dt class="c-float-list01_title" [innerHTML]="'label fare' | staticMsg"></dt>
-          <dd class="c-float-list01_contents">
-            <span class="c-float-list01_contents--fs16 u-weight-bold c-modified-element">
-              <p [innerHTML]="data.totalFare | amountFormat: undefined: data.currencyCode"></p>
-            </span>
-          </dd>
-        </div>
-        <!--有償の場合、運賃総額（フライトサーチャージ総額併記） -->
-        <div *ngIf="isTotalFare && isAwardBooking" class="c-float-list01_item">
-          <dt class="c-float-list01_title" [innerHTML]="'label fareAndVariousCharge' | staticMsg"></dt>
-          <dd class="c-float-list01_contents">
-            <span class="c-float-list01_contents--fs16 u-weight-normal">
-              <p [innerHTML]="data.totalFareSurcharge | amountFormat : undefined: data.currencyCode"></p>
-            </span>
-          </dd>
-        </div>
-        <!--特典の場合、必要マイル数-->
-        <div *ngIf="isAwardBooking" class="c-float-list01_item">
-          <dt class="c-float-list01_title" [innerHTML]="'label requiredMileage' | staticMsg"></dt>
-          <dd class="c-float-list01_contents">
-            <span class="c-float-list01_contents--fs16 u-weight-normal">
-              <p [innerHTML]="sumRequiredMiles | milesFormat: 'currencyUnit.MIL'"></p>
-            </span>
-          </dd>
-        </div>
-        <!-- 税金税額-->
-        <div class="c-float-list01_item">
-          <dt class="c-float-list01_title" [innerHTML]="'label.taxFare2' | staticMsg"></dt>
-          <dd class="c-float-list01_contents">
-            <span class="c-float-list01_contents--fs16 u-weight-normal">
-              <p [innerHTML]="data.totalTax | amountFormat : undefined : data.currencyCode"></p>
-            </span>
-          </dd>
-        </div>
-        <!-- 発券手数料 -->
-        <div class="c-float-list01_item">
-          <dt class="c-float-list01_title" [innerHTML]="'label fee' | staticMsg"></dt>
-          <dd class="c-float-list01_contents">
-            <span class="c-float-list01_contents--fs16 u-weight-normal">
-              <p [innerHTML]="0 | amountFormat: undefined: data.currencyCode"></p>
-            </span>
-          </dd>
-        </div>
-      </dl>
-    </div>
+  <div class="p-sub-column-layout02-flex">
+    <dl class="p-payment-detailes-summary-block">
+      <!-- 有償の場合、お支払い総額 -->
+      <div *ngIf="!paymentDetailsAwardData?.isAwardBooking" class="c-float-list01__item">
+        <dt
+          class="c-float-list01__title c-float-list01__title--em c-float-list01__contents--fs16 c-float-list01__title--gray90"
+          [innerHTML]="'label.totalAmount' | staticMsg"
+        ></dt>
+        <dd class="c-float-list01__contents c-float-list01__contents--fs24">
+          <span class="u-font-24 c-modified-element">
+            <span [innerHTML]="data.totalAmount || 0 | amountFormat : undefined : data.currencyCode"></span>
+          </span>
+        </dd>
+      </div>
+      <!-- 特典の場合、必要マイル数 -->
+      <div *ngIf="paymentDetailsAwardData?.isAwardBooking" class="c-float-list01__item">
+        <dt
+          class="c-float-list01__title c-float-list01__title--em c-float-list01__contents--fs16 c-float-list01__title--gray90"
+          [innerHTML]="'label.requiredMileage' | staticMsg"
+        ></dt>
+        <dd class="c-float-list01__contents c-float-list01__contents--fs24">
+          <span class="u-font-24 c-modified-element">
+            <span
+              [innerHTML]="paymentDetailsAwardData?.sumRequiredMiles || 0 | milesFormat : 'currencyUnit.MIL'"
+            ></span>
+          </span>
+        </dd>
+      </div>
+      <!-- 特典の場合、お支払い合計 -->
+      <div *ngIf="paymentDetailsAwardData?.isAwardBooking" class="c-float-list01__item">
+        <dt
+          class="c-float-list01__title c-float-list01__title--em c-float-list01__contents--fs16 c-float-list01__title--gray90"
+          [innerHTML]="'label.paymentTotalAmount3' | staticMsg"
+        ></dt>
+        <dd class="c-float-list01__contents c-float-list01__contents--fs24">
+          <span class="u-font-24 c-modified-element">
+            <span [innerHTML]="data.totalTax | amountFormat : undefined : data.currencyCode"></span>
+          </span>
+        </dd>
+      </div>
+      <!--搭乗者種別毎の人数 -->
+      <div class="c-float-list01__item">
+        <dd class="c-float-list01__contents c-float-list01__contents--fs16 u-weight-normal">
+          {{ passengerNumbersText }}
+        </dd>
+      </div>
+    </dl>
   </div>
-  
-  <div *ngIf="data.alertLabelTxt.length !== 0" class="p-alert-label-txt">
-    <div *ngFor="let str of data.alertLabelTxt" class="p-alert-label-txt_content">
-      <em class="p-alert-label-txt_content_txt" [innerHTML]="str | staticMsg"></em>
-    </div>
+  <div class="p-sub-column-layout02-flex p-payment-detailes-line-sp-only">
+    <dl class="p-payment-detailes-summary-block">
+      <!-- 有償の場合、運賃総額 -->
+      <div *ngIf="isTotalFare && !paymentDetailsAwardData?.isAwardBooking" class="c-float-list01__item">
+        <dt class="c-float-list01__title" [innerHTML]="'label.fare' | staticMsg"></dt>
+        <dd class="c-float-list01__contents">
+          <span class="c-float-list01__contents--fs16 u-weight-bold c-modified-element">
+            <p [innerHTML]="data.totalFare | amountFormat : undefined : data.currencyCode"></p>
+          </span>
+        </dd>
+      </div>
+      <!-- 有償の場合、運賃総額(フライトサーチャージ総額併記) -->
+      <div *ngIf="!isTotalFare && !paymentDetailsAwardData?.isAwardBooking" class="c-float-list01__item">
+        <dt class="c-float-list01__title" [innerHTML]="'lable.fareAndVariousCharge' | staticMsg"></dt>
+        <dd class="c-float-list01__contents">
+          <span class="c-float-list01__contents--fs16 u-weight-normal">
+            <p [innerHTML]="data.totalFareSurcharge | amountFormat : undefined : data.currencyCode"></p>
+          </span>
+        </dd>
+      </div>
+      <!-- 特典の場合、必要マイル数 -->
+      <div *ngIf="paymentDetailsAwardData?.isAwardBooking" class="c-float-list01__item">
+        <dt class="c-float-list01__title" [innerHTML]="'label.requiredMileage' | staticMsg"></dt>
+        <dd class="c-float-list01__contents">
+          <span class="c-float-list01__contents--fs16 u-weight-normal">
+            <p [innerHTML]="paymentDetailsAwardData?.sumRequiredMiles || 0 | milesFormat : 'currencyUnit.MIL'"></p>
+          </span>
+        </dd>
+      </div>
+      <!-- 税金総額 -->
+      <div class="c-float-list01__item">
+        <dt class="c-float-list01__title" [innerHTML]="'label.taxFare2' | staticMsg"></dt>
+        <dd class="c-float-list01__contents">
+          <span class="c-float-list01__contents--fs16 u-weight-normal">
+            <p [innerHTML]="data.totalTax | amountFormat : undefined : data.currencyCode"></p>
+          </span>
+        </dd>
+      </div>
+      <!-- 発券手数料 -->
+      <div class="c-float-list01__item">
+        <dt class="c-float-list01__title" [innerHTML]="'label.fee' | staticMsg"></dt>
+        <dd class="c-float-list01__contents">
+          <span class="c-float-list01__contents--fs16 u-weight-normal">
+            <p [innerHTML]="0 | amountFormat : undefined : data.currencyCode"></p>
+          </span>
+        </dd>
+      </div>
+    </dl>
   </div>
-  
+</div>
+
+<div *ngIf="data.alertLabelTxt.length !== 0" class="p-alert-label-txt">
+  <div *ngFor="let str of data.alertLabelTxt" class="p-alert-label-txt_content">
+    <em class="p-alert-label-txt_content_txt" [innerHTML]="str | staticMsg"></em>
+  </div>
+</div>

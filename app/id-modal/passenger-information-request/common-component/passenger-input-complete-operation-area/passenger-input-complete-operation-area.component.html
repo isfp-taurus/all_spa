@@ -1,0 +1,28 @@
+<div class="p-booking-info-mdl__btn">
+  <!--(2-12)次のアクション-->
+  <p class="p-booking-info-mdl__btn-next" *ngIf="parts.nextAction !== ''" [innerHTML]="parts.nextAction"></p>
+  <div class="p-booking-info-mdl__btn-list">
+    <!--(2-13)次へボタン-->
+    <asw-button
+      *ngIf="parts.nextButtonLabel !== ''"
+      id="{{ id }}-nextButton"
+      type="primary"
+      class="p-booking-info-mdl__btn-list"
+      (click$)="clickNextButton()"
+      [label]="parts.nextButtonLabel | staticMsg"
+      [throttleClick]="true"
+    >
+    </asw-button>
+    <!--(2-14)保存・プラン確認画面へ戻るボタン-->
+    <asw-button
+      *ngIf="parts.saveButtonLabel !== ''"
+      id="{{ id }}-saveButton"
+      type="secondary"
+      class="p-booking-info-mdl__btn-list"
+      (click$)="clickSaveButton()"
+      [label]="parts.saveButtonLabel | staticMsg"
+      [throttleClick]="true"
+    >
+    </asw-button>
+  </div>
+</div>

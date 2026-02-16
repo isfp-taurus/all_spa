@@ -1,0 +1,9 @@
+<button
+  *ngIf="isShowFareOption"
+  class="p-result-function__btn"
+  id="complex-flight-availability-fareOption"
+  (throttleClick$)="fareOption($event)"
+  aswThrottleClick
+>
+  <span class="p-result-function__btn-text">{{ displayContent }}</span>
+</button>

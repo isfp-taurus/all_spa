@@ -1,0 +1,108 @@
+<div
+  #modalContents
+  [class]="lmodalContentsClassWithWidth"
+  aria-modal="true"
+  role="dialog"
+  aria-labelledby="seatmap-layout-detail-modal-title"
+>
+  <div #modalHead [class]="[lmodalHeaderClass, 'p-modal-head07']">
+    <h1
+      id="seatmap-confirm-seat-reservation-title"
+      class="p-modal-head07__title"
+      innerHTML="{{ 'm_static_message-heading.confirmSeatReservation' | staticMsg }}"
+    ></h1>
+    <button
+      id="seatmap-confirm-seat-reservation-close"
+      class="p-modal-head07__close js-modal-close"
+      aswThrottleClick
+      (throttleClick$)="closeEvent()"
+    >
+      <span class="u-visually-hidden" innerHTML="{{ 'm_static_message-alt.closeModal' | staticMsg }}"></span>
+    </button>
+  </div>
+
+  <div #modalBody [class]="[lmodalBodyClass, 'l-modal04__body']">
+    <div class="p-modal-seatmap-confirm" *ngFor="let segment of getSegmentChangeList(); index as j">
+      <!-- セグメント情報 -->
+      <div class="p-modal-seatmap-confirm__item">
+        <div class="p-modal-seatmap-confirm__title">
+          <!-- 出発日 -->
+          <div class="p-modal-seatmap-confirm__title-date">
+            {{ segment.departure?.dateTime ?? '' | dateFormat : 'default_departuredate' }}
+          </div>
+          <div class="p-modal-seatmap-confirm__title-airport">
+            <span class="p-modal-seatmap-confirm__title-airport-departure"
+              >{{ segment.departure?.locationCode | airportNameI18n : segment.departure?.locationName }}
+              <span class="p-modal-seatmap-confirm__title-airport-to"
+                ><span
+                  class="u-visually-hidden"
+                  innerHTML="{{ 'm_static_message-alt.toOfArrivalAndDeparture' | staticMsg }}"
+                ></span
+                ><span aria-hidden="true">{{ 'label.hyphen' | staticMsg }}</span></span
+              ></span
+            >
+            <span class="p-modal-seatmap-confirm__title-airport-arrival">{{
+              segment.arrival?.locationCode | airportNameI18n : segment.arrival?.locationName
+            }}</span>
+          </div>
+        </div>
+
+        <!-- 搭乗者情報 -->
+        <div class="p-modal-seatmap-confirm__contents">
+          <div class="p-modal-seatmap-confirm__contents-item" *ngFor="let seatPassengerList of displayPassenger?.[j]">
+            <dl class="c-float-list03">
+              <div class="c-float-list03__item" *ngFor="let seatPassenger of seatPassengerList; index as i">
+                <!-- 搭乗者姓名 -->
+                <dt
+                  [class]="i === 0 ? ['c-float-list03__title'] : ['c-float-list03__title', 'c-float-list03__item--mt4']"
+                >
+                  <div class="c-float-list03__title-item c-float-list03__title-item--em">
+                    {{ travelersMap?.get(seatPassenger.id)?.name }}
+                  </div>
+                  <div
+                    class="c-float-list03__title-item c-float-list03__title-item--gray60"
+                    *ngIf="seatPassenger?.accompanyingInfantId"
+                  >
+                    {{ getInfantName(seatPassenger?.id) }}
+                  </div>
+                </dt>
+                <!-- 座席指定状況 -->
+                <dd class="c-float-list03__contents c-float-list03__contents--fs16" *ngIf="i === 0">
+                  {{
+                    getSeatDesignatedSituation(seatPassenger.id, segment.id) ||
+                      ('m_static_message-label.hyphen3' | staticMsg)
+                  }}
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div #modalFooter [class]="lmodalFooterClass">
+    <div class="p-modal-foot05">
+      <!-- 内容確定・購入確認文言　※保存して終了ボタン押下の場合（確認ボタン押下ではない場合）、かつ、事前座席指定以外の有料サービスを申し込んでいない場合に表示する -->
+      <div
+        class="p-modal-foot05__item"
+        [innerHTML]="confirmLabelStaticMsgKey | staticMsg"
+        *ngIf="!isConfirmClick && !isOtherPaidServices()"
+      ></div>
+      <div class="p-modal-foot05__item">
+        <div class="p-modal-foot05__btn">
+          <div class="p-modal-foot05__btn-item p-modal-foot05__btn-item--center">
+            <!-- 内容確定・購入へ -->
+            <button
+              aswThrottleClick
+              (throttleClick$)="clickApply()"
+              id="designated-situation-details-pnr-modal-footer-button1"
+              class="c-btn-primary c-btn-primary--s c-btn-primary--min-w216"
+            >
+              <span class="c-btn-primary__text" [innerHTML]="'label.toPayment' | staticMsg"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

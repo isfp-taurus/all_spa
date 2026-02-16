@@ -1,0 +1,54 @@
+<div
+  #modalContents
+  class="l-modal04__contents js-modal-contents"
+  aria-modal="true"
+  role="dialog"
+  aria-labelledby="plan-operation-modal-title"
+>
+  <!-- [モーダルheader] -->
+  <div #modalHead class="l-modal04__header js-modal-head">
+    <div class="p-modal-head02">
+      <h1 id="plan-operation-modal-title" class="p-modal-head02__title">{{ planName }}</h1>
+      <button id="plan-operation-modal-close" class="p-modal-head02__close js-modal-close" (click)="clickClose()">
+        <span class="u-visually-hidden" [innerHTML]="'alt.closeModal' | staticMsg"></span>
+      </button>
+    </div>
+  </div>
+  <!-- [//モーダルheader] -->
+
+  <!-- [モーダルbody] -->
+  <div #modalBody class="l-modal04__body js-modal-body">
+    <ul>
+      <!-- [プラン名称変更ボタン] -->
+      <li class="p-sub-column-layout04__list-item">
+        <a
+          class="p-sub-column-layout04__list-link operation-menu__button-label"
+          id="plan-operation-modal-rename-button"
+          role="button"
+          (throttleClick$)="clickRename()"
+          [innerHTML]="'label.renamePlan' | staticMsg"
+          aswThrottleClick
+        ></a>
+      </li>
+      <!-- [//プラン名称変更ボタン] -->
+
+      <!-- [プラン削除ボタン] -->
+      <li class="p-sub-column-layout04__list-item">
+        <a
+          class="p-sub-column-layout04__list-link operation-menu__button-label c-plan-table01__col-item--red"
+          id="plan-operation-modal-delete-button"
+          role="button"
+          aswThrottleClick
+          (throttleClick$)="clickDelete()"
+          [innerHTML]="'label.deletePlan' | staticMsg"
+        ></a>
+      </li>
+      <!-- [//プラン削除ボタン] -->
+    </ul>
+  </div>
+  <!-- [//モーダルbody] -->
+
+  <!-- [モーダルfooter] -->
+  <div #modalFooter></div>
+  <!-- [//モーダルfooter] -->
+</div>

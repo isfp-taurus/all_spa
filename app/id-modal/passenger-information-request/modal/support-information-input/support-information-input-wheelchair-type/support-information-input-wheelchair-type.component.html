@@ -1,0 +1,96 @@
+<div class="p-support-info">
+  <div class="p-support-info__head">
+    <h2 class="p-support-info__head-title" [innerHTML]="'label.wheelchairType' | staticMsg"></h2>
+  </div>
+  <div class="p-support-info__body">
+    <div class="p-support-info__item">
+      <div class="p-support-info__row">
+        <fieldset
+          class="p-support-info__radio"
+          role="radiogroup"
+          [attr.aria-required]="true"
+          attr.aria-describedby="{{ !!selectError ? 'support-information-input-wheelchair-type-error1' : '' }}"
+          [attr.aria-invalid]="!!selectError"
+        >
+          <legend class="p-support-info__radio-legend" [innerHTML]="'label.wheelchairType' | staticMsg"></legend>
+          <div class="p-support-info__radio-list">
+            <div *ngFor="let item of wheelchairTypeSelectList; index as i" class="p-support-info__radio-item">
+              <input
+                type="radio"
+                name="radio{{ i }}"
+                id="support-information-input-wheelchair-type-radio1_{{ i }}"
+                class="p-support-info__radio-item-input"
+                (change)="typeChange(item.value)"
+                [checked]="type === item.value"
+              />
+              <label
+                for="support-information-input-wheelchair-type-radio1_{{ i }}"
+                class="p-support-info__radio-item-label"
+              >
+                <span class="p-support-info__radio-item-check"></span>
+                <span class="p-support-info__radio-item-text-wrap">
+                  <span class="p-support-info__radio-item-text" [innerHTML]="item.label | staticMsg"></span>
+                </span>
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <asw-validation-error
+        *ngIf="selectError"
+        id="support-information-input-wheelchair-type-error1"
+        [errorMessage]="selectError"
+      ></asw-validation-error>
+    </div>
+
+    <div class="p-support-info__item">
+      <div class="p-support-info__row">
+        <div
+          class="c-form-element-select"
+          [ngClass]="{ 'is-disabled': type !== WHEEL_CHAIR_BATTERY_CODE, 'is-error': selectBatteryError }"
+        >
+          <div class="c-form-element-select__wrap">
+            <label for="support-information-input-wheelchair-type-select1" class="c-form-element-select__label"
+              ><span class="c-form-element-select__label-text" [innerHTML]="'label.batteryType' | staticMsg"></span
+              ><span
+                *ngIf="type === WHEEL_CHAIR_BATTERY_CODE"
+                class="c-form-element-select__label-required"
+                [innerHTML]="'message.mandatory' | staticMsg"
+              ></span
+            ></label>
+            <select
+              [disabled]="type !== WHEEL_CHAIR_BATTERY_CODE"
+              class="c-form-element-select__select"
+              id="support-information-input-wheelchair-type-select1"
+              name="select1"
+              [attr.aria-required]="type === WHEEL_CHAIR_BATTERY_CODE"
+              attr.aria-describedby="{{ selectBatteryError ? 'support-information-input-wheelchair-type-error2' : '' }}"
+              [attr.aria-invalid]="selectBatteryError"
+              [(ngModel)]="batteryType"
+            >
+              <option *ngFor="let item of master" [value]="item.code" selected="">{{ item.name }}</option>
+            </select>
+          </div>
+        </div>
+        <asw-validation-error
+          *ngIf="selectBatteryError"
+          id="support-information-input-wheelchair-type-error2"
+          [errorMessage]="selectBatteryError"
+        ></asw-validation-error>
+      </div>
+      <div class="p-support-info__row">
+        <p class="p-booking-info-mdl__describe">
+          {{ 'label.aboutBatteryType' | staticMsg }}
+          <span class="c-text-with-tooltip__tooltip">
+            <!--ヘルプアイコン ※バッテリータイプ -->
+            <asw-tooltip
+              iconImage='<img src="assets/images/icon_help_primary_20.svg" width="20" height="20" alt="help" />'
+              [tooltipContent]="'tooltip.batteryType' | staticMsg"
+              displayAreaClass="p-support-info"
+            ></asw-tooltip>
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

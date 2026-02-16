@@ -1,0 +1,30 @@
+<div>
+  <asw-payment-input-card-selecting
+    *ngIf="isDisplaySelectingCardArea"
+    [(data)]="cardSelectingData"
+    [parts]="parts.cardSelectingParts"
+  ></asw-payment-input-card-selecting>
+  <div class="p-form-layout01">
+    <asw-payment-input-card-info
+      #cardInfoComponent
+      [isSkyCoinSelected]="false"
+      [currentOfficeInfo]="currentOfficeInfo"
+      [(data)]="cardInformationData"
+      [parts]="parts.cardInformationParts"
+    ></asw-payment-input-card-info>
+    <asw-payment-input-card-holder-info
+      #cardHolderInfoComponent
+      [phoneCountryInfoList]="phoneCountryInfoList"
+      [cardHolderInfo]="cardHolderInfo"
+      [(data)]="cardHolderInfoData"
+      [parts]="parts.cardHolderInfoParts"
+    ></asw-payment-input-card-holder-info>
+  </div>
+  <!-- 領収書発行名義 -->
+  <ng-container *ngIf="common.aswContextStoreService.aswContextData.posCountryCode === 'JP'">
+    <asw-payment-input-credit-card-receipt
+      [(data)]="creditCardReceiptData"
+      [parts]="parts.creditCardReceiptParts"
+    ></asw-payment-input-credit-card-receipt>
+  </ng-container>
+</div>

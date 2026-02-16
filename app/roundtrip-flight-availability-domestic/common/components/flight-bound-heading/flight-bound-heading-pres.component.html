@@ -1,0 +1,15 @@
+<div class="p-flight-bound__bound">
+  <span class="p-flight-bound__fromto">
+    <span class="p-flight-bound__fromto-from" [innerHTML]="departureLocationName"></span>
+    <span class="p-flight-bound__fromto-separator" [innerHTML]="'label.section' | staticMsg"></span>
+    <span class="p-flight-bound__fromto-to" [innerHTML]="arrivalLocationName"></span>
+  </span>
+</div>
+<div class="p-flight-bound__via">
+  <ng-container *ngFor="let airport of transferAirport">
+    <span
+      class="p-flight-bound__fromto-to"
+      [innerHTML]="'label.oneStopFlightLocation' | staticMsg : { '0': (airportPrefix + airport | staticMsg) }"
+    ></span
+  ></ng-container>
+</div>

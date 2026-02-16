@@ -1,0 +1,60 @@
+<div
+  #modalContents
+  class="l-modal04__contents u-modal-size-pc-768 js-modal-contents"
+  aria-modal="true"
+  role="dialog"
+  aria-labelledby="modalTitle"
+>
+  <!-- モーダルヘッダー部 -->
+  <div #modalHead class="l-modal04__header js-modal-head">
+    <div class="p-modal-head02">
+      <h1 id="modalTitle" class="p-modal-head02__title" [innerHTML]="">{{ 'label.flghtDetails.title' | staticMsg }}</h1>
+      <!-- 閉じるボタン  -->
+      <button
+        id="flight-detail-modal-close-btn"
+        class="p-modal-head02__close js-modal-close"
+        (click)="this.closeModal()"
+      >
+        <span class="u-visually-hidden" [innerHTML]="'alt.closeModal' | staticMsg"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- モーダルボディ部 -->
+  <div #modalBody class="l-modal04__body js-modal-body">
+    <div class="p-modal-dep-date">
+      <div class="p-modal-dep-date__item">
+        <!-- 早発情報 -->
+        <ng-container *ngIf="this.flightDetailHeader.isContainedEarlyDepartureFlight">
+          <span class="c-tag c-tag--type01"><strong [innerHTML]="'label.earlyDeparture' | staticMsg"></strong></span>
+        </ng-container>
+        <!-- 遅延情報 -->
+        <ng-container *ngIf="this.flightDetailHeader.isContainedDelayedFlight">
+          <span class="c-tag c-tag--type01"><strong [innerHTML]="'label.delayed' | staticMsg"></strong></span>
+        </ng-container>
+      </div>
+      <div class="p-modal-dep-date__item">
+        <div class="p-modal-dep-date__time">
+          <!-- 出発日 -->
+          <h2
+            class="p-modal-dep-date__time-stamp"
+            [innerHTML]="this.flightDetailHeader.originDepartureDateTime! | dateFormat : 'default_departuredate'"
+          ></h2>
+          <!-- 総所要時間 -->
+          <span
+            [innerHTML]="
+              dateString(this.flightDetailHeader.duration) | dateFormat : 'flightDetail.modal_flightTotalTime'
+            "
+          ></span>
+        </div>
+      </div>
+    </div>
+    <div class="p-modal-body03">
+      <asw-flight-detail
+        [flightDetailHeader]="this.flightDetailHeader!"
+        [flightDetailSegment]="this.flightDetailSegment!"
+        [modalFlg]="true"
+      ></asw-flight-detail>
+    </div>
+  </div>
+</div>

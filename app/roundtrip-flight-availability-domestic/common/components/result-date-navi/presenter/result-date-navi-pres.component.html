@@ -1,0 +1,37 @@
+<asw-freedom-date-navi-carousel
+  [stepInit]="selectedInit()"
+  [altPrevious]="'alt.switchToLeftScreen2'"
+  [altNext]="'alt.switchToRightScreen2'"
+  *ngIf="sevenDayCalendar && sevenDayCalendar.length > 0"
+>
+  <div class="c-result-date-navi-carousel u-mt-sp-16 u-mt-tb-32 u-mt-pc-40 carousel-content">
+    <ng-container *ngFor="let item of sevenDayCalendar; let i = index">
+      <button
+        id="result-data-navi-internationa-pre-btn-{{ i }}"
+        class="c-result-date-navi__btn carousel-content-item"
+        [ngClass]="{ 'is-selected': isSelected(item) }"
+        [disabled]="isDisabled(item)"
+        aswThrottleClick
+        (throttleClick$)="selectCalendar(item)"
+      >
+        <span class="c-result-date-navi__box">
+          <span
+            class="u-visually-hidden"
+            [innerHTML]="'reader.boundNumber' | staticMsg : { '0': type === 'out' ? 1 : 2 }"
+          ></span>
+          <span [outerHTML]="item.date | dateFormat : 'availability.dateNavi_departuredate'"></span>
+          <ng-container *ngIf="!isDisabled(item); else noCheapestPriceMsg">
+            <span
+              class="c-result-date-navi__btn-price"
+              [innerHTML]="item.cheapestPrice.value | amountFormat : 'default' : item.cheapestPrice.currencyCode"
+              *ngIf="item.cheapestPrice.value > 0"
+            ></span>
+          </ng-container>
+          <ng-template #noCheapestPriceMsg>
+            <span class="c-result-date-navi__btn-price" [innerHTML]="'label.noVacancy1' | staticMsg"></span>
+          </ng-template>
+        </span>
+      </button>
+    </ng-container>
+  </div>
+</asw-freedom-date-navi-carousel>

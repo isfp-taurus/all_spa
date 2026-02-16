@@ -1,0 +1,144 @@
+<!-- [コンテンツ領域] -->
+<div [ngClass]="(this.isReadyToShow | async) ? 'l-core-contents' : 'l-core-contents u-anabiz-payment-hidden'">
+  <div class="l-wrap">
+    <div class="l-wrap__inner--full">
+      <!-- [コンテンツ領域2カラム] -->
+      <div class="l-core-contents__inner">
+        <!-- [支払金額エリア] -->
+        <div class="l-core-contents__sub">
+          <asw-payment-input-payment-amount
+            [isKeepMyFare]="false"
+            (paymentDetails)="paymentDetails()"
+            (usePromotionCode)="usePromotionCode()"
+            (cancelPromotionCode)="cancelPromotionCode()"
+            [isApplicableDiscountCode]="isApplicableDiscountCode"
+            [appliedDiscountType]="appliedDiscountType"
+          ></asw-payment-input-payment-amount>
+        </div>
+        <!-- [支払金額エリア]！ここまで -->
+        <div class="l-core-contents__main">
+          <!--支払い方法選択エリア-->
+          <div *ngIf="!isWaitlisted">
+            <asw-anabiz-payment-input-payment-methods
+              [isReserveOnly]="isReserveOnly"
+              [isWaitlisted]="isWaitlisted"
+              [isCardless]="isCardless"
+              [hasCartId]="hasCartId"
+              [isTraveler]="isTraveler"
+              [isOnholdEligible]="isOnholdEligible"
+              [isCreditCardPayment]="isCreditCardPayment"
+              (updatePaymentMethod)="updatePaymentMethod($event)"
+            >
+            </asw-anabiz-payment-input-payment-methods>
+          </div>
+          <!--クレジットカードエリア-->
+          <div *ngIf="isCreditCardPayment && !isCardless">
+            <div>
+              <h2 class="c-heading-2" [innerHTML]="'label.alwaysInformation' | staticMsg"></h2>
+              <!--クレジットカード選択-->
+              <asw-anabiz-payment-input-card-selecting
+                [(selectedCard)]="selectedCard"
+                (updateSelectedCreditCard)="updateSelectedCreditCard($event)"
+                (selectedCardChange)="selectedCardChange($event)"
+              ></asw-anabiz-payment-input-card-selecting>
+
+              <div class="p-form-layout01">
+                <!--クレジットカード情報-->
+                <asw-anabiz-payment-input-card-info
+                  [creditCardInfo]="creditCardInfo"
+                  [currentOfficeInfo]="currentOfficeInfo"
+                >
+                </asw-anabiz-payment-input-card-info>
+                <!--クレジットカード保持者情報-->
+                <asw-anabiz-payment-input-card-holder
+                  [countryAll]="countryAll"
+                  [(cardHolderInfo)]="cardHolderInfo"
+                  [phoneCountryInfoList]="phoneCountryInfoList"
+                >
+                </asw-anabiz-payment-input-card-holder>
+              </div>
+            </div>
+          </div>
+
+          <!--カードレス支払い案内-->
+          <div *ngIf="isCardless && !isTraveler && !isReserveOnly && !isWaitlisted">
+            <div class="p-form-layout01">
+              <div class="p-form-layout01__item">
+                <span [innerHTML]="'label.cardlessPayment' | staticMsg"></span>
+              </div>
+            </div>
+          </div>
+          <!-- 株主優待券エリア-->
+          <div *ngIf="issueFlag === '1' || !isTraveler">
+            <ng-container
+              *ngIf="this.isContainedShareholdersBenefitDiscountFare && !this.isWaitlisted && !this.isReserveOnly"
+            >
+              <!--   ラベル更新 -->
+              <br />
+              <h3
+                *ngIf="isShowShareholderCouponsArea"
+                class="c-heading-3"
+                [innerHTML]="'label.registerShareholdersBenefitNumber' | staticMsg"
+              ></h3>
+              <ng-container *ngFor="let bound of this.shareholderCoupons; index as boundIndex">
+                <ng-container *ngFor="let flight of bound.flights; index as flightIndex">
+                  <asw-payment-input-shareholder-coupon
+                    [departureLocationCode]="flight.originFlight.departure?.locationCode"
+                    [departureLocationName]="flight.originFlight.departure?.locationName"
+                    [arrivalLocationCode]="flight.originFlight.arrival?.locationCode"
+                    [arrivalLocationName]="flight.originFlight.arrival?.locationName"
+                    [travelers]="flight.travelers"
+                    [boundIndex]="boundIndex"
+                    [flightIndex]="flightIndex"
+                    [isContainedShareholdersBenefitDiscountFareByPostCollection]="
+                      this.isContainedShareholdersBenefitDiscountFareByPostCollection
+                    "
+                    [numberPrefix]="bound.prefix"
+                    (travelersUpdate)="modifyShareholderCoupon($event, flight)"
+                  >
+                  </asw-payment-input-shareholder-coupon>
+                </ng-container>
+              </ng-container>
+            </ng-container>
+          </div>
+
+          <!--空席待ち予約案内-->
+          <div *ngIf="isWaitlisted">
+            <h2
+              class="p-form-layout01__item-title c-heading-2"
+              [innerHTML]="'label.reservationForWaiting' | staticMsg"
+            ></h2>
+            <div class="p-form-layout01">
+              <div class="p-form-layout01__item">
+                <span [innerHTML]="'label.reservationForWaitingInformation' | staticMsg"></span>
+              </div>
+            </div>
+          </div>
+          <br />
+          <!--同意文言エリア-->
+          <asw-agreement-area
+            id="anabiz-payment-agreement-area"
+            [agreementAreaParts]="agreementAreaParams"
+            (submitEvent)="clickAgree()"
+          ></asw-agreement-area>
+          <form>
+            <input type="hidden" id="ioBlackBox" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="p-sub-column-layout01 l-bottom-aside__section padding-none">
+    <ul *ngIf="(isSp || isTb) && isDisplayPlanReviewLink">
+      <li class="l-bottom-menu__item">
+        <a
+          id="anabiz-payment-amount-pres_back_plan_primary9"
+          (click)="clickPrevPlanInfo()"
+          class="p-sub-column-layout01__list-link"
+          [innerHTML]="'label.backToPlanConfirmation' | staticMsg"
+        >
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

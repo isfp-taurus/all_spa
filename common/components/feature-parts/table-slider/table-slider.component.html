@@ -1,0 +1,31 @@
+<button
+  *ngIf="isScrollLeft"
+  id="{{ id }}-left-button"
+  class="p-plan-table__arrow p-plan-table__arrow--prev js-plan-table01-btn-prev is-available"
+  [attr.aria-label]="'alt.switchToLeftScreen1' | staticMsg"
+  (click)="scrollLeft()"
+>
+  <img
+    src="assets/images/btn_arrow_prev_36.svg"
+    width="36"
+    height="36"
+    [attr.alt]="'alt.switchToLeftScreen1' | staticMsg"
+    aria-hidden="true"
+  />
+</button>
+<ng-content></ng-content>
+<button
+  *ngIf="isScrollRight"
+  id="{{ id }}-right-button"
+  class="p-plan-table__arrow p-plan-table__arrow--next js-plan-table01-btn-next is-available"
+  [attr.aria-label]="'alt.switchToRightScreen1' | staticMsg"
+  (click)="scrollRight()"
+>
+  <img
+    src="assets/images/btn_arrow_next_36.svg"
+    width="36"
+    height="36"
+    [attr.alt]="'alt.switchToRightScreen1' | staticMsg"
+    aria-hidden="true"
+  />
+</button>

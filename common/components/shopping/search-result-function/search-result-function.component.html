@@ -1,0 +1,162 @@
+<!-- ボタン表示部をテンプレートで定義 -->
+<ng-template #p_result_function>
+  <!-- ボタン表示部 -->
+  <div class="p-result-function">
+    <div class="p-result-function__block">
+      <!-- フィルタ条件表示ボタン -->
+      <div
+        class="p-result-function__item"
+        *ngIf="this.deviceTypeFromSize !== 'SP' && this.isSearchResultOfSpecifiedDate"
+      >
+        <button
+          id="filter-btn"
+          class="p-result-function__btn p-result-function__btn--filter"
+          (throttleClick$)="this.clickItemFilter($event)"
+          aswThrottleClick
+        >
+          <span class="p-result-function__btn-text" [innerHTML]="'label.filter' | staticMsg"></span>
+        </button>
+      </div>
+
+      <!-- ソート条件表示ボタン -->
+      <div
+        class="p-result-function__item"
+        *ngIf="this.deviceTypeFromSize !== 'SP' && this.isSearchResultOfSpecifiedDate"
+      >
+        <button
+          id="sort-btn"
+          class="p-result-function__btn p-result-function__btn--sort"
+          (throttleClick$)="this.clickItemSort($event)"
+          aswThrottleClick
+        >
+          <span class="u-visually-hidden" [attr.aria-label]="'reader.sort' | staticMsg"></span>
+          <span class="p-result-function__btn-text" [innerHTML]="this.labelSort | staticMsg"></span>
+        </button>
+      </div>
+
+      <!-- マトリクス形式7日間カレンダー表示ボタン -->
+      <div class="p-result-function__item">
+        <button
+          id="calendar-btn"
+          class="p-result-function__btn p-result-function__btn--calendar"
+          *ngIf="this.isRoundtrip"
+          (throttleClick$)="this.clickItemCalendar($event)"
+          aswThrottleClick
+        >
+          <span class="p-result-function__btn-text" [innerHTML]="'label.compareFare' | staticMsg"></span>
+        </button>
+      </div>
+
+      <!-- キャビンクラス切替ボタン リクエスト用検索条件.fare.isMixedCabin=falseの際に表示する -->
+      <div class="p-result-function__item">
+        <button
+          id="cabinclass-btn"
+          class="p-result-function__btn p-result-function__btn--cabin"
+          *ngIf="!getIsMixedCabin()"
+          (throttleClick$)="this.clickItemCabinClass($event)"
+          aswThrottleClick
+        >
+          <span class="p-result-function__btn-text" [innerHTML]="this.labelCabinClass"></span>
+        </button>
+      </div>
+
+      <!-- 運賃オプション切替ボタン 選択中のCFFリスト.運賃オプションタイプが2件以上存在する場合に表示する -->
+      <div class="p-result-function__item">
+        <button
+          id="fare-type-btn"
+          class="p-result-function__btn p-result-function__btn--fareOption"
+          *ngIf="this.cffListLength >= 2"
+          (throttleClick$)="this.clickItemFareOptionType($event)"
+          aswThrottleClick
+        >
+          <span class="u-visually-hidden" [attr.aria-label]="'reader.fareOption' | staticMsg"></span>
+          <span class="p-result-function__btn-text" [innerHTML]="this.labelFareType"></span>
+        </button>
+      </div>
+    </div>
+    <div class="p-result-function__block" *ngIf="!this.notLogin && !this.isCarousel">
+      <div class="p-result-function__item">
+        <!-- お気に入り登録ボタン(右寄せ) PC -->
+        <button
+          id="fav-btn"
+          class="p-result-function__btn p-result-function__btn--favorite"
+          (throttleClick$)="this.clickFavorite($event)"
+          [disabled]="this.disabled"
+          aswThrottleClick
+        >
+          <span
+            *ngIf="!this.isRegisteredFavorite"
+            class="p-result-function__btn-text"
+            [innerHTML]="'label.addFavorite1' | staticMsg"
+          ></span>
+          <span
+            *ngIf="this.isRegisteredFavorite"
+            class="p-result-function__btn-text"
+            [innerHTML]="'label.RegisteredAsFavorite' | staticMsg"
+          ></span>
+          <span class="c-btn-add-to-favorite__icon" #animationPoint></span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- ボタン表示部ここまで -->
+</ng-template>
+<!-- テンプレート定義ここまで -->
+
+<!-- SP・TABの表示 -->
+<ng-container *ngIf="this.isCarousel">
+  <div class="l-carousel01 l-carousel01--in-main" [attr.aria-label]="'reader.searchOperationSection' | staticMsg">
+    <div class="l-carousel01__view">
+      <div class="l-carousel01__wrap">
+        <div class="l-carousel01__inner">
+          <asw-common-slider id="search-result-function-slider">
+            <!-- 検索結果操作部スクロールボタン(左) -->
+            <button
+              id="search-result-scroll-left-btn"
+              class="l-carousel01__arrow l-carousel01__arrow--prev is-available"
+              [attr.aria-label]="'alt.switchToLeftScreen1' | staticMsg"
+              *ngIf="isDisplayLeftScrollButton"
+              (throttleClick$)="this.scrollToLeft()"
+              aswThrottleClick
+            >
+              <img
+                src="assets/images/btn_arrow_prev_36.svg"
+                width="36"
+                height="36"
+                alt="{{ 'alt.switchToLeftScreen1' | staticMsg }}"
+                aria-hidden="true"
+              />
+            </button>
+            <!-- ボタン表示部を表示 -->
+            <div class="p-plan-table__search-result" #scrollPanel>
+              <ng-container *ngTemplateOutlet="p_result_function"></ng-container>
+            </div>
+            <!-- 検索結果操作部スクロールボタン(右) -->
+            <button
+              id="search-result-scroll-right-btn"
+              class="l-carousel01__arrow l-carousel01__arrow--next is-available"
+              [attr.aria-label]="'alt.switchToRightScreen1' | staticMsg"
+              *ngIf="isDisplayRightScrollButton"
+              (throttleClick$)="this.scrollToRight()"
+              aswThrottleClick
+            >
+              <img
+                src="assets/images/btn_arrow_next_36.svg"
+                width="36"
+                height="36"
+                alt="{{ 'alt.switchToRightScreen1' | staticMsg }}"
+                aria-hidden="true"
+              />
+            </button>
+          </asw-common-slider>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<!-- PCの表示 -->
+<ng-container *ngIf="!this.isCarousel">
+  <!-- ボタン表示部を表示 -->
+  <ng-container *ngTemplateOutlet="p_result_function"></ng-container>
+</ng-container>

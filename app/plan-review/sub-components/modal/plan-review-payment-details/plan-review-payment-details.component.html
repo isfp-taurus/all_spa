@@ -1,0 +1,36 @@
+<div
+  *ngIf="isShow"
+  #modalContents
+  [class]="lmodalContentsClassWithWidth"
+  aria-modal="true"
+  role="dialog"
+  aria-labelledby="plan-review-payment-details-title"
+>
+  <div #modalHead [class]="lmodalHeaderClass">
+    <div class="p-modal-head01">
+      <h1
+        id="plan-review-payment-details-title"
+        class="p-modal-head01__title"
+        [innerHTML]="'label.paymentBreakdown.title' | staticMsg"
+      ></h1>
+      <button id="p-paymentDetails-header-button" class="p-modal-head01__close js-modal-close" (click)="clickClose()">
+        <span class="u-visually-hidden" [innerHTML]="'alt.closeModal' | staticMsg"></span>
+      </button>
+    </div>
+  </div>
+
+  <div #modalBody [class]="lmodalBodyClass" tabindex="0">
+    <asw-payment-details-summary
+      [data]="paymentDetailsSummaryData"
+      [isCanada]="isCanada"
+      [paymentDetailsAwardData]="paymentDetailsAwardData"
+    ></asw-payment-details-summary>
+    <asw-payment-details-breakdown
+      [data]="paymentDetailsBreakdownData"
+      [isCanada]="isCanada"
+      [isMalaysia]="isMalaysia"
+      [mTaxMsgs]="mTaxMsgs"
+      [paymentDetailsAwardData]="paymentDetailsAwardData"
+    ></asw-payment-details-breakdown>
+  </div>
+</div>

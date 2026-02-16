@@ -1,33 +1,32 @@
 <div
-*ngIf="isShow"
-#modalContents
-[class]="lmodalContentsClassWithwidth"
-aria-modal="true" 
-role="dialog" 
-aria-labelledby="modalTitle"
+  *ngIf="isShow"
+  #modalContents
+  [class]="lmodalContentsClassWithWidth"
+  aria-modal="true"
+  role="dialog"
+  aria-labelledby="modalTitle"
 >
-<div #modalHead [class]="lmodalHeaderClass">
-<div class="p-modal-head01">
-<h1 id="modalTitle" class="p-modal-heado1 title" [innerHTML]=" 'label servicePaymentDetail' | staticMsg"></h1> 
-<button id="paymentDetails-header-button" class="p-modal-heado1_close js-modal-close" (cI¡ck)="с1¡ckClose()">
-<span class="u-visually-hidden" [innerHTML]=" 'alt closeModal' | staticMsg"></span>
-</button>
-</div>
-</div>
-<div #modalBody [class]="ImodalBodyclass">
-<asw-payment-details-summary 
-[data]="paymentDetailsSummaryData" 
-[isCanada]="iscanada"
-[totalMileage]="totalMileage" 
-[paxMileage]="paxMileage" 
-[isAwardBooking]="isAwardBooking">
-></asw-payment-details-summary>
-<asw-payment-details-breakdown
-[data]="paymentDetailsBreakdownData"
-[mTaxMsgs]="mTaxMsgs"
-[totalMileage]="totalMileage" 
-[paxMileage]="paxMileage" 
-[isAwardBooking]="isAwardBooking">
-></asw-payment-details-breakdown>
-</div>
+  <div #modalHead [class]="lmodalHeaderClass">
+    <div class="p-modal-head01">
+      <h1 id="modalTitle" class="p-modal-head01__title" [innerHTML]="'label.servicePaymentDetail' | staticMsg"></h1>
+      <button id="paymentDetails-header-button" class="p-modal-head01__close js-modal-close" (click)="clickClose()">
+        <span class="u-visually-hidden" [innerHTML]="'alt.closeModal' | staticMsg"></span>
+      </button>
+    </div>
+  </div>
+
+  <div #modalBody [class]="lmodalBodyClass">
+    <asw-payment-details-summary
+      [data]="paymentDetailsSummaryData"
+      tabindex="0"
+      [isCanada]="isCanada"
+      [paymentDetailsAwardData]="paymentDetailsAwardData"
+    ></asw-payment-details-summary>
+    <asw-payment-details-breakdown
+      tabindex="0"
+      [data]="paymentDetailsBreakdownData"
+      [mTaxMsgs]="mTaxMsgs"
+      [paymentDetailsAwardData]="paymentDetailsAwardData"
+    ></asw-payment-details-breakdown>
+  </div>
 </div>

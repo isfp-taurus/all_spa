@@ -1,0 +1,174 @@
+<!-- 選択中・プロモーション適用と利用不可判定 -->
+<div
+  class="p-flight-container u-mt-tb-16"
+  [ngClass]="{
+    'p-flight-container--selected': this.isSelectedOffer,
+    'p-flight-container--cancelled': this.isUnavailable
+  }"
+>
+  <ng-container *ngIf="this.isSelectedOffer">
+    <div class="p-flight-container__tag">
+      <div class="p-flight-container__tag-item p-flight-container__tag-item--selected">
+        <em [innerHTML]="'reader.selecting' | staticMsg"></em>
+        <span class="u-visually-hidden" [innerHTML]="'label.currentFare2' | staticMsg"></span>
+      </div>
+    </div>
+  </ng-container>
+  <div class="p-flight-container__inner">
+    <!-- 検索結果 -->
+    <div class="p-flight-container__inner-item1">
+      <!-- 遅延早発情報 -->
+      <div class="p-flight-container__announce">
+        <div class="p-flight-container__announce-item">
+          <!-- 遅延情報 -->
+          <ng-container *ngIf="this.bound?.isContainedDelayedFlight">
+            <span class="c-tag c-tag--type01"><strong [innerHTML]="'label.delayed' | staticMsg"></strong></span>
+          </ng-container>
+          <!-- 早発情報 -->
+          <ng-container *ngIf="!this.bound?.isContainedDelayedFlight && this.bound?.isContainedEarlyDepartureFlight">
+            <span class="c-tag c-tag--type01"><strong [innerHTML]="'label.earlyDeparture' | staticMsg"></strong></span>
+          </ng-container>
+        </div>
+      </div>
+      <!-- 出発・到着地、出発・到着時刻（最新時刻含む）、所要時間、乗継回数を表示する画面部品 -->
+      <div
+        class="p-flight-container__plan"
+        [ngClass]="{ 'p-flight-container__plan-government': isPc && bound?.isContainedSubjectToGovernmentApproval }"
+      >
+        <asw-fmf-flight-plan
+          [originLocationCode]="this.bound?.originLocationCode"
+          [destinationLocationCode]="this.bound?.destinationLocationCode"
+          [originLocationName]="this.bound?.originLocationName"
+          [destinationLocationName]="this.bound?.destinationLocationName"
+          [originDepartureDateTime]="this.bound?.originDepartureDateTime"
+          [originDepartureEstimatedDateTime]="this.bound?.originDepartureEstimatedDateTime"
+          [isLateNightDeparture]="this.bound?.flights?.[0]?.isLateNightDeparture"
+          [destinationArrivalDateTime]="this.bound?.destinationArrivalDateTime"
+          [destinationArrivalEstimatedDateTime]="this.bound?.destinationArrivalEstimatedDateTime"
+          [numberOfConnections]="this.bound?.numberOfConnections"
+          [durationTime]="this.bound?.duration"
+          [isUnavailable]="this.isUnavailable"
+          [currentBoundIndex]="this.currentBoundIndex"
+          [boundDepartureAirportCode]="this.boundDepartureAirportCode"
+          [boundArrivalAirportCode]="this.boundArrivalAirportCode"
+        >
+        </asw-fmf-flight-plan>
+      </div>
+      <div class="p-flight-container__info">
+        <div class="c-flight-detail-overview02">
+          <div class="c-flight-detail-overview02__2col">
+            <div class="c-flight-detail-overview02__2col-left">
+              <p
+                class="c-flight-detail-overview02__2col-left-title"
+                [ngClass]="{
+                  'c-flight-detail-overview02__item-title--dark': this.isUnavailable
+                }"
+                [innerHTML]="'label.operate' | staticMsg"
+              ></p>
+              <!-- 運航キャリア識別・名称 -->
+              <div class="c-flight-detail-overview02__2col-left-item">
+                <div class="c-flight-detail-overview02__2col-left-item-box">
+                  <ng-container *ngIf="this.bound?.isAllNhGroupOperated">
+                    <!-- 運航キャリア識別 -->
+                    <span class="c-ana-icon01">
+                      <img
+                        class="c-ana-icon01__img"
+                        src="{{ appConstants.IMG.PARTNER_COMPANY_ICON }}"
+                        width="{{ appConstants.IMG.LOGO_S_WIDTH }}"
+                        height="{{ appConstants.IMG.LOGO_S_HEIGHT }}"
+                        alt="{{ 'alt.nhFlight' | staticMsg }}"
+                      />
+                    </span>
+                  </ng-container>
+                  <ng-container *ngIf="!this.bound?.isAllNhGroupOperated">
+                    <span class="c-asam-icon01">
+                      <span
+                        [innerHTML]="'label.sectionOpCarrierWording' | staticMsg : { '0': this.operatingAirlineName }"
+                      ></span>
+                    </span>
+                  </ng-container>
+                </div>
+              </div>
+            </div>
+            <!-- フライト詳細表示リンク -->
+            <div class="c-flight-detail-overview02__2col-right">
+              <ng-container *ngIf="isPc">
+                <ng-container *ngIf="bound?.isContainedSubjectToGovernmentApproval">
+                  <div class="c-flight-detail-overview01__item" style="padding: 0 0 5px">
+                    <ul class="c-information-list01">
+                      <li class="c-information-list01__item">
+                        <p class="c-information-list01" [innerHTML]="'label.pendingGovernmentApproval' | staticMsg"></p>
+                      </li>
+                    </ul>
+                  </div>
+                </ng-container>
+              </ng-container>
+              <button id="P034-flight-summary-and-fare-family-flight-detail-link-btn">
+                <a
+                  id="P034-flight-summary-and-fare-family-flight-detail-link"
+                  class="c-text-link-arrow01 c-text-link-arrow01--s"
+                  (throttleClick$)="this.clickFlightDetailLink()"
+                  [innerHTML]="'label.details1' | staticMsg"
+                  aswThrottleClick
+                ></a>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FF情報部 -->
+    <div *ngIf="!this.isUnavailable" class="p-flight-container__inner-item2">
+      <div class="p-flight-container__fare">
+        <div class="p-flight-container__fare-item">
+          <!-- 差額 -->
+          <p *ngIf="this.priceDifference || this.priceDifference === 0" class="p-flight-container__fare-price">
+            <span class="p-flight-container__fare-price-currency" [innerHTML]="this.priceDifferenSign"></span>
+            <span
+              class="p-flight-container__fare-price-num"
+              [innerHTML]="
+                this.priceDifferenceAbsoluteValue ?? 0 | amountFormat : 'availability.flightContainer_totalPrice'
+              "
+            ></span>
+          </p>
+        </div>
+        <div class="p-flight-container__fare-item">
+          <ng-container *ngIf="this.complexBounds?.[currentBoundIndex]?.quotaType === 'few'">
+            <div class="p-flight-container__fare-item-emp">
+              <p
+                [innerHTML]="'label.lastSeatWithSpan1' | staticMsg : {'0':this.complexBounds?.[currentBoundIndex]?.quota}"
+              ></p>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="this.complexBounds?.[currentBoundIndex]?.quotaType === 'available'">
+            <div class="p-flight-container__fare-item-emp">
+              <p [innerHTML]="'label.remainSeat' | staticMsg"></p>
+            </div>
+          </ng-container>
+          <!-- SP・TAB版でのTS別FF情報としてのFF選択表示ボタン -->
+          <ng-container>
+            <button
+              id="P034-flight-summary-and-fare-family-fare-family-select-btn"
+              class="c-btn-primary c-btn-primary--s c-btn-primary--wide"
+              aswThrottleClick
+              (throttleClick$)="this.clickSelectButton()"
+            >
+              <span class="c-btn-primary__text" [innerHTML]="'label.selectRadio' | staticMsg"></span>
+            </button>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+    <ng-container *ngIf="this.isUnavailable">
+      <div class="p-flight-container__inner-item2">
+        <div class="p-flight-container__none">
+          <p
+            class="p-flight-container__none-text p-flight-container__none-text--dark"
+            [innerHTML]="'label.unavailable' | staticMsg"
+          ></p>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

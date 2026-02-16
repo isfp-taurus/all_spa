@@ -1,0 +1,666 @@
+<div *ngFor="let bound of boundList">
+  <table class="p-family-miles__table">
+    <tbody>
+      <tr>
+        <!-- [出発日] -->
+        <td colspan="2">
+          <div class="c-def-list02__item-title">
+            <span *ngIf="isValid; else invalidDepDate">
+              <!-- 有効プランの場合 -->
+              <span *ngIf="bound.curDep; else noCurDepDate">
+                <!-- 最新カート情報がある場合 -->
+                <div [innerHTML]="bound.curDep | dateFormat : 'default_itineraryRsDate'"></div>
+              </span>
+              <ng-template #noCurDepDate>
+                <!-- 最新カート情報がない場合 -->
+                <del>
+                  <div [innerHTML]="bound.preDep ?? '' | dateFormat : 'default_itineraryRsDate'"></div>
+                </del>
+              </ng-template>
+            </span>
+            <ng-template #invalidDepDate>
+              <!-- 無効プランの場合 -->
+              <div [innerHTML]="bound.preDep ?? '' | dateFormat : 'default_itineraryRsDate'"></div>
+            </ng-template>
+          </div>
+        </td>
+        <!-- [//出発日] -->
+      </tr>
+      <tr [ngClass]="isValid ? 'p-airport-list-modal__ac-item' : 'plan-info__bound-list--invalid-plan'">
+        <td scope="row" colspan="2">
+          <div class="">
+            <table>
+              <tbody>
+                <tr>
+                  <td>
+                    <!-- [出発時刻] -->
+                    <span *ngIf="bound.isLateNightDeparture; else notLateNight">
+                      <!-- 深夜便の場合 -->
+                      <span *ngIf="isValid; else invalidLateNightDep">
+                        <!-- 有効プランの場合 -->
+                        <span *ngIf="bound.curDep; else noCurDepLateNight">
+                          <!-- 最新カート情報がある場合 -->
+                          <div [ngSwitch]="bound.isDepertureEstimate">
+                            <div *ngSwitchCase="false" class="c-message-box__title c-plan-table01__col-item--em">
+                              <!-- 最新出発時刻がない場合 -->
+                              <div
+                                [ngClass]="bound.diffFlg.diffDep ? 'diff' : ''"
+                                [innerHTML]="
+                                  bound.curDep | dateFormat : 'availability.flightPlan_departuredate.time' : false
+                                "
+                              ></div>
+                              <div
+                                [ngClass]="bound.diffFlg.diffDep ? 'diff' : ''"
+                                [innerHTML]="
+                                  bound.curDep
+                                    | dateFormat : 'availability.flightplan_departuredate.datetime.lateNight' : true
+                                "
+                              ></div>
+                              <span
+                                *ngIf="bound.diffFlg.diffDep"
+                                class="u-visually-hidden"
+                                [innerHTML]="'label.changedItem' | staticMsg"
+                              ></span>
+                            </div>
+                            <div *ngSwitchCase="true" class="c-message-box__title c-plan-table01__col-item--em">
+                              <!-- 最新出発時刻がある場合 -->
+                              <div
+                                [ngClass]="bound.diffFlg.diffDep ? 'diff' : ''"
+                                [innerHTML]="
+                                  bound.curDep | dateFormat : 'availability.flightPlan_departuredate.time.old' : false
+                                "
+                              ></div>
+                              <span
+                                *ngIf="bound.diffFlg.diffDep"
+                                class="u-visually-hidden"
+                                [innerHTML]="'label.changedItem' | staticMsg"
+                              ></span>
+                            </div>
+                          </div>
+                        </span>
+                        <ng-template #noCurDepLateNight>
+                          <!-- 最新カート情報がない場合 -->
+                          <div
+                            [innerHTML]="
+                              bound.preDep ?? '' | dateFormat : 'availability.flightPlan_departuredate.time.old' : false
+                            "
+                          ></div>
+                        </ng-template>
+                      </span>
+                    </span>
+                    <ng-template #invalidLateNightDep>
+                      <!-- 無効プランの場合 -->
+                      <div [ngSwitch]="bound.isDepertureEstimate">
+                        <div *ngSwitchCase="false" class="c-message-box__title c-plan-table01__col-item--em">
+                          <!-- 最新カート情報がある場合 -->
+                          <div
+                            [ngClass]="bound.diffFlg.diffDep ? 'diff' : ''"
+                            [innerHTML]="
+                              bound.preDep ?? '' | dateFormat : 'availability.flightPlan_departuredate.time' : false
+                            "
+                          ></div>
+                          <div
+                            [ngClass]="bound.diffFlg.diffDep ? 'diff' : ''"
+                            [innerHTML]="
+                              bound.preDep ?? ''
+                                | dateFormat : 'availability.flightplan_departuredate.datetime.lateNight.latest' : true
+                            "
+                          ></div>
+                          <span
+                            *ngIf="bound.diffFlg.diffDep"
+                            class="u-visually-hidden"
+                            [innerHTML]="'label.changedItem' | staticMsg"
+                          ></span>
+                        </div>
+                        <div *ngSwitchCase="true" class="c-message-box__title c-plan-table01__col-item--em">
+                          <!-- 最新出発時刻がない場合 -->
+                          <div
+                            [ngClass]="bound.diffFlg.diffDep ? 'diff' : ''"
+                            [innerHTML]="
+                              bound.preDep ?? '' | dateFormat : 'availability.flightPlan_departuredate.time.old' : false
+                            "
+                          ></div>
+                          <span
+                            *ngIf="bound.diffFlg.diffDep"
+                            class="u-visually-hidden"
+                            [innerHTML]="'label.changedItem' | staticMsg"
+                          ></span>
+                        </div>
+                      </div>
+                    </ng-template>
+                    <ng-template #notLateNight>
+                      <!-- 深夜便ではない場合 -->
+                      <span *ngIf="isValid; else invalidDep">
+                        <!-- 有効プランの場合 -->
+                        <span *ngIf="bound.curDep; else noCurDep">
+                          <!-- 最新カート情報がある場合 -->
+                          <div [ngSwitch]="bound.isDepertureEstimate">
+                            <div *ngSwitchCase="false" class="c-message-box__title c-plan-table01__col-item--em">
+                              <!-- 最新出発時刻がない場合 -->
+                              <div
+                                [ngClass]="bound.diffFlg.diffDep ? 'diff' : ''"
+                                [innerHTML]="bound.curDep | dateFormat : 'availability.flightPlan_departuredate.time'"
+                              ></div>
+                              <span
+                                *ngIf="bound.diffFlg.diffDep"
+                                class="u-visually-hidden"
+                                [innerHTML]="'label.changedItem' | staticMsg"
+                              ></span>
+                            </div>
+                            <div *ngSwitchCase="true" class="c-message-box__title c-plan-table01__col-item--em">
+                              <!-- 最新出発時刻がある場合 -->
+                              <div
+                                [ngClass]="bound.diffFlg.diffDep ? 'diff' : ''"
+                                [innerHTML]="
+                                  bound.curDep | dateFormat : 'availability.flightPlan_departuredate.time.old'
+                                "
+                              ></div>
+                              <span
+                                *ngIf="bound.diffFlg.diffDep"
+                                class="u-visually-hidden"
+                                [innerHTML]="'label.changedItem' | staticMsg"
+                              ></span>
+                            </div>
+                          </div>
+                        </span>
+                        <ng-template #noCurDep>
+                          <!-- 最新カート情報がない場合 -->
+                          <div
+                            [innerHTML]="
+                              bound.preDep ?? '' | dateFormat : 'availability.flightPlan_departuredate.time.old' : true
+                            "
+                          ></div>
+                        </ng-template>
+                      </span>
+                      <ng-template #invalidDep>
+                        <!-- 無効プランの場合 -->
+                        <div [ngSwitch]="bound.isDepertureEstimate">
+                          <div *ngSwitchCase="false" class="c-message-box__title c-plan-table01__col-item--em">
+                            <!-- 最新出発時刻がない場合 -->
+                            <div
+                              [ngClass]="bound.diffFlg.diffDep ? 'diff' : ''"
+                              [innerHTML]="
+                                bound.preDep ?? '' | dateFormat : 'availability.flightPlan_departuredate.time' : true
+                              "
+                            ></div>
+                            <span
+                              *ngIf="bound.diffFlg.diffDep"
+                              class="u-visually-hidden"
+                              [innerHTML]="'label.changedItem' | staticMsg"
+                            ></span>
+                          </div>
+                          <div *ngSwitchCase="true" class="c-message-box__title c-plan-table01__col-item--em">
+                            <!-- 最新出発時刻がある場合 -->
+                            <div
+                              [ngClass]="bound.diffFlg.diffDep ? 'diff' : ''"
+                              [innerHTML]="
+                                bound.preDep ?? ''
+                                  | dateFormat : 'availability.flightPlan_departuredate.time.old' : true
+                              "
+                            ></div>
+                            <span
+                              *ngIf="bound.diffFlg.diffDep"
+                              class="u-visually-hidden"
+                              [innerHTML]="'label.changedItem' | staticMsg"
+                            ></span>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ng-template>
+                    <!-- [//出発時刻] -->
+
+                    <!-- [最新出発時刻] -->
+                    <span *ngIf="bound.isLateNightDeparture; else notLateNightEst">
+                      <!-- 深夜便の場合 -->
+                      <span *ngIf="isValid; else invalidLateNightDepEst">
+                        <!-- 有効プランの場合 -->
+                        <span *ngIf="bound.curDepEst; else noCurDepEstLateNight">
+                          <!-- 最新カート情報がある場合 -->
+                          <div *ngIf="bound.isDepertureEstimate">
+                            <div
+                              [ngClass]="
+                                isValid
+                                  ? 'plan-info__estimate-datetime--valid-plan'
+                                  : 'plan-info__estimate-datetime--invalid-plan'
+                              "
+                              class="c-message-box__title c-plan-table01__col-item--em"
+                            >
+                              <div
+                                [ngClass]="bound.diffFlg.diffDepEst ? 'diff' : ''"
+                                [innerHTML]="
+                                  bound.curDepEst
+                                    | dateFormat : 'availability.flightPlan_departuredate.time.latest' : false
+                                "
+                              ></div>
+                              <div
+                                [ngClass]="bound.diffFlg.diffDepEst ? 'diff' : ''"
+                                [innerHTML]="
+                                  bound.curDepEst
+                                    | dateFormat
+                                      : 'availability.flightplan_departuredate.datetime.lateNight.latest'
+                                      : true
+                                "
+                              ></div>
+                              <span
+                                *ngIf="bound.diffFlg.diffDepEst"
+                                class="u-visually-hidden"
+                                [innerHTML]="'label.changedItem' | staticMsg"
+                              ></span>
+                            </div>
+                          </div>
+                        </span>
+                        <ng-template #noCurDepEstLateNight>
+                          <!-- 最新カート情報がない場合 -->
+                          <div *ngIf="bound.isDepertureEstimate">
+                            <div
+                              [ngClass]="
+                                isValid
+                                  ? 'plan-info__estimate-datetime--valid-plan'
+                                  : 'plan-info__estimate-datetime--invalid-plan'
+                              "
+                              class="c-message-box__title c-plan-table01__col-item--em"
+                            >
+                              <del>
+                                <div
+                                  [innerHTML]="
+                                    bound.preDepEst ?? ''
+                                      | dateFormat : 'availability.flightPlan_departuredate.time.latest' : false
+                                  "
+                                ></div>
+                                <div
+                                  [innerHTML]="
+                                    bound.preDepEst ?? ''
+                                      | dateFormat
+                                        : 'availability.flightplan_departuredate.datetime.lateNight.latest'
+                                        : true
+                                  "
+                                ></div>
+                              </del>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </span>
+                      <ng-template #invalidLateNightDepEst>
+                        <!-- 無効プランの場合 -->
+                        <div *ngIf="bound.isDepertureEstimate">
+                          <div
+                            [ngClass]="
+                              isValid
+                                ? 'plan-info__estimate-datetime--valid-plan'
+                                : 'plan-info__estimate-datetime--invalid-plan'
+                            "
+                            class="c-message-box__title c-plan-table01__col-item--em"
+                          >
+                            <div
+                              [ngClass]="bound.diffFlg.diffDepEst ? 'diff' : ''"
+                              [innerHTML]="
+                                bound.preDepEst ?? ''
+                                  | dateFormat : 'availability.flightPlan_departuredate.time.latest' : false
+                              "
+                            ></div>
+                            <div
+                              [ngClass]="bound.diffFlg.diffDepEst ? 'diff' : ''"
+                              [innerHTML]="
+                                bound.preDepEst ?? ''
+                                  | dateFormat
+                                    : 'availability.flightplan_departuredate.datetime.lateNight.latest'
+                                    : true
+                              "
+                            ></div>
+                            <span
+                              *ngIf="bound.diffFlg.diffDepEst"
+                              class="u-visually-hidden"
+                              [innerHTML]="'label.changedItem' | staticMsg"
+                            ></span>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </span>
+                    <ng-template #notLateNightEst>
+                      <!-- 深夜便ではない場合 -->
+                      <span *ngIf="isValid; else invalidDepEst">
+                        <!-- 有効プランの場合 -->
+                        <span *ngIf="bound.curDepEst; else noCurDepEst">
+                          <!-- 最新カート情報がある場合 -->
+                          <div *ngIf="bound.isDepertureEstimate">
+                            <div
+                              [ngClass]="
+                                isValid
+                                  ? 'plan-info__estimate-datetime--valid-plan'
+                                  : 'plan-info__estimate-datetime--invalid-plan'
+                              "
+                              class="c-message-box__title c-plan-table01__col-item--em"
+                            >
+                              <div
+                                [ngClass]="bound.diffFlg.diffDepEst ? 'diff' : ''"
+                                [innerHTML]="
+                                  bound.curDepEst | dateFormat : 'availability.flightPlan_departuredate.time.latest'
+                                "
+                              ></div>
+                              <span
+                                *ngIf="bound.diffFlg.diffDepEst"
+                                class="u-visually-hidden"
+                                [innerHTML]="'label.changedItem' | staticMsg"
+                              ></span>
+                            </div>
+                          </div>
+                        </span>
+                        <ng-template #noCurDepEst>
+                          <!-- 最新カート情報がない場合 -->
+                          <div *ngIf="bound.isDepertureEstimate">
+                            <div
+                              [ngClass]="
+                                isValid
+                                  ? 'plan-info__estimate-datetime--valid-plan'
+                                  : 'plan-info__estimate-datetime--invalid-plan'
+                              "
+                              class="c-message-box__title c-plan-table01__col-item--em"
+                            >
+                              <del>
+                                <div
+                                  [innerHTML]="
+                                    bound.preDepEst ?? ''
+                                      | dateFormat : 'availability.flightPlan_departuredate.time.latest'
+                                  "
+                                ></div>
+                              </del>
+                            </div>
+                          </div>
+                        </ng-template>
+                      </span>
+                      <ng-template #invalidDepEst>
+                        <!-- 無効プランの場合 -->
+                        <div *ngIf="bound.isDepertureEstimate">
+                          <div
+                            [ngClass]="
+                              isValid
+                                ? 'plan-info__estimate-datetime--valid-plan'
+                                : 'plan-info__estimate-datetime--invalid-plan'
+                            "
+                            class="c-message-box__title c-plan-table01__col-item--em"
+                          >
+                            <div
+                              [ngClass]="bound.diffFlg.diffDepEst ? 'diff' : ''"
+                              [innerHTML]="
+                                bound.preDepEst ?? '' | dateFormat : 'availability.flightPlan_departuredate.time.latest'
+                              "
+                            ></div>
+                            <span
+                              *ngIf="bound.diffFlg.diffDepEst"
+                              class="u-visually-hidden"
+                              [innerHTML]="'label.changedItem' | staticMsg"
+                            ></span>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </ng-template>
+                    <!-- [//最新出発時刻] -->
+                  </td>
+
+                  <!-- [出発空港] -->
+                  <td>
+                    <span *ngIf="isValid; else invalidDepAirport">
+                      <!-- 有効プランの場合 -->
+                      <span *ngIf="bound.curDepAirportName; else noDepAirport">
+                        <!-- 最新カート情報がある場合 -->
+                        <div class="c-message-box__title c-plan-table01__col-item--em">
+                          {{ bound.curDepAirportName }}
+                        </div>
+                      </span>
+                      <ng-template #noDepAirport>
+                        <!-- 最新カート情報がない場合 -->
+                        <div class="c-message-box__title c-plan-table01__col-item--em">
+                          <del>{{ bound.preDepAirportName ?? '' }}</del>
+                        </div>
+                      </ng-template>
+                    </span>
+                    <ng-template #invalidDepAirport>
+                      <!-- 無効プランの場合 -->
+                      <div class="c-message-box__title c-plan-table01__col-item--em">
+                        {{ bound.preDepAirportName ?? '' }}
+                      </div>
+                    </ng-template>
+                  </td>
+                  <!-- [//出発空港] -->
+                </tr>
+                <tr>
+                  <td>
+                    <!-- [到着時刻] -->
+                    <span *ngIf="isValid; else invalidArv">
+                      <!-- 有効プランの場合 -->
+                      <span *ngIf="bound.curArv; else noCurArv">
+                        <!-- 最新カート情報がある場合 -->
+                        <span [ngClass]="bound.diffFlg.diffArv ? 'diff' : ''">
+                          <span [ngSwitch]="bound.isArrivalEstimate">
+                            <span
+                              *ngSwitchCase="false"
+                              class="c-message-box__title c-plan-table01__col-item--em"
+                              [innerHTML]="bound.curArv | dateFormat : 'availability.flightPlan_departuredate.time'"
+                            >
+                            </span>
+                            <span
+                              *ngSwitchCase="true"
+                              class="c-message-box__title c-plan-table01__col-item--em"
+                              [innerHTML]="bound.curArv | dateFormat : 'availability.flightPlan_departuredate.time.old'"
+                            >
+                            </span>
+                          </span>
+                        </span>
+                        <span
+                          *ngIf="bound.diffFlg.diffArv"
+                          class="u-visually-hidden"
+                          [innerHTML]="'label.changedItem' | staticMsg"
+                        ></span>
+                      </span>
+                      <ng-template #noCurArv>
+                        <!-- 最新カート情報がない場合 -->
+                        <span
+                          class="c-message-box__title c-plan-table01__col-item--em"
+                          [innerHTML]="
+                            bound.preArv ?? '' | dateFormat : 'availability.flightPlan_departuredate.time.old'
+                          "
+                        >
+                        </span>
+                      </ng-template>
+                    </span>
+                    <ng-template #invalidArv>
+                      <!-- 無効プランの場合 -->
+                      <span
+                        class="c-message-box__title c-plan-table01__col-item--em"
+                        [innerHTML]="bound.preArv ?? '' | dateFormat : 'availability.flightPlan_departuredate.time'"
+                      ></span>
+                    </ng-template>
+
+                    <!-- [到着日付差] -->
+                    <span *ngIf="isValid; else invalidDayDiff">
+                      <!-- 有効プランの場合 -->
+                      <span *ngIf="bound.curArv; else noCurDayDiff">
+                        <!-- 最新カート情報がある場合 -->
+                        <span *ngIf="bound.curDayDiff !== ''" class="c-plan-table01__col-item--em">
+                          <span
+                            [ngClass]="bound.curDayDiffMinusOne ? 'plan-info__estimate-datetime--valid-plan' : ''"
+                            [innerHTML]="bound.curDayDiff | staticMsg"
+                          ></span>
+                        </span>
+                      </span>
+                      <ng-template #noCurDayDiff>
+                        <!-- 最新カート情報がない場合 -->
+                        <del
+                          ><span *ngIf="(bound.preDayDiff ?? '') !== ''" class="c-plan-table01__col-item--em">
+                            <span
+                              [ngClass]="bound.preDayDiffMinusOne ? 'plan-info__estimate-datetime--valid-plan' : ''"
+                              [innerHTML]="bound.preDayDiff | staticMsg"
+                            ></span> </span
+                        ></del>
+                      </ng-template>
+                    </span>
+                    <ng-template #invalidDayDiff>
+                      <!-- 無効プランの場合 -->
+                      <span
+                        *ngIf="(bound.preDayDiff ?? '') !== ''"
+                        class="c-plan-table01__col-item--em"
+                        [innerHTML]="bound.preDayDiff | staticMsg"
+                      ></span>
+                    </ng-template>
+                    <!-- [//到着時刻] -->
+
+                    <!-- [最新到着時刻] -->
+                    <span *ngIf="isValid; else invalidArvEst">
+                      <!-- 有効プランの場合 -->
+                      <span *ngIf="bound.curArvEst; else noCurArvEst">
+                        <!-- 最新カート情報がある場合 -->
+                        <div *ngIf="bound.isArrivalEstimate" [ngClass]="bound.diffFlg.diffArvEst ? 'diff' : ''">
+                          <span
+                            [ngClass]="
+                              isValid
+                                ? 'plan-info__estimate-datetime--valid-plan'
+                                : 'plan-info__estimate-datetime--invalid-plan'
+                            "
+                            class="c-message-box__title c-plan-table01__col-item--em"
+                            [innerHTML]="
+                              bound.curArvEst | dateFormat : 'availability.flightPlan_departuredate.time.latest'
+                            "
+                          ></span>
+                        </div>
+                        <span
+                          *ngIf="bound.diffFlg.diffArvEst"
+                          class="u-visually-hidden"
+                          [innerHTML]="'label.changedItem' | staticMsg"
+                        ></span>
+                      </span>
+                      <ng-template #noCurArvEst>
+                        <!-- 最新カート情報がない場合 -->
+                        <div *ngIf="bound.isArrivalEstimate">
+                          <del
+                            ><span
+                              [ngClass]="
+                                isValid
+                                  ? 'plan-info__estimate-datetime--valid-plan'
+                                  : 'plan-info__estimate-datetime--invalid-plan'
+                              "
+                              class="c-message-box__title c-plan-table01__col-item--em"
+                              [innerHTML]="
+                                bound.preArvEst ?? '' | dateFormat : 'availability.flightPlan_departuredate.time.latest'
+                              "
+                            ></span
+                          ></del>
+                        </div>
+                      </ng-template>
+                    </span>
+                    <ng-template #invalidArvEst>
+                      <!-- 無効プランの場合 -->
+                      <div *ngIf="bound.isArrivalEstimate" [ngClass]="bound.diffFlg.diffArvEst ? 'diff' : ''">
+                        <span
+                          [ngClass]="
+                            isValid
+                              ? 'plan-info__estimate-datetime--valid-plan'
+                              : 'plan-info__estimate-datetime--invalid-plan'
+                          "
+                          class="c-message-box__title c-plan-table01__col-item--em"
+                          [innerHTML]="
+                            bound.preArvEst ?? '' | dateFormat : 'availability.flightPlan_departuredate.time.latest'
+                          "
+                        ></span>
+                      </div>
+                      <span
+                        *ngIf="bound.diffFlg.diffArvEst"
+                        class="u-visually-hidden"
+                        [innerHTML]="'label.changedItem' | staticMsg"
+                      ></span>
+                    </ng-template>
+                    <!-- [最新到着時刻] -->
+                  </td>
+
+                  <!-- [到着空港] -->
+                  <td class="c-plan-table01__col">
+                    <span *ngIf="isValid; else invalidArvAirport">
+                      <!-- 有効プランの場合 -->
+                      <span *ngIf="bound.curArvAirportName; else noCurArvAirport">
+                        <!-- 最新カート情報がある場合 -->
+                        <div class="c-message-box__title c-plan-table01__col-item--em">
+                          {{ bound.curArvAirportName }}
+                        </div>
+                      </span>
+                      <ng-template #noCurArvAirport>
+                        <!-- 最新カート情報がない場合 -->
+                        <div class="c-message-box__title c-plan-table01__col-item--em">
+                          <del>{{ bound.preArvAirportName ?? '' }}</del>
+                        </div>
+                      </ng-template>
+                    </span>
+                    <ng-template #invalidArvAirport>
+                      <!-- 無効プランの場合 -->
+                      <div class="c-message-box__title c-plan-table01__col-item--em">
+                        {{ bound.preArvAirportName ?? '' }}
+                      </div>
+                    </ng-template>
+                  </td>
+                  <!-- [//到着空港] -->
+                </tr>
+                <tr>
+                  <td class="plan-info__service-table-width" colspan="1"></td>
+                  <td class="c-plan-table01__col">
+                    <!-- [便名] -->
+                    <div class="p-flight-detail01__detail-info-item p-flight-detail01__detail-info-item--service">
+                      <div class="p-flight-detail01__detail-info-contents c-text-m">
+                        <div *ngFor="let segment of bound.segment">
+                          <span *ngIf="isValid; else invalidFlightNo">
+                            <!-- 有効プランの場合 -->
+                            <span *ngIf="segment.curflightName; else noCurFlightNo">
+                              <!-- 最新カート情報がある場合 -->
+                              <span>{{ segment.curflightName }}</span>
+                            </span>
+                            <ng-template #noCurFlightNo>
+                              <!-- 最新カート情報がない場合 -->
+                              <span
+                                ><del>{{ segment.preflightName }}</del></span
+                              >
+                            </ng-template>
+                          </span>
+                          <ng-template #invalidFlightNo>
+                            <!-- 無効プランの場合 -->
+                            <span>{{ segment.preflightName }}</span>
+                          </ng-template>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- [//便名] -->
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="1"></td>
+                  <td class="c-plan-table01__col">
+                    <div class="c-plan-table01__col-inner">
+                      <dl class="p-flight-detail01__detail-info-item p-flight-detail01__detail-info-item--service">
+                        <dt class="p-flight-detail01__detail-info-title">
+                          <div
+                            [ngClass]="isValid ? '' : 'plan-info__estimate-datetime--invalid-plan'"
+                            [innerHTML]="'label.additionalService' | staticMsg"
+                          ></div>
+                        </dt>
+                        <dd class="p-flight-detail01__detail-info-contents">
+                          <!-- [サービス情報サマリ] -->
+                          <asw-plan-list-bound-service
+                            [isValid]="isValid"
+                            [isBaggage]="bound.isBaggage"
+                            [isLounge]="bound.isLounge"
+                            [isMeal]="bound.isMeal"
+                            [diffBaggage]="bound.diffFlg.diffBaggage"
+                            [diffLounge]="bound.diffFlg.diffLounge"
+                            [diffMeal]="bound.diffFlg.diffMeal"
+                          >
+                          </asw-plan-list-bound-service>
+                          <!-- [//サービス情報サマリ] -->
+                        </dd>
+                      </dl>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

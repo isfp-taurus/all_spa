@@ -1,0 +1,19 @@
+<ng-container *ngIf="this.cacheLoadingCompleted">
+  <asw-search-flight-body-pres
+    [props]="this.searchFlightPresProps"
+    [tabIndex]="this.tabIndex"
+    [information]="information"
+    [onewayInformationList]="onewayInformationList"
+    [isJapanOnlyFlag]="this.isJapanOnlyFlag"
+    [dcsMigrationDateStatus]="this.dcsMigrationDateStatus"
+    [oldDomesticAswSearchFlag]="this.oldDomesticAswSearchFlag"
+    (activeNum$)="this.getActiveTabNumber($event)"
+    (changeAirport)="this.changeAirport($event)"
+    (changeOptionOpenEvent)="changeOptionOpen($event)"
+    (changeDepartureDate)="this.changeDepartureDate($event)"
+    [autoSearch]="this.autoSearch"
+    [requestParam]="this.requestParam"
+    #searchFlightBodyPresComponent
+  >
+  </asw-search-flight-body-pres>
+</ng-container>

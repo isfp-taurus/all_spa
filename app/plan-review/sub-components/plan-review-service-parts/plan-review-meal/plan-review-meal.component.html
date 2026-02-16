@@ -1,0 +1,158 @@
+<!-- ▼ ▼ ▼ 差分強調表示用テンプレート(通常) ▼ ▼ ▼ -->
+<ng-template #emph let-content>
+  <span [ngClass]="{ del: content.type === 'del', diff: content.type === 'diff' }">
+    <span *ngIf="content.value" [innerHTML]="content.value"></span>
+    <span *ngIf="!content.value" [innerHTML]="'label.hyphen' | staticMsg"></span>
+    <span
+      *ngIf="content.type === 'del' || content.type === 'diff'"
+      class="u-visually-hidden"
+      [innerHTML]="'reader.diffIcon' | staticMsg"
+    ></span>
+    <span
+      *ngIf="content.type === 'del'"
+      class="u-visually-hidden"
+      [innerHTML]="'reader.revokedService' | staticMsg"
+    ></span>
+  </span>
+</ng-template>
+
+<!-- ▼ ▼ ▼ 差分強調表示用テンプレート(金額) ▼ ▼ ▼ -->
+<ng-template #emphPrice let-content>
+  <span [ngClass]="{ del: content.type === 'del', diff: content.type === 'diff' }">
+    <span *ngIf="content.value" [innerHTML]="content.value | amountFormat : undefined : currencyCode"></span>
+    <span *ngIf="!content.value" [innerHTML]="'label.hyphen' | staticMsg"></span>
+    <span
+      *ngIf="content.type === 'del' || content.type === 'diff'"
+      class="u-visually-hidden"
+      [innerHTML]="'reader.diffIcon' | staticMsg"
+    ></span>
+    <span
+      *ngIf="content.type === 'del'"
+      class="u-visually-hidden"
+      [innerHTML]="'reader.revokedService' | staticMsg"
+    ></span>
+  </span>
+</ng-template>
+
+<!-- 以下、本体 -->
+<div id="anc-meal" class="p-manage-booking__item" [ngClass]="{ 'grey-bg': !isPlanValid, 'is-scroll': isScroll }">
+  <div class="p-plan-table js-plan-table01-item" [ngClass]="{ 'grey-bg': !isPlanValid, 'is-scroll': isScroll }">
+    <div class="p-heading-area01">
+      <div class="p-heading-area01__title">
+        <h3 class="c-heading-2">
+          <span class="c-text-with-tooltip__text" [innerHTML]="'label.in-flightMeal' | staticMsg"></span
+          ><span class="c-text-with-tooltip__tooltip js-tooltip"
+            ><asw-tooltip
+              iconImage='<img
+                      src="assets/images/icon_help_primary_20.svg"
+                      class="c-action-item__about-icon"
+                      width="20"
+                      height="20"
+                      alt="help"
+                  />'
+              [tooltipContent]="'tooltip.inFlightMeal' | staticMsg"
+              tooltipDisplayType="tap"
+              [tooltipTop]="-55"
+            ></asw-tooltip>
+          </span>
+        </h3>
+        <!-- 機内食種別毎のルールリンク -->
+        <div class="meal-rules">
+          <!--  通常機内食(キャビンクラス別)-->
+          <span *ngIf="mealApplicationState.isNormalF" [innerHTML]="'label.normalMeal.F' | staticMsg"></span>
+          <span *ngIf="mealApplicationState.isNormalB" [innerHTML]="'label.normalMeal.B' | staticMsg"></span>
+          <span *ngIf="mealApplicationState.isNormalP" [innerHTML]="'label.normalMeal.P' | staticMsg"></span>
+          <span *ngIf="mealApplicationState.isNormalE" [innerHTML]="'label.normalMeal.E' | staticMsg"></span>
+          <!-- 事前ミール(キャビンクラス別) -->
+          <span
+            *ngIf="mealApplicationState.isPreorderF"
+            [innerHTML]="'label.ruleDetailFirstClassSingle' | staticMsg"
+          ></span>
+          <span
+            *ngIf="mealApplicationState.isPreorderB"
+            [innerHTML]="'label.ruleDetailBusinessClassSingle' | staticMsg"
+          ></span>
+          <!-- 有料機内食 -->
+          <span
+            *ngIf="mealApplicationState.isAncillary"
+            [innerHTML]="'label.ruleDetailChargeableMeal' | staticMsg"
+          ></span>
+          <!-- 特別機内食 -->
+          <span *ngIf="mealApplicationState.isSpecial" [innerHTML]="'label.ruleDetailSpecialMeal' | staticMsg"></span>
+        </div>
+      </div>
+      <div class="p-heading-area01__sub-function">
+        <asw-button
+          id="plan-review-meal-component-edit-btn"
+          size="xs"
+          [disabled]="!isPlanValid"
+          [label]="'label.edit' | staticMsg"
+          (click$)="openFlightMealRequest()"
+          [throttleClick]="true"
+        ></asw-button>
+      </div>
+    </div>
+
+    <div class="p-plan-table__contents">
+      <asw-table-slider id="plan-review-meal-slider" (isScrollChange)="setIsScroll($event)">
+        <div class="p-plan-table__scroll">
+          <div class="p-plan-table__scroll-view">
+            <div class="p-plan-table__scroll-inner js-plan-table01-scroll" #detailPanel>
+              <table class="c-plan-table01 js-plan-table01" #scrollPanel>
+                <thead class="c-plan-table01__head">
+                  <tr class="c-plan-table01__inner">
+                    <td class="c-plan-table01__col" [ngClass]="{ 'grey-bg': !isPlanValid }">
+                      <div class="c-plan-table01__col-inner"></div>
+                    </td>
+                    <ng-container *ngFor="let seg of data.segments">
+                      <th class="c-plan-table01__col" scope="col" [ngClass]="{ 'grey-bg': !isPlanValid }">
+                        <div class="c-plan-table01__col-inner">
+                          <div class="c-plan-table01__col-item c-plan-table01__col--em">
+                            <span class="c-flight-info01__title-airport">
+                              <span class="c-flight-info01__title-airport-departure">
+                                {{ seg.departure }}
+                                <span [innerHTML]="'label.hyphen' | staticMsg"></span>
+                                {{ seg.arrival }}
+                              </span>
+                            </span>
+                          </div>
+                        </div>
+                      </th>
+                    </ng-container>
+                  </tr>
+                </thead>
+                <tbody class="c-plan-table01__body">
+                  <tr *ngFor="let passenger of data.passengers" class="c-plan-table01__inner">
+                    <th class="c-plan-table01__col" scope="row" [ngClass]="{ 'grey-bg': !isPlanValid }">
+                      <div class="c-plan-table01__col-inner">
+                        <div class="c-plan-table01__col-item c-plan-table01__col-item--em">
+                          {{ passenger.name }}
+                        </div>
+                      </div>
+                    </th>
+                    <ng-container *ngFor="let seg of passenger.segInfo">
+                      <td class="c-plan-table01__col" [ngClass]="{ 'grey-bg': !isPlanValid }">
+                        <div class="c-plan-table01__col-inner">
+                          <div *ngIf="seg.msg" class="c-plan-table01__col-item c-plan-table01__col-item--fs16">
+                            <!-- 機内食申込状況 -->
+                            <ng-container *ngTemplateOutlet="emph; context: { $implicit: seg.msg }"></ng-container>
+                          </div>
+                          <div *ngIf="seg.price?.value" class="c-plan-table01__col-item">
+                            <!-- 申込金額 -->
+                            <ng-container
+                              *ngTemplateOutlet="emphPrice; context: { $implicit: seg.price }"
+                            ></ng-container>
+                          </div>
+                        </div>
+                      </td>
+                    </ng-container>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </asw-table-slider>
+    </div>
+  </div>
+</div>

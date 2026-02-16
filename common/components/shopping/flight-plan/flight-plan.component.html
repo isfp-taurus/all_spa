@@ -1,0 +1,674 @@
+<div
+  [ngClass]="{
+    'p-flight-container__plan': this.isSelected || deviceType !== 'PC',
+    'p-flight-container__plan-government':
+      this.isSelected && deviceType === 'PC' && flightSummary.isContainedSubjectToGovernmentApproval,
+    'p-vacant-seat01__flight-item': !this.isSelected
+  }"
+>
+  <!-- 遅延早発情報 -->
+  <div class="p-flight-container__announce">
+    <div class="p-flight-container__announce-item">
+      <span class="c-tag c-tag--type01" *ngIf="flightSummary.isContainedDelayedFlight">
+        <strong [innerHTML]="'label.delayed' | staticMsg"></strong
+      ></span>
+      <span class="c-tag c-tag--type01" *ngIf="flightSummary.isContainedEarlyDepartureFlight">
+        <strong [innerHTML]="'label.earlyDeparture' | staticMsg"></strong
+      ></span>
+    </div>
+  </div>
+  <div
+    class="c-flight-plan"
+    [ngClass]="{
+      'c-flight-plan--change':
+        flightSummary.originDepartureEstimatedDateTime || flightSummary.destinationArrivalEstimatedDateTime
+    }"
+  >
+    <!-- 出発地 -->
+    <p class="c-flight-plan__location c-flight-plan__item-1">
+      <ng-container *ngIf="this.flightSummary.departureMultiAirportFlg || this.flightSummary.arrivalMultiAirportFlg">
+        <span
+          [ngClass]="{
+            'c-flight-plan__location-em': flightSummary.departureMultiAirportFlg,
+            'c-flight-plan__location': !flightSummary.departureMultiAirportFlg
+          }"
+        >
+          {{ flightSummary.departureAirport }}</span
+        >
+      </ng-container>
+    </p>
+    <div class="c-flight-plan__time c-flight-plan__item-2">
+      <!-- 出発時刻 -->
+      <div class="c-flight-plan__time-box">
+        <!-- 最新なしの場合 -->
+        <ng-container *ngIf="!flightSummary.originDepartureEstimatedDateTime">
+          <span
+            [innerHTML]="
+              flightSummary.originDepartureDateTime | dateFormat : 'availability.flightPlan_departuredate.time'
+            "
+          ></span>
+        </ng-container>
+        <!-- 最新ありの場合、取り消し線 -->
+        <ng-container *ngIf="flightSummary.originDepartureEstimatedDateTime">
+          <span class="u-visually-hidden" [innerHTML]="'reader.DepartureChangeBeforeTime' | staticMsg"></span>
+          <span
+            [innerHTML]="
+              flightSummary.originDepartureDateTime | dateFormat : 'availability.flightPlan_departuredate.time.old'
+            "
+          ></span>
+        </ng-container>
+      </div>
+      <!-- 最新出発時刻 -->
+      <ng-container
+        *ngIf="flightSummary.originDepartureEstimatedDateTime && originDepartureDateTimeIsSameDayFlag; else startMdTime"
+      >
+        <!-- 最新出発時刻が日跨ぎの場合-->
+        <ng-container
+          *ngIf="
+            this.compareStringDate(
+              flightSummary.originDepartureDateTime,
+              flightSummary.originDepartureEstimatedDateTime
+            )
+          "
+        >
+          <div class="c-flight-plan__time-box">
+            <span class="u-visually-hidden" [innerHTML]="'reader.DepartureChangeAfterTime' | staticMsg"></span>
+            <span
+              style="color: #d91829"
+              [innerHTML]="
+                flightSummary.originDepartureEstimatedDateTime | dateFormat : 'flightPlan_departureArrivalDate.dateTime'
+              "
+            ></span>
+          </div>
+        </ng-container>
+        <!-- 最新出発時刻が日跨ぎでない場合-->
+        <ng-container
+          *ngIf="
+            !this.compareStringDate(
+              flightSummary.originDepartureDateTime,
+              flightSummary.originDepartureEstimatedDateTime
+            )
+          "
+        >
+          <div class="c-flight-plan__time-box">
+            <span class="u-visually-hidden" [innerHTML]="'reader.DepartureChangeAfterTime' | staticMsg"></span>
+            <span
+              style="color: #d91829"
+              [innerHTML]="
+                flightSummary.originDepartureEstimatedDateTime
+                  | dateFormat : 'availability.flightPlan_departuredate.time.latest'
+              "
+            ></span>
+          </div>
+        </ng-container>
+      </ng-container>
+      <ng-template #startMdTime>
+        <ng-container *ngIf="flightSummary.originDepartureEstimatedDateTime">
+          <!-- 最新出発時刻が日跨ぎの場合-->
+          <ng-container
+            *ngIf="
+              this.compareStringDate(
+                flightSummary.originDepartureDateTime,
+                flightSummary.originDepartureEstimatedDateTime
+              )
+            "
+          >
+            <div class="c-flight-plan__time-box">
+              <span class="u-visually-hidden" [innerHTML]="'reader.DepartureChangeAfterTime' | staticMsg"></span>
+              <span
+                style="color: #d91829"
+                [innerHTML]="
+                  flightSummary.originDepartureEstimatedDateTime
+                    | dateFormat : 'flightPlan_departureArrivalDate.dateTime'
+                "
+              ></span>
+            </div>
+          </ng-container>
+          <!-- 最新出発時刻が日跨ぎでない場合-->
+          <ng-container
+            *ngIf="
+              !this.compareStringDate(
+                flightSummary.originDepartureDateTime,
+                flightSummary.originDepartureEstimatedDateTime
+              )
+            "
+          >
+            <div class="c-flight-plan__time-box">
+              <span class="u-visually-hidden" [innerHTML]="'reader.DepartureChangeAfterTime' | staticMsg"></span>
+              <span
+                style="color: #d91829"
+                [innerHTML]="
+                  flightSummary.originDepartureEstimatedDateTime
+                    | dateFormat : 'availability.flightPlan_departuredate.time.latest'
+                "
+              ></span>
+            </div>
+          </ng-container>
+        </ng-container>
+      </ng-template>
+      <!-- 深夜出発日時 -->
+      <div class="c-flight-plan__time-date" *ngIf="flightSummary.isLateNightDeparture">
+        <span
+          class="c-flight-plan__time-text"
+          *ngIf="flightSummary.originDepartureEstimatedDateTime; else originDepartureDateTimeLateNight"
+          [innerHTML]="lateNightDepartureFormat(flightSummary.originDepartureEstimatedDateTime)"
+        ></span>
+        <ng-template #originDepartureDateTimeLateNight>
+          <span
+            class="custom-late-night-departure"
+            [innerHTML]="lateNightDepartureFormat(flightSummary.originDepartureDateTime)"
+          ></span>
+        </ng-template>
+      </div>
+    </div>
+    <div class="c-flight-plan__period c-flight-plan__period--1stop c-flight-plan__item-3">
+      <!-- 乗継回数 -->
+      <p class="c-flight-plan__period-layover">
+        <!-- 乗継あり -->
+        <ng-container *ngIf="flightSummary.numberOfConnections !== 0">
+          {{ 'label.connectionCount' | staticMsg : { '0': flightSummary.numberOfConnections } }}
+        </ng-container>
+        <!-- 乗継なしの場合、直通便と表記 -->
+        <ng-container *ngIf="flightSummary.numberOfConnections === 0">
+          {{ 'label.nonStopFlight' | staticMsg }}
+        </ng-container>
+      </p>
+      <!-- 所要時間 -->
+      <p
+        [innerHTML]="dateString(flightSummary.durationTime) | dateFormat : 'availability.flightPlan_flightTotalTime'"
+      ></p>
+    </div>
+    <!-- 到着地 -->
+    <p class="c-flight-plan__location c-flight-plan__item-4">
+      <ng-container *ngIf="this.flightSummary.departureMultiAirportFlg || this.flightSummary.arrivalMultiAirportFlg">
+        <span
+          [ngClass]="{
+            'c-flight-plan__location-em': flightSummary.arrivalMultiAirportFlg,
+            'c-flight-plan__location': !flightSummary.arrivalMultiAirportFlg
+          }"
+        >
+          {{ flightSummary.arrivalAirport }}</span
+        >
+      </ng-container>
+    </p>
+    <!-- 到着時刻 -->
+    <div class="c-flight-plan__time c-flight-plan__item-5">
+      <div class="c-flight-plan__time-box">
+        <!-- 最新なし -->
+        <ng-container *ngIf="!flightSummary.destinationArrivalEstimatedDateTime">
+          <span
+            [innerHTML]="
+              flightSummary.destinationArrivalDateTime | dateFormat : 'availability.flightPlan_departuredate.time'
+            "
+          ></span>
+        </ng-container>
+        <!-- 最新ありの場合、取り消し線 -->
+        <ng-container *ngIf="flightSummary.destinationArrivalEstimatedDateTime ?? false">
+          <span class="u-visually-hidden" [innerHTML]="'reader.scheduleArrivalTime' | staticMsg"></span>
+          <span
+            [innerHTML]="
+              flightSummary.destinationArrivalDateTime | dateFormat : 'availability.flightPlan_departuredate.time.old'
+            "
+          ></span>
+        </ng-container>
+      </div>
+      <!-- 最新到着時刻 -->
+      <ng-container
+        *ngIf="
+          flightSummary.destinationArrivalEstimatedDateTime && destinationArrivalDateTimeIsSameDayFlag;
+          else endMdTime
+        "
+      >
+        <!-- 最新到着時刻が日跨ぎの場合-->
+        <ng-container
+          *ngIf="
+            this.compareStringDate(
+              flightSummary.destinationArrivalDateTime,
+              flightSummary.destinationArrivalEstimatedDateTime
+            )
+          "
+        >
+          <div class="c-flight-plan__time-box">
+            <span class="u-visually-hidden" [innerHTML]="'reader.newArrivalTime' | staticMsg"></span>
+            <span
+              style="color: #d91829"
+              [innerHTML]="
+                flightSummary.destinationArrivalEstimatedDateTime
+                  | dateFormat : 'flightPlan_departureArrivalDate.dateTime'
+              "
+            ></span>
+          </div>
+        </ng-container>
+        <!-- 最新到着時刻が日跨ぎでない場合-->
+        <ng-container
+          *ngIf="
+            !this.compareStringDate(
+              flightSummary.destinationArrivalDateTime,
+              flightSummary.destinationArrivalEstimatedDateTime
+            )
+          "
+        >
+          <div class="c-flight-plan__time-box">
+            <span class="u-visually-hidden" [innerHTML]="'reader.newArrivalTime' | staticMsg"></span>
+            <span
+              style="color: #d91829"
+              [innerHTML]="
+                flightSummary.destinationArrivalEstimatedDateTime
+                  | dateFormat : 'availability.flightPlan_departuredate.time.latest'
+              "
+            ></span>
+          </div>
+        </ng-container>
+      </ng-container>
+      <ng-template #endMdTime>
+        <ng-container *ngIf="flightSummary.destinationArrivalEstimatedDateTime">
+          <!-- 最新到着時刻が日跨ぎの場合-->
+          <ng-container
+            *ngIf="
+              this.compareStringDate(
+                flightSummary.destinationArrivalDateTime,
+                flightSummary.destinationArrivalEstimatedDateTime
+              )
+            "
+          >
+            <div class="c-flight-plan__time-box">
+              <span class="u-visually-hidden" [innerHTML]="'reader.newArrivalTime' | staticMsg"></span>
+              <span
+                style="color: #d91829"
+                [innerHTML]="
+                  flightSummary.destinationArrivalEstimatedDateTime
+                    | dateFormat : 'flightPlan_departureArrivalDate.dateTime'
+                "
+              ></span>
+            </div>
+          </ng-container>
+          <!-- 最新到着時刻が日跨ぎでない場合-->
+          <ng-container
+            *ngIf="
+              !this.compareStringDate(
+                flightSummary.destinationArrivalDateTime,
+                flightSummary.destinationArrivalEstimatedDateTime
+              )
+            "
+          >
+            <div class="c-flight-plan__time-box">
+              <span class="u-visually-hidden" [innerHTML]="'reader.newArrivalTime' | staticMsg"></span>
+              <span
+                style="color: #d91829"
+                [innerHTML]="
+                  flightSummary.destinationArrivalEstimatedDateTime
+                    | dateFormat : 'availability.flightPlan_departuredate.time.latest'
+                "
+              ></span>
+            </div>
+          </ng-container>
+        </ng-container>
+      </ng-template>
+      <!-- 到着日付差 -->
+      <div class="c-flight-plan__time-date">
+        <span
+          class="c-flight-plan__time-text"
+          *ngIf="flightSummary.destinationArrivalDaysDifference === '-1'"
+          aria-hidden="true"
+          style="color: #d91829"
+          [innerHTML]="'label.dayMinusOne' | staticMsg"
+        ></span>
+        <span
+          class="c-flight-plan__time-text"
+          *ngIf="
+            flightSummary.destinationArrivalDaysDifference === '1' && flightSummary.destinationArrivalEstimatedDateTime
+          "
+          style="color: #d91829"
+          aria-hidden="true"
+          [innerHTML]="'label.dayPlusOne' | staticMsg"
+        ></span>
+        <span
+          class="c-flight-plan__time-text"
+          *ngIf="
+            flightSummary.destinationArrivalDaysDifference === '1' && !flightSummary.destinationArrivalEstimatedDateTime
+          "
+          aria-hidden="true"
+          [innerHTML]="'label.dayPlusOne' | staticMsg"
+        ></span>
+        <span
+          class="c-flight-plan__time-text"
+          *ngIf="
+            flightSummary.destinationArrivalDaysDifference === '2' && flightSummary.destinationArrivalEstimatedDateTime
+          "
+          style="color: #d91829"
+          aria-hidden="true"
+          [innerHTML]="'label.dayPlusTwo' | staticMsg"
+        ></span>
+        <span
+          class="c-flight-plan__time-text"
+          *ngIf="
+            flightSummary.destinationArrivalDaysDifference === '2' && !flightSummary.destinationArrivalEstimatedDateTime
+          "
+          aria-hidden="true"
+          [innerHTML]="'label.dayPlusTwo' | staticMsg"
+        ></span>
+        <span
+          class="c-flight-plan__time-text"
+          *ngIf="
+            flightSummary.destinationArrivalDaysDifference === '3' && flightSummary.destinationArrivalEstimatedDateTime
+          "
+          style="color: #d91829"
+          aria-hidden="true"
+          [innerHTML]="'label.afterThreeDays' | staticMsg"
+        ></span>
+        <span
+          class="c-flight-plan__time-text"
+          *ngIf="
+            flightSummary.destinationArrivalDaysDifference === '3' && !flightSummary.destinationArrivalEstimatedDateTime
+          "
+          aria-hidden="true"
+          [innerHTML]="'label.afterThreeDays' | staticMsg"
+        ></span>
+        <span class="u-visually-hidden"></span>
+      </div>
+    </div>
+  </div>
+</div>
+<div
+  [ngClass]="{
+    'p-vacant-seat01__flight-item': !this.isSelected,
+    'p-flight-container__info': this.isSelected || deviceType !== 'PC'
+  }"
+>
+  <div [ngClass]="{ 'c-flight-detail-overview02': this.isSelected, 'c-flight-detail-overview01': !this.isSelected }">
+    <!-- 運航キャリア識別 運航キャリア名称 -->
+    <ng-container *ngIf="flightSummary.isAllNhGroupOperated && !flightSummary.isAllStarAllianceOperated">
+      <!-- 運航キャリア識別 -->
+      <span
+        [ngClass]="{
+          'c-flight-detail-overview02__item': this.isSelected,
+          'c-flight-detail-overview01__item': !this.isSelected
+        }"
+      >
+        <p
+          *ngIf="this.isSelected"
+          class="c-flight-detail-overview02__item-title"
+          [innerHTML]="'label.operate' | staticMsg"
+        ></p>
+        <div [ngClass]="{ 'c-flight-detail-overview02__item-box': this.isSelected }">
+          <span class="c-ana-icon01">
+            <img
+              class="c-ana-icon01__img"
+              src="assets/images/logo_ana_s.svg"
+              width="54"
+              height="22"
+              alt="{{ 'alt.nhFlight' | staticMsg }}"
+            />
+          </span>
+        </div>
+      </span>
+    </ng-container>
+    <ng-container *ngIf="!flightSummary.isAllNhGroupOperated && flightSummary.isAllStarAllianceOperated">
+      <div
+        [ngClass]="{
+          'c-flight-detail-overview02__item': this.isSelected,
+          'c-flight-detail-overview01__item': !this.isSelected
+        }"
+      >
+        <p
+          *ngIf="this.isSelected"
+          class="c-flight-detail-overview02__item-title"
+          [innerHTML]="'label.operate' | staticMsg"
+        ></p>
+        <div [ngClass]="{ 'c-flight-detail-overview02__item-box': this.isSelected }">
+          <span class="c-asam-icon01">
+            <img
+              class="c-asam-icon01__img"
+              src="assets/images/logo_star_alliance_20.svg"
+              width="20"
+              height="20"
+              alt="{{ 'alt.OperatedByStarAllianceGroup' | staticMsg }}"
+            />
+            <span [innerHTML]="'label.sectionOpCarrierWording' | staticMsg : { '0': this.operatingAirlineName }"></span>
+          </span>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="!flightSummary.isAllNhGroupOperated && !flightSummary.isAllStarAllianceOperated">
+      <div
+        [ngClass]="{
+          'c-flight-detail-overview02__item': this.isSelected,
+          'c-flight-detail-overview01__item': !this.isSelected
+        }"
+      >
+        <p
+          *ngIf="this.isSelected"
+          class="c-flight-detail-overview02__item-title"
+          [innerHTML]="'label.operate' | staticMsg"
+        ></p>
+        <div [ngClass]="{ 'c-flight-detail-overview02__item-box': this.isSelected }">
+          <span class="c-asam-icon01">
+            <span [innerHTML]="'label.sectionOpCarrierWording' | staticMsg : { '0': this.operatingAirlineName }"></span>
+          </span>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="flightSummary.isAllNhGroupOperated && flightSummary.isAllStarAllianceOperated">
+      <div
+        [ngClass]="{
+          'c-flight-detail-overview02__item': this.isSelected,
+          'c-flight-detail-overview01__item': !this.isSelected
+        }"
+      >
+        <p
+          *ngIf="this.isSelected"
+          class="c-flight-detail-overview02__item-title"
+          [innerHTML]="'label.operate' | staticMsg"
+        ></p>
+        <div [ngClass]="{ 'c-flight-detail-overview02__item-box': this.isSelected }">
+          <span class="c-ana-icon01">
+            <img
+              class="c-ana-icon01__img"
+              src="assets/images/logo_ana_s.svg"
+              width="54"
+              height="22"
+              alt="{{ 'alt.nhFlight' | staticMsg }}"
+            />
+          </span>
+        </div>
+        <ng-container *ngIf="this.operatingAirlineName && this.isSelected">
+          <div [ngClass]="{ 'c-flight-detail-overview02__item-box': this.isSelected }">
+            <span class="c-asam-icon01">
+              <span
+                [innerHTML]="'label.sectionOpCarrierWording' | staticMsg : { '0': this.operatingAirlineName }"
+              ></span>
+            </span>
+          </div>
+        </ng-container>
+      </div>
+      <ng-container *ngIf="this.operatingAirlineName && !this.isSelected">
+        <div class="c-flight-detail-overview01__item">
+          <span class="c-asam-icon01">
+            <span [innerHTML]="'label.sectionOpCarrierWording' | staticMsg : { '0': this.operatingAirlineName }"></span>
+          </span>
+        </div>
+      </ng-container>
+    </ng-container>
+
+    <!-- 政府認可申請中情報(SP,TAB版) -->
+    <ng-container
+      *ngIf="
+        isShowGovernmentApproval &&
+        flightSummary.isContainedSubjectToGovernmentApproval &&
+        (deviceType !== 'PC' || !this.isSelected)
+      "
+    >
+      <div
+        [ngClass]="{
+          'c-flight-detail-overview02__item': this.isSelected,
+          'c-flight-detail-overview01__item': !this.isSelected
+        }"
+      >
+        <ul class="c-information-list01">
+          <li class="c-information-list01__item">
+            <p class="c-information-list01" [innerHTML]="'label.pendingGovernmentApproval' | staticMsg"></p>
+          </li>
+        </ul>
+      </div>
+    </ng-container>
+    <div
+      [ngClass]="{
+        'c-flight-detail-overview02__2col': this.isSelected,
+        'c-flight-detail-overview01__2col': !this.isSelected
+      }"
+    >
+      <div
+        [ngClass]="{
+          'c-flight-detail-overview02__2col-left': this.isSelected,
+          'c-flight-detail-overview01__2col-left': !this.isSelected
+        }"
+      >
+        <p
+          *ngIf="
+            !flightSummary.notShowServiceTitle &&
+            ((isShowWiFiService && flightSummary.wifiType !== undefined) ||
+              (isShowLabelFromAcv && flightSummary.labelFromAcvList.length !== 0))
+          "
+          class="c-flight-detail-overview02__2col-left-title"
+          [innerHTML]="'label.services' | staticMsg"
+        ></p>
+        <!-- Wi-Fiサービス -->
+        <ng-container *ngIf="isShowWiFiService && flightSummary.wifiType !== undefined">
+          <!-- 全てのセグメントがWi-Fiサービスなし-->
+          <div *ngIf="flightSummary.wifiType === '0'">
+            <div
+              [ngClass]="{
+                'c-flight-detail-overview02__2col-left-item': this.isSelected,
+                'c-flight-detail-overview01__2col-left-item': !this.isSelected
+              }"
+            >
+              <span class="c-wifi-icon01">
+                <img
+                  class="c-wifi-icon01__img"
+                  src="assets/images/icon_wifi_not_available_28.svg"
+                  alt="Wi-Fi"
+                  width="20"
+                  height="20"
+                />
+              </span>
+            </div>
+          </div>
+          <!-- 全てのセグメントがWi-Fiサービスあり-->
+          <div *ngIf="flightSummary.wifiType === '1'">
+            <div
+              [ngClass]="{
+                'c-flight-detail-overview02__2col-left-item': this.isSelected,
+                'c-flight-detail-overview01__2col-left-item': !this.isSelected
+              }"
+            >
+              <span class="c-wifi-icon01"
+                ><img
+                  class="c-wifi-icon01__img"
+                  src="assets/images/icon_wifi_primary_28.svg"
+                  alt="Wi-Fi"
+                  width="20"
+                  height="20"
+                />
+              </span>
+            </div>
+          </div>
+          <!-- 1セグメントでもWi-Fiサービスありもしくは、可能性あり-->
+          <div *ngIf="flightSummary.wifiType === '2'">
+            <div
+              [ngClass]="{
+                'c-flight-detail-overview02__2col-left-item': this.isSelected,
+                'c-flight-detail-overview01__2col-left-item': !this.isSelected
+              }"
+            >
+              <asw-tooltip
+                iconImage='<img src="assets/images/icon_wifi_possibly_28.svg" alt="Wi-Fi" width="20" height="20">'
+                tooltipContent="{{ 'tooltip.onlySomeSegments' | staticMsg }}"
+                [tooltipTop]="0"
+              ></asw-tooltip>
+              <span [innerHTML]="'m_static_message-label.onlySomeSegments' | staticMsg"></span>
+            </div>
+          </div>
+        </ng-container>
+        <!-- ACVに応じたラベルもしくは画像 -->
+        <ng-container *ngIf="isShowLabelFromAcv && flightSummary.labelFromAcvList.length !== 0">
+          <ng-container *ngFor="let labelFromAcv of flightSummary.labelFromAcvList">
+            <div
+              [ngClass]="{
+                'c-flight-detail-overview02__2col-left-item': this.isSelected,
+                'c-flight-detail-overview01__2col-left-item': !this.isSelected
+              }"
+            >
+              <ng-container *ngIf="labelFromAcv.type === 'tooltip'">
+                <span class="c-ana-couchii-icon01">
+                  <asw-tooltip
+                    iconImage="{{ labelFromAcv.img }}"
+                    [tooltipContent]="labelFromAcv.tooltipText"
+                    [tooltipDisplayType]="'tap'"
+                  ></asw-tooltip>
+                </span>
+              </ng-container>
+              <ng-container *ngIf="labelFromAcv.type === 'text'">
+                <span class="c-ana-couchii-icon01" [innerHTML]="labelFromAcv.original | staticMsg"></span>
+              </ng-container>
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+      <div
+        [ngClass]="{
+          'c-flight-detail-overview02__2col-right': this.isSelected,
+          'c-flight-detail-overview01__2col-right': !this.isSelected
+        }"
+        *ngIf="isDisplayDetailLink"
+      >
+        <!-- 政府認可申請中情報(PC版) -->
+        <ng-container
+          *ngIf="
+            isShowGovernmentApproval &&
+            flightSummary.isContainedSubjectToGovernmentApproval &&
+            deviceType === 'PC' &&
+            this.isSelected
+          "
+        >
+          <div class="c-flight-detail-overview01__item">
+            <ul class="c-information-list01">
+              <li class="c-information-list01__item">
+                <p class="c-information-list01" [innerHTML]="'label.pendingGovernmentApproval' | staticMsg"></p>
+              </li>
+            </ul>
+          </div>
+        </ng-container>
+
+        <!-- フライト詳細表示リンク(アコーディオン) -->
+        <ng-container *ngIf="deviceType === 'PC' && this.isSelected === false">
+          <button
+            id="flight-detail-{{ boundIndex }}-{{ tsListIndex }}"
+            class="c-accordion-btn01 js-flight-detail-btn"
+            [attr.aria-controls]="'flight-detail-' + boundIndex + '-' + tsListIndex"
+            [ngClass]="{ 'is-open': this.isOpenFlightDetail }"
+            [attr.aria-expanded]="this.isOpenFlightDetail ? 'true' : 'false'"
+            (click)="this.changeOpenFlightDetail(boundIndex, tsListIndex)"
+          >
+            <span class="c-accordion-btn01__text" [innerHTML]="'label.details1' | staticMsg"></span>
+            <span class="c-accordion-btn01__icon"></span>
+            <span class="u-visually-hidden">{{ this.isOpenFlightDetail ? 'OPEN' : 'CLOSE' }}</span>
+          </button>
+        </ng-container>
+        <!-- フライト詳細表示リンク(モーダル) -->
+        <ng-container *ngIf="deviceType !== 'PC' || this.isSelected === true">
+          <button
+            id="flight-detail-{{ boundIndex }}-{{ tsListIndex }}-2"
+            class="c-accordion-btn01 js-flight-detail-btn"
+            [attr.aria-expanded]="this.isOpenFlightDetail ? 'true' : 'false'"
+            (throttleClick$)="this.clickFlightDetailLink(boundIndex, tsListIndex)"
+            aswThrottleClick
+          >
+            <span class="c-accordion-btn01__text" [innerHTML]="'label.details1' | staticMsg"></span>
+            <span class="c-text-link-arrow01"></span>
+            <span class="u-visually-hidden">{{ this.isOpenFlightDetail ? 'OPEN' : 'CLOSE' }}</span>
+          </button>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

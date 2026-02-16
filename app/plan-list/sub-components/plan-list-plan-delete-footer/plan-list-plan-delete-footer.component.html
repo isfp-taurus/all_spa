@@ -1,0 +1,41 @@
+<ng-container *ngIf="countPlans > 0">
+  <div class="l-modal01__footer l-modal01__footer--not-bt js-modal-footer">
+    <div class="p-modal-foot02 delete-footer__modal-position">
+      <!-- [選択プラン数] -->
+
+      <!-- [単数] -->
+      <ng-container *ngIf="countPlans === 1; else notSingle">
+        <span
+          class="delete-footer__plan-count"
+          [innerHTML]="'label.selectedPlanNumberSingular' | staticMsg : { '0': countPlans }"
+        >
+        </span>
+      </ng-container>
+      <!-- [//単数] -->
+
+      <!-- [複数] -->
+      <ng-template #notSingle>
+        <span
+          class="delete-footer__plan-count"
+          [innerHTML]="'label.selectedPlanNumberPlural' | staticMsg : { '0': countPlans }"
+        >
+        </span>
+      </ng-template>
+      <!-- [//複数] -->
+
+      <!-- [//選択プラン数] -->
+
+      <!-- [削除ボタン] -->
+      <button id="plan-list-delete-footer-delete-button-1" class="c-btn-warn c-btn-warn--s">
+        <button
+          id="plan-list-delete-footer-delete-button-2"
+          class="c-btn-warn__text"
+          [innerHTML]="'label.planDelete' | staticMsg"
+          aswThrottleClick
+          (throttleClick$)="clickDelete()"
+        ></button>
+      </button>
+      <!-- [//削除ボタン] -->
+    </div>
+  </div>
+</ng-container>

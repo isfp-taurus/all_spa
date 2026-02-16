@@ -1,0 +1,177 @@
+<div class="p-booking-info-mdl__additional-item">
+  <!--ここっぽい-->
+  <button
+    id="passengerInput16"
+    class="p-booking-info-mdl__additional-open"
+    [ngClass]="{ 'is-open': isOpen }"
+    aria-controls="additional3"
+    [attr.aria-expanded]="isOpen"
+    (click)="clickOpenArrivalDepartureAlerts()"
+  >
+    <span class="p-booking-info-mdl__additional-open-title" [innerHTML]="'label.addArrivalDepertureAlerts' | staticMsg">
+    </span>
+    <span class="p-booking-info-mdl__additional-open-icon"
+      ><img src="assets/images/icon_add_primary_20.svg" width="20" height="20" [alt]="'label.open' | staticMsg"
+    /></span>
+  </button>
+  <div id="additional3" class="p-booking-info-mdl__additional-contents" [ngClass]="{ 'is-open': isOpen }">
+    <div id="additional1" class="p-booking-info-mdl__additional-contents is-open">
+      <div id="additional3" class="p-booking-info-mdl__additional-contents is-open">
+        <div class="p-booking-info-mdl__section">
+          <div class="p-booking-info-mdl__block">
+            <div class="p-booking-info-mdl__heading p-booking-info-mdl__heading--01">
+              <h3
+                class="p-booking-info-mdl__heading-title"
+                [innerHTML]="'heading.arrivalDepartureAlertsMail' | staticMsg"
+              ></h3>
+              <span class="c-text-with-tooltip__tooltip">
+                <!--ヘルプアイコン ※発着通知連絡先情報見出し -->
+                <asw-tooltip
+                  iconImage='<img src="assets/images/icon_help_primary_20.svg" width="20" height="20" alt="help" />'
+                  [tooltipContent]="'tooltip.arrivalDepartureAlerts' | staticMsg"
+                  displayAreaClass="p-booking-info-mdl"
+                ></asw-tooltip>
+              </span>
+            </div>
+            <div class="p-booking-info-mdl__heading p-booking-info-mdl__heading--02">
+              <h4 class="p-booking-info-mdl__heading-title" [innerHTML]="'label.receiversAddress1' | staticMsg"></h4>
+            </div>
+            <div class="p-booking-info-mdl__row p-booking-info-mdl__row--01">
+              <div class="p-booking-info-mdl__row-item">
+                <asw-input
+                  id="{{ id }}-name1"
+                  name="{{ id }}-name1"
+                  label="{{ 'label.eMailRecipient' | staticMsg }}"
+                  placeholder="{{ 'placeholder.eMailRecipient' | staticMsg }}"
+                  [formControl]="mailRecipientName"
+                  (change$)="update()"
+                  maxlength="28"
+                ></asw-input>
+              </div>
+            </div>
+            <div class="p-booking-info-mdl__row p-booking-info-mdl__row--01">
+              <div class="p-booking-info-mdl__row-item">
+                <span class="u-visually-hidden" [innerHTML]="'reader.eMailAddress' | staticMsg"></span>
+                <asw-input
+                  id="{{ id }}-mail-address1"
+                  name="{{ id }}-mail-address1"
+                  label="{{ 'label.eMailAddress.passengerInput' | staticMsg }}"
+                  placeholder="{{ 'placeholder.eMailAddress' | staticMsg }}"
+                  [formControl]="mailAddress"
+                  (change$)="update()"
+                  maxlength="50"
+                  [conversionType]="'email'"
+                ></asw-input>
+              </div>
+            </div>
+            <div class="p-booking-info-mdl__row p-booking-info-mdl__row--01">
+              <div class="p-booking-info-mdl__row-item">
+                <div class="c-form-element-input">
+                  <span class="u-visually-hidden" [innerHTML]="'reader.confirmMailAddress' | staticMsg"></span>
+                  <asw-input
+                    id="{{ id }}-mail-address-confirm1"
+                    name="{{ id }}-mail-address-confirm1"
+                    label="{{ 'label.confirmMailAddress' | staticMsg }}"
+                    placeholder="{{ 'placeholder.eMailAddress' | staticMsg }}"
+                    [formControl]="confirmMailAddress"
+                    (change$)="update()"
+                    maxlength="50"
+                    [conversionType]="'email'"
+                    disablePaste
+                  ></asw-input>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="parts.isLang" class="p-booking-info-mdl__row p-booking-info-mdl__row--01">
+              <div class="p-booking-info-mdl__row-item">
+                <asw-select
+                  id="{{ id }}-mail-lang-select1"
+                  name="{{ id }}-mail-lang-select1"
+                  label="{{ 'label.language' | staticMsg }}"
+                  [formControl]="mailLang"
+                  (change$)="update()"
+                >
+                  <option value="" [innerHTML]="'placeholder.pleaseSelect' | staticMsg"></option>
+                  <option
+                    *ngFor="let lang of this.parts.langList"
+                    value="{{ lang.value }}"
+                    [innerHTML]="lang.display_content"
+                  ></option>
+                </asw-select>
+              </div>
+            </div>
+          </div>
+          <div class="p-booking-info-mdl__block">
+            <div class="p-booking-info-mdl__heading p-booking-info-mdl__heading--02">
+              <h4 class="p-booking-info-mdl__heading-title" [innerHTML]="'label.receiversAddress2' | staticMsg"></h4>
+            </div>
+            <div class="p-booking-info-mdl__row p-booking-info-mdl__row--01">
+              <div class="p-booking-info-mdl__row-item">
+                <asw-input
+                  id="{{ id }}-name2"
+                  name="{{ id }}-name2"
+                  label="{{ 'label.eMailRecipient' | staticMsg }}"
+                  placeholder="{{ 'placeholder.eMailRecipient' | staticMsg }}"
+                  [formControl]="mailRecipientName2"
+                  (change$)="update()"
+                  maxlength="28"
+                ></asw-input>
+              </div>
+            </div>
+            <div class="p-booking-info-mdl__row p-booking-info-mdl__row--01">
+              <div class="p-booking-info-mdl__row-item">
+                <span class="u-visually-hidden" [innerHTML]="'reader.eMailAddress' | staticMsg"></span>
+                <asw-input
+                  id="{{ id }}-mail-address2"
+                  name="{{ id }}-mail-address2"
+                  label="{{ 'label.eMailAddress.passengerInput' | staticMsg }}"
+                  placeholder="{{ 'placeholder.eMailAddress' | staticMsg }}"
+                  [formControl]="mailAddress2"
+                  (change$)="update()"
+                  maxlength="50"
+                  [conversionType]="'email'"
+                ></asw-input>
+              </div>
+            </div>
+            <div class="p-booking-info-mdl__row p-booking-info-mdl__row--01">
+              <div class="p-booking-info-mdl__row-item">
+                <div class="c-form-element-input">
+                  <span class="u-visually-hidden" [innerHTML]="'reader.confirmMailAddress' | staticMsg"></span>
+                  <asw-input
+                    id="{{ id }}-mail-address-confirm2"
+                    name="{{ id }}-mail-address-confirm2"
+                    label="{{ 'label.confirmMailAddress' | staticMsg }}"
+                    placeholder="{{ 'placeholder.eMailAddress' | staticMsg }}"
+                    [formControl]="confirmMailAddress2"
+                    (change$)="update()"
+                    maxlength="50"
+                    [conversionType]="'email'"
+                    disablePaste
+                  ></asw-input>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="parts.isLang" class="p-booking-info-mdl__row p-booking-info-mdl__row--01">
+              <div class="p-booking-info-mdl__row-item">
+                <asw-select
+                  id="{{ id }}-mail-lang-select2"
+                  name="{{ id }}-mail-lang-select2"
+                  label="{{ 'label.language' | staticMsg }}"
+                  [formControl]="mailLang2"
+                  (change$)="update()"
+                >
+                  <option value="" [innerHTML]="'placeholder.pleaseSelect' | staticMsg"></option>
+                  <option
+                    *ngFor="let lang of this.parts.langList"
+                    value="{{ lang.value }}"
+                    [innerHTML]="lang.display_content"
+                  ></option>
+                </asw-select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<button
+  id="{{ id }}-open-button"
+  class="p-booking-info-mdl__open"
+  [ngClass]="{ 'is-open': isOpen, 'u-cursor-default': isNotRegistered }"
+  [attr.aria-controls]="id + '-passenger-header-close-drawer-option1'"
+  [attr.aria-expanded]="isOpen"
+  (click)="clickOpenPassengerShutter()"
+>
+  <span class="p-booking-info-mdl__open-head">
+    <span class="p-booking-info-mdl__open-title" [innerHTML]="parts.passengerNameHeader"></span>
+    <span
+      *ngIf="parts.passengerTypeLabel !== ''"
+      class="p-booking-info-mdl__open-subtext"
+      [innerHTML]="parts.passengerTypeLabel | staticMsg"
+    ></span>
+  </span>
+
+  <span
+    *ngIf="parts.registrarionLabel !== ''"
+    class="p-booking-info-mdl__open-state {{ registrarionClass }}"
+    [innerHTML]="parts.registrarionLabel | staticMsg"
+  ></span>
+</button>

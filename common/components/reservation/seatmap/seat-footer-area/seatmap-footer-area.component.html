@@ -1,0 +1,26 @@
+<div class="l-bottom-float js-bottom-float">
+  <div class="p-bottom-float-navi05">
+    <div class="p-bottom-float-navi05__wrap">
+      <div class="p-bottom-float-navi05__inner">
+        <div class="p-bottom-float-navi05__btn p-bottom-float-navi05__btn--tb-end">
+          <!-- 保存して終了ボタン -->
+          <asw-button
+            id="seatmap-footer-area-button-198"
+            [type]="isSelectedLastSegment ? 'primary' : 'secondary'"
+            (click$)="clickSaveAndExit()"
+            [label]="'label.toPayment' | staticMsg"
+            [throttleClick]="true"
+          ></asw-button>
+          <!-- 次のフライトへボタン -->
+          <asw-button
+            *ngIf="!isSelectedLastSegment"
+            id="seatmap-footer-area-button-199"
+            (click$)="clickNextFlight()"
+            [label]="'label.proceed' | staticMsg"
+            [throttleClick]="true"
+          ></asw-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

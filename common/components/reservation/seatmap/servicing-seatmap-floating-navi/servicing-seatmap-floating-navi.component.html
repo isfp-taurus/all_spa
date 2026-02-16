@@ -1,0 +1,94 @@
+<div class="l-core-contents-float js-core-contents-float seatmap-floating-navi">
+  <!-- [コンテンツ領域 下部固定エリア内機能ボタンエリア] -->
+
+  <div class="p-core-contents-float-function01">
+    <!-- シートマップレイアウト詳細モーダルを開くボタン -->
+    <!-- SP版の場合、下に記述してあるシートプロダクト情報モーダルを開くボタンが非表示の際に、右に詰めるようにする -->
+    <div class="p-core-contents-float-function01__col">
+      <ng-container *aswIfScreenSize="'SP'">
+        <div
+          class="p-core-contents-float-function01__item"
+          [class.p-core-contents-float-function01__item--right02]="!isLayoutDetailDisplay() || !normalSeatImageExist"
+          [class.p-core-contents-float-function01__item--right03]="isLayoutDetailDisplay() && normalSeatImageExist"
+          *ngIf="false"
+        >
+          <button
+            id="open-seatmap-layout-detail-modal-button-sp"
+            class="p-core-contents-float-function01__btn p-core-contents-float-function01__btn--icon"
+            aswThrottleClick
+            (throttleClick$)="onClickLayoutDetail()"
+          >
+            <img
+              src="assets/images/seatmap_float_detail.svg"
+              width="40"
+              height="40"
+              alt="{{ 'm_static_message-reader.displayAircraftLayoutDetailModal' | staticMsg }}"
+            />
+          </button>
+        </div>
+      </ng-container>
+      <ng-container *aswIfScreenSize="['TAB', 'PC']">
+        <div
+          class="p-core-contents-float-function01__item p-core-contents-float-function01__item--right03"
+          *ngIf="false"
+        >
+          <button
+            id="open-seatmap-layout-detail-modal-button-not-sp"
+            class="p-core-contents-float-function01__btn p-core-contents-float-function01__btn--icon"
+            aswThrottleClick
+            (throttleClick$)="onClickLayoutDetail()"
+          >
+            <img
+              src="assets/images/seatmap_float_detail.svg"
+              width="40"
+              height="40"
+              alt="{{ 'm_static_message-reader.displayAircraftLayoutDetailModal' | staticMsg }}"
+            />
+          </button>
+        </div>
+      </ng-container>
+
+      <!-- シートプロダクト情報モーダルを開くボタン -->
+      <ng-container *aswIfScreenSize="'SP'">
+        <div
+          class="p-core-contents-float-function01__item p-core-contents-float-function01__item--right02"
+          *ngIf="isSeatProductDisplay()"
+        >
+          <button
+            id="open-seat-product-modal-button"
+            class="p-core-contents-float-function01__btn p-core-contents-float-function01__btn--icon"
+            aswThrottleClick
+            (throttleClick$)="onClickSeatType()"
+          >
+            <img
+              src="{{ this.appConstants.IMG.R01_P070_S01_U__FLOADING_NAVI__SEATMAP_FLOAT_SEATTYPE }}"
+              width="40"
+              height="40"
+              alt="{{ 'm_static_message-reader.displaySeatTypeModal' | staticMsg }}"
+            />
+          </button>
+        </div>
+      </ng-container>
+
+      <!-- 凡例モーダルを開くボタン -->
+      <ng-container *aswIfScreenSize="['SP', 'TAB']">
+        <div class="p-core-contents-float-function01__item p-core-contents-float-function01__item--right01">
+          <button
+            id="open-legend-modal-button"
+            class="p-core-contents-float-function01__btn p-core-contents-float-function01__btn--icon"
+            aswThrottleClick
+            (throttleClick$)="onClickLegend()"
+          >
+            <img
+              src="{{ this.appConstants.IMG.R01_P070_S01_U__FLOADING_NAVI__SEATMAP_FLOAT_LEGEND }}"
+              width="40"
+              height="40"
+              alt="{{ 'm_static_message-label.legend1' | staticMsg }}"
+            />
+          </button>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <!-- //[コンテンツ領域 下部固定エリア内機能ボタンエリア] -->
+</div>

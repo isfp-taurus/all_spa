@@ -1,0 +1,528 @@
+<asw-base-modal
+  [overlayRef]="overlayRef"
+  [title]="title"
+  [modalType]="modalType"
+  widthType="_"
+  [focusElement]="focusElement"
+  (modalAfterViewInit$)="modalAfterViewInit($event)"
+>
+  <div body class="l-modal02__body">
+    <!-- モーダルの中身が入ります -->
+    <div class="p-modal-flight-plan">
+      <div class="p-flight-container__announce" *ngIf="isContainedDelayedFlight || isContainedEarlyDepartureFlight">
+        <div class="p-flight-container__announce-item">
+          <!-- 遅延情報 -->
+          <span class="c-tag c-tag--type01" *ngIf="isContainedDelayedFlight"
+            ><strong [innerHTML]="'label.delayed' | staticMsg"></strong
+          ></span>
+          <!-- 早発情報 -->
+          <span class="c-tag c-tag--type01" *ngIf="isContainedEarlyDepartureFlight"
+            ><strong [innerHTML]="'label.earlyDeparture' | staticMsg"></strong
+          ></span>
+        </div>
+      </div>
+      <div class="c-flight-plan">
+        <!-- 出発地 -->
+        <p class="c-flight-plan__location c-flight-plan__item-1" *ngIf="departureLocation">
+          <em [ngClass]="{ 'c-flight-plan__location-em': departureLocationEm }" [innerHTML]="departureLocation"></em>
+        </p>
+
+        <div
+          class="c-flight-plan__time c-flight-plan__item-2"
+          [ngClass]="{ 'c-flight-plan--change': departureTimeNew }"
+        >
+          <!-- 出発時刻 -->
+          <div class="c-flight-plan__time-box" *ngIf="!departureTimeNew">
+            <span class="u-visually-hidden" [innerHTML]="'reader.scheduleDepartureTime' | staticMsg"></span>
+            <span [innerHTML]="departureTime! | dateFormat : 'availability.flightPlan_departuredate.time'"></span>
+          </div>
+          <!-- 出発時刻 打ち消し線で消した状態 -->
+          <ng-container *ngIf="departureTimeNew">
+            <div class="c-flight-plan__time-box">
+              <span class="u-visually-hidden" [innerHTML]="'reader.scheduleDepartureTime' | staticMsg"></span>
+              <span [innerHTML]="departureTime! | dateFormat : 'availability.flightPlan_departuredate.time.old'"></span>
+            </div>
+            <!-- 最新出発時刻 -->
+            <div class="c-flight-plan__time-box">
+              <em>
+                <span class="u-visually-hidden" [innerHTML]="'reader.newDepartureTime' | staticMsg"></span
+                ><ng-container *ngIf="newTimeDisplay(departureTime, departureTimeNew); else elseTemplate">
+                  <span
+                    [innerHTML]="departureTimeNew | dateFormat : 'availability.flightPlan_departuredate.time.latest'"
+                  ></span>
+                </ng-container>
+                <ng-template #elseTemplate>
+                  <span
+                    [innerHTML]="
+                      departureTimeNew | dateFormat : 'availability.flightPlan_departuredate.datetime.latest'
+                    "
+                  ></span>
+                </ng-template>
+              </em>
+            </div>
+          </ng-container>
+          <!-- 深夜出発日時 -->
+          <div class="c-flight-plan__time-date" *ngIf="lateNightDepartureDate">
+            <span class="u-visually-hidden" [innerHTML]="'reader.lateNightDeparture' | staticMsg"></span>
+            <em
+              ><span
+                [innerHTML]="
+                  lateNightDepartureDate
+                    | dateFormat
+                      : (lateNightDepartureDate === departureTime
+                          ? 'availability.flightplan_departuredate.datetime.lateNight'
+                          : 'availability.flightplan_departuredate.datetime.lateNight.latest')
+                      : true
+                "
+              ></span
+            ></em>
+          </div>
+        </div>
+        <div class="c-flight-plan__period c-flight-plan__period--{{ numberOfConnection }}stop c-flight-plan__item-3">
+          <!-- 乗継回数 -->
+          <p
+            class="c-flight-plan__period-layover"
+            *ngIf="numberOfConnection === 0"
+            [innerHTML]="'label.nonStopFlight' | staticMsg"
+          ></p>
+          <p
+            class="c-flight-plan__period-layover"
+            *ngIf="numberOfConnection !== 0"
+            [innerHTML]="'label.connectionCount' | staticMsg : { '0': numberOfConnection }"
+          ></p>
+          <!-- 所要時間 -->
+          <span class="u-visually-hidden" [innerHTML]="'reader.flightDuration' | staticMsg"></span>
+          <p [outerHTML]="duration! | dateFormat : 'availability.flightPlan_flightTotalTime'"></p>
+        </div>
+        <!-- 到着地 -->
+        <p class="c-flight-plan__location c-flight-plan__item-4" *ngIf="destinationLocation">
+          <em
+            [ngClass]="{ 'c-flight-plan__location-em': destinationLocationEm }"
+            [innerHTML]="destinationLocation"
+          ></em>
+        </p>
+        <div
+          class="c-flight-plan__time c-flight-plan__item-5"
+          [ngClass]="{ 'c-flight-plan--change': destinationTimeNew }"
+        >
+          <!-- 到着時刻 -->
+          <div class="c-flight-plan__time-box" *ngIf="!destinationTimeNew">
+            <span class="u-visually-hidden" [innerHTML]="'reader.scheduleArrivalTime' | staticMsg"></span>
+            <span [innerHTML]="destinationTime! | dateFormat : 'availability.flightPlan_departuredate.time'"></span>
+          </div>
+          <!-- 到着時刻 打ち消し線で消した状態 -->
+          <ng-container *ngIf="destinationTimeNew">
+            <div class="c-flight-plan__time-box">
+              <span class="u-visually-hidden" [innerHTML]="'reader.scheduleArrivalTime' | staticMsg"></span
+              ><span
+                [innerHTML]="destinationTime! | dateFormat : 'availability.flightPlan_departuredate.time.old'"
+              ></span>
+            </div>
+            <!-- 最新到着時刻 -->
+            <div class="c-flight-plan__time-box">
+              <em>
+                <span class="u-visually-hidden" [innerHTML]="'reader.newArrivalTime' | staticMsg"></span
+                ><ng-container *ngIf="newTimeDisplay(destinationTime, destinationTimeNew); else elseTemplate">
+                  <span
+                    [innerHTML]="destinationTimeNew | dateFormat : 'availability.flightPlan_departuredate.time.latest'"
+                  ></span>
+                </ng-container>
+                <ng-template #elseTemplate>
+                  <span
+                    [innerHTML]="
+                      destinationTimeNew | dateFormat : 'availability.flightPlan_departuredate.datetime.latest'
+                    "
+                  ></span>
+                </ng-template>
+              </em>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+
+      <div class="p-modal-flight-plan__item">
+        <div class="c-flight-detail-overview02">
+          <span class="u-visually-hidden">Operation</span
+          ><span class="p-modal-flight-plan__item-ana"
+            ><!-- 運航キャリア識別 -->
+            <!-- ANAロゴを表す画像 -->
+            <span class="c-ana-icon01">
+              <img
+                class="c-ana-icon01__img"
+                src="{{ appConstants.IMG.PARTNER_COMPANY_ICON }}"
+                width="{{ appConstants.IMG.LOGO_S_WIDTH }}"
+                height="{{ appConstants.IMG.LOGO_S_HEIGHT }}"
+                [alt]="'alt.nhFlight' | staticMsg"
+                *ngIf="isAllNhGroupOperated"
+              />
+              <!-- 運航キャリア名称 -->
+              <span class="c-asam-icon01__text" *ngIf="operatingAirlinesArray && operatingAirlinesArray.length > 0">
+                <div
+                  [outerHTML]="'label.segmanetOpCarrierWording' | staticMsg : { '0': contactOperatingAirlinesName }"
+                ></div>
+              </span>
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="p-modal-body02">
+      <!-- 選択中の状態場合: p-flight-fare-family-container--selectedを指定する -->
+      <div class="p-fare-panel p-fare-panel--vertical">
+        <ng-container *ngFor="let item of airBoundInfo; let i = index; let count = count">
+          <ng-container *ngIf="item.isCanChooseAfterFilter">
+            <ng-container *ngIf="item.isUnavailable; else available">
+              <div
+                class="p-fare-panel__item p-fare-panel__item--disabled"
+                role="group"
+                attr.aria-label="slide {{ i + 1 }} of {{ count }}"
+              >
+                <div class="p-fare-panel__head p-fare-panel__head--lg-left p-fare-panel__head--notavailable">
+                  <div class="p-fare-panel__head-item">
+                    <div class="p-fare-panel__head-item p-fare-panel__head-class">
+                      <!-- FF名称 -->
+                      <p class="p-fare-panel__head-item-rank p-fare-panel__head-item-rank--fs14">
+                        {{ 'm_ff_priority_code_i18n_' + item.priorityCode | staticMsg }}
+                        <ng-container *ngIf="item.unavailableReason === 'soldOut'; else notavailable">
+                          <span
+                            class="p-fare-panel__head-item-rank-notavailable"
+                            [innerHTML]="'label.lastSeatWithSpan1' | staticMsg : { '0': item.quota }"
+                          ></span>
+                        </ng-container>
+                        <ng-template #notavailable>
+                          <span
+                            class="p-fare-panel__head-item-rank-notavailable"
+                            [innerHTML]="isUnavailableTranslateKey(item) | staticMsg"
+                          ></span>
+                        </ng-template>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+            <ng-template #available>
+              <!-- 左端の帯の色 -->
+              <div
+                [ngClass]="{
+                  'p-fare-panel__item--selected': isSelected(item)
+                }"
+                class="p-fare-panel__item"
+                role="group"
+                attr.aria-label="slide {{ i + 1 }} of {{ count }}"
+              >
+                <!-- 選択済情報 -->
+                <div class="p-fare-panel__selected" *ngIf="isSelected(item)">
+                  <span class="u-visually-hidden" [innerHTML]="'label.currentFare2' | staticMsg"></span>
+                  <em [innerHTML]="'label.currentFare2' | staticMsg"></em>
+                </div>
+                <div class="p-fare-panel__head p-fare-panel__head--lg-left">
+                  <div
+                    class="p-fare-panel__head-item p-fare-panel__head-price p-fare-panel__head-item--mt0 p-fare-panel__head-price--normal"
+                  >
+                    <div class="p-fare-panel__head-price-item p-fare-panel__head-price-item--left">
+                      <!-- FF名称 -->
+                      <!-- ユーザ共通.言語情報毎の、Air Bound情報.priorityCodeに紐づくFF Priority Code.Fare Family名称 コンテンツURL -->
+                      <p
+                        class="p-fare-panel__head-item-rank p-fare-panel__head-item-rank--mb10 p-fare-panel__head-item-rank--fs14"
+                        *ngIf="getFFUrl(item.priorityCode); else noFFUrl"
+                      >
+                        <a
+                          id="fare-family-select-modal-link1-ffName"
+                          class="p-fare-panel__body-item-text-link"
+                          [href]="getFFUrl(item.priorityCode) | metaUrl"
+                          >{{ 'm_ff_priority_code_i18n_' + item.priorityCode | staticMsg
+                          }}<asw-indicator-popup></asw-indicator-popup
+                        ></a>
+                      </p>
+                      <ng-template #noFFUrl>
+                        <p
+                          class="p-fare-panel__head-item-rank p-fare-panel__head-item-rank--mb10 p-fare-panel__head-item-rank--fs14"
+                          [innerHTML]="'m_ff_priority_code_i18n_' + item.priorityCode | staticMsg"
+                        ></p>
+                      </ng-template>
+                      <ul class="c-available-list">
+                        <!-- 予約変更可否 -->
+                        <li class="c-available-list__item">
+                          <ng-container
+                            *ngIf="
+                              item.changeConditionsType === 'withPenalty' || item.changeConditionsType === 'free';
+                              else notAvailableReserve
+                            "
+                          >
+                            <div class="c-available-list__item-icon">
+                              <img src="assets/images/icon_feature_available_24.svg" width="24" height="24" />
+                            </div>
+                            <!-- 予約変更可(手数料有り)である旨 -->
+                            <div
+                              class="c-available-list__item-title"
+                              *ngIf="item.changeConditionsType === 'withPenalty'"
+                              [innerHTML]="'label.itineraryPermittedWithFee' | staticMsg"
+                            ></div>
+                            <!-- 予約変更可(手数料無し)である旨 -->
+                            <div
+                              class="c-available-list__item-title"
+                              *ngIf="item.changeConditionsType === 'free'"
+                              [innerHTML]="'label.itineraryPermitted' | staticMsg"
+                            ></div>
+                          </ng-container>
+                          <ng-template #notAvailableReserve>
+                            <div class="c-available-list__item-icon">
+                              <img src="assets/images/icon_feature_not_available_24.svg" width="24" height="24" />
+                            </div>
+                            <!-- 予約変更不可である旨 -->
+                            <div
+                              class="c-available-list__item-title"
+                              [innerHTML]="'label.itineraryNotPermitted' | staticMsg"
+                            ></div>
+                          </ng-template>
+                        </li>
+                        <!-- 払戻可否 -->
+                        <li class="c-available-list__item">
+                          <ng-container
+                            *ngIf="
+                              item.refundConditionsType === 'chargeable' || item.refundConditionsType === 'free';
+                              else notAvailableRefund
+                            "
+                          >
+                            <div class="c-available-list__item-icon">
+                              <img src="assets/images/icon_feature_available_24.svg" width="24" height="24" />
+                            </div>
+                            <!-- 払戻可(手数料有り)である旨 -->
+                            <div
+                              class="c-available-list__item-title"
+                              *ngIf="item.refundConditionsType === 'chargeable'"
+                              [innerHTML]="'label.refundPermittedWithFee' | staticMsg"
+                            ></div>
+                            <!-- 払戻可(手数料無し)である旨 -->
+                            <div
+                              class="c-available-list__item-title"
+                              *ngIf="item.refundConditionsType === 'free'"
+                              [innerHTML]="'label.refundPermitted' | staticMsg"
+                            ></div>
+                          </ng-container>
+                          <ng-template #notAvailableRefund>
+                            <div class="c-available-list__item-icon">
+                              <img src="assets/images/icon_feature_not_available_24.svg" width="24" height="24" />
+                            </div>
+                            <!-- 払戻不可である旨 -->
+                            <div
+                              class="c-available-list__item-title"
+                              [innerHTML]="'label.refundNotPermitted' | staticMsg"
+                            ></div>
+                          </ng-template>
+                        </li>
+                        <!-- 無料預け入れ手荷物個数 -->
+                        <li class="c-available-list__item">
+                          <!-- 個数を含めた無料預け入れ手荷物である旨 -->
+                          <ng-container *ngIf="item.minFreeCheckedBaggageQuantity > 0">
+                            <div class="c-available-list__item-icon">
+                              <img src="assets/images/icon_feature_available_24.svg" width="24" height="24" />
+                            </div>
+                            <div
+                              class="c-available-list__item-title"
+                              [innerHTML]="
+                                'label.freeBaggagePcs' | staticMsg : { '0': item.minFreeCheckedBaggageQuantity }
+                              "
+                            ></div>
+                          </ng-container>
+                          <!-- 手荷物の預け入れが不可である旨 -->
+                          <ng-container *ngIf="item.minFreeCheckedBaggageQuantity === 0">
+                            <div class="c-available-list__item-icon">
+                              <img src="assets/images/icon_feature_not_available_24.svg" width="24" height="24" />
+                            </div>
+                            <div
+                              class="c-available-list__item-title"
+                              [innerHTML]="'label.notFreeBaggage' | staticMsg"
+                            ></div>
+                          </ng-container>
+                        </li>
+                        <!-- 無料機内持ち込み手荷物個数 -->
+                        <li class="c-available-list__item">
+                          <!-- 個数を含めた無料持ち込み手荷物である旨 -->
+                          <ng-container *ngIf="item.minFreeCarryOnBaggageQuantity > 0">
+                            <div class="c-available-list__item-icon">
+                              <img src="assets/images/icon_feature_available_24.svg" width="24" height="24" />
+                            </div>
+                            <div
+                              class="c-available-list__item-title"
+                              [innerHTML]="
+                                'label.carryOnBaggagePcs' | staticMsg : { '0': item.minFreeCarryOnBaggageQuantity }
+                              "
+                            ></div>
+                          </ng-container>
+                          <!-- 手荷物の預け入れが不可である旨 -->
+                          <ng-container *ngIf="item.minFreeCarryOnBaggageQuantity === 0">
+                            <div class="c-available-list__item-icon">
+                              <img src="assets/images/icon_feature_not_available_24.svg" width="24" height="24" />
+                            </div>
+                            <div
+                              class="c-available-list__item-title"
+                              [innerHTML]="'label.notCarryOnBaggage' | staticMsg"
+                            ></div>
+                          </ng-container>
+                        </li>
+                        <!-- 座席指定 -->
+                        <li class="c-available-list__item">
+                          <!-- 全席無料で可能である旨 -->
+                          <ng-container *ngIf="getFareFamilyInfo(item.fareFamilyCode)?.isIncludedSeatAssignment">
+                            <div class="c-available-list__item-title" [innerHTML]="'label.asrFree' | staticMsg"></div>
+                          </ng-container>
+                          <!-- 全席指定不可である旨 -->
+                          <ng-container *ngIf="!getFareFamilyInfo(item.fareFamilyCode)?.isIncludedSeatAssignment">
+                            <div
+                              class="c-available-list__item-title"
+                              [innerHTML]="'label.asr.chargeableType.impossible.sp' | staticMsg"
+                            ></div>
+                          </ng-container>
+                        </li>
+                        <li
+                          class="c-available-list__item c-available-list__item--pl0"
+                          *ngIf="!isAnaApl && boundDetails?.numberOfConnection === 0 && showSeatMap"
+                        >
+                          <p class="p-fare-panel__body-item-text">
+                            <a
+                              id="fare-family-select-modal-link1-seatmap"
+                              class="p-fare-panel__body-item-text-link"
+                              href="javascript:void(0)"
+                              [attr.aria-label]="
+                                  'reader.displaySeatmap'
+                                    | staticMsg
+                                      : {
+                                          '0': getFlightNo(boundDetails?.segments?.[0]),
+                                          '1': getCabinKey(boundDetails?.segments?.[0]?.cabin) | staticMsg,
+                                          '2': total(item)
+                                        }
+                                "
+                              (throttleClick$)="
+                                openSeatMap(item.fareFamilyCode, getFareFamilyInfo(item.fareFamilyCode))
+                              "
+                              aswThrottleClick
+                              >{{ 'link.seetMap' | staticMsg }}<asw-indicator-popup></asw-indicator-popup
+                            ></a>
+                          </p>
+                        </li>
+                        <li
+                          class="c-available-list__item c-available-list__item--pl0"
+                          *ngIf="!isAnaApl && boundDetails?.numberOfConnection !== 0 && showSeatMap"
+                        >
+                          <p class="p-fare-panel__body-item-text">
+                            <a
+                              id="fare-family-select-modal-link1-seatmap1"
+                              class="p-fare-panel__body-item-text-link"
+                              href="javascript:void(0)"
+                              [attr.aria-label]="'reader.displaySeatmapFlightSelect' | staticMsg"
+                              (throttleClick$)="
+                                openSeatMap(item.fareFamilyCode, getFareFamilyInfo(item.fareFamilyCode))
+                              "
+                              aswThrottleClick
+                              >{{ 'link.seetMap' | staticMsg }}<asw-indicator-popup></asw-indicator-popup
+                            ></a>
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div
+                      class="p-fare-panel__head-price-item p-fare-panel__head-price-item--right p-fare-panel__head-price-item--flex"
+                    >
+                      <!-- 最安金額である旨の表示 -->
+                      <span
+                        class="c-tag-lowest-price"
+                        *ngIf="item.airBound?.prices?.isCheapest && item.fareType !== 'awardFare'"
+                        [innerHTML]="'label.lowest' | staticMsg"
+                      ></span>
+                      <!-- 金額 -->
+                      <p class="p-fare-panel__head-item-fare" *ngIf="item.fareType !== 'awardFare'">
+                        <span class="p-fare-panel__head-item-fare-price">
+                          <ng-container *ngIf="!isSelected(item); else elseCurrency">
+                            <span
+                              [innerHTML]="
+                                getTotalPrice(item)?.price?.total!
+                                  | amountFormat
+                                    : 'availability.farePanel_price'
+                                    : getTotalPrice(item)?.price?.currencyCode
+                              "
+                            ></span>
+                          </ng-container>
+                          <ng-template #elseCurrency>
+                            <span
+                              [innerHTML]="
+                                getTotalPrice(item)?.price?.total!
+                                  | amountFormat
+                                    : 'availability.farePanel_price'
+                                    : getTotalPrice(item)?.price?.currencyCode
+                              "
+                            ></span>
+                          </ng-template>
+                        </span>
+                      </p>
+                      <!-- 残席数 -->
+                      <p class="u-mb5" *ngIf="item.quotaType === 'few' && item.quota !== 0">
+                        <em [innerHTML]="'label.lastSeatWithSpan1' | staticMsg : { '0': item.quota }"></em>
+                      </p>
+                      <p class="u-mb5" *ngIf="item.quotaType === 'available'">
+                        <!-- 空席がある旨 -->
+                        <em [innerHTML]="'label.remainSeat' | staticMsg"></em>
+                      </p>
+                      <p class="u-mb5" *ngIf="item.isWaitlisted">
+                        <!-- 空席待ちである旨 -->
+                        <em class="c-information-list02__attention" [innerHTML]="'label.waitlist' | staticMsg"></em>
+                      </p>
+                      <!-- FF選択 -->
+                      <!-- 読み上げ用文言として、便名のリスト、キャビン名称、運賃名称を含んだ旨を設置する。 -->
+                      <button
+                        class="c-btn-primary c-btn-primary--s c-btn-primary--mt-auto"
+                        [attr.aria-label]="
+                          'reader.flightRadio.owd'
+                            | staticMsg : { '0': flightNoList, '1': item.cabin, '2': item.fareInfos.fareClass }
+                        "
+                        id="fare-family-select"
+                        (throttleClick$)="selectEvent(item)"
+                        aswThrottleClick
+                      >
+                        <span class="c-btn-primary__text" [innerHTML]="'label.selectRadio' | staticMsg"></span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <!-- 空席待ち人数 -->
+                <div
+                  class="p-fare-panel__body p-fare-panel__body--lg-left p-fare-panel__body--border"
+                  *ngIf="item.isWaitlisted"
+                >
+                  <div class="p-fare-panel__body-item p-fare-panel__body-item--flex">
+                    <p class="c-text c-text--dark-gray" [innerHTML]="'label.waitngCount' | staticMsg"></p>
+                    <ng-container *aswDeviceIf="'pc'">
+                      <!-- 空席待ち人数を表示 -->
+                      <p class="c-text c-text--dark-gray" [innerHTML]="waitlistResponse?.[item.cabin]"></p>
+                    </ng-container>
+                    <ng-container *aswDeviceIf="'notPc'">
+                      <!-- 空席待ち人数を取得するためのリンクを表示 -->
+                      <button
+                        *ngIf="!waitlistResponse"
+                        class="c-btn-tertiary c-btn-tertiary--xs c-btn-tertiary--arrow-down"
+                        id="fare-family-select-get"
+                        (click)="getWaitlist()"
+                      >
+                        <span class="u-visually-hidden" [innerHTML]="'reader.seatAcquisition' | staticMsg"></span>
+                        <span class="c-btn-tertiary__text" [innerHTML]="'label.Get' | staticMsg"></span>
+                      </button>
+                      <!-- 空席待ち人数を表示 -->
+                      <p
+                        *ngIf="waitlistResponse"
+                        class="c-text c-text--dark-gray"
+                        [innerHTML]="waitlistResponse[item.cabin]"
+                      ></p>
+                    </ng-container>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</asw-base-modal>
