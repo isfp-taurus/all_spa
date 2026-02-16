@@ -1,0 +1,33 @@
+<button
+  *ngIf="throttleClick"
+  [class]="buttonClass"
+  [disabled]="disabled"
+  [attr.aria-label]="ariaLabel"
+  id="button_throttle_{{ id }}"
+  aswThrottleClick
+  [throttleTime]="throttleTime"
+  (throttleClick$)="onClickEvent($event)"
+>
+  <ng-container [ngTemplateOutlet]="buttonInner"></ng-container>
+</button>
+<button
+  *ngIf="!throttleClick"
+  [class]="buttonClass"
+  [disabled]="disabled"
+  [attr.aria-label]="ariaLabel"
+  id="button_{{ id }}"
+  (click)="onClickEvent($event)"
+>
+  <ng-container [ngTemplateOutlet]="buttonInner"></ng-container>
+</button>
+<ng-template #buttonInner>
+  <ng-container *ngIf="label">
+    <span class="c-btn-{{ type }}__text" [innerHTML]="label"></span>
+  </ng-container>
+  <ng-container *ngIf="!label">
+    <span class="c-btn-{{ type }}__text">
+      <ng-content></ng-content>
+    </span>
+  </ng-container>
+  <span class="u-visually-hidden" *ngIf="icon === 'external'" [innerHTML]="'alt.openLinkInNewTab' | staticMsg"></span>
+</ng-template>
