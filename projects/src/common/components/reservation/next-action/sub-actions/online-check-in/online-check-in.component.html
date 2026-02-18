@@ -1,0 +1,15 @@
+<ng-template #template>
+  <ng-container *ngIf="isDisplayed">
+    <div class="l-mybooking__option-item">
+      <asw-next-action-item
+        (clickNextAction)="onClick()"
+        [canBeClicked]="canBeClicked"
+        [title]="'label.onlineCheckin.receiving' | staticMsg"
+        [titleAria]="'reader.pleaseOnlineCheckIn' | staticMsg"
+        [textContent]="'message.onlineCheckinAvailableTime' | staticMsg"
+        itemId="online-checkin"
+      >
+      </asw-next-action-item>
+    </div>
+  </ng-container>
+</ng-template>

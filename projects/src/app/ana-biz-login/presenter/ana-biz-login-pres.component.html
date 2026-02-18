@@ -1,0 +1,165 @@
+<div class="l-core-contents__inner">
+  <div class="l-core-contents__main">
+    <div class="l-section">
+      <div class="p-ana-biz-login">
+        <form #form="ngForm" [formGroup]="inputFG">
+          <div class="p-ana-biz-login__table">
+            <h3 [innerHTML]="'label.loginAs' | staticMsg"></h3>
+
+            <div class="p-ana-biz-login__table-radio-button">
+              <asw-radiobutton-box
+                id="ana-biz-login-radiobutton-box"
+                legend="businessTraveler"
+                [text]="connectionTypeTexts"
+                [(value)]="connectionTypeSelectValue"
+              ></asw-radiobutton-box>
+            </div>
+
+            <div class="p-ana-biz-login__table-form-area">
+              <div class="p-ana-biz-login__table-form-area--item">
+                <span class="c-form-element-input__input">
+                  <asw-input
+                    id="p-ana-biz-login-company-and-organization-id"
+                    label="{{ 'label.companyAndOrganizationId' | staticMsg }}"
+                    placeholder="{{ 'placeholder.companyAndOrganizationId' | staticMsg }}"
+                    maxlength="10"
+                    formControlName="companyAndOrganizationId"
+                    required
+                  ></asw-input>
+                </span>
+              </div>
+              <div class="p-ana-biz-login__table-form-area--item">
+                <span class="c-form-element-input__input">
+                  <asw-input
+                    id="p-ana-biz-login-password"
+                    [label]="'label.companyAndOrganizationIdPassword' | staticMsg"
+                    placeholder="{{ 'placeholder.companyAndOrganizationIdPassword' | staticMsg }}"
+                    formControlName="password"
+                    maxlength="20"
+                    required
+                    type="password"
+                  ></asw-input>
+                </span>
+              </div>
+            </div>
+            <div class="p-ana-biz-login__table-form-area" *ngIf="connectionTypeSelectValue === 1">
+              <div class="p-ana-biz-login__table-form-area--item">
+                <span class="c-form-element-input__input">
+                  <asw-input
+                    id="p-ana-biz-login-administrator-id"
+                    [label]="'label.administratorId' | staticMsg"
+                    placeholder="{{ 'placeholder.administratorId' | staticMsg }}"
+                    maxlength="10"
+                    formControlName="administratorId"
+                    required
+                  ></asw-input>
+                </span>
+              </div>
+              <div class="p-ana-biz-login__table-form-area--item"></div>
+            </div>
+
+            <asw-checkbox
+              id="ana-biz-login-checkbox"
+              [label]="'label.rememberLoginInformation' | staticMsg"
+              [formControl]="passwordKeepCheck"
+              (change$)="clickPasswordKeepCheck($event.checked)"
+            ></asw-checkbox>
+
+            <div class="p-ana-biz-login__table-radio-group">
+              <asw-radio-group
+                id="ana-biz-login-radio-group"
+                name="radiobutton"
+                direction="vertical"
+                [formControl]="passwordKeepCheckRadioGroup"
+              >
+                <asw-radio-button
+                  id="ana-biz-login-radio-group-1"
+                  value="0"
+                  [label]="'label.saveCompanyPassword' | staticMsg"
+                  formControlName="anaBizLoginRadioGroup"
+                ></asw-radio-button>
+                <asw-radio-button
+                  id="ana-biz-login-radio-group-2"
+                  value="1"
+                  [label]="'label.doNotSaveCompanyPassword' | staticMsg"
+                  formControlName="anaBizLoginRadioGroup"
+                ></asw-radio-button>
+              </asw-radio-group>
+            </div>
+          </div>
+
+          <div *ngIf="_common.isNotLogin()" class="p-ana-biz-login__amc-login-table">
+            <div class="p-ana-biz-login__amc-login-table-title" [innerHTML]="'label.AnaMileageClub' | staticMsg"></div>
+            <div
+              class="p-ana-biz-login__amc-login-table-describe"
+              [innerHTML]="'alt.anaMileageClubDescribe' | staticMsg"
+            ></div>
+
+            <div class="p-ana-biz-login__amc-login-table-form-area">
+              <div class="p-ana-biz-login__amc-login-table-form-area--item">
+                <span class="c-form-element-input__input">
+                  <asw-input
+                    id="p-ana-biz-login-amc-number"
+                    [label]="'label.aNAMileageClubNumber' | staticMsg"
+                    placeholder="{{ 'placeholder.amcNumber' | staticMsg }}"
+                    formControlName="amcNumber"
+                    maxlength="10"
+                  ></asw-input>
+                </span>
+
+                <div class="p-ana-biz-login__link">
+                  <a
+                    href="{{ amcNoReminderUrl }}"
+                    id="ana-biz-login-forgot-number-link"
+                    class="c-text-link-arrow01"
+                    [innerHTML]="'label.forgotYourNumber' | staticMsg"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  ></a>
+                </div>
+              </div>
+              <div class="p-ana-biz-login__amc-login-table-form-area--item">
+                <span class="c-form-element-input__input">
+                  <asw-input
+                    id="p-ana-biz-login-amc-password"
+                    [label]="'label.password' | staticMsg"
+                    placeholder="{{ 'placeholder.password' | staticMsg }}"
+                    formControlName="amcPassword"
+                    maxlength="20"
+                    type="password"
+                  ></asw-input>
+                </span>
+
+                <div class="p-ana-biz-login__link">
+                  <a
+                    href="{{ amcPasswordReminderUrl }}"
+                    id="ana-biz-login-forgot-password-link"
+                    class="c-text-link-arrow01"
+                    [innerHTML]="'label.forgotYourPassword' | staticMsg"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  ></a>
+                </div>
+              </div>
+            </div>
+
+            <asw-checkbox
+              id="ana-biz-login-amc-checkbox"
+              [label]="'label.keepLoginState' | staticMsg"
+              [formControl]="amcLoginKeepCheck"
+            ></asw-checkbox>
+          </div>
+
+          <div class="p-ana-biz-login__login-button">
+            <asw-button
+              id="ana-biz-login-login-button"
+              [label]="'label.anaBizLogin' | staticMsg"
+              (click$)="clickLoginEvent()"
+              throttleClick
+            ></asw-button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

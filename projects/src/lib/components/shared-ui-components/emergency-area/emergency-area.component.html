@@ -1,0 +1,112 @@
+<!-- 緊急案内-->
+<div *ngIf="emergencyMessagesDispFirst !== null" class="l-top-info js-more-info">
+  <div class="l-wrap l-wrap--sp-full">
+    <div class="l-wrap__inner">
+      <div class="l-top-info__inner">
+        <div class="l-top-info__wrap">
+          <ul class="l-top-info__list l-top-info__list--headline">
+            <li
+              class="l-top-info__item"
+              [innerHTML]="dynamicMsgKeyPrefix + emergencyMessagesDispFirst || '' | staticMsg"
+            ></li>
+          </ul>
+          <ul
+            *ngIf="emergencyIsMulti"
+            id="top-info-more"
+            class="l-top-info__list js-more-info-contents"
+            [ngClass]="{ 'is-open': emergencyOpen }"
+          >
+            <li
+              *ngFor="let emergencyMessage of emergencyMessages"
+              class="l-top-info__item"
+              [innerHTML]="dynamicMsgKeyPrefix + emergencyMessage | staticMsg"
+            ></li>
+          </ul>
+        </div>
+        <div *ngIf="emergencyIsMulti" class="l-top-info__control">
+          <button
+            id="emergency-message-button"
+            class="l-top-info__btn js-more-info-btn"
+            [ngClass]="{ 'is-open': emergencyOpen }"
+            [attr.aria-expanded]="emergencyOpen"
+            aria-controls="top-info-more"
+            (click)="clickEmergency()"
+          >
+            <span
+              class="l-top-info__btn-text u-display-block-sp"
+              [innerHTML]="(emergencyOpen ? 'label.close' : 'label.open') | staticMsg"
+            >
+            </span>
+            <span
+              class="l-top-info__btn-text u-display-block-tb"
+              [innerHTML]="
+                'label.emergencyNum'
+                  | staticMsg : { '0': 99 < emergencyMessages.length + 1 ? '99+' : emergencyMessages.length + 1 }
+              "
+            ></span>
+            <span
+              class="u-visually-hidden u-display-block-tb"
+              [innerHTML]="(emergencyOpen ? 'label.close' : 'label.open') | staticMsg"
+            >
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 訴求案内 -->
+<div *ngIf="appealGuideMessagesDispFirst !== null" class="l-top-info l-top-info--warning js-more-info">
+  <div class="l-wrap l-wrap--sp-full">
+    <div class="l-wrap__inner">
+      <div class="l-top-info__inner">
+        <div class="l-top-info__wrap">
+          <ul class="l-top-info__list l-top-info__list--headline">
+            <li
+              class="l-top-info__item"
+              [innerHTML]="dynamicMsgKeyPrefix + appealGuideMessagesDispFirst || '' | staticMsg"
+            ></li>
+          </ul>
+          <ul
+            *ngIf="appealGuideIsMulti"
+            id="top-warning-info-more"
+            class="l-top-info__list js-more-info-contents"
+            [ngClass]="{ 'is-open': appealGuideOpen }"
+          >
+            <li
+              *ngFor="let appealGuideMessage of appealGuideMessages"
+              class="l-top-info__item"
+              [innerHTML]="dynamicMsgKeyPrefix + appealGuideMessage | staticMsg"
+            ></li>
+          </ul>
+        </div>
+        <div *ngIf="appealGuideIsMulti" class="l-top-info__control">
+          <button
+            id="appealGuide-message-button"
+            class="l-top-info__btn js-more-info-btn"
+            [ngClass]="{ 'is-open': appealGuideOpen }"
+            [attr.aria-expanded]="appealGuideOpen"
+            aria-controls="top-warning-info-more"
+            (click)="clickAppealGuide()"
+          >
+            <span
+              class="l-top-info__btn-text u-display-block-sp"
+              [innerHTML]="(appealGuideOpen ? 'label.close' : 'label.open') | staticMsg"
+            ></span>
+            <span
+              class="l-top-info__btn-text u-display-block-tb"
+              [innerHTML]="
+                'label.emergencyNum'
+                  | staticMsg : { '0': 99 < appealGuideMessages.length + 1 ? '99+' : appealGuideMessages.length + 1 }
+              "
+            ></span>
+            <span
+              class="u-visually-hidden u-display-block-tb"
+              [innerHTML]="(appealGuideOpen ? 'label.close' : 'label.open') | staticMsg"
+            ></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

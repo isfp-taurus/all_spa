@@ -1,0 +1,407 @@
+<!--預かり入れ手荷物-->
+<div
+  class="p-plan-table js-plan-table01-item is-scroll"
+  [ngClass]="{ 'is-scroll': isScrollChecked, 'grey-bg': !isPlanValid }"
+>
+  <div class="p-plan-table__title p-plan-table__title--has-btn">
+    <div class="p-plan-table__title-label p-plan-table__title-label--em p-plan-table__title-label--l">
+      <span class="c-text-with-tooltip">
+        <span class="c-text-with-tooltip__text" [innerHTML]="'label.checkedBaggage2' | staticMsg"></span>
+        <span class="c-text-with-tooltip__tooltip js-tooltip" *ngIf="!data.isDomestic">
+          <!--TODO ツールチップ内文言は追加文系で対応-->
+          <button
+            id="asw-mybooking-baggage-rules-dot-button-tooltip2"
+            class="c-text-with-tooltip__btn js-tooltip-btn"
+            aria-controls="texttooltip01"
+            aria-expanded="false"
+            [aswTooltip]="'tooltip.checkedBaggage' | staticMsg"
+          ></button>
+          <!--TODO WCAG対応で必要？　文言なし-->
+          <span class="u-visually-hidden">Hint</span>
+        </span>
+      </span>
+    </div>
+  </div>
+  <div class="p-plan-table__contents">
+    <div class="p-plan-table__scroll">
+      <asw-table-slider
+        id="mybooking-baggage-rules-dot-checkedBaggage-slider"
+        (isScrollChange)="setIsScroll('checked', $event)"
+      >
+        <div class="p-plan-table__scroll-view">
+          <div class="p-plan-table__scroll-inner js-plan-table01-scroll" #detailPanel>
+            <table class="c-plan-table01 c-plan-table01--6col js-plan-table01" #scrollPanel>
+              <caption class="u-visually-hidden" [innerHTML]="'label.checkedBaggage2' | staticMsg"></caption>
+              <thead class="c-plan-table01__head">
+                <tr class="c-plan-table01__inner">
+                  <td class="c-plan-table01__col" [ngClass]="{ 'grey-bg': !isPlanValid }">
+                    <div class="c-plan-table01__col-inner"></div>
+                  </td>
+                  <th
+                    *ngFor="let info of data.info"
+                    class="c-plan-table01__col"
+                    scope="col"
+                    style="transform: translate(0px, 0px)"
+                  >
+                    <div class="c-plan-table01__col-inner">
+                      <div class="c-plan-table01__col-item c-plan-table01__col--em">
+                        <span class="c-flight-info01__title-airport">
+                          <span class="c-flight-info01__title-airport-departure">
+                            {{ info.departure }}
+                            <span class="c-flight-info01__title-airport-to">
+                              <span
+                                class="u-visually-hidden"
+                                [innerHTML]="'alt.toOfArrivalAndDeparture' | staticMsg"
+                              ></span>
+                              <span aria-hidden="true" [innerHTML]="'label.hyphen' | staticMsg"></span>
+                            </span>
+                          </span>
+                          <span class="c-flight-info01__title-airport-arrival">
+                            {{ info.arrival }}
+                          </span>
+                        </span>
+                      </div>
+                    </div>
+                  </th>
+                </tr>
+                <tr class="c-plan-table01__inner">
+                  <th class="c-plan-table01__col" scope="row" [ngClass]="{ 'grey-bg': !isPlanValid }">
+                    <div *ngIf="data.policyRegulations === 'DOT'" class="c-plan-table01__col-inner">
+                      <div
+                        class="c-plan-table01__col-item c-plan-table01__col-item--gray60"
+                        [innerHTML]="'label.applidCarrier' | staticMsg"
+                      ></div>
+                    </div>
+                  </th>
+                  <td *ngFor="let info of data.info" class="c-plan-table01__col" style="transform: translate(0px, 0px)">
+                    <div class="c-plan-table01__col-inner">
+                      <div
+                        *ngIf="data.policyRegulations === 'DOT' && info.careerNameCheckedBaggage !== ''"
+                        class="c-plan-table01__col-item c-plan-table01__col-item--fs16"
+                      >
+                        {{ info.careerNameCheckedBaggage }}
+                      </div>
+                      <div
+                        *ngIf="info.ruleLabelCheckedBaggage !== ''"
+                        class="c-plan-table01__col-item c-plan-table01__col-item--fs16"
+                        [innerHTML]="info.ruleLabelCheckedBaggage"
+                      ></div>
+                    </div>
+                  </td>
+                </tr>
+              </thead>
+              <tbody *ngIf="data.info.length !== 0" class="c-plan-table01__body">
+                <ng-container *ngFor="let pass of data.info[0].travelerRules">
+                  <tr class="c-plan-table01__inner">
+                    <th
+                      class="c-plan-table01__col c-plan-table01__col--pb0"
+                      scope="row"
+                      [ngClass]="{ 'grey-bg': !isPlanValid }"
+                    >
+                      <div class="c-plan-table01__col-inner">
+                        <div class="c-plan-table01__col-item c-plan-table01__col-item--em">
+                          {{ pass.name }}
+                        </div>
+                        <div class="c-plan-table01__col-item">
+                          {{ pass.passengerTypeLabel }}
+                        </div>
+                      </div>
+                    </th>
+                    <ng-container *ngFor="let section of pass.sectionRules.checkedBaggage; let i = index">
+                      <td
+                        *ngIf="data.info.length >= i + 1"
+                        class="c-plan-table01__col c-plan-table01__col--pb0"
+                        style="transform: translate(0px, 0px)"
+                      >
+                        <div class="c-plan-table01__col-inner">
+                          <div
+                            *ngIf="section.num !== undefined"
+                            class="c-plan-table01__col-item c-plan-table01__col-item--fs16"
+                          >
+                            <span class="c-plan-table01__icon-available">
+                              <span class="c-plan-table01__icon-available-image">
+                                <img
+                                  *ngIf="section.num !== 0"
+                                  src="assets/images/icon_feature_available_24.svg"
+                                  width="24"
+                                  height="24"
+                                />
+                                <img
+                                  *ngIf="section.num === 0"
+                                  src="assets/images/icon_feature_not_available_24.svg"
+                                  width="24"
+                                  height="24"
+                                />
+                              </span>
+                              <div style="display: inline-block">
+                                <div
+                                  class="c-plan-table01__icon-available-text"
+                                  [innerHTML]="'label.freeBaggagePcs' | staticMsg : { '0': section.num }"
+                                ></div>
+                              </div>
+                            </span>
+                          </div>
+                        </div>
+                      </td>
+                    </ng-container>
+                  </tr>
+                  <ng-container *ngFor="let section of pass.sectionRules?.checkedBaggage">
+                    <tr
+                      *ngIf="data.policyRegulations === 'DOT' && section.details?.length !== 0"
+                      class="c-plan-table01__inner"
+                    >
+                      <th
+                        class="c-plan-table01__col c-plan-table01__col--pb0 c-plan-table01__col--not-border"
+                        scope="row"
+                        [ngClass]="{ 'grey-bg': !isPlanValid }"
+                      >
+                        <div class="c-plan-table01__col-inner">
+                          <div class="c-plan-table01__col-item--gray60" [innerHTML]="section.label"></div>
+                        </div>
+                      </th>
+                      <td
+                        *ngFor="let detail of section?.details"
+                        class="c-plan-table01__col c-plan-table01__col--pb0 c-plan-table01__col--not-border"
+                        style="transform: translate(0px, 0px)"
+                      >
+                        <div class="c-plan-table01__col-inner">
+                          <div
+                            *ngIf="detail.isFree"
+                            class="c-plan-table01__col-item c-plan-table01__col-item--fs16"
+                            [innerHTML]="'label.free' | staticMsg"
+                          ></div>
+                          <div
+                            *ngIf="!detail.isFree"
+                            class="c-plan-table01__col-item c-plan-table01__col-item--fs16"
+                            [innerHTML]="detail.price | amountFormat : 'default' : detail.currencyCode"
+                          ></div>
+                          <div
+                            *ngIf="detail.weightLabel !== ''"
+                            class="c-plan-table01__col-item c-plan-table01__col-item--fs16"
+                            [innerHTML]="detail.weightLabel"
+                          ></div>
+                          <ng-container *ngIf="detail.weightLabel === '' && detail.descriptions.length !== 0">
+                            <div
+                              *ngFor="let str of detail.descriptions"
+                              class="c-plan-table01__col-item c-plan-table01__col-item--fs16"
+                            >
+                              {{ str }}
+                            </div>
+                          </ng-container>
+                        </div>
+                      </td>
+                    </tr>
+                  </ng-container>
+                </ng-container>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </asw-table-slider>
+    </div>
+  </div>
+</div>
+
+<!--機内持ち込み-->
+<div
+  class="p-plan-table js-plan-table01-item is-scroll"
+  [ngClass]="{ 'is-scroll': isScrollCarry, 'grey-bg': !isPlanValid }"
+>
+  <div class="p-plan-table__title p-plan-table__title--has-btn">
+    <div class="p-plan-table__title-label p-plan-table__title-label--em p-plan-table__title-label--l">
+      <span class="c-text-with-tooltip">
+        <span class="c-text-with-tooltip__text" [innerHTML]="'label.carryOnBaggage2' | staticMsg"></span>
+        <span class="c-text-with-tooltip__tooltip js-tooltip" *ngIf="!data.isDomestic">
+          <!--TODO ツールチップ内文言は追加文系で対応-->
+          <button
+            id="asw-mybooking-baggage-rules-dot-button-tooltip"
+            class="c-text-with-tooltip__btn js-tooltip-btn"
+            aria-controls="texttooltip01"
+            aria-expanded="false"
+            [aswTooltip]="'tooltip.carryOnBaggage' | staticMsg"
+          ></button>
+          <!--TODO WCAG対応で必要？　文言なし-->
+          <span class="u-visually-hidden">Hint</span>
+        </span>
+      </span>
+    </div>
+  </div>
+  <div class="p-plan-table__contents">
+    <div class="p-plan-table__scroll">
+      <asw-table-slider
+        id="mybooking-baggage-rules-dot-checkedBaggage-slider"
+        (isScrollChange)="setIsScroll('carry', $event)"
+      >
+        <div class="p-plan-table__scroll-view">
+          <div class="p-plan-table__scroll-inner js-plan-table01-scroll" #detailPanel>
+            <table class="c-plan-table01 c-plan-table01--6col js-plan-table01" #scrollPanel>
+              <caption class="u-visually-hidden" [innerHTML]="'label.carryOnBaggage2' | staticMsg"></caption>
+              <thead class="c-plan-table01__head">
+                <tr class="c-plan-table01__inner">
+                  <td class="c-plan-table01__col" [ngClass]="{ 'grey-bg': !isPlanValid }">
+                    <div class="c-plan-table01__col-inner"></div>
+                  </td>
+                  <th
+                    *ngFor="let info of data.info"
+                    class="c-plan-table01__col"
+                    scope="col"
+                    style="transform: translate(0px, 0px)"
+                  >
+                    <div class="c-plan-table01__col-inner">
+                      <div class="c-plan-table01__col-item c-plan-table01__col--em">
+                        <span class="c-flight-info01__title-airport">
+                          <span class="c-flight-info01__title-airport-departure">
+                            {{ info.departure }}
+                            <span class="c-flight-info01__title-airport-to">
+                              <span
+                                class="u-visually-hidden"
+                                [innerHTML]="'alt.toOfArrivalAndDeparture' | staticMsg"
+                              ></span>
+                              <span aria-hidden="true" [innerHTML]="'label.hyphen' | staticMsg"></span>
+                            </span>
+                          </span>
+                          <span class="c-flight-info01__title-airport-arrival">
+                            {{ info.arrival }}
+                          </span>
+                        </span>
+                      </div>
+                    </div>
+                  </th>
+                </tr>
+                <tr class="c-plan-table01__inner">
+                  <th class="c-plan-table01__col" scope="row" [ngClass]="{ 'grey-bg': !isPlanValid }">
+                    <div *ngIf="data.policyRegulations === 'DOT'" class="c-plan-table01__col-inner">
+                      <div
+                        class="c-plan-table01__col-item c-plan-table01__col-item--gray60"
+                        [innerHTML]="'label.applidCarrier' | staticMsg"
+                      ></div>
+                    </div>
+                  </th>
+                  <td *ngFor="let info of data.info" class="c-plan-table01__col" style="transform: translate(0px, 0px)">
+                    <div class="c-plan-table01__col-inner">
+                      <div
+                        *ngIf="data.policyRegulations === 'DOT' && info.careerNameCarryOn !== ''"
+                        class="c-plan-table01__col-item c-plan-table01__col-item--fs16"
+                      >
+                        {{ info.careerNameCarryOn }}
+                      </div>
+                      <div
+                        *ngIf="info.ruleLabelCarryOn !== ''"
+                        class="c-plan-table01__col-item c-plan-table01__col-item--fs16"
+                        [innerHTML]="info.ruleLabelCarryOn"
+                      ></div>
+                    </div>
+                  </td>
+                </tr>
+              </thead>
+              <tbody *ngIf="data.info.length !== 0" class="c-plan-table01__body">
+                <ng-container *ngFor="let pass of data.info[0].travelerRules">
+                  <tr class="c-plan-table01__inner">
+                    <th
+                      class="c-plan-table01__col c-plan-table01__col--pb0"
+                      scope="row"
+                      [ngClass]="{ 'grey-bg': !isPlanValid }"
+                    >
+                      <div class="c-plan-table01__col-inner">
+                        <div class="c-plan-table01__col-item c-plan-table01__col-item--em">
+                          {{ pass.name }}
+                        </div>
+                        <div class="c-plan-table01__col-item">
+                          {{ pass.passengerTypeLabel }}
+                        </div>
+                      </div>
+                    </th>
+                    <ng-container *ngFor="let section of pass.sectionRules.carryOnBaggage; let j = index">
+                      <td
+                        *ngIf="data.info.length >= j + 1"
+                        class="c-plan-table01__col c-plan-table01__col--pb0"
+                        style="transform: translate(0px, 0px)"
+                      >
+                        <div class="c-plan-table01__col-inner">
+                          <div
+                            *ngIf="section.num !== undefined"
+                            class="c-plan-table01__col-item c-plan-table01__col-item--fs16"
+                          >
+                            <span class="c-plan-table01__icon-available">
+                              <span class="c-plan-table01__icon-available-image">
+                                <img
+                                  *ngIf="section.num !== 0"
+                                  src="assets/images/icon_feature_available_24.svg"
+                                  width="24"
+                                  height="24"
+                                />
+                                <img
+                                  *ngIf="section.num === 0"
+                                  src="assets/images/icon_feature_not_available_24.svg"
+                                  width="24"
+                                  height="24"
+                                />
+                              </span>
+                              <div style="display: inline-block">
+                                <div
+                                  class="c-plan-table01__icon-available-text"
+                                  [innerHTML]="'label.carryOnBaggagePcs' | staticMsg : { '0': section.num }"
+                                ></div>
+                              </div>
+                            </span>
+                          </div>
+                        </div>
+                      </td>
+                    </ng-container>
+                  </tr>
+                  <ng-container *ngFor="let section of pass.sectionRules?.carryOnBaggage">
+                    <tr
+                      *ngIf="data.policyRegulations === 'DOT' && section.details?.length !== 0"
+                      class="c-plan-table01__inner"
+                    >
+                      <th
+                        class="c-plan-table01__col c-plan-table01__col--pb0 c-plan-table01__col--not-border"
+                        scope="row"
+                        [ngClass]="{ 'grey-bg': !isPlanValid }"
+                      >
+                        <div class="c-plan-table01__col-inner">
+                          <div class="c-plan-table01__col-item--gray60" [innerHTML]="section.label"></div>
+                        </div>
+                      </th>
+                      <td
+                        *ngFor="let detail of section.details"
+                        class="c-plan-table01__col c-plan-table01__col--pb0 c-plan-table01__col--not-border"
+                        style="transform: translate(0px, 0px)"
+                      >
+                        <div class="c-plan-table01__col-inner">
+                          <div
+                            *ngIf="detail.isFree"
+                            class="c-plan-table01__col-item c-plan-table01__col-item--fs16"
+                            [innerHTML]="'label.free' | staticMsg"
+                          ></div>
+                          <div
+                            *ngIf="!detail.isFree && detail.price !== 0"
+                            class="c-plan-table01__col-item c-plan-table01__col-item--fs16"
+                            [innerHTML]="detail.price | amountFormat : 'default' : detail.currencyCode"
+                          ></div>
+                          <div
+                            *ngIf="detail.weightLabel !== ''"
+                            class="c-plan-table01__col-item c-plan-table01__col-item--fs16"
+                            [innerHTML]="detail.weightLabel"
+                          ></div>
+                          <ng-container *ngIf="detail.weightLabel === '' && detail.descriptions.length !== 0">
+                            <div
+                              *ngFor="let str of detail.descriptions"
+                              class="c-plan-table01__col-item c-plan-table01__col-item--fs16"
+                            >
+                              {{ str }}
+                            </div>
+                          </ng-container>
+                        </div>
+                      </td>
+                    </tr>
+                  </ng-container>
+                </ng-container>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </asw-table-slider>
+    </div>
+  </div>
+</div>

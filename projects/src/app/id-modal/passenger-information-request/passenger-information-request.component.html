@@ -1,0 +1,28 @@
+<div #bodyContent id="passenger-information-main-block" class="p-booking-info-mdl">
+  <!--パーツ(2)：代表者連絡先情報ブロック-->
+  <asw-passenger-information-request-representative
+    #representativeComponent
+    *ngIf="isInitEnd"
+    [id]="'passenger-information-request-representative'"
+    [(data)]="representativeInformation"
+    [parts]="representativeInformationParts"
+    [(isOpen)]="isOpenRepresentativeInformation"
+    (clickNextEvent)="clickNextRepresentative()"
+    (clickSaveEvent)="clickSave()"
+    (phoneTypeEvent)="phoneTypeRepresentative($event)"
+  ></asw-passenger-information-request-representative>
+  <!--パーツ(3)：搭乗者情報ブロック-->
+  <ng-container *ngFor="let item of passengerInformationList; index as i">
+    <asw-passenger-information-request-passenger
+      #passengerComponent
+      [index]="i"
+      [id]="'passenger-information-request-passenger-' + i"
+      [(data)]="item.data"
+      [parts]="item.parts"
+      [isAwardBooking]="isAwardBooking"
+      (isOpenChange)="passengerInfoOpen($event, i)"
+      (clickNextEvent)="clickNextnPassenger(i)"
+      (clickSaveEvent)="clickSave()"
+    ></asw-passenger-information-request-passenger>
+  </ng-container>
+</div>

@@ -1,0 +1,121 @@
+<div class="p-sky-coins__item">
+  <div class="p-sky-coins__item-title p-sky-coins__item-title--has-btn">
+    <h3
+      class="p-sky-coins__item-title-label p-sky-coins__item-title-label--l"
+      [innerHTML]="'label.anaSkyCoin' | staticMsg"
+    ></h3>
+    <button
+      id="payment-input-sky-coin-ballances-button-1"
+      class="c-btn-tertiary c-btn-tertiary--xs"
+      aswThrottleClick
+      (throttleClick$)="updateAnaSkyCoinBalance()"
+    >
+      <span class="c-btn-tertiary__text" [innerHTML]="'button.updatelatestBalance' | staticMsg"></span>
+    </button>
+  </div>
+  <div class="p-sky-coins__row">
+    <div class="p-sky-coins__row-item">
+      <div class="p-sky-coins__row-head" [innerHTML]="'label.remainingBalanceOfSkyCoin' | staticMsg"></div>
+      <div class="p-sky-coins__row-body">
+        <div *ngIf="!isSp" class="p-sky-coins__balances p-sky-coins__balances--sb">
+          <div class="p-sky-coins__balances-item">
+            <div class="p-sky-coins__item-text">
+              <span class="p-sky-coins__item-text-em" [innerHTML]="'label.availableAnaSkyCoins' | staticMsg"> </span>
+            </div>
+            <div class="p-sky-coins__item-text">
+              <span class="c-aount p-sky-coins__item-text-em">
+                <span class="c-amount__num c-amount__num--fs24" [innerHTML]="skyCoinBalance | number"></span>
+                <span class="c-amount__unit c-amount__unit--fs16" [innerHTML]="'label.coin' | staticMsg"> </span>
+              </span>
+            </div>
+            <div class="p-sky-coins__item-text">
+              <span class="p-sky-coins__item-text-gray60" [innerHTML]="'label.anaSkyCoinToJPYen' | staticMsg"> </span>
+            </div>
+          </div>
+          <div class="p-sky-coins__balances-item">
+            <div class="p-sky-coins__item-text">
+              <span class="p-sky-coins__item-text-em" [innerHTML]="'label.mileageProgram' | staticMsg"> </span>
+            </div>
+            <div class="p-sky-coins__item-text">
+              <span class="c-aount p-sky-coins__item-text-em">
+                <span class="c-amount__num c-amount__num--fs24" [innerHTML]="mileBalance | number"></span>
+                <span class="c-amount__unit c-amount__unit--fs16" [innerHTML]="'label.mileage1' | staticMsg"> </span>
+              </span>
+            </div>
+            <div class="p-sky-coins__item-text">
+              <a
+                id="payment-input-sky-coin-ballances-link-1"
+                href="{{ paymentInputSkyCoinBallancesLink | metaUrl }}"
+                (throttleClick$)="onClickReplaceMileageAndSkyCoin($event)"
+                target="_blank"
+                class="p-sky-coins__item-text-link"
+                aswThrottleClick
+              >
+                <span [innerHTML]="'label.replaceMileageAndSkyCoin' | staticMsg"></span>
+                <img
+                  class="c-text-link-external c-text-link-external--large"
+                  src="assets/images/icon_external_primary_20.svg"
+                  width="20"
+                  height="20"
+                  [alt]="'alt.openLinkInNewTab' | staticMsg"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="isSp" class="p-sky-coins__balances">
+          <dl class="c-flex-list01">
+            <div class="c-flex-list01__item c-flex-list01__item--sb c-flex-list01__item--center">
+              <dt class="c-flex-list01__title">
+                <span
+                  class="c-flex-list01__title-item p-sky-coins__item-text-em"
+                  [innerHTML]="'label.availableAnaSkyCoins' | staticMsg"
+                ></span>
+                <span
+                  class="c-flex-list01__title-item p-sky-coins__item-text-gray60"
+                  [innerHTML]="'label.anaSkyCoinToJPYen' | staticMsg"
+                ></span>
+              </dt>
+              <dd class="c-flex-list01__contents">
+                <span class="c-amount p-sky-coins__item-text-em">
+                  <span class="c-amount__num c-amount__num--fs24" [innerHTML]="this.skyCoinBalance | number"></span>
+                  <span class="c-amount__unit c-amount__unit--fs16" [innerHTML]="'label.coin' | staticMsg"></span>
+                </span>
+              </dd>
+            </div>
+            <div class="c-flex-list01__item c-flex-list01__item--sb c-flex-list01__item--center">
+              <dt class="c-flex-list01__title">
+                <span class="p-sky-coins__item-text-em" [innerHTML]="'label.mileageProgram' | staticMsg"></span>
+              </dt>
+              <dd class="c-flex-list01__contents">
+                <span class="c-amount p-sky-coins__item-text-em">
+                  <span class="c-amount__num c-amount__num--fs24" [innerHTML]="this.mileBalance | number"></span>
+                  <span class="c-amount__unit c-amount__unit--fs16" [innerHTML]="'label.mileage1' | staticMsg"></span>
+                </span>
+              </dd>
+            </div>
+          </dl>
+          <div class="p-sky-coins__item-text">
+            <a
+              id="payment-input-sky-coin-ballances-link-2"
+              href="{{ paymentInputSkyCoinBallancesLink | metaUrl }}"
+              (throttleClick$)="onClickReplaceMileageAndSkyCoin($event)"
+              target="_blank"
+              class="p-sky-coins__item-text-link"
+              aswThrottleClick
+            >
+              <span [innerHTML]="'label.replaceMileageAndSkyCoin' | staticMsg"></span>
+              <img
+                class="c-text-link-external c-text-link-external--large"
+                src="assets/images/icon_external_primary_16.svg"
+                width="16"
+                height="16"
+                [alt]="'alt.openLinkInNewTab' | staticMsg"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

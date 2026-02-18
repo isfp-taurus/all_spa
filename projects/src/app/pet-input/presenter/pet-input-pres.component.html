@@ -1,0 +1,251 @@
+<form [formGroup]="petInputForm" (ngSubmit)="submit()" class="l-core-contents__inner">
+  <div class="l-core-contents__main">
+    <div class="l-section">
+      <!-- 代表者 -->
+      <div class="pet-input-container">
+        <div class="pet-input-container-wrap u-representative-info">
+          <!-- 代表者ラベル -->
+          <div class="u-representative-info__label">
+            <label>
+              <span [innerHTML]="'label.representativeInformation' | staticMsg"></span>
+            </label>
+          </div>
+          <!-- 代表者入力エリア -->
+          <div class="u-representative-info-input">
+            <div class="p-input-block01__row-body-item-box p-input-block01__row-body-item-box--w325">
+              <ng-container *ngIf="passengerList.length === 1">
+                <label class="u-representative-info-input__label" [innerHTML]="'label.passenger3' | staticMsg"></label>
+                <p class="u-representative-info-input__name" [innerHTML]="passengerList[0].name"></p>
+              </ng-container>
+              <asw-select
+                *ngIf="passengerList.length > 1"
+                id="pet-input-representative-info-input-select"
+                formControlName="representativeTravelerId"
+                [label]="'label.passenger3' | staticMsg"
+              >
+                <option
+                  *ngFor="let passenger of passengerList"
+                  [value]="passenger.id"
+                  [innerHTML]="passenger.name"
+                  [selected]="passenger.id === selectedRepresentativeTravelerId"
+                ></option>
+              </asw-select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <ng-container formArrayName="petDetail">
+        <ng-container *ngFor="let petInfo of petDetail; index as i" [formGroupName]="i">
+          <!-- ペット情報 -->
+          <div class="pet-input-container">
+            <div class="pet-input-container-wrap p-pet-info">
+              <!-- ペット情報ラベル -->
+              <div class="p-pet-info__label">
+                <label>
+                  <span [innerHTML]="'label.pet' | staticMsg : { '0': i + 1 }"></span>
+                </label>
+              </div>
+              <!-- ペット情報入力エリア -->
+              <div class="p-pet-info-input">
+                <!-- ペットの種類 -->
+                <div>
+                  <div class="p-input-block01__row-body-item-box--w325">
+                    <asw-select
+                      id="pet-input-pet-info-input-pet-type-select-{{ i }}"
+                      formControlName="petType"
+                      [label]="'label.typeOfPet' | staticMsg"
+                    >
+                      <!-- 初期表示を空にしたいため空文字列のoptionを追加 -->
+                      <option value=""></option>
+                      <option
+                        *ngFor="let petType of petTypeList"
+                        [value]="petType.value"
+                        [innerHTML]="petType.display_content"
+                        [selected]="petDetail ? petDetail[i].petType === petType.value : false"
+                      ></option>
+                    </asw-select>
+                  </div>
+                </div>
+                <!-- ケージの種類 -->
+                <div class="p-pet-info-input-type-of-cage u-top-line">
+                  <h3 class="p-pet-info-input-type-of-cage--title" [innerHTML]="'label.typeOfCage' | staticMsg"></h3>
+                  <div class="p-pet-info-input-type-of-cage-radio-group">
+                    <asw-radio-group
+                      id="pet-input-pet-info-input-cage-type-radio-group-{{ i }}"
+                      formControlName="cageType"
+                      (change$)="changeCageType($event, i)"
+                      [selected]="petDetail ? petDetail[i].cageType : ''"
+                    >
+                      <asw-radio-button
+                        *ngFor="let cageType of cageTypeList; index as j"
+                        id="pet-input-pet-info-input-cage-type-radio-button-{{ i }}{{ j }}"
+                        [value]="cageType.value"
+                        [label]="cageType.display_content"
+                        [disabled]="cageType.value === 'lending' && !isCageRentalAvailable"
+                      ></asw-radio-button>
+                    </asw-radio-group>
+                  </div>
+                </div>
+                <!-- ケージサイズ(貸出) -->
+                <div
+                  *ngIf="petDetail ? petDetail[i].cageType === 'lending' : false"
+                  class="p-pet-info-input-type-of-cage u-top-line"
+                >
+                  <h3 class="p-pet-info-input-type-of-cage--title" [innerHTML]="'label.cageSize' | staticMsg"></h3>
+                  <fieldset
+                    (change)="changelendingCageType($event, i)"
+                    role="radiogroup"
+                    class="p-pet-info-input-rental-cage-list"
+                    attr.aria-describedby="{{
+                      errorMessages[i].lending !== '' ? 'input-lending-cage-size-error-' + i : ''
+                    }}"
+                    attr.aria-invalid="{{ errorMessages[i].lending !== '' }}"
+                  >
+                    <div *ngFor="let cageSize of cageSizeList; index as j" class="p-pet-info-input-rental-cage">
+                      <div class="p-pet-info-input-rental-cage-size-description">
+                        <div
+                          class="p-pet-info-input-rental-cage-size-description__size-title"
+                          [innerHTML]="cageSize.display_title"
+                        ></div>
+                        <div class="p-pet-info-input-rental-cage-size-description__size-detail">
+                          <div
+                            class="p-pet-info-input-rental-cage-size-description__size-detail--wdh-and-weight"
+                            [innerHTML]="cageSize.display_content"
+                          ></div>
+                          <div
+                            class="p-pet-info-input-rental-cage-size-description__size-detail--size-type"
+                            [innerHTML]="cageSizeExplainList[j].display_content"
+                          ></div>
+                        </div>
+                      </div>
+                      <div>
+                        <div class="c-form-element-radio">
+                          <div class="c-form-element-radio__wrap">
+                            <input
+                              name="pet-input-cage-size-for-landing-{{ i }}"
+                              id="pet-input-cage-size-for-landing-{{ i }}{{ j }}"
+                              type="radio"
+                              class="c-form-element-radio__input"
+                              [value]="cageSize.value"
+                              [checked]="petDetail ? petDetail[i].lendingCageType === cageSize.value : false"
+                            />
+                            <label
+                              class="c-form-element-radio__label"
+                              for="pet-input-cage-size-for-landing-{{ i }}{{ j }}"
+                            >
+                              <span class="c-form-element-radio__check"></span>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <asw-validation-error
+                      *ngIf="errorMessages[i].lending !== ''"
+                      id="input-lending-cage-size-error-{{ i }}"
+                      [errorMessage]="errorMessages[i].lending"
+                    ></asw-validation-error>
+                  </fieldset>
+                </div>
+                <!-- ケージサイズ(持出) -->
+                <div
+                  *ngIf="petDetail ? petDetail[i].cageType === 'carryOn' : false"
+                  class="p-pet-info-input-type-of-cage"
+                >
+                  <div class="p-pet-info-input-my-cage-list">
+                    <asw-pet-info-input
+                      formControlName="width"
+                      [label]="'label.width' | staticMsg"
+                      id="my-cage-width-{{ i }}"
+                      class="my-cage"
+                      borderRadius="u-border-radius-left"
+                      petInfoInputUnit="pet-info-input-unit-cm"
+                      inputBoxWidth="w-108"
+                      petInfoInputSize="w-65"
+                      (petInfoInputBlurEvent)="blurEventForWidth($event, i)"
+                      [canDisplayErrorMessage]="false"
+                    ></asw-pet-info-input>
+                    <asw-pet-info-input
+                      formControlName="depth"
+                      [label]="'label.depth' | staticMsg"
+                      id="my-cage-depth-{{ i }}"
+                      class="my-cage"
+                      borderRadius="u-border-radius-none"
+                      petInfoInputUnit="pet-info-input-unit-cm"
+                      inputBoxWidth="w-108"
+                      petInfoInputSize="w-65"
+                      (petInfoInputBlurEvent)="blurEventForDepth($event, i)"
+                      [canDisplayErrorMessage]="false"
+                    ></asw-pet-info-input>
+                    <asw-pet-info-input
+                      formControlName="height"
+                      [label]="'label.height' | staticMsg"
+                      id="my-cage-height-{{ i }}"
+                      class="my-cage"
+                      borderRadius="u-border-radius-right"
+                      petInfoInputUnit="pet-info-input-unit-cm"
+                      inputBoxWidth="w-108"
+                      petInfoInputSize="w-65"
+                      (petInfoInputBlurEvent)="blurEventForHeight($event, i)"
+                      [canDisplayErrorMessage]="false"
+                    ></asw-pet-info-input>
+                  </div>
+                  <asw-validation-error
+                    *ngIf="errorMessages[i].width !== ''"
+                    id="my-cage-width-{{ i }}-error"
+                    [errorMessage]="errorMessages[i].width"
+                  ></asw-validation-error>
+                  <asw-validation-error
+                    *ngIf="errorMessages[i].depth !== ''"
+                    id="my-cage-depth-{{ i }}-error"
+                    [errorMessage]="errorMessages[i].depth"
+                  ></asw-validation-error>
+                  <asw-validation-error
+                    *ngIf="errorMessages[i].height !== ''"
+                    id="my-cage-height-{{ i }}-error"
+                    [errorMessage]="errorMessages[i].height"
+                  ></asw-validation-error>
+                </div>
+                <!-- 重量 -->
+                <div class="u-top-line">
+                  <div class="p-input-block01__row-body-item-box--w325">
+                    <asw-input
+                      formControlName="weight"
+                      id="pet-input-cage-weight-{{ i }}"
+                      [label]="(petDetail?.[i]?.cageType === 'carryOn') ? ('label.weightOfPetAndCage' | staticMsg) : ('label.weightOfPet' | staticMsg )"
+                    >
+                    </asw-input>
+                  </div>
+                </div>
+                <!-- 削除ボタン -->
+                <div class="p-pet-info-input__delete-button u-top-line" role="button" (click)="clickDeleteButton(i)">
+                  <span
+                    class="p-pet-info-input__delete-button--button-label"
+                    [innerHTML]="'label.deletePet' | staticMsg : { '0': i + 1 }"
+                  ></span>
+                  &nbsp;
+                  <img src="assets/images/icon_delete_circle_20.svg" width="20" height="20" alt="reader.deletePet" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </ng-container>
+      <!-- 追加ボタン -->
+      <div
+        class="pet-input__add-button button"
+        role="button"
+        (click)="clickAddButton()"
+        *ngIf="(petDetail?.length ?? 1) < 9"
+      >
+        <span
+          class="pet-input__add-button--button-label"
+          [innerHTML]="'label.addFellowPetEntryField' | staticMsg"
+        ></span>
+        &nbsp;
+        <img src="assets/images/icon_add_circle_20.svg" width="20" height="20" alt="" />
+      </div>
+      <!-- 同意文言エリア -->
+      <asw-agreement-area [agreementAreaParts]="agreementAreaParams" (submitEvent)="submit()"></asw-agreement-area>
+    </div>
+  </div>
+</form>

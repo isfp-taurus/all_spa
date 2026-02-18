@@ -1,0 +1,168 @@
+<div
+  #scrollItemList
+  class="p-fare-panel__item p-fare-panel__item--{{ this.fareFamiliesInfo.headingItemSuffix }}"
+  [class.p-fare-panel__item--selected]="this.fareFamiliesInfo.isSelected"
+  [class.p-fare-panel__item--current]="this.fareFamiliesInfo.isCurrent"
+  [class.p-fare-panel__item--disabled]="this.fareFamiliesInfo.notDisplayAirOffer"
+  [class.p-fare-panel__item--first-domestic]="
+    this.fareFamiliesInfo.headingItemSuffix == 'first' && this.tripTypeList[this.boundIndex] === 'domestic'
+  "
+  role="group"
+>
+  <ng-container *ngIf="this.fareFamiliesInfo.isSelected">
+    <div class="p-fare-panel__selected">
+      <em [innerHTML]="'label.currentFare2' | staticMsg"></em
+      ><span class="u-visually-hidden" [innerHTML]="'label.currentFare2' | staticMsg"></span>
+    </div>
+  </ng-container>
+  <!-- プロモーション適用済アイコン -->
+  <ng-container *ngIf="this.fareFamiliesInfo.isPromotionApplied">
+    <div class="p-fare-panel__promotion">
+      <span class="c-promotion-applied">
+        <img
+          class="c-promotion-applied__img"
+          src="assets/images/icon_promotion_applied_20.svg"
+          width="20"
+          height="20"
+          alt="{{ 'label.promotionApplied' | staticMsg }}"
+        />
+      </span>
+    </div>
+  </ng-container>
+  <div #fixHeight[0] class="p-fare-panel__head js-fix-height-1" id="p-fare-panel__head-{{ slideNum }}">
+    <div class="p-fare-panel__head-item p-fare-panel__head-class">
+      <!-- キャビンクラス名 -->
+      <p class="p-fare-panel__head-item-class">{{ this.fareFamiliesInfo.cabinClassName }}</p>
+      <!-- FF名称 -->
+      <p class="p-fare-panel__head-item-rank">
+        {{ this.fareFamiliesInfo.fareFamilyName }}
+        <!-- 最安支払い総額である旨の表示 -->
+        <ng-container *ngIf="this.fareFamiliesInfo.isLowestPrice">
+          <span class="c-tag-lowest-price" [innerHTML]="'label.lowestprice1' | staticMsg"></span>
+        </ng-container>
+      </p>
+    </div>
+    <div class="p-fare-panel__head-item p-fare-panel__head-price">
+      <div class="p-fare-panel__head-price-item">
+        <ng-container *ngIf="this.fareFamiliesInfo.notDisplayAirOffer">
+          <span [innerHTML]="'label.noVacancy1' | staticMsg"></span>
+        </ng-container>
+        <ng-container *ngIf="!this.fareFamiliesInfo.notDisplayAirOffer">
+          <p class="p-fare-panel__head-item-fare">
+            <!-- 支払い総額 -->
+            <span class="p-fare-panel__head-item-fare-price">
+              <!-- 支払い総額 通貨記号 -->
+              <span class="p-fare-panel__head-item-fare-currency">{{ this.fareFamiliesInfo.currencySymbol! }}</span>
+              <!-- 支払い総額 金額 -->
+              <span
+                class="p-fare-panel__head-item-fare-num"
+                [innerHTML]="this.fareFamiliesInfo.price | amountFormat : 'availability.farePanel_price'"
+              ></span>
+            </span>
+          </p>
+          <!-- プロモーション適用結果有無で表示分け -->
+          <ng-container
+            *ngIf="this.fareFamiliesInfo.originalPrice !== undefined && this.fareFamiliesInfo.originalPrice !== 0"
+          >
+            <p class="p-fare-panel__head-item-correction">
+              <!-- プロモーション適用前支払い総額 -->
+              <span class="u-visually-hidden" [innerHTML]="'label.beforeApply' | staticMsg"></span>
+              <span class="p-fare-panel__head-item-correction-price">
+                <!-- プロモーション適用前支払い総額 通貨記号 -->
+                <span class="p-fare-panel__head-item-correction-currency">
+                  <del>{{ this.fareFamiliesInfo.currencySymbol! }}</del>
+                </span>
+                <!-- プロモーション適用前支払い総額 金額 -->
+                <span class="p-fare-panel__head-item-correction-num">
+                  <del
+                    [innerHTML]="
+                      this.fareFamiliesInfo.originalPrice | amountFormat : 'availability.fare_price.beforePromotion'
+                    "
+                  ></del>
+                </span>
+              </span>
+            </p>
+          </ng-container>
+          <!-- 残席数 残席実数-->
+          <ng-container *ngIf="this.fareFamiliesInfo.quotaType === 'few'">
+            <p class="p-fare-panel__head-item">
+              <em [innerHTML]="'label.remainSeatStatus' | staticMsg : { '0': this.fareFamiliesInfo.quota! }"></em>
+            </p>
+          </ng-container>
+          <!-- 残席数 空席あり-->
+          <ng-container *ngIf="this.fareFamiliesInfo.quotaType === 'available'">
+            <p class="p-fare-panel__head-item">
+              <em [innerHTML]="'label.remainSeat' | staticMsg"></em>
+            </p>
+          </ng-container>
+        </ng-container>
+      </div>
+      <!-- FF選択ボタン -->
+      <ng-container *ngIf="!this.fareFamiliesInfo.notDisplayAirOffer">
+        <div class="p-fare-panel__head-price-item p-fare-panel__head-price-item--btn">
+          <button
+            id="fare-select-btn"
+            class="c-btn-primary c-btn-primary--s"
+            (throttleClick$)="this.clickSelectButton($event)"
+            aswThrottleClick
+          >
+            <span
+              class="c-btn-primary__text u-visually-hidden"
+              [innerHTML]="
+                'label.flightRadio.owd'
+                  | staticMsg
+                    : {
+                        '0': this.fareFamiliesInfo.flightInfo,
+                        '1': this.fareFamiliesInfo.pd930Text,
+                        '2': this.fareFamiliesInfo.fareFamilyName
+                      }
+              "
+            ></span>
+            <span class="c-btn-primary__text" [innerHTML]="'label.selectRadio' | staticMsg"></span>
+          </button>
+        </div>
+      </ng-container>
+    </div>
+    <!-- 運賃変更案内 -->
+    <ng-container *ngIf="!this.fareFamiliesInfo.notDisplayAirOffer">
+      <ng-container *ngIf="this.fareFamiliesInfo.faresChangeInformation">
+        <div class="p-fare-panel__head-item p-fare-panel__head-guidance">
+          <ul class="c-information-list02">
+            <li class="c-information-list02__item">
+              <em class="c-information-list02__attention" [innerHTML]="'label.changesBookingClass' | staticMsg"></em>
+            </li>
+          </ul>
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+  <!-- FFルールグループ -->
+  <ng-container *ngIf="!this.fareFamiliesInfo.notDisplayAirOffer">
+    <div
+      #fixHeight[1]
+      class="p-fare-panel__body js-fix-height-2 l-core-contents__inner"
+      id="p-fare-panel__body-{{ slideNum }}"
+    >
+      <asw-fare-family-selector-modal-rule
+        [slideNum]="this.slideNum"
+        [slideMax]="this.slideMax"
+        [travelSolutionsFlightsList]="this._travelSolutionsFlightsList"
+        [airOffersFlightsList]="this.airOffersFlightsList"
+        [airOfferBounds]="this.airOfferBounds"
+        [anaCouchIsEnabledFlightIndexList]="this.anaCouchIsEnabledFlightIndexList"
+        [allUpgradeLink]="this.upgradeDetailInforParam.allUpgradeLink ?? false"
+        [fareFamiliesRule]="this.fareFamiliesInfo.fareFamiliesRule"
+        [fareFamilyName]="this.fareFamiliesInfo.fareFamilyName"
+        [fareFamilyCode]="this.fareFamiliesInfo.fareFamilyCode"
+        [segmentList]="this.upgradeDetailInforParam.segmentList ?? []"
+        [upgradeInfoList]="this.upgradeInfo"
+        [cabinClass]="this.fareFamiliesInfo.headingItemSuffix"
+        (changeAllUpgradeLink)="changeLinkDisabled($event)"
+        style="width: -webkit-fill-available"
+      ></asw-fare-family-selector-modal-rule>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="this.fareFamiliesInfo.notDisplayAirOffer">
+    <div class="p-fare-panel__body js-fix-height-2" id="p-fare-panel__body-{{ slideNum }}"></div>
+  </ng-container>
+</div>

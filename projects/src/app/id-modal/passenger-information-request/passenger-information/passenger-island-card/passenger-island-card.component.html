@@ -1,0 +1,22 @@
+<div class="p-booking-info-mdl__section">
+  <div class="p-booking-info-mdl__block">
+    <div class="p-booking-info-mdl__heading p-booking-info-mdl__heading--01">
+      <h3 class="p-booking-info-mdl__heading-title" [innerHTML]="'label.remoteIslandCardNumber' | staticMsg"></h3>
+    </div>
+    <div class="p-booking-info-mdl__row p-booking-info-mdl__row--01">
+      <div class="p-booking-info-mdl__row-item">
+        <asw-input
+          id="{{ id }}-input-programNumber"
+          name="{{ id }}-input-programNumber"
+          label="{{ 'label.programNumber' | staticMsg }}"
+          placeholder="{{ 'placeholder.programNumber' | staticMsg }}"
+          [formControl]="numberFc"
+          (change$)="update()"
+          maxlength="20"
+          required
+          [conversionType]="'common'"
+        ></asw-input>
+      </div>
+    </div>
+  </div>
+</div>

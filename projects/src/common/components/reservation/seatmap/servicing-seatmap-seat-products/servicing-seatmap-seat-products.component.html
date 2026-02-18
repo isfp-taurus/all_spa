@@ -1,0 +1,129 @@
+<div class="l-seatmap-container__item" *ngIf="isSeatTypeDisplay()">
+  <div class="p-seatmap-seat-type">
+    <div class="p-seatmap-seat-type__item">
+      <!-- シートのプロダクトURLが存在する場合 -->
+      <a
+        target="_blank"
+        *ngIf="normalSeatProductUrl; else normalSeatImageWithoutLink"
+        class="p-seatmap-seat-type__link p-seatmap-seat-type__link--external"
+        id="seatmap-products-normal-link"
+        href="{{ normalSeatProductUrl }}"
+      >
+        <div class="p-seatmap-seat-type__link-title p-seatmap-seat-type__link-title--em">
+          <span
+            class="p-seatmap-seat-type__link-title-label"
+            innerHTML="{{ normalSeatNameStaticMsgKey | staticMsg }}"
+          ></span>
+          <img
+            class="c-text-link-external"
+            src="{{ this.appConstants.IMG.R01_P070_S01_U__SEAT_PRODUCTS_MODAL__ICON_EXTERNAL_PRIMARY_16 }}"
+            width="16"
+            height="16"
+            alt="{{ 'm_static_message-alt.anotherWindow' | staticMsg }}"
+          />
+        </div>
+        <img
+          src="{{ normalSeatImage }}"
+          class="p-seatmap-seat-type__link-img seat-product__img--fix-aspect"
+          height="188"
+          width="308"
+          alt="{{ normalSeatImgAltStaticMsgKey | staticMsg }}"
+        />
+      </a>
+
+      <!-- シートのプロダクトURLが存在しない場合 -->
+      <ng-template #normalSeatImageWithoutLink>
+        <div class="p-seatmap-seat-type__link p-seatmap-seat-type__link--external">
+          <div class="p-seatmap-seat-type__link-title p-seatmap-seat-type__link-title--em">
+            <span
+              class="p-seatmap-seat-type__link-title-label"
+              innerHTML="{{ normalSeatNameStaticMsgKey | staticMsg }}"
+            ></span>
+            <img
+              class="c-text-link-external"
+              src="{{ this.appConstants.IMG.R01_P070_S01_U__SEAT_PRODUCTS_MODAL__ICON_EXTERNAL_PRIMARY_16 }}"
+              width="16"
+              height="16"
+              alt="{{ 'm_static_message-alt.anotherWindow' | staticMsg }}"
+            />
+          </div>
+          <div class="p-seatmap-seat-type__link-contents">
+            <img
+              src="{{ normalSeatImage }}"
+              class="p-seatmap-seat-type__link-img seat-product__img--fix-aspect"
+              height="188"
+              width="308"
+              alt="{{ normalSeatImgAltStaticMsgKey | staticMsg }}"
+            />
+          </div>
+        </div>
+      </ng-template>
+    </div>
+
+    <!-- 後ろ向き席 -->
+    <div class="p-seatmap-seat-type__item" *ngIf="false">
+      <a
+        id="seatmap-products-rear-facing-link"
+        href="{{ rearFacingSeatLink }}"
+        target="_blank"
+        class="p-seatmap-seat-type__link p-seatmap-seat-type__link--external"
+      >
+        <div class="p-seatmap-seat-type__link-title p-seatmap-seat-type__link-title--em">
+          <span
+            class="p-seatmap-seat-type__link-title-label"
+            innerHTML="{{ 'm_static_message-heading.rearFacingSeat' | staticMsg }}"
+          ></span>
+          <img
+            class="c-text-link-external"
+            src="{{ this.appConstants.IMG.R01_P070_S01_U__SEAT_PRODUCTS_MODAL__ICON_EXTERNAL_PRIMARY_16 }}"
+            width="16"
+            height="16"
+            alt="{{ 'm_static_message-alt.anotherWindow' | staticMsg }}"
+          />
+        </div>
+        <div class="p-seatmap-seat-type__link-contents">
+          <img
+            src="{{ rearFacingSeatImage }}"
+            class="p-seatmap-seat-type__link-img seat-product__img--fix-aspect"
+            height="188"
+            width="308"
+            alt="{{ 'm_static_message-label.rearFacingSeat' | staticMsg }}"
+          />
+        </div>
+      </a>
+    </div>
+
+    <!-- カウチ席 -->
+    <div class="p-seatmap-seat-type__item" *ngIf="false">
+      <!-- シートのコンテンツリンクが存在する場合 -->
+      <a
+        id="seatmap-products-couch-link"
+        href="{{ couchSeatLink }}"
+        target="_blank"
+        class="p-seatmap-seat-type__link p-seatmap-seat-type__link--external"
+      >
+        <div class="p-seatmap-seat-type__link-title p-seatmap-seat-type__link-title--em">
+          <span class="p-seatmap-seat-type__link-title-label">
+            <span aria-hidden="true" innerHTML="{{ 'm_static_message-heading.couchSeat' | staticMsg }}"></span>
+          </span>
+          <img
+            class="c-text-link-external"
+            src="{{ this.appConstants.IMG.R01_P070_S01_U__SEAT_PRODUCTS_MODAL__ICON_EXTERNAL_PRIMARY_16 }}"
+            width="16"
+            height="16"
+            alt="{{ 'm_static_message-alt.anotherWindow' | staticMsg }}"
+          />
+        </div>
+        <div class="p-seatmap-seat-type__link-contents">
+          <img
+            src="{{ couchSeatImage }}"
+            class="p-seatmap-seat-type__link-img seat-product__img--fix-aspect"
+            height="188"
+            width="308"
+            alt="{{ 'm_static_message-label.couchSeat' | staticMsg }}"
+          />
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

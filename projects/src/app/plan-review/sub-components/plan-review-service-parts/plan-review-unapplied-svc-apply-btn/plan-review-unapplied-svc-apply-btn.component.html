@@ -1,0 +1,52 @@
+<button
+  id="baggage-unapplied"
+  class="service-btn--unapplied"
+  aswThrottleClick
+  (throttleClick$)="clickApplyBtn()"
+  [disabled]="!isPlanValid"
+>
+  <div class="p-manage-booking__item" [ngClass]="{ 'grey-bg': !isPlanValid }">
+    <div class="service-btn-inner">
+      <div class="p-service-info--unapplied">
+        <div
+          class="service-icon"
+          [ngClass]="{
+            'service-icon--baggage': serviceType === 'fBag',
+            'service-icon--lounge': serviceType === 'loug',
+            'service-icon--meal': serviceType === 'meal',
+            'service-icon--pet': serviceType === 'pet'
+          }"
+        ></div>
+        <div class="p-service-unapplied__row-item">
+          <div [ngSwitch]="serviceType" class="p-flight-miles__row-title-label p-flight-miles__row-title-label--em">
+            <!-- サービス種別毎の見出し文言 -->
+            <span *ngSwitchCase="'fBag'" [innerHTML]="'label.firstBaggage' | staticMsg"></span>
+            <span *ngSwitchCase="'loug'" [innerHTML]="'label.advancedLounge' | staticMsg"></span>
+            <span *ngSwitchCase="'meal'" [innerHTML]="'label.chargeableMeal.button' | staticMsg"></span>
+            <span *ngSwitchCase="'pet'" [innerHTML]="'label.travellingWithPets' | staticMsg"></span>
+          </div>
+          <div class="p-flight-miles__row-title-lead p-flight-miles__row-title-lead--gray60">
+            <!-- サービス種別毎の案内文言 -->
+            <span
+              *ngIf="serviceType === 'fBag' && minPrice"
+              [innerHTML]="
+                'label.baggageGuidanceBeforeApplication'
+                  | staticMsg : { '0': minPrice | amountFormat : undefined : currencyCode }
+              "
+            ></span>
+            <span
+              *ngIf="serviceType === 'loug' && minPrice"
+              [innerHTML]="
+                'label.loungeGuidanceBeforeApplication'
+                  | staticMsg : { '0': minPrice | amountFormat : undefined : currencyCode }
+              "
+            ></span>
+            <span *ngIf="serviceType === 'meal'" [innerHTML]="'label.mealGuidanceBeforeApplication' | staticMsg"></span>
+            <span *ngIf="serviceType === 'pet'" [innerHTML]="'label.petsGuidance' | staticMsg"></span>
+          </div>
+        </div>
+      </div>
+      <div class="service-plus-icon"></div>
+    </div>
+  </div>
+</button>

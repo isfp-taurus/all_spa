@@ -1,0 +1,94 @@
+<div
+  #modalContents
+  [class]="lmodalContentsClassWithWidth"
+  aria-modal="true"
+  role="dialog"
+  aria-labelledby="seatmap-child-seat-not-selectable-confirmation-modal-tilte"
+>
+  <div #modalHead [class]="[lmodalHeaderClass, 'p-modal-head02']">
+    <h1
+      id="seatmap-child-seat-not-selectable-confirmation-modal-tilte"
+      class="p-modal-head02__title p-modal-head02__title--sp-tb-fs16"
+      innerHTML="{{ 'm_static_message-message.notCompatibleChildseat' | staticMsg }}"
+    ></h1>
+    <button
+      id="child-seat-not-selectable-confirmation-close-header"
+      class="p-modal-head02__close js-modal-close"
+      aswThrottleClick
+      (throttleClick$)="close()"
+    >
+      <span class="u-visually-hidden" innerHTML="{{ 'm_static_message-alt.closeModal' | staticMsg }}"></span>
+    </button>
+  </div>
+
+  <div #modalBody [class]="[lmodalBodyClass, 'l-modal09__body']" tabindex="0">
+    <div class="p-modal-body08">
+      <div class="p-modal-seatmap-child-not">
+        <div class="p-modal-seatmap-child-not__item">
+          <div class="p-modal-seatmap-child-not__message">
+            <p innerHTML="{{ 'm_static_message-message.selectedWindowOrMiddleRowSeat' | staticMsg }}"></p>
+          </div>
+        </div>
+        <div class="p-modal-seatmap-child-not__item">
+          <div class="p-modal-seatmap-child-not__img p-modal-seatmap-child-not__img--center">
+            <img src="assets/images/img_child_seat_not.svg" alt="" width="240" height="65" />
+          </div>
+        </div>
+        <div class="p-modal-seatmap-child-not__item">
+          <dl class="c-def-list02">
+            <div class="c-def-list02__item" *ngFor="let passengerId of passengerIdList">
+              <dt class="c-def-list02__item-title">
+                {{ travelersMap?.get(passengerId)?.name }}
+              </dt>
+              <dd class="c-def-list02__item-body">
+                <dl class="c-float-list01">
+                  <div class="c-float-list01__item">
+                    <dt class="c-float-list01__title">
+                      <span class="c-float-list01__airport">
+                        <span class="c-float-list01__airport-departure"
+                          >{{
+                            cannotSelectChildSeatPassengerList?.get(passengerId)?.departureAirportCode
+                              | airportNameI18n
+                                : cannotSelectChildSeatPassengerList?.get(passengerId)?.departureSurrogateName
+                          }}
+                          <span class="c-float-list01__airport-to">
+                            <span
+                              class="u-visually-hidden"
+                              innerHTML="{{ 'm_static_message-alt.toOfArrivalAndDeparture' | staticMsg }}"
+                            ></span>
+                            <span aria-hidden="true">{{ 'label.hyphen' | staticMsg }}</span>
+                          </span>
+                        </span>
+                        <span class="c-float-list01__airport-arrival">{{
+                          cannotSelectChildSeatPassengerList?.get(passengerId)?.arrivalAirportCode
+                            | airportNameI18n
+                              : cannotSelectChildSeatPassengerList?.get(passengerId)?.arrivalSurrogateName
+                        }}</span>
+                      </span>
+                    </dt>
+                    <dd class="c-float-list01__contents c-float-list01__contents--fs16">
+                      {{ cannotSelectChildSeatPassengerList?.get(passengerId)?.seatNumber }}
+                    </dd>
+                  </div>
+                </dl>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div #modalFooter [class]="[lmodalFooterClass, 'l-modal09__footer--not-bt']">
+    <div class="p-modal-foot01">
+      <button
+        id="child-seat-not-selectable-confirmation-close-footer"
+        class="c-btn-primary c-btn-primary--s c-btn-primary--min-w100"
+        aswThrottleClick
+        (throttleClick$)="close()"
+      >
+        <span class="c-btn-primary__text" innerHTML="{{ 'm_static_message-label.ok' | staticMsg }}"></span>
+      </button>
+    </div>
+  </div>
+</div>

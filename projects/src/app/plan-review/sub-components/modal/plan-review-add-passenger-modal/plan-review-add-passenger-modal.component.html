@@ -1,0 +1,155 @@
+<div
+  class="l-modal01__contents l-modal01__contents--w384 js-modal-contents"
+  aria-modal="true"
+  role="dialog"
+  aria-labelledby="plan-review-add-passenger-modal-title"
+>
+  <div class="l-modal01__header js-modal-head">
+    <div class="p-modal-head01">
+      <h1
+        id="plan-review-add-passenger-modal-title"
+        class="p-modal-head01__title"
+        [innerHTML]="'label.spesifyPax.title' | staticMsg"
+      ></h1>
+      <button
+        id="passenger-selector-modal-button-1"
+        class="p-modal-head01__close js-modal-close"
+        (click)="clickClose()"
+      >
+        <span class="u-visually-hidden" [innerHTML]="'alt.closeModal' | staticMsg"></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="l-modal01__body js-modal-body">
+    <!-- ▼ ▼ ▼ 注意喚起エリア ▼ ▼ ▼ -->
+    <asw-alert-area [isModal]="true"></asw-alert-area>
+
+    <!-- ADT -->
+    <ul class="c-passenger-select-list">
+      <li class="c-passenger-select-list__item">
+        <div class="c-passenger-select-list__item-head">
+          <p class="c-passenger-select-list__item-label" [innerHTML]="'label.adult' | staticMsg"></p>
+          <p class="c-passenger-select-list__item-lead" [innerHTML]="'label.from16Age' | staticMsg"></p>
+        </div>
+        <div class="c-passenger-select-list__item-body">
+          <button
+            id="passenger-selector-modal-button-2"
+            class="c-passenger-select-list__item-button c-passenger-select-list__item-button--minus"
+            aria-controls="adultNumber"
+            aswThrottleClick
+            (throttleClick$)="reducePassenger('ADT')"
+            [throttleTime]="PAX_BTN_THROTTLE_TIME"
+            [disabled]="numPerPassengerType.ADT.dispNum <= numPerPassengerType.ADT.currentNum"
+          >
+            <span class="u-visually-hidden" [innerHTML]="'reader.decrease.adult' | staticMsg"></span>
+          </button>
+          <div id="adultNumber" class="c-passenger-select-list__item-value" aria-live="polite">
+            {{ numPerPassengerType.ADT.dispNum }}
+          </div>
+          <button
+            id="passenger-selector-modal-button-3"
+            class="c-passenger-select-list__item-button c-passenger-select-list__item-button--plus"
+            aria-controls="adultNumber"
+            aswThrottleClick
+            (throttleClick$)="addPassenger('ADT')"
+            [throttleTime]="PAX_BTN_THROTTLE_TIME"
+            [disabled]="numPerPassengerType.ADT.dispNum >= 9"
+          >
+            <span class="u-visually-hidden" [innerHTML]="'reader.increase.adult' | staticMsg"></span>
+          </button>
+        </div>
+      </li>
+
+      <!-- CHD -->
+      <li class="c-passenger-select-list__item">
+        <div class="c-passenger-select-list__item-head">
+          <p class="c-passenger-select-list__item-label" [innerHTML]="'label.child' | staticMsg"></p>
+          <p class="c-passenger-select-list__item-lead">
+            <!-- FY25: DCS移行開始日まで、国内単独旅程の小児年齢は3-11歳 -->
+            <span *ngIf="isBeforeDcsDomestic" [innerHTML]="'label.from3To11Age' | staticMsg"></span>
+            <span *ngIf="!isBeforeDcsDomestic" [innerHTML]="'label.from2To11Age' | staticMsg"></span>
+          </p>
+        </div>
+        <div class="c-passenger-select-list__item-body">
+          <button
+            id="passenger-selector-modal-button-6"
+            class="c-passenger-select-list__item-button c-passenger-select-list__item-button--minus"
+            aria-controls="childrenNumber"
+            aswThrottleClick
+            (throttleClick$)="reducePassenger('CHD')"
+            [throttleTime]="PAX_BTN_THROTTLE_TIME"
+            [disabled]="numPerPassengerType.CHD.dispNum <= numPerPassengerType.CHD.currentNum"
+          >
+            <span class="u-visually-hidden" [innerHTML]="'reader.decrease.child' | staticMsg"></span>
+          </button>
+          <div id="childrenNumber" class="c-passenger-select-list__item-value" aria-live="polite">
+            {{ numPerPassengerType.CHD.dispNum }}
+          </div>
+          <button
+            id="passenger-selector-modal-button-7"
+            class="c-passenger-select-list__item-button c-passenger-select-list__item-button--plus"
+            aria-controls="childrenNumber"
+            aswThrottleClick
+            (throttleClick$)="addPassenger('CHD')"
+            [throttleTime]="PAX_BTN_THROTTLE_TIME"
+            [disabled]="numPerPassengerType.CHD.dispNum >= chdMax"
+          >
+            <span class="u-visually-hidden" [innerHTML]="'reader.increase.child' | staticMsg"></span>
+          </button>
+        </div>
+      </li>
+
+      <!-- INF -->
+      <!-- FY25: DCS移行開始日前かつ日本国内単独旅程の場合非表示 -->
+      <li *ngIf="!isBeforeDcsDomestic" class="c-passenger-select-list__item">
+        <div class="c-passenger-select-list__item-head">
+          <p class="c-passenger-select-list__item-label" [innerHTML]="'label.infant' | staticMsg"></p>
+          <p class="c-passenger-select-list__item-lead" [innerHTML]="'label.from0To1Age' | staticMsg"></p>
+          <!-- ※年齢の出し分けは行わない -->
+          <!-- ∵DCS移行開始日以前、国内単独旅程の幼児年齢は0-2歳だが、そもそも幼児は非表示となるため -->
+        </div>
+        <div class="c-passenger-select-list__item-body">
+          <button
+            id="passenger-selector-modal-button-8"
+            class="c-passenger-select-list__item-button c-passenger-select-list__item-button--minus"
+            aria-controls="infantNumber"
+            aswThrottleClick
+            (throttleClick$)="reducePassenger('INF')"
+            [throttleTime]="PAX_BTN_THROTTLE_TIME"
+            [disabled]="numPerPassengerType.INF.dispNum <= numPerPassengerType.INF.currentNum"
+          >
+            <span class="u-visually-hidden" [innerHTML]="'reader.decrease.infant' | staticMsg"></span>
+          </button>
+          <div id="infantNumber" class="c-passenger-select-list__item-value" aria-live="polite">
+            {{ numPerPassengerType.INF.dispNum }}
+          </div>
+          <button
+            id="passenger-selector-modal-button-9"
+            class="c-passenger-select-list__item-button c-passenger-select-list__item-button--plus"
+            aria-controls="infantNumber"
+            aswThrottleClick
+            (throttleClick$)="addPassenger('INF')"
+            [throttleTime]="PAX_BTN_THROTTLE_TIME"
+            [disabled]="numPerPassengerType.INF.dispNum >= 9"
+          >
+            <span class="u-visually-hidden" [innerHTML]="'reader.increase.infant' | staticMsg"></span>
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="l-modal01__footer js-modal-footer">
+    <div class="p-modal-foot01">
+      <button
+        id="passenger-selector-modal-button-10"
+        class="c-btn-primary c-btn-primary--s c-btn-primary--min-w100"
+        (throttleClick$)="clickApply()"
+        aswThrottleClick
+      >
+        <span class="c-btn-primary__text" [innerHTML]="'label.apply1' | staticMsg"></span>
+      </button>
+    </div>
+  </div>
+</div>

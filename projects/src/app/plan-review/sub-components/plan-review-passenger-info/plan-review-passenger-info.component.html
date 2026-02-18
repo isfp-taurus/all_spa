@@ -1,0 +1,31 @@
+<ng-container *ngIf="isShow">
+  <div class="l-section u-mt-sp-32 u-mt-tb-40 u-mt-pc-56">
+    <!-- 見出し -->
+    <div class="p-heading-area01">
+      <div class="p-heading-area01__title">
+        <h2 class="p-heading-area01__title c-heading-2" [innerHTML]="'label.bookingInformation' | staticMsg"></h2>
+      </div>
+    </div>
+
+    <!-- 代表者連絡先 -->
+    <asw-plan-review-representative-contacts
+      [isPlanValid]="isPlanValid"
+      [data]="outputRepContacts"
+    ></asw-plan-review-representative-contacts>
+
+    <div class="p-manage-booking">
+      <!-- ▼ 搭乗者毎に繰り返し ▼ -->
+      <ng-container *ngFor="let pax of outputPassengerInfos; index as i">
+        <asw-plan-review-passenger-individual-info
+          [isPlanValid]="isPlanValid"
+          [isTravelSky]="isTravelSky"
+          [data]="pax"
+          [paxIndex]="i"
+          [fareTypeFlags]="fareTypeFlags"
+          [isAfterDcs]="isAfterDcs"
+          [hasAccompaniedInAnotherReservation]="hasAccompaniedInAnotherReservation"
+        ></asw-plan-review-passenger-individual-info>
+      </ng-container>
+    </div>
+  </div>
+</ng-container>

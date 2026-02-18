@@ -1,0 +1,377 @@
+<div
+  id="header-navigation-bar"
+  class="l-container js-menu-contents"
+  [ngClass]="{ 'is-drawer-open': isMenuOpen }"
+  [attr.aria-hidden]="isAriaHidden"
+  style="top: 0; width: 100%"
+>
+  <!-- ANA Bizログインヘッダー -->
+  <ng-container *ngIf="isAnaBizHeader">
+    <asw-ana-biz-header (isMenuOpenChange)="changeMenuOpen($event)"></asw-ana-biz-header>
+  </ng-container>
+
+  <!-- S03-P030_シートマップ（参照）画面用ヘッダー -->
+  <ng-container *ngIf="isInformativeSeatmapHeader">
+    <asw-informative-seatmap-header></asw-informative-seatmap-header>
+  </ng-container>
+
+  <!-- 標準ヘッダー -->
+  <ng-container *ngIf="!isAnaBizHeader && !isInformativeSeatmapHeader">
+    <div *ngIf="_common.isNotLogin() || isError">
+      <!-- [ログイン前ヘッダー] -->
+      <header class="l-header">
+        <div class="l-header__main">
+          <div class="l-wrap">
+            <div class="l-wrap__inner">
+              <div class="l-header__wrap">
+                <div class="l-header__logo-area">
+                  <button aswAllSiteLink id="l-header-notlogin-analogo" style="width: 100%">
+                    <img
+                      [src]="logoFilePath"
+                      [alt]="'alt.headerlogo' | staticMsg"
+                      (throttleClick$)="onClickAnaLogo($event)"
+                    />
+                  </button>
+                </div>
+                <div class="l-header__sub-area">
+                  <ul class="l-header__sub-list u-display-flex-tb">
+                    <li class="l-header__sub-item" *ngIf="!isError">
+                      <a
+                        id="header-plan-review-link-not-login"
+                        [href]="planReviewUrl | headerUrl"
+                        class="p-drawer-menu-non-member__link"
+                        [innerHTML]="'label.all.planDetail' | staticMsg"
+                        aswThrottleClick
+                        (throttleClick$)="onClickPlanReviewUrl($event)"
+                      ></a>
+                    </li>
+                    <li class="l-header__sub-item" *ngIf="!isError">
+                      <a
+                        id="header-booking-search-link-not-login"
+                        [href]="bookingSearchUrl | headerUrl"
+                        class="p-drawer-menu-non-member__link"
+                        [innerHTML]="'label.searchReservation' | staticMsg"
+                        aswThrottleClick
+                        (throttleClick$)="onClickBoolingSearchUrl($event)"
+                      ></a>
+                    </li>
+                    <li class="l-header__sub-item" [innerHTML]="'label.contactinfo' | staticMsg : {} : 'white'"></li>
+                    <li class="l-header__sub-item" *ngIf="!isError">
+                      <!-- c-btn-primary--loginが指定できないためasw-buttonは使わない -->
+                      <button
+                        *ngIf="isLoginEnable"
+                        id="header-not-login-menu-login-button"
+                        class="c-btn-primary c-btn-primary--login"
+                        (click)="clickLoginEvent()"
+                      >
+                        <span class="c-btn-primary__text" [innerHTML]="'label.login2' | staticMsg"></span>
+                      </button>
+                    </li>
+                  </ul>
+                  <div class="l-header__close u-display-block-sp">
+                    <!-- l-header-non-member-drawer-closeが指定できないためasw-buttonは使わない -->
+                    <button
+                      id="header-non-member-drawer-close-button"
+                      class="l-header-non-member-drawer-close js-menu-btn"
+                      [attr.aria-label]="'alt.hamburgerMemu' | staticMsg"
+                      aria-controls="drawer-menu"
+                      attr.aria-expanded="{{ isMenuOpen }}"
+                      (click)="clickMenuSpEvent()"
+                    >
+                      <span></span><span></span><span></span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- [ログイン前メニュー] -->
+        <div
+          id="drawer-menu"
+          class="l-header-drawer u-display-block-sp"
+          attr.aria-hidden="{{ !isMenuOpen }}"
+          (keydown)="tabKeyEvent($event)"
+        >
+          <div class="l-header-drawer__inner">
+            <nav class="l-header-drawer__body">
+              <div class="l-header-drawer__menu-area">
+                <div class="p-drawer-menu-non-member">
+                  <div class="p-drawer-menu-non-member__block">
+                    <ul class="p-drawer-menu-non-member__list" *ngIf="!isError">
+                      <li class="p-drawer-menu-non-member__item">
+                        <a
+                          id="header-plan-review-link-not-login-menu"
+                          [href]="planReviewUrl | headerUrl"
+                          class="p-drawer-menu-non-member__link"
+                          [innerHTML]="'label.all.planDetail' | staticMsg"
+                          [attr.tabindex]="!isMenuOpen ? '-1' : null"
+                          aswThrottleClick
+                          (throttleClick$)="onClickPlanReviewUrl($event)"
+                        ></a>
+                      </li>
+                      <li class="p-drawer-menu-non-member__item">
+                        <a
+                          id="header-booking-search-link-not-login-menu"
+                          [href]="bookingSearchUrl | headerUrl"
+                          class="p-drawer-menu-non-member__link"
+                          [innerHTML]="'label.searchReservation' | staticMsg"
+                          [attr.tabindex]="!isMenuOpen ? '-1' : null"
+                          aswThrottleClick
+                          (throttleClick$)="onClickBoolingSearchUrl($event)"
+                        ></a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="p-drawer-menu-non-member__btn-area">
+                    <div
+                      class="p-drawer-menu-non-member__help"
+                      [innerHTML]="'label.contactinfo' | staticMsg : {} : 'white'"
+                      [ngStyle]="!isMenuOpen ? { display: 'none' } : {}"
+                    ></div>
+                    <div class="p-drawer-menu-non-member__logout" *ngIf="!isError">
+                      <button
+                        *ngIf="isLoginEnable"
+                        id="header-login-button"
+                        class="c-btn-primary c-btn-primary--xs c-btn-primary--login"
+                        (click)="clickLoginEvent()"
+                      >
+                        <span class="c-btn-primary__text" [innerHTML]="'label.login2' | staticMsg"></span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </nav>
+          </div>
+          <div class="l-header-drawer__bg" (click)="closeMenu()"></div>
+        </div>
+
+        <!-- //[ログイン前メニュー] -->
+      </header>
+      <!-- //[ログイン前ヘッダー] -->
+    </div>
+
+    <div *ngIf="!_common.isNotLogin() && !isError">
+      <!-- [ログイン後ヘッダー] -->
+      <header class="l-header">
+        <div class="l-header__main">
+          <div class="l-wrap">
+            <div class="l-wrap__inner">
+              <div class="l-header__wrap">
+                <div class="l-header__logo-area">
+                  <button aswAllSiteLink id="l-header-login-analogo" style="width: 100%">
+                    <img
+                      [src]="logoFilePath"
+                      [alt]="'alt.headerlogo' | staticMsg"
+                      (throttleClick$)="onClickAnaLogo($event)"
+                    />
+                  </button>
+                </div>
+                <div class="l-header__sub-area">
+                  <ul class="l-header__sub-list">
+                    <li class="l-header__sub-item u-display-block-tb">
+                      <a
+                        id="header-plan-review-link-login"
+                        [href]="planReviewUrl | headerUrl"
+                        class="c-text-link"
+                        [innerHTML]="'label.all.planDetail' | staticMsg"
+                        [attr.tabindex]="!isMenuOpen ? '-1' : null"
+                        aswThrottleClick
+                        (throttleClick$)="onClickPlanReviewUrl($event)"
+                      ></a>
+                    </li>
+                    <li class="l-header__sub-item u-display-block-tb">
+                      <a
+                        id="header-booking-search-link-login"
+                        [href]="bookingSearchUrl | headerUrl"
+                        class="c-text-link"
+                        [innerHTML]="'label.searchReservation' | staticMsg"
+                        [attr.tabindex]="!isMenuOpen ? '-1' : null"
+                        aswThrottleClick
+                        (throttleClick$)="onClickBoolingSearchUrl($event)"
+                      ></a>
+                    </li>
+                    <li
+                      class="l-header__sub-item u-display-block-tb"
+                      [innerHTML]="'label.contactinfo' | staticMsg : {} : 'white'"
+                    ></li>
+                    <li class="l-header__sub-item">
+                      <button
+                        id="header-account-icon-button"
+                        class="l-header__user js-menu-btn"
+                        [attr.aria-label]="'alt.hamburgerMemu' | staticMsg"
+                        aria-controls="drawer-menu"
+                        attr.aria-expanded="{{ isMenuOpen }}"
+                        (click)="clickAccountEvent()"
+                      >
+                        <span
+                          class="l-header__user-name"
+                          [innerHTML]="
+                            _headerService.getLetrName()
+                              | staticMsg
+                                : {
+                                    '0': _headerService.getFullName() ? _headerService.getFullName() || '' : ''
+                                  }
+                          "
+                        ></span>
+                      </button>
+                    </li>
+                    <li
+                      class="l-header__sub-item u-display-block-tb"
+                      [innerHTML]="
+                        'label.mileage'
+                          | staticMsg : { '0': amcMemberPoints | numberFormat : ('label.mileageFormat' | staticMsg) }
+                      "
+                    ></li>
+                  </ul>
+                  <div class="l-header__close">
+                    <button
+                      id="header-member-drawer-close-button"
+                      class="l-header-member-drawer-close js-menu-btn"
+                      aria-controls="drawer-menu"
+                      attr.aria-expanded="{{ isMenuOpen }}"
+                      (click)="closeMenu()"
+                    >
+                      <span class="u-visually-hidden" [innerHTML]="'label.close' | staticMsg"> </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- [ログイン後メニュー] -->
+        <div
+          id="drawer-menu"
+          class="l-header-drawer"
+          attr.aria-hidden="{{ !isMenuOpen }}"
+          (keydown)="tabKeyEvent($event)"
+        >
+          <div class="l-header-drawer__inner">
+            <nav class="l-header-drawer__body">
+              <div class="l-header-drawer__menu-area">
+                <div class="p-drawer-menu-member">
+                  <div class="p-drawer-menu-member__block">
+                    <div class="p-drawer-menu-member__item">
+                      <div class="p-drawer-menu-member__name">
+                        <div
+                          [innerHTML]="
+                            _headerService.getLetrName()
+                              | staticMsg : { '0': _headerService.getFullName() ? _headerService.getFullName() : '' }
+                          "
+                        ></div>
+                      </div>
+                    </div>
+                    <dl class="p-drawer-menu-member__def">
+                      <div class="p-drawer-menu-member__item">
+                        <dt
+                          class="p-drawer-menu-member__item-heading p-drawer-menu-member__item-heading--gray70"
+                          [innerHTML]="'label.mileage1' | staticMsg"
+                        ></dt>
+                        <dd class="p-drawer-menu-member__item-body">
+                          <span
+                            class="p-drawer-menu-member__unit"
+                            [innerHTML]="
+                              'label.mileage'
+                                | staticMsg
+                                  : { '0': amcMemberPoints | numberFormat : ('label.mileageFormat' | staticMsg) }
+                            "
+                          ></span>
+                        </dd>
+                      </div>
+                    </dl>
+                    <ul class="p-drawer-menu-member__list">
+                      <li class="p-drawer-menu-member__item">
+                        <a
+                          id="header-use-miles-login"
+                          href="/"
+                          class="p-drawer-menu-member__link p-drawer-menu-member__link--external"
+                          target="_blank"
+                          [attr.tabindex]="!isMenuOpen ? '-1' : null"
+                        >
+                          <span class="p-drawer-menu-member__link-wrap">
+                            <span
+                              class="p-drawer-menu-member__link-label"
+                              [innerHTML]="'label.useMiles' | staticMsg"
+                            ></span>
+                          </span>
+                        </a>
+                      </li>
+                      <li class="p-drawer-menu-member__item">
+                        <a
+                          id="header-earn-miles-login"
+                          href="/"
+                          class="p-drawer-menu-member__link p-drawer-menu-member__link--external"
+                          target="_blank"
+                          [attr.tabindex]="!isMenuOpen ? '-1' : null"
+                        >
+                          <span class="p-drawer-menu-member__link-wrap">
+                            <span
+                              class="p-drawer-menu-member__link-label"
+                              [innerHTML]="'label.earnMiles' | staticMsg"
+                            ></span>
+                          </span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="p-drawer-menu-member__block">
+                    <ul class="p-drawer-menu-member__list">
+                      <li class="p-drawer-menu-member__item">
+                        <a
+                          id="header-plan-review-link-menu"
+                          [href]="planReviewUrl | headerUrl"
+                          class="p-drawer-menu-member__link"
+                          [attr.tabindex]="!isMenuOpen ? '-1' : null"
+                          aswThrottleClick
+                          (throttleClick$)="onClickPlanReviewUrl($event)"
+                        >
+                          <span class="p-drawer-menu-member__link-wrap">
+                            <span
+                              class="p-drawer-menu-member__link-label p-drawer-menu-member__link-label--em"
+                              [innerHTML]="'label.all.planDetail' | staticMsg"
+                            ></span>
+                          </span>
+                        </a>
+                      </li>
+                      <li class="p-drawer-menu-member__item">
+                        <a
+                          id="hedaer-booking-search-link-menu"
+                          [href]="bookingSearchUrl | headerUrl"
+                          class="p-drawer-menu-member__link"
+                          [attr.tabindex]="!isMenuOpen ? '-1' : null"
+                          aswThrottleClick
+                          (throttleClick$)="onClickBoolingSearchUrl($event)"
+                        >
+                          <span class="p-drawer-menu-member__link-wrap">
+                            <span
+                              class="p-drawer-menu-member__link-label p-drawer-menu-member__link-label--em"
+                              [innerHTML]="'label.searchReservation' | staticMsg"
+                            ></span>
+                          </span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="p-drawer-menu-member__btn-area">
+                    <div
+                      class="p-drawer-menu-member__help"
+                      [innerHTML]="'label.contactinfo' | staticMsg : {} : 'white'"
+                      [ngStyle]="!isMenuOpen ? { display: 'none' } : {}"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </nav>
+          </div>
+          <div class="l-header-drawer__bg" (click)="closeMenu()"></div>
+        </div>
+        <!-- //[ログイン後メニュー] -->
+      </header>
+      <!-- //[ログイン後ヘッダー] -->
+    </div>
+  </ng-container>
+</div>

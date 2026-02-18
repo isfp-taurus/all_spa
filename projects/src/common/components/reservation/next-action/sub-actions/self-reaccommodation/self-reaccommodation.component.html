@@ -1,0 +1,15 @@
+<ng-template #template>
+  <ng-container *ngIf="isDisplayed">
+    <div class="l-mybooking__option-item">
+      <asw-next-action-item
+        (clickNextAction)="onClick()"
+        [canBeClicked]="canBeClicked"
+        [title]="'label.selfReaccFlightIndex' | staticMsg"
+        [titleAria]="'reader.selfReaccFlight' | staticMsg"
+        [textContent]="'label.selfReaccFlightText' | staticMsg"
+        itemId="self-reaccommodation"
+      >
+      </asw-next-action-item>
+    </div>
+  </ng-container>
+</ng-template>

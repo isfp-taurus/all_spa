@@ -1,0 +1,123 @@
+<div class="p-plan-table js-plan-table01-item" [ngClass]="{ 'grey-bg': !isPlanValid, 'is-scroll': isScroll }">
+  <div class="p-plan-table__contents">
+    <div class="p-plan-table__scroll">
+      <div class="p-plan-table__scroll-view">
+        <asw-table-slider id="fare-condition-details-slider" (isScrollChange)="setIsScroll($event)">
+          <div class="p-plan-table__scroll-inner js-plan-table01-scroll" #detailPanel>
+            <table class="c-plan-table01 js-plan-table01" #scrollPanel>
+              <!-- 搭乗者種別毎tableのcaption -->
+              <caption class="u-visually-hidden">
+                {{
+                  data.displayPtcName ?? ''
+                }}
+              </caption>
+              <thead class="c-plan-table01__head">
+                <tr class="c-plan-table01__inner">
+                  <th class="c-plan-table01__col" [ngClass]="{ 'grey-bg': !isPlanValid }">
+                    <div class="c-plan-table01__col-inner">
+                      <!-- 搭乗者種別 -->
+                      <div class="c-plan-table01__col-item c-plan-table01__col-item--fs16 c-plan-table01__col-item--em">
+                        {{ data.displayPtcName ?? '' }}
+                      </div>
+                      <!-- "per person" -->
+                      <div class="c-plan-table01__col-item" [innerHTML]="'label.passenger2' | staticMsg"></div>
+                    </div>
+                  </th>
+                  <!-- 区間情報 -->
+                  <th
+                    *ngFor="let bound of data.bounds"
+                    class="c-plan-table01__col"
+                    scope="col"
+                    [ngClass]="{ 'grey-bg': !isPlanValid }"
+                  >
+                    <div class="c-plan-table01__col-inner">
+                      <div class="c-plan-table01__col-item c-plan-table01__col--em">
+                        <span class="c-flight-info01__title-airport">
+                          <span class="c-flight-info01__title-airport-departure">
+                            {{ bound.depLoc }}
+                            <span
+                              class="c-flight-info01__title-airport-to"
+                              [innerHTML]="'label.hyphen' | staticMsg"
+                            ></span>
+                          </span>
+                          <span class="c-flight-info01__title-airport-arrival">
+                            {{ bound.arrLoc }}
+                          </span>
+                        </span>
+                      </div>
+                    </div>
+                  </th>
+                  <!-- ここまで、区間情報 -->
+                </tr>
+              </thead>
+              <tbody class="c-plan-table01__body">
+                <tr class="c-plan-table01__inner">
+                  <!-- FF名称・Fare Basis -->
+                  <th class="c-plan-table01__col" scope="row" [ngClass]="{ 'grey-bg': !isPlanValid }">
+                    <div class="c-plan-table01__col-inner">
+                      <div
+                        class="c-plan-table01__col-item c-plan-table01__col-item--gray60"
+                        [innerHTML]="'label.fareName' | staticMsg"
+                      ></div>
+                    </div>
+                  </th>
+                  <td *ngFor="let bound of data.bounds" class="c-plan-table01__col">
+                    <div class="c-plan-table01__col-inner">
+                      <div class="c-plan-table01__col-item c-plan-table01__col-item--fs16 c-plan-table01__col-item--em">
+                        {{ bound.fareFamilyName }}
+                      </div>
+                      <div class="c-plan-table01__col-item c-plan-table01__col-item--fs16">
+                        {{ bound.fareBasis }}
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="c-plan-table01__inner">
+                  <!-- 変更ルール -->
+                  <th
+                    class="c-plan-table01__col c-plan-table01__col--pb0"
+                    scope="row"
+                    [ngClass]="{ 'grey-bg': !isPlanValid }"
+                  >
+                    <div class="c-plan-table01__col-inner">
+                      <div
+                        class="c-plan-table01__col-item--gray60"
+                        [innerHTML]="'label.changeItinerary' | staticMsg"
+                      ></div>
+                    </div>
+                  </th>
+                  <td *ngFor="let bound of data.bounds" class="c-plan-table01__col c-plan-table01__col--pb0">
+                    <div class="c-plan-table01__col-inner">
+                      <div class="c-plan-table01__col-item c-plan-table01__col-item--fs16">
+                        <span [innerHTML]="getChangeRule(bound)"></span>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="c-plan-table01__inner">
+                  <!-- 払戻ルール -->
+                  <th
+                    class="c-plan-table01__col c-plan-table01__col--not-border"
+                    scope="row"
+                    [ngClass]="{ 'grey-bg': !isPlanValid }"
+                  >
+                    <div class="c-plan-table01__col-inner">
+                      <div class="c-plan-table01__col-item--gray60" [innerHTML]="'label.refund' | staticMsg"></div>
+                    </div>
+                  </th>
+                  <td *ngFor="let bound of data.bounds" class="c-plan-table01__col c-plan-table01__col--not-border">
+                    <div class="c-plan-table01__col-inner">
+                      <div class="c-plan-table01__col-item c-plan-table01__col-item--fs16">
+                        <span [innerHTML]="getRefundRule(bound)"></span>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </asw-table-slider>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<fieldset class="c-select-group" [ngClass]="{ 'is-error': showError }">
+  <legend class="c-select-group__legend u-visually-hidden" [innerHTML]="legend"></legend>
+  <div class="c-select-group__wrap">
+    <ng-content></ng-content>
+  </div>
+</fieldset>
+<ng-container *ngIf="showError">
+  <asw-validation-error id="{{ groupId + '_error' }}" [errorMessage]="errors[0]"></asw-validation-error>
+</ng-container>

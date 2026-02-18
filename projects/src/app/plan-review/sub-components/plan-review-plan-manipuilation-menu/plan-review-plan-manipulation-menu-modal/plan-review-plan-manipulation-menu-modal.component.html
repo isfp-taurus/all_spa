@@ -1,0 +1,33 @@
+<div
+  class="l-modal07__contents l-modal07__contents--w768 js-wModal-contents"
+  aria-modal="true"
+  role="dialog"
+  [attr.aria-labelledby]="'label.menu' | staticMsg"
+>
+  <div class="l-modal07__header js-wModal-head">
+    <!-- モーダルヘッダーが入ります -->
+    <div class="p-modal-head04">
+      <h1 id="modalTitle2" class="p-modal-head04__title" [innerHTML]="'label.menu' | staticMsg"></h1>
+      <button
+        id="close-plan-manipulation-menu-modal"
+        class="p-modal-head04__close js-wModal-close"
+        (click)="clickClose()"
+      >
+        <span class="u-visually-hidden" [innerHTML]="'alt.closeModal' | staticMsg"></span>
+      </button>
+    </div>
+    <!-- //モーダルヘッダーが入ります -->
+  </div>
+
+  <div class="l-modal07__body js-wModal-body">
+    <!-- モーダルの中身が入ります -->
+
+    <asw-plan-manipulation-menu
+      [isUnsaved]="isUnsaved"
+      [isPlanValid]="isPlanValid"
+      (isModalClose)="clickClose()"
+    ></asw-plan-manipulation-menu>
+
+    <!-- //モーダルの中身が入ります -->
+  </div>
+</div>

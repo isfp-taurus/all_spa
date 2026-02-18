@@ -1,0 +1,88 @@
+<!-- [フッター上 重要なご案内/ご利用のヒント/Adobe Target Area] -->
+<div
+  *ngIf="importantNoticeHeadline.length !== 0 || importantNoticeShutter.length !== 0 || tipsForUse.length !== 0"
+  class="l-bottom-aside"
+>
+  <div class="l-bottom-aside__section">
+    <div class="l-wrap l-wrap--sp-tb-full">
+      <div class="l-wrap__inner">
+        <!-- [重要なご案内] -->
+        <div
+          *ngIf="importantNoticeHeadline.length !== 0 || importantNoticeShutter.length !== 0"
+          class="l-bottom-aside__block"
+        >
+          <dl class="p-important-notice">
+            <dt class="p-important-notice__title">
+              <span class="p-important-notice__title-text"
+                ><em class="u-text-color-red" [innerHTML]="'heading.importantInfo' | staticMsg"></em
+              ></span>
+            </dt>
+            <dd class="p-important-notice__body">
+              <p
+                *ngFor="let item of importantNoticeHeadline"
+                class="p-important-notice__headline"
+                [innerHTML]="dynamicMsgKeyPrefix + item | staticMsg"
+              ></p>
+              <div
+                *ngFor="let item of importantNoticeShutter; index as i"
+                class="js-important-notice-more-contents p-important-notice__more-contents"
+                [ngClass]="{ 'is-open': isNoticeOpen }"
+                [id]="'notice-more-contents-' + i + modalId"
+                aria-hidden="true"
+                aria-labelledby="notice-see-all"
+                [innerHTML]="dynamicMsgKeyPrefix + item | staticMsg"
+              ></div>
+              <button
+                class="js-important-notice-more-btn p-important-notice__btn"
+                [ngClass]="{ 'is-open': isNoticeOpen }"
+                id="notice-see-all"
+                [attr.aria-controls]="getControlId(importantNoticeShutter)"
+                [attr.aria-expanded]="isNoticeOpen"
+                (click)="clickNoticeExpand()"
+              >
+                <span
+                  class="p-important-notice__btn-text"
+                  [innerHTML]="(isNoticeOpen ? 'label.close' : 'label.open') | staticMsg"
+                ></span>
+              </button>
+            </dd>
+          </dl>
+        </div>
+        <!-- //[重要なご案内] -->
+        <!-- [ご利用のヒント] -->
+        <div *ngIf="tipsForUse.length !== 0" class="l-bottom-aside__block">
+          <dl class="p-tips-for-use">
+            <dt class="p-tips-for-use__title" [innerHTML]="'heading.hint' | staticMsg"></dt>
+            <dd class="p-tips-for-use__body">
+              <div
+                class="p-tips-for-use__contents"
+                [ngClass]="{ 'is-open': isTipsForUseOpen }"
+                [id]="'tips-for-use-contents' + modalId"
+              >
+                <p
+                  *ngFor="let item of tipsForUse"
+                  class="p-tips-for-use__text"
+                  [innerHTML]="dynamicMsgKeyPrefix + item | staticMsg"
+                ></p>
+              </div>
+              <button
+                id="tips-for-use-button"
+                class="p-tips-for-use__btn is-open"
+                [ngClass]="{ 'is-open': isTipsForUseOpen }"
+                [attr.aria-controls]="'tips-for-use-contents' + modalId"
+                [attr.aria-expanded]="isTipsForUseOpen"
+                (click)="clickTipsForUseExpand()"
+              >
+                <span
+                  class="p-tips-for-use__btn-text"
+                  [innerHTML]="(isTipsForUseOpen ? 'label.close' : 'label.open') | staticMsg"
+                ></span>
+              </button>
+            </dd>
+          </dl>
+        </div>
+        <!-- //[ご利用のヒント] -->
+      </div>
+    </div>
+  </div>
+</div>

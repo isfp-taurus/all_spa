@@ -1,0 +1,15 @@
+<div class="l-seatmap-container__item" aria-hidden="true">
+  <h2 class="l-seatmap-container__item-title" innerHTML="{{ 'm_static_message-label.legend' | staticMsg }}"></h2>
+  <div class="p-seatmap-legend">
+    <ul class="p-seatmap-legend__list">
+      <li class="p-seatmap-legend__list-item" *ngFor="let legend of seatmapLegends">
+        <div class="p-seatmap-legend__list-title">
+          <span class="p-seatmap-legend__list-title-icon"
+            ><img src="{{ legend.imageUrl }}" alt="" width="24" height="24"
+          /></span>
+          <span class="p-seatmap-legend__list-title-label" innerHTML="{{ legend.staticMessageKey | staticMsg }}"></span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,150 @@
+<div
+  class="p-vacant-seat01__heading-left"
+  *ngIf="
+    !(
+      isAllUnableFareFamilyCodes.length > 0 &&
+      fareFamilies &&
+      isAllUnableFareFamilyCodes?.length === fareFamilies.length
+    )
+  "
+>
+  <button
+    id="fare-family-header-cont-vacant-seat01-btn"
+    class="p-vacant-seat01__overview-btn"
+    [attr.aria-expanded]="isOpen"
+    [ngClass]="{ 'is-open': isOpen }"
+    aria-controls="overview-heading fare1 fare2 fare3 fare4 fare5 fare6"
+    (click)="fareOverviewChange()"
+  >
+    <span
+      class="p-vacant-seat01__view-text"
+      [innerHTML]="(isOpen ? 'label.fareOverview.close' : 'label.fareOverview.open') | staticMsg"
+    ></span>
+  </button>
+  <div
+    id="overview-heading"
+    class="p-vacant-seat01__overview-heading"
+    [ngClass]="{ 'is-open': isOpen }"
+    aria-hidden="true"
+  >
+    <div class="p-vacant-seat01__overview-item">
+      <div
+        class="p-vacant-seat01__overview-item-text p-vacant-seat01__overview-item-text--heading"
+        [innerHTML]="'label.changeItinerary' | staticMsg"
+      ></div>
+    </div>
+    <div class="p-vacant-seat01__overview-item">
+      <div
+        class="p-vacant-seat01__overview-item-text p-vacant-seat01__overview-item-text--heading"
+        [innerHTML]="'label.refund' | staticMsg"
+      ></div>
+    </div>
+    <div class="p-vacant-seat01__overview-item" *ngIf="baggageFreeCheckedShow">
+      <div
+        class="p-vacant-seat01__overview-item-text p-vacant-seat01__overview-item-text--heading"
+        [innerHTML]="'label.freeBaggage1' | staticMsg"
+      ></div>
+    </div>
+    <div class="p-vacant-seat01__overview-item">
+      <div
+        class="p-vacant-seat01__overview-item-text p-vacant-seat01__overview-item-text--heading"
+        [innerHTML]="'label.asr' | staticMsg"
+      ></div>
+    </div>
+  </div>
+</div>
+<div class="p-vacant-seat01__heading-right" [ngClass]="{ 'p-vacant-seat01__heading-right--hidden': hasDiffCabinClass }">
+  <div class="p-vacant-seat01__heading-wrap">
+    <div class="p-vacant-seat01__heading-class" #tsClassHead>
+      <ng-container *ngFor="let class of fareFamiliesHeader">
+        <div class="p-vacant-seat01__heading-title" aria-hidden="true" [innerHTML]="class | staticMsg"></div>
+      </ng-container>
+    </div>
+    <div
+      id="fare-family-header-cont-heading-list"
+      class="p-vacant-seat01__heading-list"
+      [ngClass]="{ 'p-vacant-seat01__scroll-list': hasDiffCabinClass }"
+    >
+      <ng-container *ngFor="let item of fareFamiliesDetails; let i = index; let isLast = last">
+        <div
+          style="z-index: 0"
+          class="p-vacant-seat01__heading-item p-vacant-seat01__heading_custom"
+          [ngClass]="{
+            'ts-class-top': item.isTop,
+            'p-vacant-seat01__scroll-item': hasDiffCabinClass,
+            'p-vacant-seat01__scroll-item--end': hasDiffCabinClass && isLast
+          }"
+          *ngIf="!isAllUnableFareFamilyCodes.includes(item.fareFamily.fareFamilyCode)"
+        >
+          <div class="p-vacant-seat01__heading-fare">
+            <ng-container *ngIf="getFFUrl(item.fareFamily.fareFamilyWithService.priorityCode); else notHasUrl">
+              <a
+                id="fare-family-header-cont-heading-link"
+                class="p-flight-detail01__item-text-link"
+                href="{{ getFFUrl(item.fareFamily.fareFamilyWithService.priorityCode) | metaUrl }}"
+                target="_blank"
+              >
+                {{ getFFNameKey(item.fareFamily.fareFamilyWithService.priorityCode) | staticMsg }}
+                <asw-indicator-popup></asw-indicator-popup
+              ></a>
+            </ng-container>
+            <ng-template #notHasUrl>
+              <span [innerHTML]="getFFNameKey(item.fareFamily.fareFamilyWithService.priorityCode) | staticMsg"></span>
+            </ng-template>
+          </div>
+          <div id="fare1-{{ i }}" class="p-vacant-seat01__overview-contents" [ngClass]="{ 'is-open': isOpen }">
+            <div class="p-vacant-seat01__overview-item">
+              <span class="u-visually-hidden" [innerHTML]="'label.changeItinerary' | staticMsg"></span>
+              <div
+                class="p-vacant-seat01__overview-item-text"
+                [innerHTML]="getChangeConditionsKey(item.fareFamily.changeConditionsType) | staticMsg"
+              ></div>
+            </div>
+            <div class="p-vacant-seat01__overview-item">
+              <span class="u-visually-hidden" [innerHTML]="'label.refund' | staticMsg"></span>
+              <div
+                class="p-vacant-seat01__overview-item-text"
+                [innerHTML]="getRefundConditionsKey(item.fareFamily.refundConditionsType) | staticMsg"
+              ></div>
+            </div>
+            <div class="p-vacant-seat01__overview-item" *ngIf="baggageFreeCheckedShow">
+              <span class="u-visually-hidden" [innerHTML]="'label.freeBaggage1' | staticMsg"></span>
+              <ng-container
+                *ngIf="
+                  item.fareFamily.minFreeCheckedBaggageQuantity !== undefined &&
+                  item.fareFamily.minFreeCheckedBaggageQuantity !== null
+                "
+              >
+                <div
+                  class="p-vacant-seat01__overview-item-text"
+                  [innerHTML]="'label.pcs' | staticMsg : { '0': item.fareFamily.minFreeCheckedBaggageQuantity }"
+                ></div>
+              </ng-container>
+              <ng-container
+                *ngIf="
+                  item.fareFamily.minFreeCheckedBaggageQuantity === undefined ||
+                  item.fareFamily.minFreeCheckedBaggageQuantity === null
+                "
+              >
+                <div class="p-vacant-seat01__overview-item-text">-</div>
+              </ng-container>
+            </div>
+            <!-- 座席指定料金 -->
+            <div class="p-vacant-seat01__overview-item">
+              <span class="u-visually-hidden" [innerHTML]="'label.asr' | staticMsg"></span>
+              <div
+                class="p-vacant-seat01__overview-item-text"
+                [innerHTML]="
+                  (item.fareFamily.isIncludedSeatAssignment
+                    ? 'label.requestSeat.free'
+                    : 'label.asr.chargeableType.impossible'
+                  ) | staticMsg
+                "
+              ></div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

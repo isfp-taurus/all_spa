@@ -1,0 +1,14 @@
+<asw-basic-page-layout>
+  <asw-emergency-area></asw-emergency-area>
+  <asw-header></asw-header>
+  <ng-container class="asw-sub-header" *ngComponentOutlet="subHeader"></ng-container>
+  <asw-alert-area></asw-alert-area>
+  <asw-contents-area>
+    <router-outlet></router-outlet>
+  </asw-contents-area>
+  <asw-guidance-area></asw-guidance-area>
+  <asw-footer></asw-footer>
+  <asw-debug-area></asw-debug-area>
+  <asw-notification-area></asw-notification-area>
+</asw-basic-page-layout>
+<asw-page-loading [promotion]="isPromotion$ | async" [loading]="isLoading$ | async"></asw-page-loading>

@@ -1,0 +1,158 @@
+<!-- ▼ ▼ ▼ 差分強調表示用テンプレート(通常) ▼ ▼ ▼ -->
+<ng-template #emph let-content>
+  <span [ngClass]="{ del: content.type === 'del', diff: content.type === 'diff' }">
+    <span *ngIf="content.value" [innerHTML]="content.value"></span>
+    <span *ngIf="!content.value" [innerHTML]="'label.hyphen' | staticMsg"></span>
+    <span
+      *ngIf="content.type === 'del' || content.type === 'diff'"
+      class="u-visually-hidden"
+      [innerHTML]="'reader.diffIcon' | staticMsg"
+    ></span>
+    <span
+      *ngIf="content.type === 'del'"
+      class="u-visually-hidden"
+      [innerHTML]="'reader.revokedService' | staticMsg"
+    ></span>
+  </span>
+</ng-template>
+
+<!-- ▼ ▼ ▼ 差分強調表示用テンプレート(金額) ▼ ▼ ▼ -->
+<ng-template #emphPrice let-content>
+  <span [ngClass]="{ del: content.type === 'del', diff: content.type === 'diff' }">
+    <span *ngIf="content.value" [innerHTML]="content.value | amountFormat : undefined : currencyCode"></span>
+    <span *ngIf="!content.value" [innerHTML]="'label.hyphen' | staticMsg"></span>
+    <span
+      *ngIf="content.type === 'del' || content.type === 'diff'"
+      class="u-visually-hidden"
+      [innerHTML]="'reader.diffIcon' | staticMsg"
+    ></span>
+    <span
+      *ngIf="content.type === 'del'"
+      class="u-visually-hidden"
+      [innerHTML]="'reader.revokedService' | staticMsg"
+    ></span>
+  </span>
+</ng-template>
+
+<!-- ▼ ▼ ▼ 差分強調表示用テンプレート(翻訳) ▼ ▼ ▼ -->
+<ng-template #emphTr let-content>
+  <span [ngClass]="{ del: content.type === 'del', diff: content.type === 'diff' }">
+    <span *ngIf="content.value" [innerHTML]="content.value | staticMsg"></span>
+    <span *ngIf="!content.value" [innerHTML]="'label.hyphen' | staticMsg"></span>
+    <span
+      *ngIf="content.type === 'del' || content.type === 'diff'"
+      class="u-visually-hidden"
+      [innerHTML]="'reader.diffIcon' | staticMsg"
+    ></span>
+    <span
+      *ngIf="content.type === 'del'"
+      class="u-visually-hidden"
+      [innerHTML]="'reader.revokedService' | staticMsg"
+    ></span>
+  </span>
+</ng-template>
+
+<!-- 以下、本体 -->
+<div id="anc-lounge" class="p-manage-booking__item" [ngClass]="{ 'grey-bg': !isPlanValid, 'is-scroll': isScroll }">
+  <div class="p-plan-table js-plan-table01-item" [ngClass]="{ 'grey-bg': !isPlanValid, 'is-scroll': isScroll }">
+    <div class="p-plan-table__title p-plan-table__title--has-btn">
+      <div class="p-heading-area01__title">
+        <h3 class="c-heading-2">
+          <!-- ツールチップ -->
+          <span class="c-text-with-tooltip__text" [innerHTML]="'label.advancedLounge2' | staticMsg"></span>
+          <span class="c-text-with-tooltip__tooltip js-tooltip">
+            <asw-tooltip
+              id="plan-review-lounge-applied-tooltip"
+              iconImage='<img src="assets/images/icon_help_primary_24.svg" alt="tooltip" width="20" height="20">'
+              [tooltipContent]="'tooltip.advancedLounge' | staticMsg"
+              tooltipDisplayType="tap"
+              [tooltipTop]="-55"
+            ></asw-tooltip>
+          </span>
+        </h3>
+      </div>
+      <div class="p-heading-area01__sub-function">
+        <asw-button
+          id="plan-review-lounge-component-edit-btn"
+          size="xs"
+          [disabled]="!isPlanValid"
+          [label]="'label.edit' | staticMsg"
+          (click$)="openLoungeServiceRequest()"
+          [throttleClick]="true"
+        ></asw-button>
+      </div>
+    </div>
+
+    <div class="p-plan-table__contents" style="position: relative">
+      <asw-table-slider id="plan-review-lounge-slider" (isScrollChange)="setIsScroll($event)">
+        <div class="p-plan-table__scroll">
+          <div class="p-plan-table__scroll-view">
+            <div class="p-plan-table__scroll-inner js-plan-table01-scroll" #detailPanel>
+              <table class="c-plan-table01 js-plan-table01" #scrollPanel>
+                <thead class="c-plan-table01__head">
+                  <tr class="c-plan-table01__inner">
+                    <td class="c-plan-table01__col" [ngClass]="{ 'grey-bg': !isPlanValid }">
+                      <div class="c-plan-table01__col-inner"></div>
+                    </td>
+                    <ng-container *ngFor="let seg of data.segments">
+                      <th class="c-plan-table01__col" scope="col" [ngClass]="{ 'grey-bg': !isPlanValid }">
+                        <div class="c-plan-table01__col-inner">
+                          <div class="c-plan-table01__col-item c-plan-table01__col--em">
+                            <span class="c-flight-info01__title-airport">
+                              <span class="c-flight-info01__title-airport-departure">
+                                {{ seg.departure }}
+                              </span>
+                            </span>
+                          </div>
+                        </div>
+                      </th>
+                    </ng-container>
+                  </tr>
+                </thead>
+                <tbody class="c-plan-table01__body">
+                  <tr class="c-plan-table01__inner" *ngFor="let passenger of data.passengers">
+                    <th class="c-plan-table01__col" scope="row" [ngClass]="{ 'grey-bg': !isPlanValid }">
+                      <div class="c-plan-table01__col-inner">
+                        <div class="c-plan-table01__col-item c-plan-table01__col-item--em">
+                          {{ passenger.name }}
+                        </div>
+                        <div
+                          class="c-plan-table01__col-item c-plan-table01__col-item--gray60"
+                          *ngIf="passenger.accompanyingName"
+                        >
+                          {{ passenger.accompanyingName }}
+                        </div>
+                      </div>
+                    </th>
+                    <ng-container *ngFor="let seg of passenger.segInfo">
+                      <td class="c-plan-table01__col" [ngClass]="{ 'grey-bg': !isPlanValid }">
+                        <div class="c-plan-table01__col-inner">
+                          <!-- 申込済みの場合 -->
+                          <ng-container *ngIf="seg.isApplied">
+                            <div class="c-plan-table01__col-item c-plan-table01__col-item--fs16">
+                              <ng-container *ngTemplateOutlet="emph; context: { $implicit: seg.name }"></ng-container>
+                            </div>
+                            <div class="c-plan-table01__col-item">
+                              <!-- 金額 -->
+                              <ng-container
+                                *ngTemplateOutlet="emphPrice; context: { $implicit: seg.price }"
+                              ></ng-container>
+                            </div>
+                          </ng-container>
+                          <!-- 無料利用可能の場合・未申込かつ無料利用不可の場合 -->
+                          <div *ngIf="!seg.isApplied" class="c-plan-table01__col-item">
+                            <ng-container *ngTemplateOutlet="emphTr; context: { $implicit: seg.status }"></ng-container>
+                          </div>
+                        </div>
+                      </td>
+                    </ng-container>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </asw-table-slider>
+    </div>
+  </div>
+</div>

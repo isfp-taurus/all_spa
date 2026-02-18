@@ -1,0 +1,39 @@
+<ng-container *ngIf="data.length !== 0">
+  <div class="p-modal-menu02__title" [ngClass]="{ 'u-border-top-meal-list': useBorder }">
+    <h2 class="p-modal-menu02__title-label" [innerHTML]="'label.preOrderMeal' | staticMsg"></h2>
+    <ul class="c-inline-list01">
+      <ng-container *ngIf="cabin === 'business'">
+        <li class="c-inline-list01__item" [innerHTML]="'label.mealMenuDetail.preorder.c' | staticMsg"></li>
+        <li class="c-inline-list01__item" [innerHTML]="'label.ruleDetail.meal.preorder.B' | staticMsg"></li>
+      </ng-container>
+      <ng-container *ngIf="cabin === 'first'">
+        <li class="c-inline-list01__item" [innerHTML]="'label.mealMenuDetail.preorder.f' | staticMsg"></li>
+        <li class="c-inline-list01__item" [innerHTML]="'label.ruleDetail.meal.preorder.F' | staticMsg"></li>
+      </ng-container>
+    </ul>
+  </div>
+  <ul class="p-modal-menu02__list">
+    <!--　プリオーダー分表示 -->
+    <li *ngFor="let pre of data; index as i" class="p-modal-menu02__list-item">
+      <div *ngIf="pre.quota === 0" class="p-modal-menu02__list-text">
+        <div class="p-modal-menu02__list-text-inner">
+          <span class="p-modal-menu02__btn-label">{{ pre.disp }}</span>
+          <span class="p-modal-menu02__btn-status" [innerHTML]="'label.soldOut' | staticMsg"></span>
+        </div>
+      </div>
+      <!--　ボタンは在庫がある場合のみ有効 -->
+      <button
+        id="meal-appplication-modal-select-pre-button1-{{ i }}"
+        *ngIf="pre.quota !== 0"
+        type="button"
+        class="p-modal-menu02__btn p-modal-menu02__btn--arrow"
+        (throttleClick$)="clickItem(pre)"
+        aswThrottleClick
+      >
+        <span class="p-modal-menu02__btn-inner">
+          <span class="p-modal-menu02__btn-label">{{ pre.disp }}</span>
+        </span>
+      </button>
+    </li>
+  </ul>
+</ng-container>

@@ -1,0 +1,100 @@
+<asw-base-modal
+  [overlayRef]="overlayRef"
+  [title]="title"
+  [modalType]="modalType"
+  [hasFooter]="false"
+  [focusElement]="focusElement"
+>
+  <div body>
+    <div class="p-modal-total-amount">
+      <div class="p-modal-total-amount__item p-modal-total-amount__item--2col">
+        <h2 class="p-modal-total-amount__item-total" [innerHTML]="'label.totalAmount' | staticMsg"></h2>
+        <div class="p-modal-total-amount__item-breakdown p-modal-total-amount__item-breakdown--total">
+          <em>
+            <span
+              class="p-modal-total-amount__item-breakdown-price"
+              *ngIf="totalPrice"
+              [innerHTML]="totalPrice | amountFormat : 'payment.details_totalPrice' : currencyCode"
+            >
+            </span>
+          </em>
+        </div>
+      </div>
+      <ng-container *ngIf="originalTotal">
+        <div class="p-modal-total-amount__item">
+          <div class="p-modal-total-amount__item-breakdown">
+            <span
+              class="p-modal-total-amount__item-breakdown-price"
+              [innerHTML]="originalTotal | amountFormat : 'payment.details_beforePrice' : currencyCode"
+            >
+            </span>
+          </div>
+        </div>
+      </ng-container>
+      <div class="p-modal-total-amount__item" *ngIf="travelers">
+        <span class="p-modal-total-amount__item-ticket" [innerHTML]="getTravelerNumText(travelers!)"></span>
+      </div>
+    </div>
+    <div class="p-modal-body04">
+      <div class="c-payment-detail-list">
+        <div class="c-payment-detail-list__item">
+          <div class="c-payment-detail-list__head">
+            <h2 class="c-payment-detail-list__head-label" [innerHTML]="'label.paymentBreakdown' | staticMsg"></h2>
+            <div class="c-payment-detail-list__head-lead" [innerHTML]="'label.passenger2' | staticMsg"></div>
+          </div>
+          <div class="c-payment-detail-list__body">
+            <div class="c-payment-detail-list__body-item" *ngFor="let item of unitPrices | keyvalue">
+              <div class="c-payment-table">
+                <div class="c-payment-table__head">
+                  <h3
+                    class="c-payment-table__head-title"
+                    [innerHTML]="'label.passengerType.' + item.key | staticMsg"
+                  ></h3>
+                  <div class="c-payment-table__head-contents">
+                    <em>
+                      <span class="c-payment-table__head-price">
+                        <!-- 支払総額 -->
+                        <span
+                          [outerHTML]="
+                            item.value.base + item.value.totalTaxes
+                              | amountFormat : 'payment.details_totalPrice.perPassenger' : item.value.currencyCode
+                          "
+                        ></span>
+                      </span>
+                    </em>
+                  </div>
+                </div>
+                <dl class="c-payment-table__body">
+                  <div class="c-payment-table__body-item">
+                    <dt class="c-payment-table__body-title" [innerHTML]="'label.fare' | staticMsg"></dt>
+                    <dd class="c-payment-table__body-contents">
+                      <span class="c-payment-table__body-price">
+                        <span
+                          [outerHTML]="
+                            item.value.base | amountFormat : 'payment.details_airfare' : item.value.currencyCode
+                          "
+                        ></span>
+                      </span>
+                    </dd>
+                  </div>
+                  <div class="c-payment-table__body-item">
+                    <dt class="c-payment-table__body-title" [innerHTML]="'label.taxFare2' | staticMsg"></dt>
+                    <dd class="c-payment-table__body-contents">
+                      <span class="c-payment-table__body-price">
+                        <span
+                          [outerHTML]="
+                            item.value.totalTaxes | amountFormat : 'payment.details_airfare' : item.value.currencyCode
+                          "
+                        ></span>
+                      </span>
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</asw-base-modal>

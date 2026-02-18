@@ -1,0 +1,49 @@
+<div class="info-list__erea-size">
+  <!-- [全選択チェックボックス] -->
+
+  <ng-container *ngIf="!isPlanZero || !afterGetPlans">
+    <div class="p-heading-area01 p-review-changes03__contents-inner">
+      <div class="c-form-element-checkbox p-select-flight-panel02__move-btn">
+        <div class="c-form-element-checkbox__wrap">
+          <input
+            id="plan-list-plan-info-list-selectAll-button"
+            class="c-form-element-checkbox__input"
+            type="checkbox"
+            name="selectAll"
+            aria-invalid="false"
+            [checked]="isSelectAll"
+            [disabled]="checkDisabled"
+            (change)="checkAllSelect($event)"
+          />
+          <label class="c-form-element-checkbox__label" for="plan-list-plan-info-list-selectAll-button">
+            <span class="c-form-element-checkbox__text" [innerHTML]="'label.selectPlanAll' | staticMsg"></span>
+            <span class="c-form-element-checkbox__check"></span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <!-- [//全選択チェックボックス] -->
+
+  <!-- [プラン情報] -->
+  <ng-container *ngIf="afterGetPlans; else loading">
+    <div class="p-manage-booking">
+      <asw-plan-list-plan-information
+        [displayPlanList]="displayPlanList"
+        [finishGetCart]="afterGetCart"
+        [select]="select"
+        (changeSelectPlan)="selectPlan($event.id, $event.check)"
+        (openPlanOperationModal)="this.clickMenu($event.selectPlan)"
+        (goToPlanReview)="this.clickDetail($event.index)"
+      >
+      </asw-plan-list-plan-information>
+    </div>
+  </ng-container>
+  <!-- [//プラン情報] -->
+
+  <!-- [ローディング] -->
+  <ng-template #loading>
+    <asw-plan-list-load></asw-plan-list-load>
+  </ng-template>
+  <!-- [//ローディング] -->
+</div>

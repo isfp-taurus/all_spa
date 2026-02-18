@@ -1,0 +1,17 @@
+<div class="p-modal-foot02">
+  <asw-button
+    id="agreement-cancel-button"
+    label="{{ 'm_static_message-label.goBack' | staticMsg }}"
+    type="secondary"
+    (click$)="cancelEvent()"
+    [throttleClick]="true"
+  ></asw-button>
+  <asw-button
+    id="agreement-submit-button"
+    label="{{ 'm_static_message-label.proceed' | staticMsg }}"
+    type="primary"
+    (click$)="continueEvent()"
+    [disabled]="isDisableContinue"
+    [throttleClick]="true"
+  ></asw-button>
+</div>

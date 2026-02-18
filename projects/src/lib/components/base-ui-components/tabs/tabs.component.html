@@ -1,0 +1,30 @@
+<div [id]="id" class="l-tab-style01">
+  <div class="l-tab-style01__list" role="tablist">
+    <button
+      *ngFor="let tabComponent of tabComponentList; index as i"
+      class="l-tab-style01__list-btn"
+      [ngClass]="{ 'is-current': i === activeNum }"
+      type="button"
+      id="{{ id }}tab-{{ i }}"
+      role="tab"
+      (click)="tabClick(i)"
+      [attr.aria-selected]="i === activeNum"
+      attr.aria-controls="{{ id }}content{{ i }}"
+    >
+      {{ tabComponent.title }}
+    </button>
+  </div>
+  <div class="l-tab-style01__body">
+    <div
+      *ngFor="let tabComponent of tabComponentList; index as i"
+      class="l-tab-style01__contents"
+      [ngClass]="{ 'is-current': i === activeNum }"
+      id="{{ id }}content{{ i }}"
+      role="tabpanel"
+      attr.aria-labelledby="{{ id }}tab-{{ i }}"
+      tabindex="0"
+    >
+      <ng-container [ngTemplateOutlet]="tabComponent.component"></ng-container>
+    </div>
+  </div>
+</div>

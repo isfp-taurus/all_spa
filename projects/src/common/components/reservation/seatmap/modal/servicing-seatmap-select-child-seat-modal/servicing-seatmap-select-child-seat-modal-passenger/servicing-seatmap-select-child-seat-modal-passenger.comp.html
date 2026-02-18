@@ -1,0 +1,56 @@
+<div class="p-modal-seatmap-child__check p-modal-seatmap-child__check--has-status">
+  <div class="p-modal-seatmap-child__check-label">
+    <div class="c-form-element-checkbox">
+      <div class="c-form-element-checkbox__wrap">
+        <!-- 搭乗者選択チェックボックス -->
+        <asw-checkbox
+          checked="{{ isOnApplyChildSeat }}"
+          (change$)="childSeatCheckboxChange($event)"
+          label="{{ passengerName }}"
+        >
+        </asw-checkbox
+        >]
+        <span
+          class="u-visually-hidden"
+          innerHTML="{{ 'reader.passengerSelection' | staticMsg : { '0': getPassengerSequence(passengerId) || 1 } }}"
+        ></span>
+      </div>
+    </div>
+  </div>
+  <!-- 座席番号 -->
+  <div
+    class="p-modal-seatmap-child__check-status p-modal-seatmap-child__check-status--em p-modal-seatmap-child__check-status--gray60"
+  >
+    <span *ngIf="seatNumber; else noSeatApply">{{ seatNumber }}</span>
+    <ng-template #noSeatApply>
+      <span innerHTML="{{ 'label.hyphen3' | staticMsg }}"> </span>
+    </ng-template>
+  </div>
+</div>
+<!-- チャイルドシート種類選択 -->
+<div
+  id="seat-child0{{ passengerId }}"
+  class="p-modal-seatmap-child__contents p-modal-seatmap-child__contents--show"
+  *ngIf="isOnApplyChildSeat"
+>
+  <div
+    class="p-modal-seatmap-child__title p-modal-seatmap-child__title--em"
+    innerHTML="{{ 'label.approval' | staticMsg }}"
+  ></div>
+  <asw-radio-group
+    id="child-seat-tyep-{{ passengerId }}"
+    name="child-seat-tyep-{{ passengerId }}"
+    direction="vertical"
+    [formControl]="seatTypeControl"
+    (change$)="childSeatSeatTypeChange()"
+    [selected]="selectingChildSeatType"
+    [legend]="'m_static_message-reader.selectChildSeat' | staticMsg : { '0': passengerName }"
+  >
+    <asw-radio-button
+      *ngFor="let childSeatType of childSeatTypes"
+      value="{{ childSeatType.value }}"
+      label="{{ childSeatType.display_content }}"
+      attr.aria-label="{{ childSeatType.value }}"
+    ></asw-radio-button>
+  </asw-radio-group>
+</div>

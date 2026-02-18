@@ -1,0 +1,93 @@
+<div class="p-form-layout04">
+  <!--　サービス更新情報　セグメント分繰り返し　-->
+  <div *ngFor="let bound of service.updateInfo.bounds; index as k" class="p-form-layout04__item">
+    <div class="p-form-layout04__item-title p-form-layout04__item-title--l">
+      <div class="p-form-layout04__item-title-label p-form-layout04__item-title-label--em">
+        <div class="p-form-layout04__item-airport">
+          <span class="p-form-layout04__item-airport-departure"
+            >{{ bound.segment[0].locationName }}
+            <span class="p-form-layout04__item-airport-to">
+              <span class="u-visually-hidden" [innerHTML]="'alt.toOfArrivalAndDeparture' | staticMsg"></span>
+              <span aria-hidden="true" [innerHTML]="'label.hyphen' | staticMsg"></span>
+            </span>
+          </span>
+          <span class="p-form-layout04__item-airport-arrival">{{ bound.segment[0].locationNameTo }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="p-input-block02">
+      <!--　サービス更新情報　セグメント、搭乗者分繰り返し　-->
+      <div *ngFor="let passenger of bound.segment[0].passengerInformation; index as j" class="p-input-block02__item">
+        <!--　サービス更新情報　セグメント、搭乗者名分繰り返し　-->
+        <ng-container *ngFor="let traveler of passenger.travelers">
+          <div
+            *ngFor="let item of traveler; index as i"
+            class="p-input-block02__item-title p-input-block02__item-title--m p-input-block02__item-title--has-text"
+          >
+            <div
+              class="p-input-block02__item-title-label"
+              [ngClass]="{ 'p-input-block02__item-title-label--em': i === 0 }"
+            >
+              {{ item.name }}
+            </div>
+            <div class="p-input-block02__item-title-lead" [innerHTML]="item.type | staticMsg"></div>
+          </div>
+        </ng-container>
+        <div class="p-input-block02__row">
+          <div class="p-input-block02__row-body">
+            <div class="p-input-block02__row-body-item">
+              <div class="c-form-element-checkbox-button01">
+                <div class="c-form-element-checkbox-button01__wrap">
+                  <input
+                    type="checkbox"
+                    name="baggage-application-modal-catalog{{ k }}_{{ j }}_1"
+                    id="baggage-application-modal-catalog{{ k }}_{{ j }}_1"
+                    class="c-form-element-checkbox-button01__input"
+                    [(ngModel)]="passenger.ssr.selectedList[0].isSelected"
+                    (change)="
+                      clickSsrCode(
+                        passenger.ssr.selectedList[0].isSelected,
+                        passenger.ssr.selectedList[0].catalogCode,
+                        passenger
+                      )
+                    "
+                    [checked]="passenger.ssr.selectedList[0].isSelected"
+                  />
+                  <label
+                    for="baggage-application-modal-catalog{{ k }}_{{ j }}_1"
+                    class="c-form-element-checkbox-button01__label"
+                  >
+                    <span
+                      class="c-form-element-checkbox-button01__text c-form-element-checkbox-button01__text--has-status"
+                    >
+                      <span
+                        class="c-form-element-checkbox-button01__text-label"
+                        [innerHTML]="'label.extraBaggage' | staticMsg"
+                      ></span>
+                      <span class="c-form-element-checkbox-button01__text-status">
+                        <span
+                          class="c-amount c-amount--price"
+                          [innerHTML]="
+                            passenger.ssr.selectedList[0].total
+                              | amountFormat : 'default' : passenger.ssr.selectedList[0].currencyCode
+                          "
+                        >
+                          <!--
+                          <span class="c-amount__unit c-amount__unit--fs20">¥</span>
+                          <span class="c-amount__num c-amount__num--fs20">{{passenger.ssr.selectedList[0].total}}</span>
+                          -->
+                        </span>
+                      </span>
+                    </span>
+                    <span class="c-form-element-checkbox-button01__check"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="serviceRecommendationArea"></div>
+</div>

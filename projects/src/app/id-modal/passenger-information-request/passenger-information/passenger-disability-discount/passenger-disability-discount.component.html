@@ -1,0 +1,27 @@
+<div class="p-booking-info-mdl__section">
+  <div class="p-booking-info-mdl__block">
+    <div class="p-booking-info-mdl__heading p-booking-info-mdl__heading--01">
+      <h3 class="p-booking-info-mdl__heading-title" [innerHTML]="'label.disabilityType' | staticMsg"></h3>
+    </div>
+    <div class="p-booking-info-mdl__row p-booking-info-mdl__row--01">
+      <div class="p-booking-info-mdl__row-item">
+        <span class="u-visually-hidden" [innerHTML]="'label.disabilityType' | staticMsg"></span>
+        <asw-select
+          id="{{ id }}-select-disability-discount"
+          name="{{ id }}-select-disability-discount"
+          label="{{ 'label.passengerType' | staticMsg }}"
+          [formControl]="disabilityTypeFc"
+          (change$)="update()"
+          required
+        >
+          <option value="" [innerHTML]=""></option>
+          <option
+            *ngFor="let disability of parts.disabilityTypeMap"
+            value="{{ disability.value }}"
+            [innerHTML]="disability.disp"
+          ></option>
+        </asw-select>
+      </div>
+    </div>
+  </div>
+</div>

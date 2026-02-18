@@ -1,0 +1,12 @@
+<div class="plan-header-area" [ngStyle]="{ width: fullWidth }">
+  <div class="l-wrap">
+    <div class="l-wrap__inner">
+      <!-- 差分強調表示凡例 -->
+      <div *ngIf="isPlanChanged" class="info-block">
+        <span class="emph-ex"></span>
+        <span aria-hidden="true" [innerHTML]="'label.changedItem' | staticMsg"></span>
+      </div>
+      <!-- 差分強調表示凡例 -->
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<div>
+  <asw-anabiz-payment-input-pres
+    [currentOfficeInfo]="currentOfficeInfo"
+    [pnrInfo]="pnrInfo"
+    [isReserveOnly]="isReserveOnly"
+    [isWaitlisted]="isWaitlisted"
+    [isTraveler]="isTraveler"
+    [isCreditCardPayment]="isCreditCardPayment"
+    [phoneCountryInfoList]="phoneCountryInfoList"
+    [creditCardInfo]="creditCardInfo"
+    [approverId]="approverId"
+    [isOnholdEligible]="isOnholdEligible"
+    [appliedDiscountType]="appliedDiscountType"
+    [isChangePromotionCode]="isChangePromotionCode"
+    (displayScreenInformation)="displayScreenInformation()"
+    [isApplicableDiscountCode]="isApplicableDiscountCode"
+    [countryAll]="countryAll"
+    [issueFlag]="issueFlag"
+    [isCardless]="isCardless"
+    [prevScreenInfo]="prevScreenInfo"
+    [isShowShareholderCouponsArea]="isShowShareholderCouponsArea"
+    [shareholderCoupons]="shareholderCoupons"
+    [isContainedShareholdersBenefitDiscountFareByPostCollection]="
+      this.pnrInfo?.air?.isContainedShareholdersBenefitDiscountFareByPostCollection ?? true
+    "
+    [isContainedShareholdersBenefitDiscountFare]="
+      this.pnrInfo?.air?.isContainedShareholdersBenefitDiscountFare ?? false
+    "
+    [isReadyToShow]="isReadyToShow"
+  >
+  </asw-anabiz-payment-input-pres>
+</div>

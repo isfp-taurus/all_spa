@@ -1,0 +1,320 @@
+<div class="p-support-info">
+  <div class="p-support-info__head">
+    <h2 class="p-support-info__head-title" [innerHTML]="'label.foldingWheelchair' | staticMsg"></h2>
+  </div>
+  <div class="p-support-info__body">
+    <div class="p-support-info__item">
+      <div class="p-support-info__row">
+        <fieldset
+          class="p-support-info__radio"
+          role="radiogroup"
+          aria-invalid="false"
+          [attr.aria-required]="true"
+          attr.aria-describedby="{{ !!selectError ? 'support-information-input-folding-type-error' : '' }}"
+          [attr.aria-invalid]="!!selectError"
+        >
+          <legend class="p-support-info__radio-legend" [innerHTML]="'label.foldingWheelchair' | staticMsg"></legend>
+          <div class="p-support-info__radio-list">
+            <div class="p-support-info__radio-item">
+              <input
+                type="radio"
+                name="radio1"
+                id="support-information-input-folding-type-radio1_1"
+                class="p-support-info__radio-item-input"
+                (change)="changeFoldable(true)"
+                [checked]="isFoldable === true"
+              />
+              <label for="support-information-input-folding-type-radio1_1" class="p-support-info__radio-item-label">
+                <span class="p-support-info__radio-item-check"></span>
+                <span class="p-support-info__radio-item-text-wrap">
+                  <span class="p-support-info__radio-item-text" [innerHTML]="'label.foldable' | staticMsg"></span>
+                </span>
+              </label>
+            </div>
+            <div class="p-support-info__radio-item">
+              <input
+                type="radio"
+                name="radio1"
+                id="support-information-input-folding-type-radio1_2"
+                class="p-support-info__radio-item-input"
+                (change)="changeFoldable(false)"
+                [checked]="isFoldable === false"
+              />
+              <label for="support-information-input-folding-type-radio1_2" class="p-support-info__radio-item-label">
+                <span class="p-support-info__radio-item-check"></span>
+                <span class="p-support-info__radio-item-text-wrap">
+                  <span class="p-support-info__radio-item-text" [innerHTML]="'label.notFoldable' | staticMsg"></span>
+                </span>
+              </label>
+            </div>
+          </div>
+        </fieldset>
+        <asw-validation-error
+          *ngIf="selectError"
+          id="support-information-input-folding-type-error"
+          [errorMessage]="selectError"
+          style="padding-top: 40px; padding-bottom: 50px"
+        ></asw-validation-error>
+      </div>
+    </div>
+
+    <form [formGroup]="formGroup">
+      <div class="p-support-info__item">
+        <div class="p-support-info__item-title">
+          {{ 'label.size' | staticMsg }}
+          <span class="c-text-with-tooltip__tooltip">
+            <!--ヘルプアイコン ※サイズ情報見出し -->
+            <asw-tooltip
+              iconImage='<img src="assets/images/icon_help_primary_20.svg" width="20" height="20" alt="help" />'
+              [tooltipContent]="'tooltip.size' | staticMsg"
+              displayAreaClass="p-support-info"
+            ></asw-tooltip>
+          </span>
+        </div>
+        <div class="p-support-info__row">
+          <div class="p-support-info__item-column p-support-info__item-column--3">
+            <div class="p-support-info__item-column-box">
+              <div
+                class="c-form-element-input c-form-element-input--phone"
+                [ngClass]="{
+                  'is-error': getError(formGroup.controls['depth']) && formGroup.controls['depth'].touched,
+                  'is-disabled': isFoldable !== false,
+                  'is-typed': formGroup.controls['depth'].value,
+                  'is-focus': focus.depth
+                }"
+              >
+                <div class="c-form-element-input__box">
+                  <label class="c-form-element-input__wrap">
+                    <span class="c-form-element-input__label">
+                      <span class="c-form-element-input__label-text" [innerHTML]="'label.depth' | staticMsg"></span>
+                    </span>
+
+                    <span class="c-form-element-input__input">
+                      <input
+                        type="text"
+                        id="support-information-input-folding-type-input1_1"
+                        name="input1_1"
+                        class="c-form-element-input__input-item"
+                        maxlength="3"
+                        formControlName="depth"
+                        autocomplete="off"
+                        (blur)="blurInput('depth')"
+                        (focus)="focusInput('depth')"
+                        [attr.aria-invalid]="!!formGroup.controls['depth'].errors"
+                        [attr.aria-required]="isFoldable === false"
+                        [attr.aria-describedby]="
+                          getError(formGroup.controls['depth'])
+                            ? 'support-information-input-folding-type-input_depth_error'
+                            : ''
+                        "
+                        [attr.aria-label]="'reader.depth' | staticMsg"
+                      />
+                      <div class="c-form-element-input__input-code" [innerHTML]="'label.centimetre' | staticMsg"></div>
+                    </span>
+                  </label>
+                  <button
+                    id="support-information-input-folding-type-input-clear-depth"
+                    type="button"
+                    class="c-form-element-input__clear"
+                    aria-controls="support-information-input-folding-type-input1_1"
+                    [attr.aria-hidden]="!(formGroup.controls['depth'].value && focus.depth)"
+                    [tabindex]="!(formGroup.controls['depth'].value && focus.depth) ? '-1' : '0'"
+                    (click)="clearInput(formGroup.controls['depth'])"
+                  >
+                    <span class="u-visually-hidden" [innerHTML]="'reader.clearInputInformation' | staticMsg"></span>
+                  </button>
+                </div>
+              </div>
+              <div *ngIf="formGroup.controls['depth'].errors && formGroup.controls['depth'].touched">
+                <asw-validation-error
+                  *ngIf="formGroup.controls['depth'].errors"
+                  id="support-information-input-folding-type-input_depth_error"
+                  [errorMessage]="getError(formGroup.controls['depth'])"
+                ></asw-validation-error>
+              </div>
+            </div>
+            <div class="p-support-info__item-column-box">
+              <div
+                class="c-form-element-input c-form-element-input--phone"
+                [ngClass]="{
+                  'is-error': getError(formGroup.controls['width']) && formGroup.controls['width'].touched,
+                  'is-disabled': isFoldable !== false,
+                  'is-typed': formGroup.controls['width'].value,
+                  'is-focus': focus.width
+                }"
+              >
+                <div class="c-form-element-input__box">
+                  <label class="c-form-element-input__wrap">
+                    <span class="c-form-element-input__label">
+                      <span class="c-form-element-input__label-text" [innerHTML]="'label.width' | staticMsg"></span>
+                    </span>
+                    <span class="c-form-element-input__input">
+                      <input
+                        type="text"
+                        id="support-information-input-folding-type-input1_2"
+                        name="input1_2"
+                        class="c-form-element-input__input-item"
+                        maxlength="3"
+                        formControlName="width"
+                        autocomplete="off"
+                        (blur)="blurInput('width')"
+                        (focus)="focusInput('width')"
+                        [attr.aria-invalid]="!!formGroup.controls['width'].errors"
+                        [attr.aria-required]="isFoldable === false"
+                        [attr.aria-describedby]="
+                          getError(formGroup.controls['width'])
+                            ? 'support-information-input-folding-type-input_width_error'
+                            : ''
+                        "
+                        [attr.aria-label]="'reader.width' | staticMsg"
+                      />
+                      <div class="c-form-element-input__input-code" [innerHTML]="'label.centimetre' | staticMsg"></div>
+                    </span>
+                  </label>
+                  <button
+                    id="support-information-input-folding-type-input-clear-width"
+                    type="button"
+                    class="c-form-element-input__clear"
+                    aria-controls="support-information-input-folding-type-input1_2"
+                    [attr.aria-hidden]="!(formGroup.controls['width'].value && focus.width)"
+                    [tabindex]="!(formGroup.controls['width'].value && focus.width) ? '-1' : '0'"
+                    (click)="clearInput(formGroup.controls['width'])"
+                  >
+                    <span class="u-visually-hidden" [innerHTML]="'reader.clearInputInformation' | staticMsg"></span>
+                  </button>
+                </div>
+              </div>
+              <div *ngIf="formGroup.controls['width'].errors && formGroup.controls['width'].touched">
+                <asw-validation-error
+                  *ngIf="formGroup.controls['width'].errors"
+                  id="support-information-input-folding-type-input_width_error"
+                  [errorMessage]="getError(formGroup.controls['width'])"
+                ></asw-validation-error>
+              </div>
+            </div>
+            <div class="p-support-info__item-column-box">
+              <div
+                class="c-form-element-input c-form-element-input--phone"
+                [ngClass]="{
+                  'is-error': getError(formGroup.controls['height']) && formGroup.controls['height'].touched,
+                  'is-disabled': isFoldable !== false,
+                  'is-typed': formGroup.controls['height'].value,
+                  'is-focus': focus.height
+                }"
+              >
+                <div class="c-form-element-input__box">
+                  <label class="c-form-element-input__wrap">
+                    <span class="c-form-element-input__label">
+                      <span class="c-form-element-input__label-text" [innerHTML]="'label.height' | staticMsg"></span>
+                    </span>
+                    <span class="c-form-element-input__input">
+                      <input
+                        type="text"
+                        id="support-information-input-folding-type-input1_3"
+                        name="input1_3"
+                        class="c-form-element-input__input-item"
+                        maxlength="3"
+                        formControlName="height"
+                        autocomplete="off"
+                        (blur)="blurInput('height')"
+                        (focus)="focusInput('height')"
+                        [attr.aria-invalid]="!!formGroup.controls['height'].errors"
+                        [attr.aria-required]="isFoldable === false"
+                        [attr.aria-describedby]="
+                          getError(formGroup.controls['height'])
+                            ? 'support-information-input-folding-type-input_height_error'
+                            : ''
+                        "
+                        [attr.aria-label]="'reader.height' | staticMsg"
+                      />
+                      <div class="c-form-element-input__input-code" [innerHTML]="'label.centimetre' | staticMsg"></div>
+                    </span>
+                  </label>
+                  <button
+                    id="support-information-input-folding-type-input-clear-height"
+                    type="button"
+                    class="c-form-element-input__clear"
+                    aria-controls="support-information-input-folding-type-input1_3"
+                    [attr.aria-hidden]="!(formGroup.controls['height'].value && focus.height)"
+                    [tabindex]="!(formGroup.controls['height'].value && focus.height) ? '-1' : '0'"
+                    (click)="clearInput(formGroup.controls['height'])"
+                  >
+                    <span class="u-visually-hidden" [innerHTML]="'reader.clearInputInformation' | staticMsg"></span>
+                  </button>
+                </div>
+              </div>
+              <div *ngIf="formGroup.controls['height'].errors && formGroup.controls['height'].touched">
+                <asw-validation-error
+                  id="support-information-input-folding-type-input_height_error"
+                  [errorMessage]="getError(formGroup.controls['height'])"
+                ></asw-validation-error>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-support-info__item">
+        <div class="p-support-info__row">
+          <div
+            class="c-form-element-input c-form-element-input--phone"
+            [ngClass]="{
+              'is-error': getError(formGroup.controls['weight']) && formGroup.controls['weight'].touched,
+              'is-disabled': isFoldable !== false,
+              'is-typed': formGroup.controls['weight'].value,
+              'is-focus': focus.weight
+            }"
+          >
+            <div class="c-form-element-input__box">
+              <label class="c-form-element-input__wrap">
+                <span class="c-form-element-input__label">
+                  <span class="c-form-element-input__label-text" [innerHTML]="'label.weight' | staticMsg"></span>
+                </span>
+                <span class="c-form-element-input__input">
+                  <input
+                    type="text"
+                    id="support-information-input-folding-type-input2"
+                    name="input2"
+                    class="c-form-element-input__input-item"
+                    maxlength="3"
+                    (blur)="blurInput('weight')"
+                    (focus)="focusInput('weight')"
+                    [attr.aria-invalid]="!!formGroup.controls['weight'].errors"
+                    [attr.aria-required]="isFoldable === false"
+                    [attr.aria-describedby]="
+                      getError(formGroup.controls['weight'])
+                        ? 'support-information-input-folding-type-input_weight_error'
+                        : ''
+                    "
+                    formControlName="weight"
+                    autocomplete="off"
+                    [attr.aria-label]="'reader.weight' | staticMsg"
+                  />
+                  <div class="c-form-element-input__input-code" [innerHTML]="'label.kilogram' | staticMsg"></div>
+                </span>
+              </label>
+              <button
+                type="button"
+                id="support-information-input-folding-type-input-clear-weight"
+                type="button"
+                class="c-form-element-input__clear"
+                aria-controls="support-information-input-folding-type-input2"
+                [attr.aria-hidden]="!(formGroup.controls['weight'].value && focus.weight)"
+                [tabindex]="!(formGroup.controls['weight'].value && focus.weight) ? '-1' : '0'"
+                (click)="clearInput(formGroup.controls['weight'])"
+              >
+                <span class="u-visually-hidden" [innerHTML]="'reader.clearInputInformation' | staticMsg"></span>
+              </button>
+            </div>
+          </div>
+          <div *ngIf="formGroup.controls['weight'].errors && formGroup.controls['weight'].touched">
+            <asw-validation-error
+              id="support-information-input-folding-type-input_weight_error"
+              [errorMessage]="getError(formGroup.controls['weight'])"
+            ></asw-validation-error>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

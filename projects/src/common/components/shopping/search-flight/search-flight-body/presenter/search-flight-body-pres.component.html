@@ -1,0 +1,40 @@
+<div class="p-heading-area01">
+  <h2 class="p-heading-area01__title c-heading-2" [innerHTML]="'label.itinerary1' | staticMsg"></h2>
+</div>
+<asw-tabs
+  #tabComponent
+  [activeNum]="this.tabIndex"
+  (selectEvent)="clickTabEvent($event)"
+  id="search-flight-body-pres-tabs-1"
+>
+  <asw-tabs-item title="{{ 'label.roundTripSelect' | staticMsg }}">
+    <asw-roundtrip
+      #roundTripComponent
+      [props]="this.props"
+      [information]="information"
+      [isEnabled]="this.tabIndex === 0"
+      [isJapanOnlyFlag]="this.isJapanOnlyFlag"
+      [dcsMigrationDateStatus]="this.dcsMigrationDateStatus"
+      [oldDomesticAswSearchFlag]="this.oldDomesticAswSearchFlag"
+      (changeOptionOpenEvent)="changeOptionOpen($event)"
+      (changeAirport)="changeAirportEvent($event)"
+      (clickStopOver)="clickStopOverEvent()"
+      (changeDepartureDate)="changeDepartureDateEvent($event)"
+      (showErrorMsg)="showErrorMsg()"
+    ></asw-roundtrip>
+  </asw-tabs-item>
+  <asw-tabs-item title="{{ 'label.onewayOrMultiCitySelect' | staticMsg }}">
+    <asw-oneway-or-multicity
+      #onewayOrMulticityComponent
+      [props]="this.props"
+      [information]="information"
+      [onewayInformationList]="onewayInformationList"
+      [isEnabled]="this.tabIndex === 1"
+      [isJapanOnlyFlag]="this.isJapanOnlyFlag"
+      [dcsMigrationDateStatus]="this.dcsMigrationDateStatus"
+      [oldDomesticAswSearchFlag]="this.oldDomesticAswSearchFlag"
+      (changeAirport)="changeAirportEvent($event)"
+      (changeDepartureDate)="changeDepartureDateEvent($event)"
+    ></asw-oneway-or-multicity>
+  </asw-tabs-item>
+</asw-tabs>

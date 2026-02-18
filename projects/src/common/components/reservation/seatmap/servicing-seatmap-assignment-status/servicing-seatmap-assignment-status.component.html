@@ -1,0 +1,160 @@
+<!-- SP版の場合のみアコーディオン表示 -->
+<ng-container *aswIfScreenSize="'SP'">
+  <div class="p-top-seatmap-passenger js-seatmap-passenger" style="z-index: 2">
+    <div class="l-wrap">
+      <div class="l-wrap__inner">
+        <div class="p-top-seatmap-passenger__wrap">
+          <!-- 選択中の搭乗者情報 -->
+          <button
+            id="passenger-menu-head"
+            class="p-top-seatmap-passenger__head js-top-float-accordion-btn"
+            aria-controls="seatmap-passenger01"
+            [attr.aria-expanded]="isOpen"
+            [class.is-open]="isOpen"
+            [class.is-selected]="
+              selectingPassengerId && travelersMap && isSelected(selectingPassengerId) && !isChangeRestrictedAllSeat
+            "
+            [class.is-unchangeable]="isChangeRestrictedAllSeat"
+            (click)="onClickAccordionHead()"
+            [disabled]="passengerIdList && passengerIdList.length < 2"
+            aria-live="polite"
+          >
+            <span class="p-top-seatmap-passenger__head-wrap">
+              <span class="p-top-seatmap-passenger__head-title">
+                <span class="p-top-seatmap-passenger__head-title-num">{{
+                  currentSelectingPassengerIndex !== -1 ? currentSelectingPassengerIndex + 1 : 0
+                }}</span>
+                <span class="p-top-seatmap-passenger__head-title-label">
+                  <span class="p-top-seatmap-passenger__head-title-label-member">{{
+                    selectingPassengerId
+                      ? travelersMap?.get(selectingPassengerId)?.name
+                      : travelersMap?.get(passengerIdList![0])?.name
+                  }}</span>
+                  <div class="p-top-seatmap-passenger__head-title-label-sub">
+                    {{ getInfantName(selectingPassengerId) }}
+                  </div>
+                </span>
+              </span>
+              <span
+                class="p-top-seatmap-passenger__head-status"
+                innerHTML="{{
+                  !!selectingPassengerId && !!getSeatNumber(selectingPassengerId)
+                    ? getSeatNumber(selectingPassengerId)
+                    : ('m_static_message-label.hyphen3' | staticMsg)
+                }}"
+              ></span>
+            </span>
+            <span
+              class="p-top-seatmap-passenger__head-unit"
+              [attr.aria-label]="
+                isOpen
+                  ? ('m_static_message-reader.notDisplayTravelerList' | staticMsg)
+                  : ('m_static_message-reader.displayTravelerList' | staticMsg)
+              "
+              *ngIf="passengerIdList && passengerIdList.length > 1"
+            >
+              <span class="p-top-seatmap-passenger__unit"></span>
+            </span>
+          </button>
+          <!-- アコーディオンが開かれたとき -->
+          <div
+            id="seatmap-passenger01"
+            class="p-top-seatmap-passenger__body js-top-float-accordion-contents"
+            [class.is-open]="isOpen"
+            aria-live="polite"
+          >
+            <ul class="p-top-seatmap-passenger__menu js-seatmap-passenger-menu">
+              <li
+                class="p-top-seatmap-passenger__menu-item js-seatmap-passenger-item"
+                *ngFor="let passengerId of passengerIdList; index as i"
+              >
+                <div class="p-top-seatmap-passenger__menu-item-wrap">
+                  <button
+                    id="{{ 'passenger-menu-' + (i + 1) }}"
+                    class="c-seatmap-passenger-btn js-seatmap-passenger-btn"
+                    [attr.aria-label]="getButtonReaderStaticMsgKey(passengerId) | staticMsg : { '0': i + 1 }"
+                    [class.is-selected]="isSelected(passengerId) && !isChangeRestrictedAllSeat"
+                    [class.is-current]="isCurrent(passengerId) && !isChangeRestrictedAllSeat"
+                    [class.is-unchangeable]="isChangeRestrictedAllSeat"
+                    [disabled]="isChangeRestrictedAllSeat || (!isSpDesign() && isCurrent(passengerId))"
+                    (click)="onClickPassenger(passengerId)"
+                  >
+                    <span class="c-seatmap-passenger-btn__wrap">
+                      <span class="c-seatmap-passenger-btn__title">
+                        <span class="c-seatmap-passenger-btn__title-num">{{ i + 1 }}</span>
+                        <span class="c-seatmap-passenger-btn__title-label">
+                          <span class="c-seatmap-passenger-btn__title-label-member">{{
+                            travelersMap?.get(passengerId)?.name
+                          }}</span>
+                          <div class="c-seatmap-passenger-btn__title-label-sub">
+                            {{ getInfantName(passengerId) }}
+                          </div>
+                        </span>
+                      </span>
+                      <span
+                        class="c-seatmap-passenger-btn__status"
+                        innerHTML="{{
+                          getSeatNumber(passengerId)
+                            ? getSeatNumber(passengerId)
+                            : ('m_static_message-label.hyphen3' | staticMsg)
+                        }}"
+                      ></span>
+                    </span>
+                  </button>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *aswIfScreenSize="['TAB', 'PC']">
+  <div class="l-seatmap-container__item">
+    <h2 class="l-seatmap-container__item-title" innerHTML="{{ 'm_static_message-label.passengers' | staticMsg }}"></h2>
+    <ul class="p-seatmap-passenger js-seatmap-passenger-menu">
+      <ng-container *ngFor="let passengerId of passengerIdList; index as i">
+        <li class="p-seatmap-passenger__item js-seatmap-passenger-item">
+          <div class="p-seatmap-passenger__item-wrap">
+            <button
+              id="seatmap-passenger-{{ i + 1 }}"
+              class="c-seatmap-passenger-btn js-seatmap-passenger-btn"
+              aria-live="polite"
+              [attr.aria-label]="getButtonReaderStaticMsgKey(passengerId) | staticMsg : { '0': i + 1 }"
+              [class.is-selected]="!!getSeatNumber(passengerId) && !isChangeRestrictedAllSeat"
+              [class.is-current]="isCurrent(passengerId) && !isChangeRestrictedAllSeat"
+              [class.is-unchangeable]="isChangeRestrictedAllSeat"
+              [disabled]="isChangeRestrictedAllSeat || isCurrent(passengerId)"
+              [attr.aria-disabled]="isChangeRestrictedAllSeat"
+              (click)="onClickPassenger(passengerId)"
+            >
+              <span class="c-seatmap-passenger-btn__wrap">
+                <span class="c-seatmap-passenger-btn__title">
+                  <span class="c-seatmap-passenger-btn__title-num">{{ i + 1 }}</span>
+                  <span class="c-seatmap-passenger-btn__title-label">
+                    <span class="c-seatmap-passenger-btn__title-label-member">{{
+                      travelersMap?.get(passengerId)?.name
+                    }}</span>
+                    <span class="c-seatmap-passenger-btn__title-label-sub">
+                      {{ getInfantName(passengerId) }}
+                    </span>
+                  </span>
+                </span>
+                <span
+                  class="c-seatmap-passenger-btn__status"
+                  innerHTML="{{
+                    getSeatNumber(passengerId)
+                      ? getSeatNumber(passengerId)
+                      : ('m_static_message-label.hyphen3' | staticMsg)
+                  }}"
+                ></span>
+              </span>
+            </button>
+          </div>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+</ng-container>

@@ -1,0 +1,56 @@
+<!-- プラン情報繰り返し -->
+<ng-container *ngFor="let loop of arrayNumberLength(loop_list)">
+  <div class="p-manage-booking">
+    <div class="c-loading-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="Now Loading">
+      <div class="p-manage-booking__item p-sub-column-layout01__title">
+        <!-- プラン情報部 -->
+        <div class="p-manage-booking__item-head p-manage-booking__item-head--has-btn">
+          <div class="c-loading-bar__line c-loading-bar__line--type1 loading__height"></div>
+        </div>
+        <div class="c-def-list02__item-body p-payment-method-finance__item-block">
+          <div class=".p-add-other-reserve__row">
+            <div class="c-loading-bar__line c-loading-bar__line--type1"></div>
+          </div>
+        </div>
+        <div class="p-add-other-reserve__row"></div>
+        <!-- プラン情報部 -->
+
+        <!-- バウンド部 -->
+        <div class="c-def-list02">
+          <ng-container *ngFor="let loop of arrayNumberLength(loop_bound)">
+            <div class="p-select-flight-panel02__item loading__margin-top">
+              <table class="p-family-miles__table c-plan-table01__col-inner">
+                <tbody class="c-plan-table01__body">
+                  <tr class="loading__margin-bottom">
+                    <td class="loading__width loading__padding-right">
+                      <div class="c-loading-bar__line c-loading-bar__line--type1 loading__loding-bar-space2"></div>
+                    </td>
+                    <td class="oading__loding-bar-space1" colspan="2">
+                      <div class="c-loading-bar__line c-loading-bar__line--type1 loading__loding-bar-space2"></div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="loading__width loading__padding-right">
+                      <div class="c-loading-bar__line c-loading-bar__line--type1 loading__loding-bar-space2"></div>
+                    </td>
+                    <td class="oading__loding-bar-space1" colspan="2">
+                      <div class="c-loading-bar__line c-loading-bar__line--type1 loading__loding-bar-space2"></div>
+                    </td>
+                  </tr>
+                  <tr class="loading__margin-top">
+                    <td class="loading__width"></td>
+                    <td class="loading__loding-bar-space3">
+                      <div class="c-loading-bar__line c-loading-bar__line--type1 loading__height"></div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </ng-container>
+        </div>
+        <!-- バウンド部 -->
+      </div>
+    </div>
+  </div>
+</ng-container>
+<!-- //プラン情報繰り返し -->

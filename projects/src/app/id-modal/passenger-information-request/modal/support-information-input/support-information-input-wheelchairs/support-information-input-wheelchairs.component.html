@@ -1,0 +1,43 @@
+<div class="p-support-info">
+  <div class="p-support-info__head">
+    <h2 class="p-support-info__head-title" [innerHTML]="'label.useWheelchair' | staticMsg"></h2>
+  </div>
+  <div class="p-support-info__body">
+    <div class="p-support-info__item">
+      <div class="p-support-info__row">
+        <fieldset
+          class="p-support-info__radio"
+          role="radiogroup"
+          [attr.aria-required]="true"
+          attr.aria-describedby="{{ !!selectError ? 'support-information-input-wheelchairs-error1' : '' }}"
+          [attr.aria-invalid]="!!selectError"
+        >
+          <legend class="p-support-info__radio-legend" [innerHTML]="'label.useWheelchair' | staticMsg"></legend>
+          <div class="p-support-info__radio-list">
+            <div *ngFor="let item of wheelchairsSelectList; index as i" class="p-support-info__radio-item">
+              <input
+                id="support-information-input-wheelchairs-radio{{ i }}"
+                type="radio"
+                name="radio1"
+                (change)="changeWillBeCheckedIn(item.value)"
+                class="p-support-info__radio-item-input"
+                [checked]="willBeCheckedIn === item.value"
+              />
+              <label for="support-information-input-wheelchairs-radio{{ i }}" class="p-support-info__radio-item-label">
+                <span class="p-support-info__radio-item-check"></span>
+                <span class="p-support-info__radio-item-text-wrap">
+                  <span class="p-support-info__radio-item-text" [innerHTML]="item.label | staticMsg"></span>
+                </span>
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <asw-validation-error
+        *ngIf="selectError"
+        id="support-information-input-wheelchairs-error1"
+        [errorMessage]="selectError"
+      ></asw-validation-error>
+    </div>
+  </div>
+</div>

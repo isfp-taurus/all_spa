@@ -1,0 +1,19 @@
+<div class="c-join-mileage" [ngClass]="{ 'grey-bg': !isPlanValid }">
+  <div class="c-join-mileage__title">
+    <div
+      class="c-join-mileage__title-label c-join-mileage__title-label--primary c-join-mileage__title-label--em"
+      [innerHTML]="'label.savePlanHeadline' | staticMsg"
+    ></div>
+    <p class="c-join-mileage__title-lead" [innerHTML]="'label.savePlanExplication' | staticMsg"></p>
+    <p class="annotation-red" [innerHTML]="'label.savePlanAnnotation' | staticMsg"></p>
+  </div>
+  <div class="c-join-mileage__save-plan-btn-wrapper">
+    <asw-button
+      id="plan-review-plan-save-area-open-plan-save-modal-btn"
+      (click$)="openPlanSaveModal()"
+      throttleClick
+      [disabled]="!isPlanValid"
+      [label]="'label.saveToPlan' | staticMsg"
+    ></asw-button>
+  </div>
+</div>

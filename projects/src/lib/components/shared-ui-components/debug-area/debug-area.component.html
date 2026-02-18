@@ -1,0 +1,51 @@
+<div *ngIf="isDevelop">
+  <details>
+    <summary>デバッグエリア</summary>
+    <table>
+      <tr>
+        <th>項目名</th>
+        <th>値</th>
+      </tr>
+
+      <tr>
+        <td>操作日時</td>
+        <td>{{ systemdate }}</td>
+      </tr>
+      <tr>
+        <td>ASWユーザID</td>
+        <td>{{ identificationId }}</td>
+      </tr>
+      <tr>
+        <td>操作オフィスコード</td>
+        <td>{{ pointOfSaleId }}</td>
+      </tr>
+      <tr>
+        <td>操作言語</td>
+        <td>{{ lang }}</td>
+      </tr>
+      <tr>
+        <td>クライアント機種</td>
+        <td>{{ deviceType }}</td>
+      </tr>
+      <tr>
+        <td>ログイン状態</td>
+        <td>{{ loginStatus }}</td>
+      </tr>
+      <tr>
+        <td>ログイン会員番号</td>
+        <td>{{ num }}</td>
+      </tr>
+      <tr>
+        <td>ログイン会員名</td>
+        <td>{{ letrName }}</td>
+      </tr>
+      <tr>
+        <td>マイル残高</td>
+        <td>{{ afaMile }}</td>
+      </tr>
+    </table>
+    <br />
+    <p>操作言語変更</p>
+    <asw-debug-language-switch></asw-debug-language-switch>
+  </details>
+</div>

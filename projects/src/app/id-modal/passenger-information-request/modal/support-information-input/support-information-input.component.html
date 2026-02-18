@@ -1,0 +1,101 @@
+<!--パーツ(17)：サポート情報入力モーダル-->
+<div
+  #modalContents
+  [class]="lmodalContentsClassWithWidth"
+  aria-modal="true"
+  role="dialog"
+  [attr.aria-labelledby]="id + '-title'"
+>
+  <!--(17-1：閉じる)-->
+  <div #modalHead [class]="lmodalHeaderClass">
+    <div class="p-modal-head04">
+      <h1
+        id="{{ id }}-title"
+        class="p-modal-head04__title"
+        [innerHTML]="'label.supportInformation.title2' | staticMsg"
+      ></h1>
+      <button id="{{ id }}-header-button" class="p-modal-head04__close js-modal-close" (click)="clickClose()">
+        <span class="u-visually-hidden" [innerHTML]="'m_static_message-label.close' | staticMsg"></span>
+      </button>
+    </div>
+  </div>
+
+  <div #modalBody [class]="lmodalBodyClass">
+    <ng-container *ngIf="dynamicItem">
+      <asw-alert-message [item]="dynamicItem"></asw-alert-message>
+    </ng-container>
+    <!--(17-2)：サポート選択-->
+    <asw-support-information-input-special-assistance
+      #specialAssistanceCom
+      *ngIf="type === SupportInformationInputType.SPECIAL_ASSISTANCE"
+      [(data)]="specialAssistance"
+    ></asw-support-information-input-special-assistance>
+    <!--(17-6)：歩行の程度-->
+    <asw-support-information-input-walking-ability
+      #walkingAbilityCom
+      *ngIf="type === SupportInformationInputType.WALKING_ABILITY"
+      [(data)]="walkingAbility"
+      [master]="walkingAbilityMaster"
+    >
+    </asw-support-information-input-walking-ability>
+    <!--(17-8)：車いす持ち込み有無-->
+    <asw-support-information-input-wheelchairs
+      #wheelchairsCom
+      *ngIf="type === SupportInformationInputType.WHEELCHAIRS"
+      [(data)]="wheelchairs"
+    ></asw-support-information-input-wheelchairs>
+    <!--(17-10)：折りたたみ可否・サイズ-->
+    <asw-support-information-input-folding-type
+      #foldingTypeCom
+      *ngIf="type === SupportInformationInputType.FOLDING_TYPE"
+      [(data)]="foldingType"
+    ></asw-support-information-input-folding-type>
+    <!--(17-17)：車いす種類・バッテリータイプ-->
+    <asw-support-information-input-wheelchair-type
+      #wheelchairTypeCom
+      *ngIf="type === SupportInformationInputType.WHEELCHAIR_TYPE"
+      [(data)]="wheelchairType"
+      [master]="wheelchairTypeMaster"
+    ></asw-support-information-input-wheelchair-type>
+  </div>
+
+  <!--(17-20)：サポート情報モーダルボタン表示エリア-->
+  <div #modalFooter [class]="lmodalFooterClass">
+    <div
+      class="p-modal-foot03"
+      [ngClass]="{
+        'p-modal-foot01': type === SupportInformationInputType.SPECIAL_ASSISTANCE,
+        'p-modal-foot03': type !== SupportInformationInputType.SPECIAL_ASSISTANCE
+      }"
+    >
+      <!--(17-22)：戻る-->
+      <asw-button
+        *ngIf="type !== SupportInformationInputType.SPECIAL_ASSISTANCE"
+        id="{{ id }}-footer-back"
+        type="secondary"
+        size="s-min-w100"
+        [label]="'label.goBack' | staticMsg"
+        (click$)="clickBack()"
+      ></asw-button>
+      <!--(17-21)：次へ-->
+      <asw-button
+        *ngIf="isNext()"
+        id="{{ id }}-footer-next"
+        type="primary"
+        size="s-min-w100"
+        [label]="'label.proceed' | staticMsg"
+        (click$)="clickNext()"
+      ></asw-button>
+      <!--(17-23)：適用-->
+      <asw-button
+        *ngIf="!isNext()"
+        id="{{ id }}-footer-apply"
+        type="primary"
+        size="s-min-w100"
+        [label]="'label.submit' | staticMsg"
+        (click$)="clickSubmit()"
+        throttleClick
+      ></asw-button>
+    </div>
+  </div>
+</div>

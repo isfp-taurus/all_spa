@@ -1,0 +1,33 @@
+<!-- [コンテンツ領域] -->
+<div class="l-core-contents__inner">
+  <div class="l-core-contents__main">
+    <div class="l-section">
+      <asw-search-flight-body-cont
+        #aswSearchFlightBodyCont
+        [information]="information"
+        [onewayInformationList]="onewayInformationList"
+        (changeOptionOpenEvent)="changeOptionOpen($event)"
+      ></asw-search-flight-body-cont>
+    </div>
+  </div>
+</div>
+<!-- [画面下部固定フローティングナビ] -->
+<div class="l-bottom-float">
+  <div class="p-bottom-float-navi01">
+    <div class="p-bottom-float-navi01__wrap">
+      <div class="p-bottom-float-navi01__inner">
+        <div class="p-bottom-float-navi01__item">
+          <button
+            #searchButton
+            id="search-flight-pres-search-btn"
+            class="c-btn-primary c-btn-primary--min-w100 c-btn-primary--sp-s"
+            (throttleClick$)="this.clickSearch($event)"
+            aswThrottleClick
+          >
+            <span class="c-btn-primary__text" [innerHTML]="'label.search' | staticMsg"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

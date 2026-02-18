@@ -1,0 +1,175 @@
+<div
+  #modalContent
+  class="l-modal03__contents js-modal-contents"
+  aria-modal="true"
+  role="dialog"
+  aria-labelledby="modalTitle"
+>
+  <div #modalHead class="l-modal03__header js-modal-head">
+    <div class="p-modal-head01">
+      <h1 id="modalTitle" class="p-modal-head01__title" [innerHTML]="'label.paymentBreakdown.title' | staticMsg"></h1>
+      <!-- 閉じるボタン -->
+      <button
+        id="payment-detail-modal-close-btn"
+        class="p-modal-head01__close js-modal-close"
+        (click)="this.closeModal()"
+      >
+        <span class="u-visually-hidden" [innerHTML]="'alt.closeModal' | staticMsg"></span>
+      </button>
+    </div>
+  </div>
+
+  <div #modalBody class="l-modal03__body js-modal-body">
+    <!-- 支払総額グループ -->
+    <div class="p-modal-total-amount">
+      <!-- 支払総額 -->
+      <div class="p-modal-total-amount__item p-modal-total-amount__item--2col">
+        <h2 class="p-modal-total-amount__item-total" [innerHTML]="'label.totalAmount' | staticMsg"></h2>
+        <div class="p-modal-total-amount__item-breakdown p-modal-total-amount__item-breakdown--total">
+          <ng-container *ngIf="this.paymentDetailData.isPromotionApplied">
+            <span class="u-visually-hidden" [innerHTML]="'label.afterApply' | staticMsg"></span>
+          </ng-container>
+          <em>
+            <span class="p-modal-total-amount__item-breakdown-price">
+              <span [innerHTML]="this.price | amountFormat : 'payment.details_totalPrice'"></span>
+            </span>
+          </em>
+        </div>
+      </div>
+
+      <!-- プロモーション適用前支払総額 -->
+      <ng-container *ngIf="this.paymentDetailData.isPromotionApplied">
+        <div class="p-modal-total-amount__item">
+          <div class="p-modal-total-amount__item-breakdown">
+            <span class="u-visually-hidden" [innerHTML]="'label.beforeApply' | staticMsg"></span>
+            <span class="p-modal-total-amount__item-breakdown-price">
+              <span class="p-modal-total-amount__item-breakdown-num">
+                <del [innerHTML]="this.paymentDetailData.originalPrice"></del>
+              </span>
+            </span>
+          </div>
+        </div>
+      </ng-container>
+      <!-- プロモーション適用済案内 -->
+      <ng-container *ngIf="this.paymentDetailData.isPromotionApplied">
+        <div class="p-modal-total-amount__item">
+          <span class="c-promotion-applied">
+            <img
+              class="c-promotion-applied__img"
+              src="assets/images/icon_promotion_applied_20.svg"
+              width="20"
+              height="20"
+            />
+            <span class="c-promotion-applied__text" [innerHTML]="'label.promotionApplied' | staticMsg"></span>
+          </span>
+        </div>
+      </ng-container>
+      <!-- 搭乗者人数 -->
+      <div class="p-modal-total-amount__item">
+        <span class="p-modal-total-amount__item-ticket">
+          {{ this.travelersLabel }}
+        </span>
+      </div>
+    </div>
+    <div class="p-modal-body04">
+      <div class="c-payment-detail-list">
+        <!-- 搭乗者種別毎支払総額 -->
+        <div class="c-payment-detail-list__item">
+          <div class="c-payment-detail-list__head">
+            <h2 class="c-payment-detail-list__head-label" [innerHTML]="'label.paymentBreakdown' | staticMsg"></h2>
+            <div class="c-payment-detail-list__head-lead" [innerHTML]="'label.perPassenger' | staticMsg"></div>
+          </div>
+          <div class="c-payment-detail-list__body">
+            <ng-container
+              *ngFor="let detailPassengerType of this.detailPassengerTypeList; index as detailPassengerTypeIndex"
+            >
+              <div class="c-payment-detail-list__body-item">
+                <div class="c-payment-table">
+                  <!-- 搭乗者種別 -->
+                  <div class="c-payment-table__head">
+                    <h3
+                      class="c-payment-table__head-title"
+                      [innerHTML]="'label.passengerType.' + detailPassengerType.passengerType | staticMsg"
+                    ></h3>
+                    <!-- 支払総額 -->
+                    <div class="c-payment-table__head-contents">
+                      <em>
+                        <span class="c-payment-table__head-price">
+                          <span
+                            class="c-payment-table__head-num"
+                            [innerHTML]="
+                              detailPassengerType.totalPrice | amountFormat : 'payment.details_totalPrice.perPassenger'
+                            "
+                          ></span>
+                        </span>
+                      </em>
+                    </div>
+                  </div>
+                  <dl class="c-payment-table__body">
+                    <!-- 航空運賃 -->
+                    <ng-container>
+                      <div class="c-payment-table__body-item">
+                        <dt class="c-payment-table__body-title" [innerHTML]="'label.fare' | staticMsg"></dt>
+                        <dd class="c-payment-table__body-contents">
+                          <span class="c-payment-table__body-price">
+                            <span
+                              class="c-payment-table__body-num"
+                              [innerHTML]="detailPassengerType.farePrice | amountFormat : 'payment.details_airfare'"
+                            ></span>
+                          </span>
+                        </dd>
+                      </div>
+                    </ng-container>
+                    <!-- 税金 -->
+                    <ng-container>
+                      <div class="c-payment-table__body-item">
+                        <dt class="c-payment-table__body-title" [innerHTML]="'label.taxFare2' | staticMsg"></dt>
+                        <dd class="c-payment-table__body-contents">
+                          <span class="c-payment-table__body-price">
+                            <span
+                              class="c-payment-table__body-num"
+                              [innerHTML]="detailPassengerType.tax | amountFormat : 'payment.details_airfare'"
+                            ></span>
+                          </span>
+                        </dd>
+                      </div>
+                    </ng-container>
+                  </dl>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+        <!-- 積算マイル -->
+        <ng-container *ngIf="this.paymentDetailData.accrualMiles">
+          <div class="c-payment-detail-list__item">
+            <div class="c-payment-detail-list__head">
+              <h2 class="c-payment-detail-list__head-label" [innerHTML]="'label.mileageRate' | staticMsg"></h2>
+              <div class="c-payment-detail-list__head-lead" [innerHTML]="'label.perPassenger' | staticMsg"></div>
+            </div>
+            <div class="c-payment-detail-list__body">
+              <div class="c-payment-detail-list__body-item">
+                <div class="c-payment-table">
+                  <dl class="c-payment-table__body">
+                    <div class="c-payment-table__body-item c-payment-table__body-item--miles">
+                      <dt class="c-payment-table__body-title" [innerHTML]="'label.flightMiles' | staticMsg"></dt>
+                      <dd class="c-payment-table__body-contents">
+                        <span class="c-payment-table__body-price">
+                          <ng-container *ngIf="!this.accrualMilesUndefined">
+                            <span class="c-payment-table__body-currency">
+                              {{ this.paymentDetailData.accrualMiles | amountFormat : 'default' : 'MIL' }}
+                            </span>
+                          </ng-container>
+                        </span>
+                      </dd>
+                    </div>
+                  </dl>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

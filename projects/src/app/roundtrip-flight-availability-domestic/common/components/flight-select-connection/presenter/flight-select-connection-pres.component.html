@@ -1,0 +1,23 @@
+<div class="p-flight-detail01__item p-flight-detail01__item--2col p-flight-detail01__item--{{ backColorClass }}">
+  <div class="p-flight-detail01__line js-fix-vl-1" style="top: -92.3984px; height: 232px"></div>
+  <div class="p-flight-detail01__time">
+    <div
+      class="p-flight-detail01__time-item"
+      [innerHTML]="connectionTime! | dateFormat : 'flightDetail_transferConditionTime'"
+    ></div>
+  </div>
+  <div class="p-flight-detail01__detail">
+    <div class="p-flight-detail01__detail-item">
+      <ng-container *ngIf="isMultiAirportConnection">
+        <span class="p-flight-detail01__detail-transfer" [innerHTML]="'label.interAirportTransit' | staticMsg"> </span
+      ></ng-container>
+      <ng-container *ngIf="!isMultiAirportConnection">
+        <span
+          class="p-flight-detail01__detail-transfer"
+          [innerHTML]="'label.transitInAirport' | staticMsg : { '0': arrivalLocationName }"
+        >
+        </span>
+      </ng-container>
+    </div>
+  </div>
+</div>

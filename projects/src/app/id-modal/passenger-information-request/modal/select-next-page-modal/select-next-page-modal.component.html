@@ -1,0 +1,69 @@
+<!--パーツ(18)：遷移先分岐モーダル-->
+<div
+  class="l-modal01__contents l-modal01__contents--w384 js-modal-contents"
+  aria-modal="true"
+  role="dialog"
+  aria-labelledby="select-next-page-modal-title"
+>
+  <div class="l-modal01__header js-modal-head">
+    <div class="p-modal-head01">
+      <h1
+        id="select-next-page-modal-title"
+        class="p-modal-head01__title"
+        [innerHTML]="'label.step.title' | staticMsg"
+      ></h1>
+      <button
+        id="close-select-next-page-modal_passenger-input"
+        class="p-modal-head01__close js-modal-close"
+        (click)="clickClose()"
+      >
+        <span class="u-visually-hidden" [innerHTML]="'alt.closeModal' | staticMsg"></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="l-modal01__body js-modal-body">
+    <ul *ngIf="dispEnable" class="c-fare-check-list">
+      <li class="c-fare-check-list__item">
+        <div class="c-fare-check-list__item-head">
+          <div class="c-fare-check-list__item-wrap">
+            <span class="c-fare-check-list__item-label">
+              <em class="c-fare-check-list__item-em">
+                <button
+                  id="go-to-seatmap_passenger-input"
+                  class="p-sub-column-layout02__list-link"
+                  aswThrottleClick
+                  (throttleClick$)="goToSeatmap()"
+                >
+                  {{ 'label.goAsr' | staticMsg }}
+                </button>
+              </em></span
+            >
+          </div>
+        </div>
+      </li>
+      <li class="c-fare-check-list__item">
+        <div class="c-fare-check-list__item-head">
+          <div class="c-fare-check-list__item-wrap">
+            <span class="c-fare-check-list__item-label">
+              <em class="c-fare-check-list__item-em">
+                <button
+                  id="go-to-payment_passenger-input"
+                  class="p-sub-column-layout02__list-link"
+                  aswThrottleClick
+                  (throttleClick$)="goToPayment()"
+                >
+                  {{ 'label.goPayment' | staticMsg }}
+                </button>
+              </em>
+            </span>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="l-modal01__footer js-modal-footer">
+    <div class="p-modal-foot01"></div>
+  </div>
+</div>

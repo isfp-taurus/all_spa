@@ -1,0 +1,338 @@
+<!-- ▼ ▼ ▼ 差分強調表示用テンプレート(通常) ▼ ▼ ▼ -->
+<ng-template #emph let-content>
+  <em
+    [ngClass]="{
+      del: content?.type === 'del',
+      'c-modified-element': content?.type === 'del' || content?.type === 'diff',
+      'c-modified-element--has-icon': content?.type === 'del' || content?.type === 'diff'
+    }"
+  >
+    <span *ngIf="content?.value" [innerHTML]="content?.value"></span>
+    <span *ngIf="!content?.value" [innerHTML]="'label.hyphen' | staticMsg"></span>
+    <span *ngIf="content?.type === 'del' || content?.type === 'diff'" class="c-modified-element__icon">
+      <img
+        class="c-modified-element__icon-img"
+        src="{{ appConstants.IMG.R01_P040_S01_U__ICON_CHANGE_10 }}"
+        width="10"
+        height="10"
+        alt="変更箇所"
+      />
+    </span>
+    <span
+      *ngIf="content?.type === 'del' || content?.type === 'diff'"
+      class="u-visually-hidden"
+      [innerHTML]="'reader.diffIcon' | staticMsg"
+    ></span>
+    <span
+      *ngIf="content?.type === 'del'"
+      class="u-visually-hidden"
+      [innerHTML]="'reader.revokedService' | staticMsg"
+    ></span>
+  </em>
+</ng-template>
+
+<!-- ▼ ▼ ▼ 差分強調表示用テンプレート(搭乗者種別) ▼ ▼ ▼ -->
+<ng-template #emphPtc let-content>
+  <em
+    [ngClass]="{
+      del: content?.type === 'del',
+      'c-modified-element': content?.type === 'del' || content?.type === 'diff',
+      'c-modified-element--has-icon': content?.type === 'del' || content?.type === 'diff'
+    }"
+  >
+    <ng-container [ngSwitch]="content?.value">
+      <span *ngSwitchCase="'ADT'" [innerHTML]="'label.adult' | staticMsg"></span>
+      <span *ngSwitchCase="'CHD'" [innerHTML]="'label.child' | staticMsg"></span>
+      <span *ngSwitchCase="'INF'" [innerHTML]="'label.infant' | staticMsg"></span>
+    </ng-container>
+    <span *ngIf="content?.type === 'del' || content?.type === 'diff'" class="c-modified-element__icon">
+      <img
+        class="c-modified-element__icon-img"
+        src="{{ appConstants.IMG.R01_P040_S01_U__ICON_CHANGE_10 }}"
+        width="10"
+        height="10"
+        alt="変更箇所"
+      />
+    </span>
+    <span
+      *ngIf="content?.type === 'del' || content?.type === 'diff'"
+      class="u-visually-hidden"
+      [innerHTML]="'reader.diffIcon' | staticMsg"
+    ></span>
+    <span
+      *ngIf="content?.type === 'del'"
+      class="u-visually-hidden"
+      [innerHTML]="'reader.revokedService' | staticMsg"
+    ></span>
+  </em>
+</ng-template>
+
+<!-- ▼ ▼ ▼ 差分強調表示用テンプレート(生年月日) ▼ ▼ ▼ -->
+<ng-template #emphBirthday let-content>
+  <em
+    [ngClass]="{
+      del: content?.type === 'del',
+      'c-modified-element': content?.type === 'del' || content?.type === 'diff',
+      'c-modified-element--has-icon': content?.type === 'del' || content?.type === 'diff'
+    }"
+  >
+    <span *ngIf="content.value" [innerHTML]="content.value | dateFormat : 'default_apiDate'"></span>
+    <span *ngIf="!content.value" [innerHTML]="'label.hyphen' | staticMsg"></span>
+    <span *ngIf="content?.type === 'del' || content?.type === 'diff'" class="c-modified-element__icon">
+      <img
+        class="c-modified-element__icon-img"
+        src="{{ appConstants.IMG.R01_P040_S01_U__ICON_CHANGE_10 }}"
+        width="10"
+        height="10"
+        alt="変更箇所"
+      />
+    </span>
+    <span
+      *ngIf="content.type === 'del' || content.type === 'diff'"
+      class="u-visually-hidden"
+      [innerHTML]="'reader.diffIcon' | staticMsg"
+    ></span>
+    <span
+      *ngIf="content.type === 'del'"
+      class="u-visually-hidden"
+      [innerHTML]="'reader.revokedService' | staticMsg"
+    ></span>
+  </em>
+</ng-template>
+
+<!-- ▼ ▼ ▼ 差分強調表示用テンプレート(連絡先登録状態：メールアドレス) ▼ ▼ ▼ -->
+<ng-template #emphEMailRegState let-content>
+  <em
+    [ngClass]="{
+      del: content?.type === 'del',
+      'c-modified-element': content?.type === 'del' || content?.type === 'diff',
+      'c-modified-element--has-icon': content?.type === 'del' || content?.type === 'diff'
+    }"
+  >
+    <ng-container [ngSwitch]="content?.value">
+      <span *ngSwitchCase="'sameAsRep'" [innerHTML]="'label.sameAsRepresentativeMailAddress' | staticMsg"></span>
+      <span *ngSwitchCase="'indiv'" [innerHTML]="'label.specifyPerPassenger' | staticMsg"></span>
+      <span *ngSwitchCase="'notNeeded'" [innerHTML]="'label.notSendSms' | staticMsg"></span>
+      <span *ngSwitchCase="'unreg'" [innerHTML]="'label.hyphen' | staticMsg"></span>
+    </ng-container>
+    <span *ngIf="content?.type === 'del' || content?.type === 'diff'" class="c-modified-element__icon">
+      <img
+        class="c-modified-element__icon-img"
+        src="{{ appConstants.IMG.R01_P040_S01_U__ICON_CHANGE_10 }}"
+        width="10"
+        height="10"
+        alt="変更箇所"
+      />
+    </span>
+    <span
+      *ngIf="content?.type === 'del' || content?.type === 'diff'"
+      class="u-visually-hidden"
+      [innerHTML]="'reader.diffIcon' | staticMsg"
+    ></span>
+    <span
+      *ngIf="content?.type === 'del'"
+      class="u-visually-hidden"
+      [innerHTML]="'reader.revokedService' | staticMsg"
+    ></span>
+  </em>
+</ng-template>
+
+<!-- ▼ ▼ ▼ 差分強調表示用テンプレート(連絡先登録状態：SMS) ▼ ▼ ▼ -->
+<ng-template #emphSmsRegState let-content>
+  <em
+    [ngClass]="{
+      del: content?.type === 'del',
+      'c-modified-element': content?.type === 'del' || content?.type === 'diff',
+      'c-modified-element--has-icon': content?.type === 'del' || content?.type === 'diff'
+    }"
+  >
+    <ng-container [ngSwitch]="content?.value">
+      <span *ngSwitchCase="'sameAsRep'" [innerHTML]="'label.sameAsRepresentativeMailAddress' | staticMsg"></span>
+      <span *ngSwitchCase="'indiv'" [innerHTML]="'label.sendToPassengerPhoneNumber1' | staticMsg"></span>
+      <span *ngSwitchCase="'notNeeded'" [innerHTML]="'label.notSendSms' | staticMsg"></span>
+      <span *ngSwitchCase="'unreg'" [innerHTML]="'label.hyphen' | staticMsg"></span>
+    </ng-container>
+    <span *ngIf="content?.type === 'del' || content?.type === 'diff'" class="c-modified-element__icon">
+      <img
+        class="c-modified-element__icon-img"
+        src="{{ appConstants.IMG.R01_P040_S01_U__ICON_CHANGE_10 }}"
+        width="10"
+        height="10"
+        alt="変更箇所"
+      />
+    </span>
+    <span
+      *ngIf="content?.type === 'del' || content?.type === 'diff'"
+      class="u-visually-hidden"
+      [innerHTML]="'reader.diffIcon' | staticMsg"
+    ></span>
+    <span
+      *ngIf="content?.type === 'del'"
+      class="u-visually-hidden"
+      [innerHTML]="'reader.revokedService' | staticMsg"
+    ></span>
+  </em>
+</ng-template>
+
+<!-- 以下、本体 -->
+<div class="p-manage-booking__item" [ngClass]="{ 'grey-bg': !isPlanValid }">
+  <div class="p-manage-booking__item-head p-manage-booking__item-head--has-btn">
+    <div class="p-manage-booking__item-title">
+      <div class="p-manage-booking__item-title-label p-manage-booking__item-title-label-em">
+        <!-- 搭乗者姓名 -->
+        <ng-container *ngTemplateOutlet="emph; context: { $implicit: data.name }"></ng-container>
+      </div>
+      <!-- 搭乗者種別 -->
+      <div class="p-manage-booking__item-title-lead">
+        <ng-container *ngTemplateOutlet="emphPtc; context: { $implicit: data.passengerTypeCode }"></ng-container>
+      </div>
+    </div>
+    <div style="min-width: 120px">
+      <!-- ボタンが折り返らない対応 -->
+      <!-- 搭乗者削除ボタン -->
+      <asw-button
+        [id]="'plan-review-passenger-individual-info-delete-passenger-btn-' + paxIndex"
+        size="xs"
+        type="warn-secondary"
+        (click$)="clickDeletePaxBtn(paxIndex)"
+        throttleClick
+        [disabled]="!isAbleToDeleteThisPax"
+        [label]="'label.deletePassenger' | staticMsg"
+      ></asw-button>
+      <!-- 搭乗者情報編集ボタン -->
+      <asw-button
+        [id]="'plan-review-passenger-individual-info-open-passenger-info-req-modal-btn-' + paxIndex"
+        size="xs"
+        (click$)="openPassengerInfoRequest(paxIndex)"
+        [throttleClick]="true"
+        [disabled]="!isPlanValid"
+        [label]="'label.edit' | staticMsg"
+      ></asw-button>
+    </div>
+  </div>
+
+  <dl class="c-def-list02">
+    <div class="c-def-list02__item">
+      <dt class="c-def-list02__item-title" [innerHTML]="'label.personalIinformation' | staticMsg"></dt>
+      <dd class="c-def-list02__item-body">
+        <dl class="c-float-list01">
+          <div class="c-float-list01__item">
+            <!-- 生年月日 -->
+            <dt class="c-float-list01__title" [innerHTML]="'label.dateOfBirth' | staticMsg"></dt>
+            <dd class="c-float-list01__contents c-float-list01__contents--fs16 u-weight-normal">
+              <ng-container *ngTemplateOutlet="emphBirthday; context: { $implicit: data.dateOfBirth }"></ng-container>
+            </dd>
+          </div>
+          <div class="c-float-list01__item">
+            <!-- 性別 -->
+            <dt class="c-float-list01__title" [innerHTML]="'label.gender' | staticMsg"></dt>
+            <dd class="c-float-list01__contents c-float-list01__contents--fs16 u-weight-normal">
+              <ng-container *ngTemplateOutlet="emph; context: { $implicit: data.gender }"></ng-container>
+            </dd>
+          </div>
+        </dl>
+      </dd>
+    </div>
+    <div class="c-def-list02__item" [ngClass]="{ 'c-def-list02__item--one': !data.programNumber?.value }">
+      <!-- FFP情報 -->
+      <dt class="c-def-list02__item-title" [innerHTML]="'label.mileageProgramForMandatory' | staticMsg"></dt>
+      <dd *ngIf="data.programNumber?.value" class="c-def-list02__item-body">
+        <!-- FFP情報登録済みの場合 -->
+        <dl class="c-float-list01">
+          <div class="c-float-list01__item">
+            <!-- マイレージプログラム -->
+            <dt class="c-float-list01__title" [innerHTML]="'label.anaMileageProgram' | staticMsg"></dt>
+            <dd class="c-float-list01__contents c-float-list01__contents--fs16 u-weight-normal">
+              <ng-container *ngTemplateOutlet="emph; context: { $implicit: data.programName }"></ng-container>
+            </dd>
+          </div>
+          <div class="c-float-list01__item">
+            <!-- FFP番号 -->
+            <dt class="c-float-list01__title" [innerHTML]="'label.mileageNumber' | staticMsg"></dt>
+            <dd class="c-float-list01__contents c-float-list01__contents--fs16 u-weight-normal">
+              <ng-container *ngTemplateOutlet="emph; context: { $implicit: data.programNumber }"></ng-container>
+            </dd>
+          </div>
+        </dl>
+      </dd>
+      <dd *ngIf="!data.programNumber?.value" class="c-def-list02__item-body">
+        <!-- FFP情報未登録の場合 -->
+        <ng-container *ngTemplateOutlet="emph; context: { $implicit: data.programNumber }"></ng-container>
+      </dd>
+    </div>
+    <!-- FY25: 障がい割旅客種別 -->
+    <div *ngIf="fareTypeFlags.isDisabilityDiscount" class="c-def-list02__item">
+      <dt class="c-def-list02__item-title" [innerHTML]="'label.disabilitycertificate' | staticMsg"></dt>
+      <dd class="c-def-list02__item-body">
+        <dl class="c-float-list01">
+          <div class="c-float-list01__item">
+            <dt class="c-float-list01__title" [innerHTML]="'label.passengerType' | staticMsg"></dt>
+            <dd class="c-float-list01__contents c-float-list01__contents--fs16 u-weight-normal">
+              <ng-container
+                *ngTemplateOutlet="emph; context: { $implicit: data.isDisabilDiscountRegistered }"
+              ></ng-container>
+            </dd>
+          </div>
+        </dl>
+      </dd>
+    </div>
+    <!-- FY25: 離島番号 -->
+    <div *ngIf="fareTypeFlags.isIslandTicket" class="c-def-list02__item">
+      <dt class="c-def-list02__item-title" [innerHTML]="'label.remoteIslandCardNumber1' | staticMsg"></dt>
+      <dd class="c-def-list02__item-body">
+        <dl class="c-float-list01">
+          <div class="c-float-list01__item">
+            <dt class="c-float-list01__title" [innerHTML]="'label.programNumber' | staticMsg"></dt>
+            <dd class="c-float-list01__contents c-float-list01__contents--fs16 u-weight-normal">
+              <ng-container
+                *ngTemplateOutlet="emph; context: { $implicit: data.isIslandCardRegistered }"
+              ></ng-container>
+            </dd>
+          </div>
+        </dl>
+      </dd>
+    </div>
+    <div class="c-def-list02__item">
+      <!-- 連絡先情報 -->
+      <dt class="c-def-list02__item-title" [innerHTML]="'label.passengerContactInformation' | staticMsg"></dt>
+      <dd class="c-def-list02__item-body">
+        <dl class="c-float-list01">
+          <!-- 搭乗者メールアドレス登録状況 -->
+          <div class="c-float-list01__item">
+            <dt class="c-float-list01__title" [innerHTML]="'label.eMail' | staticMsg"></dt>
+            <dd class="c-float-list01__contents c-float-list01__contents--fs16 u-weight-normal">
+              <ng-container
+                *ngTemplateOutlet="emphEMailRegState; context: { $implicit: data.emailRegState }"
+              ></ng-container>
+            </dd>
+          </div>
+          <!-- 搭乗者メールアドレス -->
+          <div *ngIf="data.emailRegState?.value === 'indiv'" class="c-float-list01__item">
+            <dt class="c-float-list01__title" [innerHTML]="'label.eMailAddress.passengerInput' | staticMsg"></dt>
+            <dd class="c-float-list01__contents c-float-list01__contents--fs16 u-weight-normal">
+              <ng-container *ngTemplateOutlet="emph; context: { $implicit: data.emailAddress }"></ng-container>
+            </dd>
+          </div>
+        </dl>
+      </dd>
+    </div>
+    <div class="c-def-list02--inner-divider p-manage-booking__item-title-label p-manage-booking__item-title-label-em">
+      <dt [innerHTML]="'label.additionalInformation' | staticMsg"></dt>
+      <dd></dd>
+    </div>
+    <!-- 発着通知連絡先情報 -->
+    <div class="c-def-list02__item c-def-list02__item--one">
+      <dt class="c-def-list02__item-title" [innerHTML]="'heading.arrivalDepartureAlertsMail' | staticMsg"></dt>
+      <dd class="c-def-list02__item-body">
+        <ng-container *ngTemplateOutlet="emph; context: { $implicit: data.isNotifReg }"></ng-container>
+      </dd>
+    </div>
+    <!-- サポート情報登録状況 -->
+    <div class="c-def-list02__item c-def-list02__item--one">
+      <dt class="c-def-list02__item-title" [innerHTML]="'label.supportInformation' | staticMsg"></dt>
+      <dd class="c-def-list02__item-body">
+        <ng-container *ngTemplateOutlet="emph; context: { $implicit: data.isSupportReg }"></ng-container>
+      </dd>
+    </div>
+  </dl>
+</div>

@@ -1,0 +1,80 @@
+<ng-template #template>
+  <ng-container *ngIf="isDisplayed">
+    <div class="l-mybooking__option-item">
+      <asw-next-action-item
+        (clickNextAction)="onClick()"
+        [canBeClicked]="canBeClicked && canBeClickedNext"
+        [title]="paymentGuideLabel | staticMsg"
+        [titleAria]="paymentGuideLabelReader | staticMsg"
+        itemId="payment"
+      >
+        <ng-container *ngIf="displayTheRest">
+          <!-- これから支払う総額 -->
+          <asw-next-action-item-content
+            *aswNextActionItemContent
+            [title]="totalAmountLabel | staticMsg"
+            [content]="totalAmount"
+          ></asw-next-action-item-content>
+
+          <!-- 払込期限ラベル -->
+          <!-- 払込期限 -->
+          <ng-container *ngIf="displayPaymentDeadline">
+            <asw-next-action-item-content
+              *aswNextActionItemContent
+              [title]="paymentDeadlineLabel | staticMsg"
+              [content]="paymentDeadline"
+            ></asw-next-action-item-content>
+          </ng-container>
+
+          <!-- 払込方法 -->
+          <asw-next-action-item-content
+            *aswNextActionItemContent
+            [title]="paymentMethodLabel | staticMsg"
+            [content]="paymentMethod | staticMsg"
+          ></asw-next-action-item-content>
+
+          <!-- 銀行名 -->
+          <ng-container *ngIf="displayBank">
+            <asw-next-action-item-content
+              *aswNextActionItemContent
+              [title]="'label.bankName.internetBanking' | staticMsg"
+              [content]="bankName"
+            ></asw-next-action-item-content>
+          </ng-container>
+
+          <ng-container *ngIf="displayPaymentNumber">
+            <!-- 決済番号 -->
+            <asw-next-action-item-content
+              *aswNextActionItemContent
+              [title]="'label.settlementNumber' | staticMsg"
+              [content]="paymentNumber"
+            ></asw-next-action-item-content>
+          </ng-container>
+
+          <ng-container *ngIf="displayPayeasy">
+            <!-- 収納機関番号 -->
+            <asw-next-action-item-content
+              *aswNextActionItemContent
+              [title]="'label.receivingAgencyNumber' | staticMsg"
+              [content]="receivingInstitutionNumber"
+            ></asw-next-action-item-content>
+
+            <!-- お客様番号 -->
+            <asw-next-action-item-content
+              *aswNextActionItemContent
+              [title]="'label.payEasyPaymentNo' | staticMsg"
+              [content]="paymentNumber"
+            ></asw-next-action-item-content>
+
+            <!-- 確認番号 -->
+            <asw-next-action-item-content
+              *aswNextActionItemContent
+              [title]="'label.authorizationNumber' | staticMsg"
+              [content]="payeasyConfirmationNumber"
+            ></asw-next-action-item-content>
+          </ng-container>
+        </ng-container>
+      </asw-next-action-item>
+    </div>
+  </ng-container>
+</ng-template>

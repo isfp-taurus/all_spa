@@ -1,0 +1,163 @@
+<h3 class="c-heading-3" [innerHTML]="'label.alwaysInformation' | staticMsg"></h3>
+<div *ngIf="isLogin" class="p-card-to-use js-card-to-use">
+  <div *ngIf="isSp && !cardChangeMode" class="p-card-to-use__change is is-open u-display-block-sp">
+    <div class="p-card-to-use__change-item">
+      <!-- 新しいカード -->
+      <div *ngIf="selectedCard === 'newCard'" class="p-card-to-use__change-title">
+        <span class="p-card-to-use__change-title-label" [innerHTML]="'label.newCreditCard' | staticMsg"></span>
+        <span class="u-visually-hidden" [innerHTML]="'labbel.cardSelected' | staticMsg"></span>
+      </div>
+      <!-- いつもの情報のクレジットカード１-->
+      <div *ngIf="selectedCard === 'paymentCard1' && creditCardName1" class="p-card-to-use__change-title">
+        <span class="p-card-to-use__change-title-label" [innerHTML]="creditCardName1"></span>
+        <span class="u-visually-hidden" [innerHTML]="creditCardName1"></span>
+      </div>
+      <!-- いつもの情報のクレジットカード２-->
+      <div *ngIf="selectedCard === 'paymentCard2' && creditCardName2" class="p-card-to-use__change-title">
+        <span class="p-card-to-use__change-title-label" [innerHTML]="creditCardName2"></span>
+        <span class="u-visually-hidden" [innerHTML]="creditCardName2"></span>
+      </div>
+      <!-- いつもの情報のクレジットカード３-->
+      <div *ngIf="selectedCard === 'paymentCard3' && creditCardName3" class="p-card-to-use__change-title">
+        <span class="p-card-to-use__change-title-label" [innerHTML]="creditCardName3"></span>
+        <span class="u-visually-hidden" [innerHTML]="creditCardName3"></span>
+      </div>
+
+      <div class="p-card-to-use__change-btn">
+        <button
+          id="card-to-use-button1"
+          class="c-btn-tertiary c-btn-tertiary--xs"
+          aswThrottleClick
+          (throttleClick$)="changeSelectedCardSp()"
+        >
+          <span class="c-btn-tertiary__text" [innerHTML]="'label.detailsLinkToChangeCard' | staticMsg"></span>
+        </button>
+      </div>
+    </div>
+    <span class="u-visually-hidden" [innerHTML]="'label.alwaysInformation' | staticMsg"></span>
+  </div>
+  <div *ngIf="cardChangeMode || !isSp" class="p-card-to-use__menu">
+    <div
+      [ngClass]="{
+        'p-card-to-use__menu-item': true,
+        'p-card-to-use__menu-item--selected': selectedCard === 'newCard'
+      }"
+    >
+      <div class="p-card-to-use__menu-title">
+        <div class="p-card-to-use__menu-title-label" [innerHTML]="'label.newCreditCard' | staticMsg"></div>
+      </div>
+      <div class="p-card-to-use__menu-btn">
+        <div *ngIf="selectedCard === 'newCard'" class="p-card-to-use__menu-btn-mark">
+          <img
+            src="assets/images/icon_check_primary_20.svg"
+            width="20"
+            height="20"
+            [attr.alt]="'reader.selecting' | staticMsg"
+          />
+        </div>
+        <button
+          id="card-to-use-menu-button1"
+          class="p-card-to-use__menu-btn-select c-btn-primary c-btn-primary--xs"
+          aria-label="Select New Credit Card"
+          aswThrottleClick
+          (throttleClick$)="selectedCreditCardChange('newCard')"
+        >
+          <span class="c-btn-primary__text" [innerHTML]="'label.cardSelect' | staticMsg"> </span>
+        </button>
+      </div>
+    </div>
+    <div
+      *ngIf="creditCardName1"
+      [ngClass]="{
+        'p-card-to-use__menu-item': true,
+        'p-card-to-use__menu-item--selected': selectedCard === 'paymentCard1'
+      }"
+    >
+      <div class="p-card-to-use__menu-title">
+        <div class="p-card-to-use__menu-title-label" [innerHTML]="creditCardName1"></div>
+        <div class="p-card-to-use__menu-title-lead" [innerHTML]="'label.regulerCardInfomation' | staticMsg"></div>
+      </div>
+      <div class="p-card-to-use__menu-btn">
+        <div *ngIf="selectedCard === 'paymentCard1'" class="p-card-to-use__menu-btn-mark">
+          <img
+            src="assets/images/icon_check_primary_20.svg"
+            width="20"
+            height="20"
+            [attr.alt]="'reader.selecting' | staticMsg"
+          />
+        </div>
+        <button
+          id="select-corporate-card1"
+          class="p-card-to-use__menu-btn-select c-btn-primary c-btn-primary--xs"
+          aria-label="selectCreditCardName1"
+          aswThrottleClick
+          (throttleClick$)="selectedCreditCardChange('paymentCard1')"
+        >
+          <span class="c-btn-primary__text" [innerHTML]="'label.cardSelect' | staticMsg"> </span>
+        </button>
+      </div>
+    </div>
+    <div
+      *ngIf="creditCardName2"
+      [ngClass]="{
+        'p-card-to-use__menu-item': true,
+        'p-card-to-use__menu-item--selected': selectedCard === 'paymentCard2'
+      }"
+    >
+      <div class="p-card-to-use__menu-title">
+        <div class="p-card-to-use__menu-title-label" [innerHTML]="creditCardName2"></div>
+        <div class="p-card-to-use__menu-title-lead" [innerHTML]="'label.regulerCardInfomation' | staticMsg"></div>
+      </div>
+      <div class="p-card-to-use__menu-btn">
+        <div *ngIf="selectedCard === 'paymentCard2'" class="p-card-to-use__menu-btn-mark">
+          <img
+            src="assets/images/icon_check_primary_20.svg"
+            width="20"
+            height="20"
+            [attr.alt]="'reader.selecting' | staticMsg"
+          />
+        </div>
+        <button
+          id="card-to-use-menu-button3"
+          class="p-card-to-use__menu-btn-select c-btn-primary c-btn-primary--xs"
+          aria-label="selectCreditCardName2"
+          aswThrottleClick
+          (throttleClick$)="selectedCreditCardChange('paymentCard2')"
+        >
+          <span class="c-btn-primary__text" [innerHTML]="'label.cardSelect' | staticMsg"> </span>
+        </button>
+      </div>
+    </div>
+    <div
+      *ngIf="creditCardName3"
+      [ngClass]="{
+        'p-card-to-use__menu-item': true,
+        'p-card-to-use__menu-item--selected': selectedCard === 'paymentCard3'
+      }"
+    >
+      <div class="p-card-to-use__menu-title">
+        <div class="p-card-to-use__menu-title-label" [innerHTML]="creditCardName3"></div>
+        <div class="p-card-to-use__menu-title-lead" [innerHTML]="'label.regulerCardInfomation' | staticMsg"></div>
+      </div>
+      <div class="p-card-to-use__menu-btn">
+        <div *ngIf="selectedCard === 'paymentCard3'" class="p-card-to-use__menu-btn-mark">
+          <img
+            src="assets/images/icon_check_primary_20.svg"
+            width="20"
+            height="20"
+            [attr.alt]="'reader.selecting' | staticMsg"
+          />
+        </div>
+        <button
+          id="card-to-use-menu-button4"
+          class="p-card-to-use__menu-btn-select c-btn-primary c-btn-primary--xs"
+          aria-label="selectCreditCardName3"
+          aswThrottleClick
+          (throttleClick$)="selectedCreditCardChange('paymentCard3')"
+        >
+          <span class="c-btn-primary__text" [innerHTML]="'label.cardSelect' | staticMsg"> </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,208 @@
+<div
+  class="c-form-element-range--{{ handlePoint === 'one' ? 'one' : 'twoHandle' }} c-form-element-range"
+  [ngClass]="{ 'is-disabled': disabled }"
+  #rangeSlider
+>
+  <!-- 金額タイプ -->
+  <ng-container *ngIf="this.type === 'amount'">
+    <div class="c-form-element-range__current" aria-hidden="true">
+      <div class="c-form-element-range__min">
+        <span [innerHTML]="isOneHandlePoint ? (valueMin | amountFormat) : (valueNowMin | amountFormat)"></span>
+      </div>
+      <div class="c-form-element-range__separator" [innerHTML]="'label.symbolBetweenTime' | staticMsg"></div>
+      <div class="c-form-element-range__max">
+        <span
+          [ngClass]="{ 'c-form-element-range__text-value': isOneHandlePoint }"
+          [innerHTML]="isOneHandlePoint ? (valueNow | amountFormat) : (valueNowMax | amountFormat)"
+        ></span>
+      </div>
+    </div>
+    <!-- 非活性時の表示-->
+    <div class="c-form-element-range__read" *ngIf="disabled">
+      <div class="c-form-element-range__read-min" aria-hidden="true">
+        <span [innerHTML]="valueMin | amountFormat"></span>
+      </div>
+      <div
+        class="c-form-element-range__read-separator"
+        aria-hidden="true"
+        [innerHTML]="'label.symbolBetweenTime' | staticMsg"
+      ></div>
+      <div class="c-form-element-range__read-max" aria-hidden="true">
+        <span [innerHTML]="valueMax | amountFormat"></span>
+      </div>
+      <span
+        class="u-visually-hidden"
+        [innerHTML]="
+          'reader.slider.disable' | staticMsg : { '0': valueMin | amountFormat, '1': valueMax | amountFormat }
+        "
+      ></span>
+    </div>
+  </ng-container>
+  <!-- 時間タイプ -->
+  <ng-container *ngIf="this.type === 'interval'">
+    <div class="c-form-element-range__current" aria-hidden="true">
+      <div class="c-form-element-range__min">
+        <span
+          [innerHTML]="
+            isOneHandlePoint
+              ? (dateString(valueMin) | dateFormat : 'default_flightTotalTime')
+              : (dateString(valueNowMin) | dateFormat : 'default_flightTotalTime')
+          "
+        ></span>
+      </div>
+      <div class="c-form-element-range__separator" [innerHTML]="'label.symbolBetweenTime' | staticMsg"></div>
+      <div class="c-form-element-range__max">
+        <span
+          [ngClass]="{ 'c-form-element-range__text-value': isOneHandlePoint }"
+          [innerHTML]="
+            isOneHandlePoint
+              ? (dateString(valueNow) | dateFormat : 'default_flightTotalTime')
+              : (dateString(valueNowMax) | dateFormat : 'default_flightTotalTime')
+          "
+        ></span>
+      </div>
+    </div>
+    <!-- 非活性時の表示-->
+    <div class="c-form-element-range__read" *ngIf="disabled">
+      <div class="c-form-element-range__read-min" aria-hidden="true">
+        <span [innerHTML]="dateString(valueMin) | dateFormat : 'default_flightTotalTime'"></span>
+      </div>
+      <div
+        class="c-form-element-range__read-separator"
+        aria-hidden="true"
+        [innerHTML]="'label.symbolBetweenTime' | staticMsg"
+      ></div>
+      <div class="c-form-element-range__read-max" aria-hidden="true">
+        <span [innerHTML]="dateString(valueMax) | dateFormat : 'default_flightTotalTime'"></span>
+      </div>
+      <span
+        class="u-visually-hidden"
+        [innerHTML]="
+          'reader.slider.disable'
+            | staticMsg
+              : {
+                  '0': dateString(valueMin) | dateFormat : 'default_flightTotalTime',
+                  '1': dateString(valueMax) | dateFormat : 'default_flightTotalTime'
+                }
+        "
+      ></span>
+    </div>
+  </ng-container>
+  <!-- 時刻タイプ -->
+  <ng-container *ngIf="this.type === 'time'">
+    <div class="c-form-element-range__current" aria-hidden="true">
+      <div class="c-form-element-range__min">
+        <span
+          [innerHTML]="
+            isOneHandlePoint
+              ? (dateString(valueMin) | dateFormat : 'default_departuredate.time')
+              : (dateString(valueNowMin) | dateFormat : 'default_departuredate.time')
+          "
+        ></span>
+      </div>
+      <div class="c-form-element-range__separator" [innerHTML]="'label.symbolBetweenTime' | staticMsg"></div>
+      <div class="c-form-element-range__max">
+        <span
+          [ngClass]="{ 'c-form-element-range__text-value': isOneHandlePoint }"
+          [innerHTML]="
+            isOneHandlePoint
+              ? (dateString(valueNow) | dateFormat : 'default_departuredate.time')
+              : (dateString(valueNowMax) | dateFormat : 'default_departuredate.time')
+          "
+        ></span>
+      </div>
+    </div>
+    <!-- 非活性時の表示-->
+    <div class="c-form-element-range__read" *ngIf="disabled">
+      <div class="c-form-element-range__read-min" aria-hidden="true">
+        <span [innerHTML]="dateString(valueMin) | dateFormat : 'default_departuredate.time'"></span>
+      </div>
+      <div
+        class="c-form-element-range__read-separator"
+        aria-hidden="true"
+        [innerHTML]="'label.symbolBetweenTime' | staticMsg"
+      ></div>
+      <div class="c-form-element-range__read-max" aria-hidden="true">
+        <span [innerHTML]="dateString(valueMax) | dateFormat : 'default_departuredate.time'"></span>
+      </div>
+      <span
+        class="u-visually-hidden"
+        [innerHTML]="
+          'reader.slider.disable'
+            | staticMsg
+              : {
+                  '0': dateString(valueMin) | dateFormat : 'default_departuredate.time',
+                  '1': dateString(valueMax) | dateFormat : 'default_departuredate.time'
+                }
+        "
+      ></span>
+    </div>
+  </ng-container>
+  <!-- 共通 -->
+  <div class="c-form-element-range__wrap">
+    <div class="c-form-element-range__rail" #rangeRail></div>
+    <div class="c-form-element-range__range" #rangeSliderRange></div>
+    <ng-container *ngIf="isOneHandlePoint">
+      <div
+        class="c-form-element-range__handle ts-handle-min"
+        role="slider"
+        tabindex="0"
+        attr.aria-label="{{ 'reader.slider.point' | staticMsg : { '0': ariaLabel | staticMsg } }}"
+        [attr.data-stepgrid]="stepGrid"
+        [attr.aria-valuemin]="valueMin"
+        [attr.aria-valuenow]="valueNow"
+        [attr.aria-valuemax]="valueMax"
+        [attr.aria-valuetext]="getValueText(valueNow)"
+        (keydown)="onHandleKeydown($event, true)"
+        (mousedown)="onMouseDown($event, true)"
+        (touchstart)="onTouchStart($event, true)"
+        (touchmove)="onTouchMove($event)"
+        (touchend)="onTouchEnd($event)"
+        #rangeSliderHandle
+      >
+        <div class="c-form-element-range__thumb"></div>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="!isOneHandlePoint">
+      <div
+        class="c-form-element-range__handle ts-handle-min"
+        role="slider"
+        tabindex="0"
+        attr.aria-label="{{ 'reader.slider.point.min' | staticMsg : { '0': ariaLabel | staticMsg } }}"
+        [attr.data-stepgrid]="stepGrid"
+        [attr.aria-valuemin]="valueMin"
+        [attr.aria-valuenow]="valueNowMin"
+        [attr.aria-valuemax]="valueNowMax - stepGrid"
+        [attr.aria-valuetext]="getValueText(valueNowMin)"
+        (keydown)="onHandleKeydown($event, true)"
+        (mousedown)="onMouseDown($event, true)"
+        (touchstart)="onTouchStart($event, true)"
+        (touchmove)="onTouchMove($event)"
+        (touchend)="onTouchEnd($event)"
+        #rangeSliderHandle
+      >
+        <div class="c-form-element-range__thumb"></div>
+      </div>
+      <div
+        class="c-form-element-range__handle ts-handle-max"
+        role="slider"
+        tabindex="0"
+        attr.aria-label="{{ 'reader.slider.point.max' | staticMsg : { '0': ariaLabel | staticMsg } }}"
+        [attr.data-stepgrid]="stepGrid"
+        [attr.aria-valuemin]="valueNowMin + stepGrid"
+        [attr.aria-valuenow]="valueNowMax"
+        [attr.aria-valuemax]="valueMax"
+        [attr.aria-valuetext]="getValueText(valueNowMax)"
+        (keydown)="onHandleKeydown($event, false)"
+        (mousedown)="onMouseDown($event, false)"
+        (touchstart)="onTouchStart($event, false)"
+        (touchmove)="onTouchMove($event)"
+        (touchend)="onTouchEnd($event)"
+        #rangeSliderHandleTwo
+      >
+        <div class="c-form-element-range__thumb"></div>
+      </div>
+    </ng-container>
+  </div>
+</div>

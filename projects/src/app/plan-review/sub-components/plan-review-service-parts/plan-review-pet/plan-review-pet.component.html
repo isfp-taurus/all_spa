@@ -1,0 +1,107 @@
+<!-- ▼ ▼ ▼ 差分強調表示用テンプレート(翻訳) ▼ ▼ ▼ -->
+<ng-template #emphTr let-content>
+  <span [ngClass]="{ del: content.type === 'del', diff: content.type === 'diff' }">
+    <span *ngIf="content.value" [innerHTML]="content.value | staticMsg"></span>
+    <span *ngIf="!content.value" [innerHTML]="'label.hyphen' | staticMsg"></span>
+    <span
+      *ngIf="content.type === 'del' || content.type === 'diff'"
+      class="u-visually-hidden"
+      [innerHTML]="'reader.diffIcon' | staticMsg"
+    ></span>
+    <span
+      *ngIf="content.type === 'del'"
+      class="u-visually-hidden"
+      [innerHTML]="'reader.revokedService' | staticMsg"
+    ></span>
+  </span>
+</ng-template>
+
+<!-- 以下、本体 -->
+<div id="anc-pet" class="p-manage-booking__item" [ngClass]="{ 'grey-bg': !isPlanValid, 'is-scroll': isScroll }">
+  <div class="p-plan-table js-plan-table01-item" [ngClass]="{ 'grey-bg': !isPlanValid, 'is-scroll': isScroll }">
+    <div class="p-plan-table__title p-plan-table__title--has-btn">
+      <div class="p-heading-area01__title">
+        <h3 class="c-heading-2">
+          <!-- TODO: ツールチップ -->
+          <span class="c-text-with-tooltip">
+            <span class="c-text-with-tooltip__text" [innerHTML]="'label.travellingWithPets' | staticMsg"></span>
+            <asw-tooltip
+              id="plan-review-pet-applied-tooltip"
+              iconImage='<img src="assets/images/icon_help_primary_24.svg" alt="tooltip" width="20" height="20">'
+              tooltipContent=""
+              [tooltipTop]="0"
+            ></asw-tooltip>
+          </span>
+        </h3>
+      </div>
+      <div class="p-heading-area01__sub-function">
+        <asw-button
+          id="plan-review-pet-component-edit-btn"
+          size="xs"
+          [disabled]="!isPlanValid"
+          [label]="'label.edit' | staticMsg"
+          (click$)="goToPetReservation()"
+          [throttleClick]="true"
+        ></asw-button>
+      </div>
+    </div>
+
+    <div class="p-plan-table__contents" style="position: relative">
+      <asw-table-slider id="plan-review-pet-slider" (isScrollChange)="setIsScroll($event)">
+        <div class="p-plan-table__scroll">
+          <div class="p-plan-table__scroll-view">
+            <div class="p-plan-table__scroll-inner js-plan-table01-scroll" #detailPanel>
+              <table class="c-plan-table01 js-plan-table01" #scrollPanel>
+                <thead class="c-plan-table01__head">
+                  <tr class="c-plan-table01__inner">
+                    <td class="c-plan-table01__col" [ngClass]="{ 'grey-bg': !isPlanValid }">
+                      <div class="c-plan-table01__col-inner"></div>
+                    </td>
+                    <ng-container *ngFor="let seg of data.segments">
+                      <th class="c-plan-table01__col" scope="col" [ngClass]="{ 'grey-bg': !isPlanValid }">
+                        <div class="c-plan-table01__col-inner">
+                          <div class="c-plan-table01__col-item c-plan-table01__col--em">
+                            <span class="c-flight-info01__title-airport">
+                              <!-- 出発地・到着地 -->
+                              <span class="c-flight-info01__title-airport-departure">
+                                {{ seg.departure }}
+                                <span [innerHTML]="'label.hyphen' | staticMsg"></span>
+                                {{ seg.arrival }}
+                              </span>
+                            </span>
+                          </div>
+                        </div>
+                      </th>
+                    </ng-container>
+                  </tr>
+                </thead>
+                <tbody class="c-plan-table01__body">
+                  <tr *ngFor="let passenger of data.passengers" class="c-plan-table01__inner">
+                    <th class="c-plan-table01__col" scope="row" [ngClass]="{ 'grey-bg': !isPlanValid }">
+                      <div class="c-plan-table01__col-inner">
+                        <!-- 搭乗者姓名 -->
+                        <div class="c-plan-table01__col-item c-plan-table01__col-item--em">
+                          {{ passenger.name }}
+                        </div>
+                      </div>
+                    </th>
+                    <ng-container *ngFor="let seg of passenger.segInfo">
+                      <td class="c-plan-table01__col" [ngClass]="{ 'grey-bg': !isPlanValid }">
+                        <div class="c-plan-table01__col-inner">
+                          <!-- 申込状況 -->
+                          <div class="c-plan-table01__col-item c-plan-table01__col-item--fs16">
+                            <ng-container *ngTemplateOutlet="emphTr; context: { $implicit: seg.status }"></ng-container>
+                          </div>
+                        </div>
+                      </td>
+                    </ng-container>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </asw-table-slider>
+    </div>
+  </div>
+</div>

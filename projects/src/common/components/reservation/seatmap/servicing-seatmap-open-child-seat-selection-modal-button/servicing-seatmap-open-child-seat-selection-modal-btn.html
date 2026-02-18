@@ -1,0 +1,61 @@
+<ng-container *ngIf="existsChdOrInsPassenger">
+  <ng-container *aswIfScreenSize="'SP'">
+    <button
+      id="open-child-seat-modal-button"
+      class="p-core-contents-float-function01__btn p-core-contents-float-function01__btn--text"
+      [class.p-core-contents-float-function01__btn--has-seat]="numberOfChildSeats"
+      aswThrottleClick
+      (throttleClick$)="onClickBringChildSeat()"
+    >
+      <span
+        class="p-core-contents-float-function01__btn-text p-core-contents-float-function01__btn-text--em"
+        innerHTML="{{ 'm_static_message-label.bringChildseat' | staticMsg }}"
+      ></span>
+      <!-- チャイルドシート申し込み数を表示 -->
+      <span *ngIf="numberOfChildSeats" class="p-core-contents-float-function01__btn-seat">
+        <span
+          class="u-visually-hidden"
+          innerHTML="{{ 'm_static_message-reader.bringChildseatNumber' | staticMsg : { '0': numberOfChildSeats } }}"
+        ></span>
+        {{ numberOfChildSeats }}
+      </span>
+    </button>
+  </ng-container>
+
+  <ng-container *aswIfScreenSize="['TAB', 'PC']">
+    <div class="l-seatmap-container__item">
+      <div class="p-seatmap-child">
+        <div class="p-seatmap-child__item">
+          <button
+            id="seatmap-child"
+            class="p-seatmap-child__btn"
+            [class.p-seatmap-child__btn--has-seat]="numberOfChildSeats"
+            aswThrottleClick
+            (throttleClick$)="onClickBringChildSeat()"
+          >
+            <span class="p-seatmap-child__btn-body">
+              <span
+                class="p-seatmap-child__btn-title p-seatmap-child__btn-title--em"
+                innerHTML="{{ 'm_static_message-label.bringChildseat' | staticMsg }}"
+              ></span>
+              <span
+                class="p-seatmap-child__btn-contents p-seatmap-child__btn-contents--gray60"
+                innerHTML="{{ 'm_static_message-label.behest' | staticMsg }}"
+              ></span>
+            </span>
+            <!-- チャイルドシート申し込み数を表示 -->
+            <span *ngIf="numberOfChildSeats" class="p-seatmap-child__btn-seat">
+              <span
+                class="u-visually-hidden"
+                innerHTML="{{
+                  'm_static_message-reader.bringChildseatNumber' | staticMsg : { '0': numberOfChildSeats }
+                }}"
+              ></span>
+              {{ numberOfChildSeats }}
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</ng-container>

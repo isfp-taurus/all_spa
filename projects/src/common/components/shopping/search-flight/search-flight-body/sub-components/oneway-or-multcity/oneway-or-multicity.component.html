@@ -1,0 +1,170 @@
+<ng-container *ngFor="let bound of this.boundList; index as boundIndex">
+  <div class="p-input-list-area01">
+    <div class="p-input-list-area01__item">
+      <div class="p-input-list-area01__block">
+        <div class="p-input-list-area01__block-item">
+          <div class="p-input-list-area01__heading">
+            <h3
+              class="p-input-list-area01__heading-title"
+              [innerHTML]="'label.number.section.n' | staticMsg : { '0': boundIndex + 1 }"
+            ></h3>
+            <div *ngIf="boundIndex !== 0" class="p-input-list-area01__heading-sub-function">
+              <button
+                id="{{ 'oneway-or-multicity-delete-button-' + boundIndex }}"
+                type="button"
+                class="c-btn-fluctuation c-btn-fluctuation--remove"
+                (click)="clickDeleteBoundButton(boundIndex)"
+              >
+                <span
+                  class="u-visually-hidden"
+                  [innerHTML]="'reader.deleteBound' | staticMsg : { '0': boundIndex + 1 }"
+                ></span
+                ><span aria-hidden="true" [innerHTML]="'label.deleteBound' | staticMsg"></span>
+              </button>
+            </div>
+          </div>
+          <asw-airport-round [switchBtnHidden]="true">
+            <asw-airport
+              #originAirportComponent
+              id="airport-from-{{ boundIndex }}"
+              origin
+              label="Departure"
+              [boundIndex]="boundIndex"
+              [airportListParts]="bound.airportListPartsFrom ?? airportListPartsFrom"
+              [airportFormControl]="bound.originLocationFormControl"
+              (changeEvent)="getOutputOriginAirport($event, boundIndex)"
+            ></asw-airport>
+            <asw-airport
+              #destinationAirportComponent
+              id="airport-to-{{ boundIndex }}"
+              destination
+              label="Arrival"
+              [boundIndex]="boundIndex"
+              [airportListParts]="bound.airportListPartsTo ?? airportListPartsTo"
+              [airportFormControl]="bound.destinationLocationFormControl"
+              (changeEvent)="getOutputDestinationAirport($event, boundIndex)"
+            ></asw-airport>
+          </asw-airport-round>
+        </div>
+      </div>
+    </div>
+
+    <div class="p-input-list-area01__item">
+      <div class="p-input-list-area01__block p-input-list-area01__block--half">
+        <div class="p-input-list-area01__block-item">
+          <div class="p-input-list-area01__block-item-box">
+            <asw-date-selector
+              #departureDateComponent
+              [dateSelectorParts]="bound.dateSelectorParts ?? dateSelectorParts"
+              (changeDate)="getOutputDepartureDate($event, boundIndex)"
+              [dateForm]="bound.departureDateFormControl"
+            >
+            </asw-date-selector>
+          </div>
+        </div>
+
+        <div class="p-input-list-area01__block-item">
+          <h4 class="p-input-list-area01__block-item-lv2title" [innerHTML]="'labal.departureTime' | staticMsg"></h4>
+          <asw-range-slider
+            type="time"
+            ariaLabel="labal.departureTime"
+            handlePoint="two"
+            [valueMin]="this.TIME_WINDOW_MIN"
+            [valueMax]="this.TIME_WINDOW_MAX"
+            [stepGrid]="this.TIME_WINDOW_STEP"
+            [disabled]="oldDomesticAswSearchFlag"
+            unitFront=""
+            unitBack=""
+            [formControl]="bound.departureTimeWindow"
+          ></asw-range-slider>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-input-list-area01">
+    <div class="p-input-list-area01__item">
+      <div class="p-input-list-area01__block">
+        <div class="p-input-list-area01__block-item">
+          <div class="p-input-list-area01__block-item-link--right">
+            <button
+              id="{{ 'oneway-or-multicity-add-button-' + boundIndex }}"
+              type="button"
+              class="c-btn-fluctuation c-btn-fluctuation--add"
+              [ngClass]="{ 'is-disabled': this.boundList.length === this.MAX_BOUND_LIST_LENGTH }"
+              [disabled]="this.boundList.length === this.MAX_BOUND_LIST_LENGTH"
+              (click)="clickAddBoundButton(boundIndex + 1)"
+              *ngIf="boundIndex < this.MAX_BOUND_LIST_LENGTH - 1"
+            >
+              <span
+                class="u-visually-hidden"
+                [innerHTML]="'reader.addBound' | staticMsg : { '0': boundIndex + 1 }"
+              ></span
+              ><span aria-hidden="true" [innerHTML]="'label.addBound' | staticMsg"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<!-- [3段目] 複雑検索がないため表示削除　-->
+
+<!-- [4段目] -->
+<div class="p-input-list-area01">
+  <div class="p-input-list-area01__item">
+    <div class="p-input-list-area01__block p-input-list-area01__block--half">
+      <div class="p-input-list-area01__block-item">
+        <asw-passenger-selector
+          [passengersCount]="this.passengersCount"
+          [passengersErrorMsg]="this.information.passengersErrorMsg"
+          [isEnabled]="this.isEnabled"
+          [isInfantCountShow]="
+            !this.isJapanOnlyFlag || this.posCountryCode === 'JP' || dcsMigrationDateStatus !== 'Before'
+          "
+          [isChild3To11]="this.isJapanOnlyFlag && this.posCountryCode !== 'JP' && dcsMigrationDateStatus === 'Before'"
+          [isInfant0To1]="!oldDomesticAswSearchFlag"
+          [dcsMigrationDateStatus]="dcsMigrationDateStatus"
+          (apply$)="getOutputPassengerSelect($event)"
+        ></asw-passenger-selector>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- //[4段目] -->
+
+<!-- [5段目] -->
+<div class="p-input-list-area01">
+  <div class="p-input-list-area01__item">
+    <div class="p-input-list-area01__block p-input-list-area01__block--half">
+      <div class="p-input-list-area01__block-item">
+        <asw-select
+          label="{{ 'label.all.fareType' | staticMsg }}"
+          [selected]="this.selectedAwardOption"
+          (change$)="getOutputAwardOption($event)"
+          id="oneway-or-multicity-select-award"
+        >
+          <ng-container *ngFor="let option of this.awardOptions">
+            <option value="{{ option.value }}">
+              {{ option.textContent }}
+            </option>
+          </ng-container>
+        </asw-select>
+      </div>
+      <div class="p-input-list-area01__block-item">
+        <ng-container *ngIf="this.isFareTypeShow">
+          <asw-fare-type-selector
+            [selected]="this.selectedFareOptionType"
+            [selectedAwardOption]="this.selectedAwardOption"
+            [isEnabled]="this.isEnabled"
+            [isJapanOnlyFlag]="this.isJapanOnlyFlag"
+            (apply$)="getOutputFareOptionType($event)"
+          >
+          </asw-fare-type-selector>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- //[5段目] -->

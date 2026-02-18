@@ -1,0 +1,98 @@
+<div class="p-flight-bound" #scrollElement>
+  <div class="p-flight-bound__heading">
+    <div class="p-flight-bound__heading-title">
+      <h2 class="c-bound-title01">
+        {{ 'label.number.section.n' | staticMsg : { '0': type === 'out' ? 1 : 2 } }}
+        <span class="c-text-with-tooltip__tooltip">
+          <asw-tooltip
+            iconImage="<img src=&quot;assets/images/icon_help_primary_20.svg&quot; alt=&quot;{{
+              inside | staticMsg
+            }}&quot; width=&quot;20&quot; height=&quot;20&quot;>"
+            [tooltipContent]="'tooltip.bounds' | staticMsg"
+          ></asw-tooltip>
+        </span>
+      </h2>
+    </div>
+  </div>
+  <asw-flight-bound-heading-pres
+    [flightBoundFrom]="departureLocation"
+    [flightBoundTo]="arrivalLocation"
+    [transferAirport]="transferAirport"
+  ></asw-flight-bound-heading-pres>
+</div>
+<ng-container *ngIf="status === 'unSelected'">
+  <asw-result-date-navi-cont
+    [departureDate]="departureDate"
+    [departureDates]="departureDates"
+    [searchCondition]="searchCondition"
+    [type]="type"
+    [outSelectedAirBound]="outSelectedAirBound"
+    (selectCalendar$)="selectCalendar($event)"
+  ></asw-result-date-navi-cont>
+  <div class="p-vacant-seat01" *aswDeviceIf="'pc'">
+    <asw-fare-family-header-cont
+      class="p-vacant-seat01__heading"
+      [scrollShadow$]="scrollShadow$"
+      [itineraries]="searchCondition?.itineraries"
+      [isOpen]="ffSummaryDisplay"
+      [baggageFreeCheckedShow]="baggageFreeCheckedShow"
+      [fareFamilies]="fareFamilies"
+      [isAllUnableFareFamilyCodes]="isAllUnableFareFamilyCodes"
+      [type]="type"
+      (changeDisplay$)="changeDisplay($event)"
+      (headerAfterViewInit$)="headerAfterViewInit($event)"
+    ></asw-fare-family-header-cont>
+    <div class="p-vacant-seat01__body">
+      <ng-container *ngFor="let item of travelSolutionDisplay">
+        <asw-vacant-seat-item-cont
+          [scrollShadow$]="scrollShadow$"
+          [airBoundInfo]="item.airBoundInfo"
+          [boundDetails]="item.boundDetails"
+          [selectedAirBound]="selectedAirBound"
+          [svcInfoList]="svcInfoList"
+          [boundInfo]="searchCondition?.itineraries"
+          [searchCondition]="searchCondition"
+          [itinerary]="itinerary"
+          [fareFamilies]="fareFamilies"
+          [isAllUnableFareFamilyCodes]="isAllUnableFareFamilyCodes"
+          (selectFareFamily$)="selectFareFamily($event)"
+          (scrollButtonClick$)="scrollButtonClick($event)"
+        ></asw-vacant-seat-item-cont>
+      </ng-container>
+    </div>
+  </div>
+  <div *aswDeviceIf="'notPc'">
+    <ng-container *ngFor="let item of travelSolutionDisplay">
+      <asw-flight-bound-selected-cont
+        [airBoundInfo]="item.airBoundInfo"
+        [boundDetails]="item.boundDetails"
+        [selectedAirBound]="selectedAirBound"
+        [svcInfoList]="svcInfoList"
+        [boundInfo]="searchCondition?.itineraries"
+        [fareFamilies]="fareFamilies"
+        [isAllUnableFareFamilyCodes]="isAllUnableFareFamilyCodes"
+        [searchCondition]="searchCondition"
+        [itinerary]="itinerary"
+        [type]="type"
+        (selectFareFamily$)="selectFareFamily($event)"
+      ></asw-flight-bound-selected-cont>
+    </ng-container>
+  </div>
+</ng-container>
+<ng-container *ngIf="status === 'selected'">
+  <asw-flight-bound-selected-cont
+    [airBoundInfo]="airBoundInfos"
+    [selectedAirBound]="selectedAirBound"
+    [boundDetails]="selectedTS"
+    [svcInfoList]="svcInfoList"
+    [searchCondition]="searchCondition"
+    [itinerary]="itinerary"
+    [boundInfo]="searchCondition?.itineraries"
+    [fareFamilies]="fareFamilies"
+    [isAllUnableFareFamilyCodes]="isAllUnableFareFamilyCodes"
+    (selectFareFamily$)="selectFareFamily($event)"
+    (showOtherFlights$)="showOtherFlights()"
+    [isSelected]="true"
+    [type]="type"
+  ></asw-flight-bound-selected-cont>
+</ng-container>

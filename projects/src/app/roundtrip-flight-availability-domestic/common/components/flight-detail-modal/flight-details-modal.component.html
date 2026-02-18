@@ -1,0 +1,52 @@
+<asw-base-modal
+  widthType="768"
+  [overlayRef]="overlayRef"
+  [title]="title"
+  [hasFooter]="hasFooter"
+  [modalType]="modalType"
+  [focusElement]="focusElement"
+>
+  <ng-container body>
+    <div class="p-modal-dep-date">
+      <div
+        class="p-modal-dep-date__item"
+        *ngIf="bound?.isContainedEarlyDepartureFlight || bound?.isContainedDelayedFlight"
+      >
+        <!-- 遅延情報 -->
+        <span class="c-tag c-tag--type01" *ngIf="bound?.isContainedDelayedFlight">
+          <strong [innerHTML]="'label.delayed' | staticMsg"></strong>
+        </span>
+        <!-- 早発情報 -->
+        <span class="c-tag c-tag--type01" *ngIf="bound?.isContainedEarlyDepartureFlight">
+          <strong [innerHTML]="'label.earlyDeparture' | staticMsg"></strong>
+        </span>
+      </div>
+      <!-- SSNさん担当日付フォーマット取り込み待ち -->
+      <div class="p-modal-dep-date__item">
+        <div class="p-modal-dep-date__time">
+          <h2
+            class="p-modal-dep-date__time-stamp"
+            [innerHTML]="bound?.originDepartureDateTime! | dateFormat : 'default_itineraryRsDate'"
+          ></h2>
+          <span [innerHTML]="getSegmentRequiredTime() | dateFormat : 'flightDetail.modal_flightTotalTime'"></span>
+        </div>
+      </div>
+    </div>
+    <div class="p-modal-body03">
+      <div class="p-flight-detail01">
+        <ng-container *ngFor="let segment of segments; let isLast = last">
+          <div class="p-flight-detail01__block">
+            <asw-flight-select-list-cont
+              [airBoundInfo]="airBoundInfo"
+              [bound]="bound"
+              [segment]="segment"
+            ></asw-flight-select-list-cont>
+          </div>
+          <div class="p-flight-detail01__block" *ngIf="segment.connectionTime && segment.connectionTime > 0 && !isLast">
+            <asw-flight-select-connection-cont [segment]="segment"></asw-flight-select-connection-cont>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </ng-container>
+</asw-base-modal>

@@ -1,0 +1,944 @@
+<!-- フライト詳細 -->
+<div [ngClass]="{ 'p-flight-detail01': this.modalFlg, 'p-flight-detail01--sr': !this.modalFlg }">
+  <!-- フライト詳細ループ -->
+  <ng-container *ngFor="let flightDetail of this.flightDetailSegment; index as flightDetailIndex">
+    <div class="p-flight-detail01__block">
+      <div class="p-flight-detail01__item p-flight-detail01__item--nextday">
+        <div class="p-flight-detail01__time">
+          <div class="p-flight-detail01__time-item">
+            <span class="p-flight-detail01__time-nextday">
+              <!-- 出発日 -->
+              <ng-container *ngIf="flightDetailIndex > 0">
+                <ng-container *ngIf="flightDetail.departureDate">
+                  <span [innerHTML]="flightDetail.departureDate | dateFormat : 'default_departuredate'"></span>
+                </ng-container>
+              </ng-container>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="p-flight-detail01__sr-wrap">
+        <div class="p-flight-detail01__sr-left">
+          <!-- フライト時間ライン -->
+          <div
+            #departureParts
+            class="p-flight-detail01__item p-flight-detail01__item--2col p-flight-detail01__item--departure"
+            [class.p-flight-detail01__item--changed]="flightDetail.departureEstimatedDateTime ?? false"
+            [class.p-flight-detail01__item--other]="!flightDetail.isNhGroupOperated"
+          >
+            <!-- 早発の場合 -->
+            <ng-container
+              *ngIf="
+                (this.flightDetailHeader.isContainedEarlyDepartureFlight &&
+                  !this.flightDetailHeader.isContainedDelayedFlight) ||
+                (this.flightDetailHeader.isContainedEarlyDepartureFlight &&
+                  this.flightDetailHeader.isContainedDelayedFlight)
+              "
+            >
+              <div class="p-flight-detail01__time">
+                <!-- 出発時刻 -->
+                <div
+                  class="p-flight-detail01__time-item"
+                  [class.p-flight-detail01__time-item--begin]="flightDetail.departureEstimatedDateTime ?? false"
+                >
+                  <ng-container *ngIf="flightDetail.departureDateTime && flightDetail.departureEstimatedDateTime">
+                    <span class="u-visually-hidden" [innerHTML]="'reader.DepartureChangeBeforeTime' | staticMsg"></span>
+                    <div
+                      [innerHTML]="flightDetail.departureDateTime | dateFormat : 'flightDetail_departuredate.time.old'"
+                    ></div>
+                  </ng-container>
+                  <ng-container *ngIf="flightDetail.departureDateTime && !flightDetail.departureEstimatedDateTime">
+                    <span
+                      class="p-flight-detail01__time-stamp"
+                      [innerHTML]="flightDetail.departureDateTime | dateFormat : 'flightDetail_departuredate.time'"
+                    ></span>
+                  </ng-container>
+                </div>
+                <!-- 最新出発時刻 -->
+                <ng-container *ngIf="flightDetail.departureEstimatedDateTime ?? false">
+                  <!-- 最新出発時刻が日跨ぎの場合-->
+                  <ng-container
+                    *ngIf="
+                      this.compareStringDate(
+                        flightDetail.departureDateTime ?? '',
+                        flightDetail.departureEstimatedDateTime ?? ''
+                      )
+                    "
+                  >
+                    <div class="p-flight-detail01__time-item--end">
+                      <em>
+                        <span class="u-visually-hidden">
+                          {{ 'reader.DepartureChangeAfterTime' | staticMsg }}
+                        </span>
+                        <span
+                          #test
+                          class="p-flight-detail01__time-stamp p-flight-detail01__time-stamp--red"
+                          [innerHTML]="
+                            flightDetail.departureEstimatedDateTime!
+                              | dateFormat : 'flightDetail_departureArrivalDate.dateTime'
+                          "
+                        ></span>
+                      </em>
+                    </div>
+                  </ng-container>
+                  <!-- 最新出発時刻が日跨ぎでない場合-->
+                  <ng-container
+                    *ngIf="
+                      !this.compareStringDate(
+                        flightDetail.departureDateTime ?? '',
+                        flightDetail.departureEstimatedDateTime ?? ''
+                      )
+                    "
+                  >
+                    <div class="p-flight-detail01__time-item--end">
+                      <em>
+                        <span class="u-visually-hidden">
+                          {{ 'reader.DepartureChangeAfterTime' | staticMsg }}
+                        </span>
+                        <span
+                          #test
+                          class="p-flight-detail01__time-stamp p-flight-detail01__time-stamp--red"
+                          [innerHTML]="
+                            flightDetail.departureEstimatedDateTime!
+                              | dateFormat : 'flightDetail_departuredate.time.latest'
+                          "
+                        >
+                        </span>
+                      </em>
+                    </div>
+                  </ng-container>
+                </ng-container>
+
+                <!-- 深夜出発日時 -->
+                <ng-container *ngIf="flightDetail.isLateNightDeparture && flightDetail.nightDepartureDateTime">
+                  <div class="p-flight-detail01__time-item">
+                    <span
+                      class="p-flight-detail01__time-day"
+                      [class.p-flight-detail01__time-day--red]="flightDetail.departureEstimatedDateTime"
+                    >
+                      {{ flightDetail.nightDepartureDateTime }}
+                    </span>
+                  </div>
+                </ng-container>
+              </div>
+            </ng-container>
+
+            <!-- 遅延の場合 -->
+            <ng-container
+              *ngIf="
+                this.flightDetailHeader.isContainedDelayedFlight &&
+                !this.flightDetailHeader.isContainedEarlyDepartureFlight
+              "
+            >
+              <div class="p-flight-detail01__time">
+                <!-- 出発時刻 -->
+                <div
+                  class="p-flight-detail01__time-item"
+                  [class.p-flight-detail01__time-item--begin]="flightDetail.departureEstimatedDateTime ?? false"
+                >
+                  <span class="p-flight-detail01__time-stamp">
+                    <ng-container *ngIf="flightDetail.departureDateTime && flightDetail.departureEstimatedDateTime">
+                      <span
+                        class="u-visually-hidden"
+                        [innerHTML]="'reader.DepartureChangeBeforeTime' | staticMsg"
+                      ></span>
+                      <div
+                        [innerHTML]="
+                          flightDetail.departureDateTime | dateFormat : 'flightDetail_departuredate.time.old'
+                        "
+                      ></div>
+                    </ng-container>
+                    <ng-container *ngIf="flightDetail.departureDateTime && !flightDetail.departureEstimatedDateTime">
+                      <span
+                        class="p-flight-detail01__time-stamp"
+                        [innerHTML]="flightDetail.departureDateTime | dateFormat : 'flightDetail_departuredate.time'"
+                      ></span>
+                    </ng-container>
+                  </span>
+                </div>
+                <!-- 最新出発時刻 -->
+                <ng-container *ngIf="flightDetail.departureEstimatedDateTime ?? false">
+                  <!-- 最新出発時刻が日跨ぎの場合-->
+                  <ng-container
+                    *ngIf="
+                      this.compareStringDate(
+                        flightDetail.departureDateTime ?? '',
+                        flightDetail.departureEstimatedDateTime ?? ''
+                      )
+                    "
+                  >
+                    <div class="p-flight-detail01__time-item p-flight-detail01__time-item--end">
+                      <em>
+                        <span class="u-visually-hidden">
+                          {{ 'reader.DepartureChangeAfterTime' | staticMsg }}
+                        </span>
+                        <span
+                          #test
+                          class="p-flight-detail01__time-stamp p-flight-detail01__time-stamp--red"
+                          [innerHTML]="
+                            flightDetail.departureEstimatedDateTime!
+                              | dateFormat : 'flightDetail_departureArrivalDate.dateTime'
+                          "
+                        >
+                        </span>
+                      </em>
+                    </div>
+                  </ng-container>
+                  <!-- 最新出発時刻が日跨ぎでない場合-->
+                  <ng-container
+                    *ngIf="
+                      !this.compareStringDate(
+                        flightDetail.departureDateTime ?? '',
+                        flightDetail.departureEstimatedDateTime ?? ''
+                      )
+                    "
+                  >
+                    <div class="p-flight-detail01__time-item p-flight-detail01__time-item--end">
+                      <em>
+                        <span class="u-visually-hidden">
+                          {{ 'reader.DepartureChangeAfterTime' | staticMsg }}
+                        </span>
+                        <span
+                          #test
+                          class="p-flight-detail01__time-stamp p-flight-detail01__time-stamp--red"
+                          [innerHTML]="
+                            flightDetail.departureEstimatedDateTime!
+                              | dateFormat : 'flightDetail_departuredate.time.latest'
+                          "
+                        >
+                        </span>
+                      </em>
+                    </div>
+                  </ng-container>
+                </ng-container>
+
+                <!-- 深夜出発日時 -->
+                <ng-container *ngIf="flightDetail.isLateNightDeparture && flightDetail.nightDepartureDateTime">
+                  <div class="p-flight-detail01__time-item">
+                    <span
+                      class="p-flight-detail01__time-day"
+                      [class.p-flight-detail01__time-day--red]="flightDetail.departureEstimatedDateTime"
+                    >
+                      {{ flightDetail.nightDepartureDateTime }}
+                    </span>
+                  </div>
+                </ng-container>
+              </div>
+            </ng-container>
+
+            <!-- 通常の場合 -->
+            <ng-container
+              *ngIf="
+                !this.flightDetailHeader.isContainedDelayedFlight &&
+                !this.flightDetailHeader.isContainedEarlyDepartureFlight
+              "
+            >
+              <div class="p-flight-detail01__time">
+                <!-- 出発時刻 -->
+                <div class="p-flight-detail01__time-item p-flight-detail01__time-item--begin">
+                  <span class="p-flight-detail01__time-stamp">
+                    <ng-container *ngIf="flightDetail.departureDateTime">
+                      <span
+                        [innerHTML]="flightDetail.departureDateTime | dateFormat : 'flightDetail_departuredate.time'"
+                      ></span>
+                    </ng-container>
+                  </span>
+                </div>
+
+                <!-- 深夜出発日時 -->
+                <ng-container *ngIf="flightDetail.isLateNightDeparture && flightDetail.nightDepartureDateTime">
+                  <div class="p-flight-detail01__time-item">
+                    <span
+                      class="p-flight-detail01__time-day"
+                      [class.p-flight-detail01__time-day--red]="flightDetail.departureEstimatedDateTime"
+                    >
+                      {{ flightDetail.nightDepartureDateTime }}
+                    </span>
+                  </div>
+                </ng-container>
+              </div>
+            </ng-container>
+
+            <div class="p-flight-detail01__detail">
+              <div class="p-flight-detail01__detail-item">
+                <!-- 出発地 -->
+                <p class="p-flight-detail01__detail-airport">{{ flightDetail.departureAirport }}</p>
+                <!-- 出発ターミナル -->
+                <ng-container *ngIf="flightDetail.departureTerminal !== ''">
+                  <ng-container *ngIf="flightDetail.departureTerminal !== 'pending'">
+                    <p
+                      class="p-flight-detail01__detail-terminal"
+                      [innerHTML]="'label.airportTerminal' | staticMsg : { '0': flightDetail.departureTerminal }"
+                    ></p>
+                  </ng-container>
+                  <ng-container *ngIf="flightDetail.departureTerminal === 'pending'">
+                    <p
+                      class="p-flight-detail01__detail-terminal"
+                      [innerHTML]="'label.airportTerminal' | staticMsg : { '0': this.outputTerminalLabel }"
+                    ></p>
+                  </ng-container>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+          <!-- フライト時間ライン -->
+          <div
+            class="p-flight-detail01__item p-flight-detail01__item--2col p-flight-detail01__item--wait"
+            [class.p-flight-detail01__item--other]="!flightDetail.isNhGroupOperated"
+          >
+            <!-- フライト時間 -->
+            <div class="p-flight-detail01__time">
+              <div class="p-flight-detail01__time-item">
+                <span
+                  [innerHTML]="dateString(flightDetail.durationTime) | dateFormat : 'flightDetail_flightTime'"
+                ></span>
+              </div>
+            </div>
+            <!-- モーダル -->
+            <ng-container *ngIf="this.modalFlg">
+              <div class="p-flight-detail01__detail">
+                <div class="p-flight-detail01__detail-item">
+                  <dl class="p-flight-detail01__detail-info">
+                    <div class="p-flight-detail01__detail-info-item">
+                      <dt
+                        class="p-flight-detail01__detail-info-title"
+                        [innerHTML]="'label.flightName' | staticMsg"
+                      ></dt>
+                      <dd class="p-flight-detail01__detail-info-contents">
+                        <div class="c-flight-detail-overview01">
+                          <!-- 便名 -->
+                          <div class="c-flight-detail-overview01__item">
+                            <strong>{{ flightDetail.marketingFlightName }}</strong>
+                          </div>
+                        </div>
+                      </dd>
+                    </div>
+                    <div class="p-flight-detail01__detail-info-item">
+                      <ng-container *ngIf="flightDetail.isNhGroupOperated">
+                        <dt class="p-flight-detail01__detail-info-title" [innerHTML]=""></dt>
+                      </ng-container>
+                      <ng-container *ngIf="!flightDetail.isNhGroupOperated">
+                        <dt class="p-flight-detail01__detail-info-title" [innerHTML]="'label.operate' | staticMsg"></dt>
+                      </ng-container>
+                      <dd class="p-flight-detail01__detail-info-contents">
+                        <div class="c-flight-detail-overview01">
+                          <!-- 運航キャリア識別 アイコン-->
+                          <ng-container *ngIf="flightDetail.isNhGroupOperated">
+                            <div class="c-flight-detail-overview01__item">
+                              <span class="c-ana-icon01">
+                                <img
+                                  class="c-ana-icon01__img"
+                                  src="{{ appConstants.IMG.PARTNER_COMPANY_ICON }}"
+                                  width="{{ appConstants.IMG.LOGO_S_WIDTH }}"
+                                  height="{{ appConstants.IMG.LOGO_S_HEIGHT }}"
+                                  alt="{{ 'alt.nhFlight' | staticMsg }}"
+                                />
+                              </span>
+                            </div>
+                          </ng-container>
+                          <!-- 運航キャリア名称 -->
+                          <ng-container *ngIf="!flightDetail.isNhGroupOperated">
+                            <div class="c-flight-detail-overview01__item">
+                              <ng-container *ngIf="flightDetail.operatingAirlineNameURL !== ''">
+                                <a
+                                  id="flightDetail-operatingAirlineName-modal-{{ flightDetailIndex }}"
+                                  class="p-flight-detail01__item-text-link"
+                                  href="{{
+                                    flightDetail.operatingAirlineNameURL
+                                      ? (flightDetail.operatingAirlineNameURL | metaUrl)
+                                      : ''
+                                  }}"
+                                  target="_blank"
+                                  [innerHTML]="
+                                    'label.segmanetOpCarrierWording'
+                                      | staticMsg : { '0': flightDetail.operatingAirlineName }
+                                  "
+                                ></a>
+                              </ng-container>
+                              <ng-container *ngIf="flightDetail.operatingAirlineNameURL === ''">
+                                <span
+                                  class="p-flight-detail01__detail-info-contents"
+                                  [innerHTML]="
+                                    'label.segmanetOpCarrierWording'
+                                      | staticMsg : { '0': flightDetail.operatingAirlineName }
+                                  "
+                                ></span>
+                              </ng-container>
+                            </div>
+                          </ng-container>
+                        </div>
+                      </dd>
+                    </div>
+
+                    <!-- 機種コード -->
+                    <div class="p-flight-detail01__detail-info-item">
+                      <dt
+                        class="p-flight-detail01__detail-info-title"
+                        [innerHTML]="'label.itineraryDetailsBoarding' | staticMsg"
+                      ></dt>
+                      <ng-container *ngIf="flightDetail.aircraftCodeURL">
+                        <dd class="p-flight-detail01__detail-info-contents">
+                          <a
+                            id="flightDetail-aircraftCode-{{ flightDetailIndex }}"
+                            class="p-flight-detail01__item-text-link"
+                            href="{{ flightDetail.aircraftCodeURL | metaUrl }}"
+                            target="_blank"
+                            [innerHTML]="flightDetail.aircraftCode"
+                          ></a>
+                        </dd>
+                      </ng-container>
+                      <ng-container *ngIf="flightDetail.aircraftCodeURL === ''">
+                        <dd class="p-flight-detail01__detail-info-contents">{{ flightDetail.aircraftCode }}</dd>
+                        <ng-container *ngIf="deviceType === 'SP'">
+                          <div aria-hidden="false" [attr.aria-label]="flightDetail.aircraftCode"></div>
+                        </ng-container>
+                      </ng-container>
+                    </div>
+                  </dl>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+
+        <!-- PC -->
+        <ng-container *ngIf="!this.modalFlg">
+          <div class="p-flight-detail01__sr-right">
+            <div class="p-flight-detail01__item">
+              <div class="p-flight-detail01__detail">
+                <div class="p-flight-detail01__detail-item">
+                  <dl class="p-flight-detail01__detail-info">
+                    <div class="p-flight-detail01__detail-info-item">
+                      <dt
+                        class="p-flight-detail01__detail-info-title"
+                        [innerHTML]="'label.flightName' | staticMsg"
+                      ></dt>
+                      <dd class="p-flight-detail01__detail-info-contents">
+                        <div class="c-flight-detail-overview01">
+                          <!-- 便名 -->
+                          <div class="c-flight-detail-overview01__item">
+                            <strong>{{ flightDetail.marketingFlightName }}</strong>
+                          </div>
+                        </div>
+                      </dd>
+                    </div>
+                    <div class="p-flight-detail01__detail-info-item">
+                      <ng-container *ngIf="flightDetail.isNhGroupOperated">
+                        <dt class="p-flight-detail01__detail-info-title" [innerHTML]=""></dt>
+                      </ng-container>
+                      <ng-container *ngIf="!flightDetail.isNhGroupOperated">
+                        <dt class="p-flight-detail01__detail-info-title" [innerHTML]="'label.operate' | staticMsg"></dt>
+                      </ng-container>
+                      <dd class="p-flight-detail01__detail-info-contents">
+                        <div class="c-flight-detail-overview01">
+                          <!-- 運航キャリア識別 アイコン-->
+                          <ng-container *ngIf="flightDetail.isNhGroupOperated">
+                            <div class="c-flight-detail-overview01__item">
+                              <span class="c-ana-icon01">
+                                <img
+                                  class="c-ana-icon01__img"
+                                  src="{{ appConstants.IMG.PARTNER_COMPANY_ICON }}"
+                                  width="{{ appConstants.IMG.LOGO_S_WIDTH }}"
+                                  height="{{ appConstants.IMG.LOGO_S_HEIGHT }}"
+                                  alt="{{ 'alt.nhFlight' | staticMsg }}"
+                                />
+                              </span>
+                            </div>
+                          </ng-container>
+                          <!-- 運航キャリア名称 -->
+                          <ng-container *ngIf="!flightDetail.isNhGroupOperated">
+                            <div class="c-flight-detail-overview01__item">
+                              <ng-container *ngIf="flightDetail.operatingAirlineNameURL !== ''">
+                                <a
+                                  id="flightDetail-operatingAirlineName-pc-{{ flightDetailIndex }}"
+                                  class="p-flight-detail01__item-text-link"
+                                  href="{{
+                                    flightDetail.operatingAirlineNameURL
+                                      ? (flightDetail.operatingAirlineNameURL | metaUrl)
+                                      : ''
+                                  }}"
+                                  target="_blank"
+                                  [innerHTML]="
+                                    'label.segmanetOpCarrierWording'
+                                      | staticMsg : { '0': flightDetail.operatingAirlineName }
+                                  "
+                                ></a>
+                              </ng-container>
+                              <ng-container *ngIf="flightDetail.operatingAirlineNameURL === ''">
+                                <span
+                                  class="p-flight-detail01__detail-info-contents"
+                                  [innerHTML]="
+                                    'label.segmanetOpCarrierWording'
+                                      | staticMsg : { '0': flightDetail.operatingAirlineName }
+                                  "
+                                ></span>
+                              </ng-container>
+                            </div>
+                          </ng-container>
+                        </div>
+                      </dd>
+                    </div>
+
+                    <!-- 機種コード -->
+                    <div class="p-flight-detail01__detail-info-item">
+                      <dt
+                        class="p-flight-detail01__detail-info-title"
+                        [innerHTML]="'label.itineraryDetailsBoarding' | staticMsg"
+                      ></dt>
+                      <ng-container *ngIf="flightDetail.aircraftCodeURL">
+                        <dd class="p-flight-detail01__detail-info-contents">
+                          <a
+                            id="flightDetail-aircraftCode-{{ flightDetailIndex }}2"
+                            class="p-flight-detail01__item-text-link"
+                            href="{{ flightDetail.aircraftCodeURL | metaUrl }}"
+                            target="_blank"
+                            [innerHTML]="flightDetail.aircraftCode"
+                          ></a>
+                        </dd>
+                      </ng-container>
+                      <ng-container *ngIf="flightDetail.aircraftCodeURL === ''">
+                        <dd class="p-flight-detail01__detail-info-contents">{{ flightDetail.aircraftCode }}</dd>
+                        <ng-container *ngIf="deviceType === 'SP'">
+                          <div aria-hidden="false" [attr.aria-label]="flightDetail.aircraftCode"></div>
+                        </ng-container>
+                      </ng-container>
+                    </div>
+                    <ng-container
+                      *ngIf="flightDetail.isSubjectToGovernmentApproval || flightDetail.stopLocationCount !== 0"
+                    >
+                      <div class="p-flight-detail01__detail-info-item">
+                        <dt class="p-flight-detail01__detail-info-title" [innerHTML]="'label.remarks' | staticMsg"></dt>
+                        <dd class="p-flight-detail01__detail-info-contents">
+                          <ul class="c-information-list01 c-information-list01--large">
+                            <!-- 途中寄港数, 寄港地点名称 -->
+                            <ng-container *ngIf="flightDetail.stopLocationCount !== 0">
+                              <li
+                                class="c-information-list01__item"
+                                [innerHTML]="
+                                  flightDetail.stopLocationCount +
+                                  ('label.transitTimes' | staticMsg) +
+                                  flightDetail.stopLocationName
+                                "
+                              ></li>
+                            </ng-container>
+                          </ul>
+                        </dd>
+                      </div>
+                    </ng-container>
+                  </dl>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+      <!-- フライト時間ライン -->
+      <div
+        #arrivalParts
+        class="p-flight-detail01__item p-flight-detail01__item--2col p-flight-detail01__item--arrival"
+        [class.p-flight-detail01__item--changed]="flightDetail.destinationArrivalEstimatedDateTime ?? false"
+        [class.p-flight-detail01__item--other]="!flightDetail.isNhGroupOperated"
+      >
+        <!-- 早発の場合 -->
+        <ng-container
+          *ngIf="
+            (this.flightDetailHeader.isContainedEarlyDepartureFlight &&
+              !this.flightDetailHeader.isContainedDelayedFlight) ||
+            (this.flightDetailHeader.isContainedDelayedFlight &&
+              this.flightDetailHeader.isContainedEarlyDepartureFlight)
+          "
+        >
+          <div class="p-flight-detail01__time">
+            <!-- 到着時刻 -->
+            <div class="p-flight-detail01__time-item p-flight-detail01__time-item--begin">
+              <span class="p-flight-detail01__time-stamp">
+                <ng-container
+                  *ngIf="flightDetail.destinationArrivalDateTime && flightDetail.destinationArrivalEstimatedDateTime"
+                >
+                  <span class="u-visually-hidden" [innerHTML]="'reader.scheduleArrivalTime' | staticMsg"></span>
+                  <div
+                    [innerHTML]="
+                      flightDetail.destinationArrivalDateTime | dateFormat : 'flightDetail_departuredate.time.old'
+                    "
+                  ></div>
+                  <!-- 到着日付差 -->
+                  <!-- ※当該flight.arrivalDaysDifferenceByFlight=”-1”の場合、赤字で表示する。-->
+                  <div class="p-flight-detail01__time-stamp--normal">
+                    <!-- 到着日が出発日の前日である旨 -->
+                    <ng-container *ngIf="flightDetail.arrivalDaysDifferenceByFlight === '-1'">
+                      <span
+                        class="p-flight-detail01__time-stamp--red"
+                        [innerHTML]="'label.dayMinusOne' | staticMsg"
+                        style="color: #d91829"
+                      ></span>
+                    </ng-container>
+                    <!-- 出発日の翌日である旨 -->
+                    <ng-container *ngIf="flightDetail.arrivalDaysDifferenceByFlight === '1'">
+                      <span [innerHTML]="'label.dayPlusOne' | staticMsg"></span>
+                    </ng-container>
+                    <!-- 出発日の翌々日である旨 -->
+                    <ng-container *ngIf="flightDetail.arrivalDaysDifferenceByFlight === '2'">
+                      <span [innerHTML]="'label.dayPlusTwo' | staticMsg"></span>
+                    </ng-container>
+                  </div>
+                </ng-container>
+                <ng-container
+                  *ngIf="flightDetail.destinationArrivalDateTime && !flightDetail.destinationArrivalEstimatedDateTime"
+                >
+                  <span
+                    [innerHTML]="
+                      flightDetail.destinationArrivalDateTime | dateFormat : 'flightDetail_departuredate.time'
+                    "
+                  ></span>
+                  <!-- 到着日付差 -->
+                  <!-- ※当該flight.arrivalDaysDifferenceByFlight=”-1”の場合、赤字で表示する。-->
+                  <div>
+                    <!-- 到着日が出発日の前日である旨 -->
+                    <ng-container *ngIf="flightDetail.arrivalDaysDifferenceByFlight === '-1'">
+                      <span
+                        class="p-flight-detail01__time-stamp--normal p-flight-detail01__time-stamp--red"
+                        [innerHTML]="'label.dayMinusOne' | staticMsg"
+                      ></span>
+                    </ng-container>
+                    <!-- 出発日の翌日である旨 -->
+                    <ng-container *ngIf="flightDetail.arrivalDaysDifferenceByFlight === '1'">
+                      <span
+                        class="p-flight-detail01__time-stamp--normal"
+                        [innerHTML]="'label.dayPlusOne' | staticMsg"
+                      ></span>
+                    </ng-container>
+                    <!-- 出発日の翌々日である旨 -->
+                    <ng-container *ngIf="flightDetail.arrivalDaysDifferenceByFlight === '2'">
+                      <span
+                        class="p-flight-detail01__time-stamp--normal"
+                        [innerHTML]="'label.dayPlusTwo' | staticMsg"
+                      ></span>
+                    </ng-container>
+                  </div>
+                </ng-container>
+              </span>
+            </div>
+            <!-- 最新到着時刻 -->
+            <ng-container *ngIf="flightDetail.destinationArrivalEstimatedDateTime">
+              <div class="p-flight-detail01__time-item p-flight-detail01__time-item--end">
+                <!-- 最新到着時刻が日跨ぎの場合-->
+                <ng-container
+                  *ngIf="
+                    this.compareStringDate(
+                      flightDetail.destinationArrivalDateTime ?? '',
+                      flightDetail.destinationArrivalEstimatedDateTime
+                    )
+                  "
+                >
+                  <em>
+                    <span class="u-visually-hidden" [innerHTML]="'reader.newArrivalTime' | staticMsg"></span>
+                    <span
+                      class="p-flight-detail01__time-stamp p-flight-detail01__time-stamp--red"
+                      [innerHTML]="
+                        flightDetail.destinationArrivalEstimatedDateTime!
+                          | dateFormat : 'flightDetail_departureArrivalDate.dateTime'
+                      "
+                    >
+                    </span>
+                  </em>
+                </ng-container>
+                <!-- 最新到着時刻が日跨ぎでない場合-->
+                <ng-container
+                  *ngIf="
+                    !this.compareStringDate(
+                      flightDetail.destinationArrivalDateTime ?? '',
+                      flightDetail.destinationArrivalEstimatedDateTime
+                    )
+                  "
+                >
+                  <em>
+                    <span class="u-visually-hidden" [innerHTML]="'reader.newArrivalTime' | staticMsg"></span>
+                    <span
+                      class="p-flight-detail01__time-stamp p-flight-detail01__time-stamp--red"
+                      [innerHTML]="
+                        flightDetail.destinationArrivalEstimatedDateTime!
+                          | dateFormat : 'flightDetail_departuredate.time.latest'
+                      "
+                    >
+                    </span>
+                  </em>
+                </ng-container>
+                <!-- 最新到着日付差 -->
+                <!-- ※当該flight.estimatedArrivalDaysDifferenceByFlight=”-1”の場合、赤字で表示する。-->
+                <div class="p-flight-detail01__time-stamp--red">
+                  <!-- 到着日が出発日の前日である旨 -->
+                  <ng-container *ngIf="flightDetail.estimatedArrivalDaysDifferenceByFlight === '-1'">
+                    <span [innerHTML]="'label.dayMinusOne' | staticMsg"></span>
+                  </ng-container>
+                  <!-- 出発日の翌日である旨 -->
+                  <ng-container *ngIf="flightDetail.estimatedArrivalDaysDifferenceByFlight === '1'">
+                    <span [innerHTML]="'label.dayPlusOne' | staticMsg"></span>
+                  </ng-container>
+                  <!-- 出発日の翌々日である旨 -->
+                  <ng-container *ngIf="flightDetail.estimatedArrivalDaysDifferenceByFlight === '2'">
+                    <span [innerHTML]="'label.dayPlusTwo' | staticMsg"></span>
+                  </ng-container>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </ng-container>
+
+        <!-- 遅延の場合 -->
+        <ng-container
+          *ngIf="
+            this.flightDetailHeader.isContainedDelayedFlight && !this.flightDetailHeader.isContainedEarlyDepartureFlight
+          "
+        >
+          <div class="p-flight-detail01__time">
+            <!-- 到着時刻 -->
+            <div
+              class="p-flight-detail01__time-item p-flight-detail01__time-item--begin"
+              [class.p-flight-detail01__time-item--begin]="flightDetail.destinationArrivalEstimatedDateTime ?? false"
+            >
+              <span class="p-flight-detail01__time-stamp">
+                <ng-container
+                  *ngIf="flightDetail.destinationArrivalDateTime && flightDetail.destinationArrivalEstimatedDateTime"
+                >
+                  <span class="u-visually-hidden" [innerHTML]="'reader.scheduleArrivalTime' | staticMsg"></span>
+                  <div
+                    [innerHTML]="
+                      flightDetail.destinationArrivalDateTime | dateFormat : 'flightDetail_departuredate.time.old'
+                    "
+                  ></div>
+                  <!-- 到着日付差 -->
+                  <!-- ※当該flight.arrivalDaysDifferenceByFlight=”-1”の場合、赤字で表示する。-->
+                  <div class="p-flight-detail01__time-stamp--normal">
+                    <!-- 到着日が出発日の前日である旨 -->
+                    <ng-container *ngIf="flightDetail.arrivalDaysDifferenceByFlight === '-1'">
+                      <span
+                        class="p-flight-detail01__time-stamp--red"
+                        [innerHTML]="'label.dayMinusOne' | staticMsg"
+                        style="color: #d91829"
+                      ></span>
+                    </ng-container>
+                    <!-- 出発日の翌日である旨 -->
+                    <ng-container *ngIf="flightDetail.arrivalDaysDifferenceByFlight === '1'">
+                      <span [innerHTML]="'label.dayPlusOne' | staticMsg"></span>
+                    </ng-container>
+                    <!-- 出発日の翌々日である旨 -->
+                    <ng-container *ngIf="flightDetail.arrivalDaysDifferenceByFlight === '2'">
+                      <span [innerHTML]="'label.dayPlusTwo' | staticMsg"></span>
+                    </ng-container>
+                  </div>
+                </ng-container>
+                <ng-container
+                  *ngIf="flightDetail.destinationArrivalDateTime && !flightDetail.destinationArrivalEstimatedDateTime"
+                >
+                  <span
+                    [innerHTML]="
+                      flightDetail.destinationArrivalDateTime | dateFormat : 'flightDetail_departuredate.time'
+                    "
+                  ></span>
+                  <!-- 到着日付差 -->
+                  <!-- ※当該flight.arrivalDaysDifferenceByFlight=”-1”の場合、赤字で表示する。-->
+                  <div>
+                    <!-- 到着日が出発日の前日である旨 -->
+                    <ng-container *ngIf="flightDetail.arrivalDaysDifferenceByFlight === '-1'">
+                      <span
+                        class="p-flight-detail01__time-stamp--normal p-flight-detail01__time-stamp--red"
+                        [innerHTML]="'label.dayMinusOne' | staticMsg"
+                      ></span>
+                    </ng-container>
+                    <!-- 出発日の翌日である旨 -->
+                    <ng-container *ngIf="flightDetail.arrivalDaysDifferenceByFlight === '1'">
+                      <span
+                        class="p-flight-detail01__time-stamp--normal"
+                        [innerHTML]="'label.dayPlusOne' | staticMsg"
+                      ></span>
+                    </ng-container>
+                    <!-- 出発日の翌々日である旨 -->
+                    <ng-container *ngIf="flightDetail.arrivalDaysDifferenceByFlight === '2'">
+                      <span
+                        class="p-flight-detail01__time-stamp--normal"
+                        [innerHTML]="'label.dayPlusTwo' | staticMsg"
+                      ></span>
+                    </ng-container>
+                  </div>
+                </ng-container>
+              </span>
+            </div>
+            <!-- 最新到着時刻 -->
+            <ng-container *ngIf="flightDetail.destinationArrivalEstimatedDateTime">
+              <div class="p-flight-detail01__time-item p-flight-detail01__time-item--end">
+                <!-- 最新到着時刻が日跨ぎの場合-->
+                <ng-container
+                  *ngIf="
+                    this.compareStringDate(
+                      flightDetail.destinationArrivalDateTime ?? '',
+                      flightDetail.destinationArrivalEstimatedDateTime
+                    )
+                  "
+                >
+                  <em>
+                    <span class="u-visually-hidden" [innerHTML]="'reader.newArrivalTime' | staticMsg"></span>
+                    <span
+                      class="p-flight-detail01__time-stamp p-flight-detail01__time-stamp--red"
+                      [innerHTML]="
+                        flightDetail.destinationArrivalEstimatedDateTime!
+                          | dateFormat : 'flightDetail_departureArrivalDate.dateTime'
+                      "
+                    >
+                    </span>
+                  </em>
+                </ng-container>
+                <!-- 最新到着時刻が日跨ぎでない場合-->
+                <ng-container
+                  *ngIf="
+                    !this.compareStringDate(
+                      flightDetail.destinationArrivalDateTime ?? '',
+                      flightDetail.destinationArrivalEstimatedDateTime
+                    )
+                  "
+                >
+                  <em>
+                    <span class="u-visually-hidden" [innerHTML]="'reader.newArrivalTime' | staticMsg"></span>
+                    <span
+                      class="p-flight-detail01__time-stamp p-flight-detail01__time-stamp--red"
+                      [innerHTML]="
+                        flightDetail.destinationArrivalEstimatedDateTime!
+                          | dateFormat : 'flightDetail_departuredate.time.latest'
+                      "
+                    >
+                    </span>
+                  </em>
+                </ng-container>
+                <!-- 最新到着日付差 -->
+                <!-- ※当該flight.estimatedArrivalDaysDifferenceByFlight=”-1”の場合、赤字で表示する。-->
+                <div class="p-flight-detail01__time-stamp--red">
+                  <!-- 到着日が出発日の前日である旨 -->
+                  <ng-container *ngIf="flightDetail.estimatedArrivalDaysDifferenceByFlight === '-1'">
+                    <span [innerHTML]="'label.dayMinusOne' | staticMsg" style="color: #d91829"></span>
+                  </ng-container>
+                  <!-- 出発日の翌日である旨 -->
+                  <ng-container *ngIf="flightDetail.estimatedArrivalDaysDifferenceByFlight === '1'">
+                    <span [innerHTML]="'label.dayPlusOne' | staticMsg" style="color: #d91829"></span>
+                  </ng-container>
+                  <!-- 出発日の翌々日である旨 -->
+                  <ng-container *ngIf="flightDetail.estimatedArrivalDaysDifferenceByFlight === '2'">
+                    <span [innerHTML]="'label.dayPlusTwo' | staticMsg" style="color: #d91829"></span>
+                  </ng-container>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </ng-container>
+
+        <!-- 通常の場合 -->
+        <ng-container
+          *ngIf="
+            !this.flightDetailHeader.isContainedDelayedFlight &&
+            !this.flightDetailHeader.isContainedEarlyDepartureFlight
+          "
+        >
+          <div class="p-flight-detail01__time">
+            <!-- 到着時刻 -->
+            <div class="p-flight-detail01__time-item p-flight-detail01__time-item--end">
+              <ng-container *ngIf="flightDetail.destinationArrivalDateTime">
+                <span
+                  [innerHTML]="flightDetail.destinationArrivalDateTime | dateFormat : 'flightDetail_departuredate.time'"
+                ></span>
+                <!-- 到着日付差 -->
+                <!-- ※当該flight.arrivalDaysDifferenceByFlight=”-1”の場合、赤字で表示する。-->
+                <div>
+                  <!-- 到着日が出発日の前日である旨 -->
+                  <ng-container *ngIf="flightDetail.arrivalDaysDifferenceByFlight === '-1'">
+                    <span
+                      class="p-flight-detail01__time-stamp--normal p-flight-detail01__time-stamp--red"
+                      [innerHTML]="'label.dayMinusOne' | staticMsg"
+                    ></span>
+                  </ng-container>
+                  <!-- 出発日の翌日である旨 -->
+                  <ng-container *ngIf="flightDetail.arrivalDaysDifferenceByFlight === '1'">
+                    <span
+                      class="p-flight-detail01__time-stamp--normal"
+                      [innerHTML]="'label.dayPlusOne' | staticMsg"
+                    ></span>
+                  </ng-container>
+                  <!-- 出発日の翌々日である旨 -->
+                  <ng-container *ngIf="flightDetail.arrivalDaysDifferenceByFlight === '2'">
+                    <span
+                      class="p-flight-detail01__time-stamp--normal"
+                      [innerHTML]="'label.dayPlusTwo' | staticMsg"
+                    ></span>
+                  </ng-container>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </ng-container>
+
+        <div class="p-flight-detail01__detail">
+          <div class="p-flight-detail01__detail-item">
+            <!-- 到着地 -->
+            <p class="p-flight-detail01__detail-airport">{{ flightDetail.arrivalAirport }}</p>
+            <!-- 到着ターミナル -->
+            <ng-container *ngIf="flightDetail.arrivalTerminal !== ''">
+              <ng-container *ngIf="flightDetail.arrivalTerminal !== 'pending'">
+                <p
+                  class="p-flight-detail01__detail-terminal"
+                  [innerHTML]="'label.airportTerminal' | staticMsg : { '0': flightDetail.arrivalTerminal }"
+                ></p>
+              </ng-container>
+              <ng-container *ngIf="flightDetail.arrivalTerminal === 'pending'">
+                <p
+                  class="p-flight-detail01__detail-terminal"
+                  [innerHTML]="'label.airportTerminal' | staticMsg : { '0': this.outputTerminalLabel }"
+                ></p>
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 乗継情報 -->
+    <ng-container *ngIf="flightDetail.connectionTime && flightDetailIndex + 1 < this.flightDetailSegment.length">
+      <div #connectionParts class="p-flight-detail01__block">
+        <!-- フライト時間ライン (乗り継ぎの線) 点線実線の切り替え -->
+        <div
+          class="p-flight-detail01__item p-flight-detail01__item--2col"
+          [class.p-flight-detail01__item--transfer]="flightDetail.isMultiAirportConnection"
+          [class.p-flight-detail01__item--transit]="!flightDetail.isMultiAirportConnection"
+        >
+          <!-- フライト時間ライン (乗り継ぎの線) 線の本体 -->
+          <div
+            class="p-flight-detail01__line"
+            [style.top.px]="this.connectionLineStyleList[flightDetailIndex].topPx"
+            [style.height.px]="this.connectionLineStyleList[flightDetailIndex].heightPx"
+          ></div>
+          <!-- 乗継時間 -->
+          <div class="p-flight-detail01__time">
+            <div class="p-flight-detail01__time-item">
+              <span
+                [innerHTML]="dateString(flightDetail.connectionTime) | dateFormat : 'flightDetail_flightTime'"
+              ></span>
+            </div>
+          </div>
+          <!-- 乗継情報[空港間移動の発生有無] -->
+          <div class="p-flight-detail01__detail">
+            <div class="p-flight-detail01__detail-item">
+              <ng-container *ngIf="flightDetail.isMultiAirportConnection">
+                <span
+                  class="p-flight-detail01__detail-transfer"
+                  [innerHTML]="'label.interAirportTransit' | staticMsg"
+                ></span>
+              </ng-container>
+              <ng-container *ngIf="!flightDetail.isMultiAirportConnection">
+                <span
+                  class="p-flight-detail01__detail-transit"
+                  [innerHTML]="'lable.transitPoint' | staticMsg : { '0': flightDetail.connectionInfo }"
+                ></span>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+  <!-- フライト詳細ループここまで-->
+</div>

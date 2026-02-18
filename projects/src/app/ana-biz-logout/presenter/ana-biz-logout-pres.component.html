@@ -1,0 +1,46 @@
+<div class="l-core-contents__inner">
+  <div class="l-core-contents__main">
+    <div class="l-section">
+      <div class="p-completed">
+        <div class="p-completed__head">
+          <div class="c-completed-message">
+            <h2
+              class="c-completed-message__title c-completed-message__title--em c-completed-message__title--blue"
+              [innerHTML]="'label.logoutCompleted' | staticMsg"
+            ></h2>
+          </div>
+        </div>
+        <div class="p-completed__body">
+          <div class="p-completed__body-item">
+            <div class="p-ana-biz-logout">
+              <div class="p-ana-biz-logout__body">
+                <div class="p-ana-biz-logout__title" [innerHTML]="'label.anaBizLogout' | staticMsg"></div>
+                <span [innerHTML]="'label.anabizlogoutmessage' | staticMsg"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="l-core-contents__sub">
+    <div class="p-sub-column-layout04">
+      <div class="p-sub-column-layout04__body">
+        <div class="p-sub-column-layout04__body-item">
+          <ul class="p-sub-column-layout04__list">
+            <li class="p-sub-column-layout04__list-item">
+              <a
+                class="p-sub-column-layout04__list-link"
+                id="ana-biz-logout-pres-go-to-asw-top-1"
+                (throttleClick$)="clickGoToAswTopEvent()"
+                [innerHTML]="'label.aswTop' | staticMsg"
+                aswThrottleClick
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

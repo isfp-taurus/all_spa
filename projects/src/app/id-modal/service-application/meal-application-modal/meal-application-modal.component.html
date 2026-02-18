@@ -1,0 +1,161 @@
+<div class="p-form-layout04">
+  <!--　搭乗者マップ（機内食取得APIの搭乗者）分繰り返し -->
+  <div *ngFor="let passenger of passengerMap; index as k" class="p-form-layout04__item">
+    <div class="p-form-layout04__item-title p-form-layout04__item-title--l p-form-layout04__item-title--has-text">
+      <div class="p-form-layout04__item-title-label p-form-layout04__item-title-label--em">
+        {{ passenger.travelers.name }}
+      </div>
+      <div class="p-form-layout04__item-title-lead" [innerHTML]="passenger.travelers.type | staticMsg"></div>
+    </div>
+    <div class="p-input-block02">
+      <!--　搭乗者マップ.セグメント分繰り返し -->
+      <div *ngFor="let seg of passenger.segment; index as j" class="p-input-block02__item">
+        <div class="p-input-block02__item-title p-input-block02__item-title--m">
+          <div class="p-input-block02__item-title-label p-input-block02__item-title-label--em">
+            <div class="p-form-layout04__item-airport">
+              <span class="p-form-layout04__item-airport-departure">
+                {{ seg.locationName }}
+                <span class="p-form-layout04__item-airport-to">
+                  <span class="u-visually-hidden" [innerHTML]="'alt.toOfArrivalAndDeparture' | staticMsg"></span>
+                  <span aria-hidden="true" [innerHTML]="'label.hyphen' | staticMsg"></span>
+                </span>
+              </span>
+              <span class="p-form-layout04__item-airport-arrival">{{ seg.locationNameTo }}</span>
+            </div>
+          </div>
+        </div>
+        <!--　搭乗者マップ.セグメント.機内食分繰り返し１つのはずだけど配列なのでループ処理-->
+        <div *ngFor="let meal of seg.meals; index as i" class="p-input-block02__row">
+          <!--　幼児判定-->
+          <div *ngIf="passenger.travelers.isInf" class="p-input-block02__row-body">
+            <div class="p-input-block02__row-body-item">
+              <div
+                *ngIf="meal.bbmlChkShow"
+                class="c-form-element-checkbox-button01"
+                [ngClass]="{ 'is-selected': meal.isSelected }"
+              >
+                <div class="c-form-element-checkbox-button01__wrap">
+                  <input
+                    type="checkbox"
+                    name="meal-application-modal-checkbox1-name-{{ k }}-{{ j }}-{{ i }}"
+                    id="meal-application-modal-checkbox1-{{ k }}-{{ j }}-{{ i }}"
+                    class="c-form-element-checkbox-button01__input"
+                    (change)="clickBabyMeal(passenger.travelerId, seg.segmentId, i)"
+                    [checked]="meal.isSelected"
+                    [(ngModel)]="meal.isSelected"
+                  />
+                  <label
+                    for="meal-application-modal-checkbox1-{{ k }}-{{ j }}-{{ i }}"
+                    class="c-form-element-checkbox-button01__label"
+                  >
+                    <span class="c-form-element-checkbox-button01__text">
+                      <span class="c-form-element-checkbox-button01__text-label">{{ meal.dispName }}</span>
+                    </span>
+                    <span class="c-form-element-checkbox-button01__check"></span>
+                  </label>
+                </div>
+              </div>
+              <div *ngIf="!meal.bbmlChkShow" class="c-status-display">
+                <span class="c-status-display__body">
+                  <span class="c-status-display__text">
+                    <span class="c-status-display__text-label">{{ meal.dispName }}</span>
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <!--　幼児以外 -->
+          <div *ngIf="!passenger.travelers.isInf" class="p-input-block02__row-body">
+            <div *ngIf="seg.buttonDisabled; else buttonAbled">
+              <div *ngIf="!meal.bbmlChkShow" class="c-status-display">
+                <span class="c-status-display__body">
+                  <span class="c-status-display__text">
+                    <span class="c-status-display__text-label">{{ meal.dispName }}</span>
+                  </span>
+                </span>
+              </div>
+            </div>
+            <ng-template #buttonAbled>
+              <div *ngIf="!meal.isWithinApplicationDeadline" class="p-input-block02__row-body-item">
+                <div class="c-status-display">
+                  <span class="c-status-display__body">
+                    <span class="c-status-display__text">
+                      <span class="c-status-display__text-label">{{ meal.dispName }}</span>
+                    </span>
+                  </span>
+                </div>
+              </div>
+              <div *ngIf="meal.isWithinApplicationDeadline" class="p-input-block02__row-body-item">
+                <div
+                  id="meal-application-modal-adult-{{ k }}-{{ j }}-{{ i }}"
+                  type="button"
+                  class="c-status-display-button"
+                  [ngClass]="{ 'is-selected': meal.isSelected, 'u-delete-after-image': meal.isSelected }"
+                >
+                  <button
+                    id="click-meal-button-{{ k }}-{{ j }}-{{ i }}"
+                    class="c-status-display-button__body u-curson-click-enable"
+                    (throttleClick$)="clickMealButton(passenger.travelerId, seg.segmentId, i)"
+                    aswThrottleClick
+                  >
+                    <span class="c-status-display-button__text">
+                      <!--　機内食種別を表示するか判定-->
+                      <span
+                        *ngIf="meal.isTypeDisp"
+                        class="c-status-display-button__text-lead"
+                        [innerHTML]="meal.mealTypeLabel | staticMsg"
+                      ></span>
+                      <!--　選択済み選択済みであれば機内食名を表示-->
+                      <span class="c-status-display-button__text-label c-status-display-button__text-label--em">
+                        {{ meal.dispName }}
+                      </span>
+                      <!--　選択した機内食を読み上げとして表示-->
+                      <span
+                        class="u-visually-hidden"
+                        [innerHTML]="
+                          'reader.mealGroup'
+                            | staticMsg
+                              : {
+                                  '0': seg.locationName + '-' + seg.locationNameTo,
+                                  '1': passenger.travelers.name,
+                                  '2': meal.dispName
+                                }
+                        "
+                      ></span>
+                      <!--　金額設定があれば金額を表示 -->
+                      <span
+                        *ngIf="meal.total !== 0"
+                        class="c-status-display-button__status c-status-display-button__status--em"
+                      >
+                        <span
+                          class="c-amount c-amount--price"
+                          [innerHTML]="meal.total | amountFormat : 'default' : meal.currencyCode"
+                        >
+                        </span>
+                      </span>
+                    </span>
+                  </button>
+                  <!--　選択済みであれば取消ボタンを表示-->
+                  <button
+                    id="click-meal-button-clear-{{ k }}-{{ j }}-{{ i }}"
+                    *ngIf="meal.isSelected"
+                    (click)="clickMealClear(passenger.travelerId, seg.segmentId, i)"
+                  >
+                    <img
+                      class="u-curson-click-enable u-btn_delete_24"
+                      src="assets/images/btn_delete_24.svg"
+                      [alt]="'reader.deleteMeal' | staticMsg"
+                      width="24"
+                      height="24"
+                    />
+                  </button>
+                </div>
+              </div>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="serviceRecommendationArea"></div>
+</div>
