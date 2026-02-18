@@ -1,0 +1,16 @@
+# 忽略依赖库（极其重要）
+node_modules/
+**/node_modules/
+
+# 忽略 macOS 系统文件
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# 忽略本地环境变量文件
+.env
+.env.local
+
+# 忽略编译产物（如果是 Vue/React 项目）
+dist/
+build/
