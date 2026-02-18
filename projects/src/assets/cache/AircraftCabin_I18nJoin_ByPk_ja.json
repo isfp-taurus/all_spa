@@ -1,0 +1,30 @@
+{
+    "374": {
+        "eco": [
+            {
+                "acv": "374",
+                "cabin": "eco",
+                "infant_seat_flag": true,
+                "table_share_flag": false,
+                "product_url": "https://www.airdo.jp/service/fleet/boeing73d/",
+                "layout_image": "",
+                "seat_type_image": "seat_y_374",
+                "acv_characteristic_message_key": ""
+            }
+        ]
+    },
+    "633": {
+        "eco": [
+            {
+                "acv": "633",
+                "cabin": "eco",
+                "infant_seat_flag": true,
+                "table_share_flag": false,
+                "product_url": "https://www.airdo.jp/service/fleet/boeing767/",
+                "layout_image": "",
+                "seat_type_image": "seat_y_633",
+                "acv_characteristic_message_key": ""
+            }
+        ]
+    }
+}

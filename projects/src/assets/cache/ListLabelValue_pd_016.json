@@ -1,0 +1,118 @@
+{
+    "ja": [
+        {
+            "value": "SUNDAY",
+            "static_message_key": "m_list_data_PD_016_SUNDAY"
+        },
+        {
+            "value": "SUNDAY_FULL",
+            "static_message_key": "m_list_data_PD_016_SUNDAY_FULL"
+        },
+        {
+            "value": "MONDAY_FULL",
+            "static_message_key": "m_list_data_PD_016_MONDAY_FULL"
+        },
+        {
+            "value": "MONDAY",
+            "static_message_key": "m_list_data_PD_016_MONDAY"
+        },
+        {
+            "value": "TUESDAY_FULL",
+            "static_message_key": "m_list_data_PD_016_TUESDAY_FULL"
+        },
+        {
+            "value": "TUESDAY",
+            "static_message_key": "m_list_data_PD_016_TUESDAY"
+        },
+        {
+            "value": "WEDNESDAY",
+            "static_message_key": "m_list_data_PD_016_WEDNESDAY"
+        },
+        {
+            "value": "WEDNESDAY_FULL",
+            "static_message_key": "m_list_data_PD_016_WEDNESDAY_FULL"
+        },
+        {
+            "value": "THURSDAY",
+            "static_message_key": "m_list_data_PD_016_THURSDAY"
+        },
+        {
+            "value": "THURSDAY_FULL",
+            "static_message_key": "m_list_data_PD_016_THURSDAY_FULL"
+        },
+        {
+            "value": "FRIDAY",
+            "static_message_key": "m_list_data_PD_016_FRIDAY"
+        },
+        {
+            "value": "FRIDAY_FULL",
+            "static_message_key": "m_list_data_PD_016_FRIDAY_FULL"
+        },
+        {
+            "value": "SATURDAY_FULL",
+            "static_message_key": "m_list_data_PD_016_SATURDAY_FULL"
+        },
+        {
+            "value": "SATURDAY",
+            "static_message_key": "m_list_data_PD_016_SATURDAY"
+        }
+    ],
+    "en": [
+        {
+            "value": "SUNDAY",
+            "static_message_key": "m_list_data_PD_016_SUNDAY"
+        },
+        {
+            "value": "SUNDAY_FULL",
+            "static_message_key": "m_list_data_PD_016_SUNDAY_FULL"
+        },
+        {
+            "value": "MONDAY_FULL",
+            "static_message_key": "m_list_data_PD_016_MONDAY_FULL"
+        },
+        {
+            "value": "MONDAY",
+            "static_message_key": "m_list_data_PD_016_MONDAY"
+        },
+        {
+            "value": "TUESDAY",
+            "static_message_key": "m_list_data_PD_016_TUESDAY"
+        },
+        {
+            "value": "TUESDAY_FULL",
+            "static_message_key": "m_list_data_PD_016_TUESDAY_FULL"
+        },
+        {
+            "value": "WEDNESDAY",
+            "static_message_key": "m_list_data_PD_016_WEDNESDAY"
+        },
+        {
+            "value": "WEDNESDAY_FULL",
+            "static_message_key": "m_list_data_PD_016_WEDNESDAY_FULL"
+        },
+        {
+            "value": "THURSDAY_FULL",
+            "static_message_key": "m_list_data_PD_016_THURSDAY_FULL"
+        },
+        {
+            "value": "THURSDAY",
+            "static_message_key": "m_list_data_PD_016_THURSDAY"
+        },
+        {
+            "value": "FRIDAY",
+            "static_message_key": "m_list_data_PD_016_FRIDAY"
+        },
+        {
+            "value": "FRIDAY_FULL",
+            "static_message_key": "m_list_data_PD_016_FRIDAY_FULL"
+        },
+        {
+            "value": "SATURDAY",
+            "static_message_key": "m_list_data_PD_016_SATURDAY"
+        },
+        {
+            "value": "SATURDAY_FULL",
+            "static_message_key": "m_list_data_PD_016_SATURDAY_FULL"
+        }
+    ]
+}

@@ -1,0 +1,112 @@
+[
+    {
+        "name": "日本",
+        "english_name": "Japan",
+        "code": "01",
+        "display_type": "1",
+        "area": "4",
+        "order": 1,
+        "index_list": null,
+        "index_list_type": " "
+    },
+    {
+        "name": "アメリカ",
+        "english_name": "USA",
+        "code": "02",
+        "display_type": "1",
+        "area": "1",
+        "order": 2,
+        "index_list": "ア,カ,サ,タ,ナ,ハ,マ,ヤ,ラ,ワ",
+        "index_list_type": "0"
+    },
+    {
+        "name": "カナダ・メキシコ",
+        "english_name": "Canada / Mexico",
+        "code": "03",
+        "display_type": "1",
+        "area": "1",
+        "order": 3,
+        "index_list": null,
+        "index_list_type": " "
+    },
+    {
+        "name": "ハワイ",
+        "english_name": "Hawaii",
+        "code": "04",
+        "display_type": "1",
+        "area": "1",
+        "order": 4,
+        "index_list": null,
+        "index_list_type": " "
+    },
+    {
+        "name": "グアム・サイパン",
+        "english_name": "Guam / Saipan",
+        "code": "05",
+        "display_type": "2",
+        "area": "3",
+        "order": 5,
+        "index_list": null,
+        "index_list_type": " "
+    },
+    {
+        "name": "カリブ・中南米",
+        "english_name": "Caribbean / Central South America",
+        "code": "06",
+        "display_type": "1",
+        "area": "1",
+        "order": 6,
+        "index_list": null,
+        "index_list_type": " "
+    },
+    {
+        "name": "ヨーロッパ",
+        "english_name": "Europe",
+        "code": "07",
+        "display_type": "1",
+        "area": "2",
+        "order": 7,
+        "index_list": "アイスランド,アイルランド,アゼルバイジャン,アルバニア,アルメニア,イギリス,イタリア,ウクライナ,エストニア,オーストリア,オランダ,北マケドニア,キプロス,ギリシャ,グリーンランド,クロアチア,ジブラルタル,ジョージア,スイス,スウェーデン,スペイン,スロバキア,スロベニア,セルビア,チェコ,デンマーク,ドイツ,トルコ,ノルウェー,ハンガリー,フィンランド,フランス,ブルガリア,ベラルーシ,ベルギー,ポーランド,ボスニア・ヘルツェゴビナ,ポルトガル,マルタ,モルドバ,モンテネグロ,ラトビア,リトアニア,ルーマニア,ルクセンブルク,ロシア",
+        "index_list_type": "2"
+    },
+    {
+        "name": "中東・アフリカ",
+        "english_name": "Middle East / Africa",
+        "code": "09",
+        "display_type": "1",
+        "area": "2",
+        "order": 9,
+        "index_list": "アラブ首長国連邦,アルジェリア,アンゴラ,イエメン,イスラエル,イラク,イラン,ウガンダ,エジプト,エチオピア,エリトリア,オマーン,ガーナ,カタール,ガボン,カメルーン,ギニア,クウェート,ケニア,コートジボワール,コンゴ共和国,コンゴ民主共和国,サウジアラビア,ザンビア,シエラレオネ,ジブチ,シリア,ジンバブエ,スーダン,セイシェル,セネガル,タンザニア,チュニジア,トーゴ,ナイジェリア,ナミビア,ニジェール,バーレーン,ブルキナファソ,ベナン,ボツワナ,マダガスカル,マラウイ,マリ,南アフリカ,南スーダン,モーリシャス,モーリタニア,モザンビーク,モロッコ,ヨルダン,ルワンダ,レバノン",
+        "index_list_type": "2"
+    },
+    {
+        "name": "東アジア・中央アジア",
+        "english_name": "East Asia / Central Asia",
+        "code": "20",
+        "display_type": "1",
+        "area": "3",
+        "order": 11,
+        "index_list": "A-C,D-F,G-I,J-L,M-O,P-R,S-U,V-Z",
+        "index_list_type": "1"
+    },
+    {
+        "name": "東南アジア・南アジア",
+        "english_name": "South East Asia / South Asia",
+        "code": "13",
+        "display_type": "1",
+        "area": "3",
+        "order": 15,
+        "index_list": "インド,インドネシア,カンボジア,シンガポール,スリランカ,タイ,ネパール,バングラデシュ,フィリピン,ブルネイ,ベトナム,マレーシア,ミャンマー,モルディヴ,ラオス人民民主共和国",
+        "index_list_type": "2"
+    },
+    {
+        "name": "オセアニア",
+        "english_name": "Oceania",
+        "code": "15",
+        "display_type": "1",
+        "area": "3",
+        "order": 16,
+        "index_list": null,
+        "index_list_type": " "
+    }
+]

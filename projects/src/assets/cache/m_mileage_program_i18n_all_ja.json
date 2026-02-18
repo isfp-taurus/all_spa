@@ -1,0 +1,281 @@
+[
+    {
+        "carrier_code": "HD",
+        "lang": "ja",
+        "apply_from_date": "19000101",
+        "apply_to_date": "99991231",
+        "mileage_program_name": "My AIRDO",
+        "display_order": 1,
+        "last_modification_date_time": "2025-02-04T15:00:00+0000"
+    },
+    {
+        "carrier_code": "NH",
+        "lang": "ja",
+        "apply_from_date": "19000101",
+        "apply_to_date": "99991231",
+        "mileage_program_name": "ANAマイレージクラブ",
+        "display_order": 10,
+        "last_modification_date_time": "2020-04-08T15:00:00+0000"
+    },
+    {
+        "carrier_code": "AC",
+        "lang": "ja",
+        "apply_from_date": "19000101",
+        "apply_to_date": "99991231",
+        "mileage_program_name": "アエロプラン",
+        "display_order": 20,
+        "last_modification_date_time": "2023-10-19T15:00:00+0000"
+    },
+    {
+        "carrier_code": "OZ",
+        "lang": "ja",
+        "apply_from_date": "19000101",
+        "apply_to_date": "99991231",
+        "mileage_program_name": "アシアナクラブ",
+        "display_order": 30,
+        "last_modification_date_time": "2023-10-19T15:00:00+0000"
+    },
+    {
+        "carrier_code": "O6",
+        "lang": "ja",
+        "apply_from_date": "20150722",
+        "apply_to_date": "20211231",
+        "mileage_program_name": "アミーゴ",
+        "display_order": 35,
+        "last_modification_date_time": "2022-01-19T15:00:00+0000"
+    },
+    {
+        "carrier_code": "BR",
+        "lang": "ja",
+        "apply_from_date": "19000101",
+        "apply_to_date": "99991231",
+        "mileage_program_name": "インフィニティー マイレージランズ",
+        "display_order": 40,
+        "last_modification_date_time": "2020-04-08T15:00:00+0000"
+    },
+    {
+        "carrier_code": "TP",
+        "lang": "ja",
+        "apply_from_date": "19000101",
+        "apply_to_date": "99991231",
+        "mileage_program_name": "マイルズ & ゴー",
+        "display_order": 195,
+        "last_modification_date_time": "2023-10-19T15:00:00+0000"
+    },
+    {
+        "carrier_code": "NZ",
+        "lang": "ja",
+        "apply_from_date": "19000101",
+        "apply_to_date": "99991231",
+        "mileage_program_name": "エアーポインツ",
+        "display_order": 60,
+        "last_modification_date_time": "2023-10-19T15:00:00+0000"
+    },
+    {
+        "carrier_code": "MS",
+        "lang": "ja",
+        "apply_from_date": "19000101",
+        "apply_to_date": "99991231",
+        "mileage_program_name": "エジプトエアープラス",
+        "display_order": 70,
+        "last_modification_date_time": "2023-10-19T15:00:00+0000"
+    },
+    {
+        "carrier_code": "EY",
+        "lang": "ja",
+        "apply_from_date": "19000101",
+        "apply_to_date": "99991231",
+        "mileage_program_name": "エティハドゲスト",
+        "display_order": 80,
+        "last_modification_date_time": "2020-04-08T15:00:00+0000"
+    },
+    {
+        "carrier_code": "SQ",
+        "lang": "ja",
+        "apply_from_date": "19000101",
+        "apply_to_date": "99991231",
+        "mileage_program_name": "クリスフライヤー",
+        "display_order": 100,
+        "last_modification_date_time": "2023-10-19T15:00:00+0000"
+    },
+    {
+        "carrier_code": "CM",
+        "lang": "ja",
+        "apply_from_date": "20150701",
+        "apply_to_date": "99991231",
+        "mileage_program_name": "コネクトマイルズ",
+        "display_order": 110,
+        "last_modification_date_time": "2020-04-08T15:00:00+0000"
+    },
+    {
+        "carrier_code": "9W",
+        "lang": "ja",
+        "apply_from_date": "19000101",
+        "apply_to_date": "99991231",
+        "mileage_program_name": "ジェットプリビレッジ",
+        "display_order": 115,
+        "last_modification_date_time": "2023-10-19T15:00:00+0000"
+    },
+    {
+        "carrier_code": "ET",
+        "lang": "ja",
+        "apply_from_date": "19000101",
+        "apply_to_date": "99991231",
+        "mileage_program_name": "シェバマイルズ",
+        "display_order": 120,
+        "last_modification_date_time": "2020-04-08T15:00:00+0000"
+    },
+    {
+        "carrier_code": "HO",
+        "lang": "ja",
+        "apply_from_date": "20180325",
+        "apply_to_date": "99991231",
+        "mileage_program_name": "ジュンヤオエアクラブ",
+        "display_order": 125,
+        "last_modification_date_time": "2020-04-08T15:00:00+0000"
+    },
+    {
+        "carrier_code": "HA",
+        "lang": "ja",
+        "apply_from_date": "19000101",
+        "apply_to_date": "20180314",
+        "mileage_program_name": "ハワイアンマイルズ",
+        "display_order": 130,
+        "last_modification_date_time": "2020-04-08T15:00:00+0000"
+    },
+    {
+        "carrier_code": "JJ",
+        "lang": "ja",
+        "apply_from_date": "19000101",
+        "apply_to_date": "20160326",
+        "mileage_program_name": "フィデリダージ",
+        "display_order": 140,
+        "last_modification_date_time": "2020-04-08T15:00:00+0000"
+    },
+    {
+        "carrier_code": "CA",
+        "lang": "ja",
+        "apply_from_date": "19000101",
+        "apply_to_date": "99991231",
+        "mileage_program_name": "フェニックスマイル",
+        "display_order": 150,
+        "last_modification_date_time": "2023-10-19T15:00:00+0000"
+    },
+    {
+        "carrier_code": "VS",
+        "lang": "ja",
+        "apply_from_date": "19000101",
+        "apply_to_date": "99991231",
+        "mileage_program_name": "フライングクラブ",
+        "display_order": 160,
+        "last_modification_date_time": "2023-10-19T15:00:00+0000"
+    },
+    {
+        "carrier_code": "AI",
+        "lang": "ja",
+        "apply_from_date": "19000101",
+        "apply_to_date": "99991231",
+        "mileage_program_name": "フライングリターンズ",
+        "display_order": 170,
+        "last_modification_date_time": "2020-04-08T15:00:00+0000"
+    },
+    {
+        "carrier_code": "SA",
+        "lang": "ja",
+        "apply_from_date": "19000101",
+        "apply_to_date": "99991231",
+        "mileage_program_name": "ボイジャー",
+        "display_order": 190,
+        "last_modification_date_time": "2023-10-19T15:00:00+0000"
+    },
+    {
+        "carrier_code": "TK",
+        "lang": "ja",
+        "apply_from_date": "19000101",
+        "apply_to_date": "99991231",
+        "mileage_program_name": "マイルズ＆スマイルズ",
+        "display_order": 200,
+        "last_modification_date_time": "2020-04-08T15:00:00+0000"
+    },
+    {
+        "carrier_code": "A3",
+        "lang": "ja",
+        "apply_from_date": "19000101",
+        "apply_to_date": "99991231",
+        "mileage_program_name": "マイルズプラスボーナス",
+        "display_order": 225,
+        "last_modification_date_time": "2020-04-08T15:00:00+0000"
+    },
+    {
+        "carrier_code": "LH",
+        "lang": "ja",
+        "apply_from_date": "19000101",
+        "apply_to_date": "99991231",
+        "mileage_program_name": "マイルズ＆モア",
+        "display_order": 220,
+        "last_modification_date_time": "2023-10-19T15:00:00+0000"
+    },
+    {
+        "carrier_code": "UA",
+        "lang": "ja",
+        "apply_from_date": "19000101",
+        "apply_to_date": "99991231",
+        "mileage_program_name": "マイレージ・プラス",
+        "display_order": 230,
+        "last_modification_date_time": "2023-10-19T15:00:00+0000"
+    },
+    {
+        "carrier_code": "SK",
+        "lang": "ja",
+        "apply_from_date": "19000101",
+        "apply_to_date": "20240831",
+        "mileage_program_name": "ユーロボーナス",
+        "display_order": 240,
+        "last_modification_date_time": "2025-03-20T15:00:00+0000"
+    },
+    {
+        "carrier_code": "AV",
+        "lang": "ja",
+        "apply_from_date": "19000101",
+        "apply_to_date": "99991231",
+        "mileage_program_name": "ライフマイルズ",
+        "display_order": 250,
+        "last_modification_date_time": "2020-04-08T15:00:00+0000"
+    },
+    {
+        "carrier_code": "TG",
+        "lang": "ja",
+        "apply_from_date": "19000101",
+        "apply_to_date": "99991231",
+        "mileage_program_name": "ロイヤルオーキッドプラス",
+        "display_order": 260,
+        "last_modification_date_time": "2023-10-19T15:00:00+0000"
+    },
+    {
+        "carrier_code": "PR",
+        "lang": "ja",
+        "apply_from_date": "19000101",
+        "apply_to_date": "99991231",
+        "mileage_program_name": "マブハイマイル",
+        "display_order": 235,
+        "last_modification_date_time": "2023-10-19T15:00:00+0000"
+    },
+    {
+        "carrier_code": "VN",
+        "lang": "ja",
+        "apply_from_date": "19000101",
+        "apply_to_date": "99991231",
+        "mileage_program_name": "ロータスマイル",
+        "display_order": 270,
+        "last_modification_date_time": "2020-04-08T15:00:00+0000"
+    },
+    {
+        "carrier_code": "VA",
+        "lang": "ja",
+        "apply_from_date": "20230718",
+        "apply_to_date": "99991231",
+        "mileage_program_name": "ヴェロシティ (Velocity)",
+        "display_order": 50,
+        "last_modification_date_time": "2023-06-25T15:00:00+0000"
+    }
+]

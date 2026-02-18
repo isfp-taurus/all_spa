@@ -1,0 +1,58 @@
+[
+    {
+        "key": "m_list_data_PD_016_SUNDAY",
+        "value": "日"
+    },
+    {
+        "key": "m_list_data_PD_016_MONDAY",
+        "value": "月"
+    },
+    {
+        "key": "m_list_data_PD_016_TUESDAY",
+        "value": "火"
+    },
+    {
+        "key": "m_list_data_PD_016_WEDNESDAY",
+        "value": "水"
+    },
+    {
+        "key": "m_list_data_PD_016_THURSDAY",
+        "value": "木"
+    },
+    {
+        "key": "m_list_data_PD_016_FRIDAY",
+        "value": "金"
+    },
+    {
+        "key": "m_list_data_PD_016_SATURDAY",
+        "value": "土"
+    },
+    {
+        "key": "m_list_data_PD_016_SUNDAY_FULL",
+        "value": "日曜日"
+    },
+    {
+        "key": "m_list_data_PD_016_MONDAY_FULL",
+        "value": "月曜日"
+    },
+    {
+        "key": "m_list_data_PD_016_TUESDAY_FULL",
+        "value": "火曜日"
+    },
+    {
+        "key": "m_list_data_PD_016_WEDNESDAY_FULL",
+        "value": "水曜日"
+    },
+    {
+        "key": "m_list_data_PD_016_THURSDAY_FULL",
+        "value": "木曜日"
+    },
+    {
+        "key": "m_list_data_PD_016_FRIDAY_FULL",
+        "value": "金曜日"
+    },
+    {
+        "key": "m_list_data_PD_016_SATURDAY_FULL",
+        "value": "土曜日"
+    }
+]

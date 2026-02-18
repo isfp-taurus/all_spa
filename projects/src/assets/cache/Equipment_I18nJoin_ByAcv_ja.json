@@ -1,0 +1,22 @@
+{
+    "374": [
+        {
+            "acv": "374",
+            "wifi_type": "0",
+            "notes": "374(Y)",
+            "last_modification_user_id": "ALLSQL",
+            "last_modification_date_time": "2025-02-04T15:00:00+0000",
+            "aircraft_type_url": "https://www.airdo.jp/service/fleet/boeing73d/"
+        }
+    ],
+    "633": [
+        {
+            "acv": "633",
+            "wifi_type": "0",
+            "notes": "633(Y)",
+            "last_modification_user_id": "ALLSQL",
+            "last_modification_date_time": "2025-02-04T15:00:00+0000",
+            "aircraft_type_url": "https://www.airdo.jp/service/fleet/boeing767/"
+        }
+    ]
+}

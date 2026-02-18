@@ -1,0 +1,16 @@
+{
+    "374": [
+        {
+            "acv": "374",
+            "wifi_type": "0",
+            "aircraft_type_url": "https://www.airdo.jp/service/fleet/boeing73d/"
+        }
+    ],
+    "633": [
+        {
+            "acv": "633",
+            "wifi_type": "0",
+            "aircraft_type_url": "https://www.airdo.jp/service/fleet/boeing767/"
+        }
+    ]
+}

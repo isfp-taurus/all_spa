@@ -1,0 +1,198 @@
+{
+    "ja": [
+        {
+            "value": "1_FULL",
+            "static_message_key": "m_list_data_PD_017_1_FULL"
+        },
+        {
+            "value": "1",
+            "static_message_key": "m_list_data_PD_017_1"
+        },
+        {
+            "value": "2",
+            "static_message_key": "m_list_data_PD_017_2"
+        },
+        {
+            "value": "2_FULL",
+            "static_message_key": "m_list_data_PD_017_2_FULL"
+        },
+        {
+            "value": "3",
+            "static_message_key": "m_list_data_PD_017_3"
+        },
+        {
+            "value": "3_FULL",
+            "static_message_key": "m_list_data_PD_017_3_FULL"
+        },
+        {
+            "value": "4",
+            "static_message_key": "m_list_data_PD_017_4"
+        },
+        {
+            "value": "4_FULL",
+            "static_message_key": "m_list_data_PD_017_4_FULL"
+        },
+        {
+            "value": "5_FULL",
+            "static_message_key": "m_list_data_PD_017_5_FULL"
+        },
+        {
+            "value": "5",
+            "static_message_key": "m_list_data_PD_017_5"
+        },
+        {
+            "value": "6",
+            "static_message_key": "m_list_data_PD_017_6"
+        },
+        {
+            "value": "6_FULL",
+            "static_message_key": "m_list_data_PD_017_6_FULL"
+        },
+        {
+            "value": "7_FULL",
+            "static_message_key": "m_list_data_PD_017_7_FULL"
+        },
+        {
+            "value": "7",
+            "static_message_key": "m_list_data_PD_017_7"
+        },
+        {
+            "value": "8",
+            "static_message_key": "m_list_data_PD_017_8"
+        },
+        {
+            "value": "8_FULL",
+            "static_message_key": "m_list_data_PD_017_8_FULL"
+        },
+        {
+            "value": "9_FULL",
+            "static_message_key": "m_list_data_PD_017_9_FULL"
+        },
+        {
+            "value": "9",
+            "static_message_key": "m_list_data_PD_017_9"
+        },
+        {
+            "value": "10",
+            "static_message_key": "m_list_data_PD_017_10"
+        },
+        {
+            "value": "10_FULL",
+            "static_message_key": "m_list_data_PD_017_10_FULL"
+        },
+        {
+            "value": "11_FULL",
+            "static_message_key": "m_list_data_PD_017_11_FULL"
+        },
+        {
+            "value": "11",
+            "static_message_key": "m_list_data_PD_017_11"
+        },
+        {
+            "value": "12",
+            "static_message_key": "m_list_data_PD_017_12"
+        },
+        {
+            "value": "12_FULL",
+            "static_message_key": "m_list_data_PD_017_12_FULL"
+        }
+    ],
+    "en": [
+        {
+            "value": "1",
+            "static_message_key": "m_list_data_PD_017_1"
+        },
+        {
+            "value": "1_FULL",
+            "static_message_key": "m_list_data_PD_017_1_FULL"
+        },
+        {
+            "value": "2",
+            "static_message_key": "m_list_data_PD_017_2"
+        },
+        {
+            "value": "2_FULL",
+            "static_message_key": "m_list_data_PD_017_2_FULL"
+        },
+        {
+            "value": "3",
+            "static_message_key": "m_list_data_PD_017_3"
+        },
+        {
+            "value": "3_FULL",
+            "static_message_key": "m_list_data_PD_017_3_FULL"
+        },
+        {
+            "value": "4_FULL",
+            "static_message_key": "m_list_data_PD_017_4_FULL"
+        },
+        {
+            "value": "4",
+            "static_message_key": "m_list_data_PD_017_4"
+        },
+        {
+            "value": "5",
+            "static_message_key": "m_list_data_PD_017_5"
+        },
+        {
+            "value": "5_FULL",
+            "static_message_key": "m_list_data_PD_017_5_FULL"
+        },
+        {
+            "value": "6",
+            "static_message_key": "m_list_data_PD_017_6"
+        },
+        {
+            "value": "6_FULL",
+            "static_message_key": "m_list_data_PD_017_6_FULL"
+        },
+        {
+            "value": "7",
+            "static_message_key": "m_list_data_PD_017_7"
+        },
+        {
+            "value": "7_FULL",
+            "static_message_key": "m_list_data_PD_017_7_FULL"
+        },
+        {
+            "value": "8",
+            "static_message_key": "m_list_data_PD_017_8"
+        },
+        {
+            "value": "8_FULL",
+            "static_message_key": "m_list_data_PD_017_8_FULL"
+        },
+        {
+            "value": "9_FULL",
+            "static_message_key": "m_list_data_PD_017_9_FULL"
+        },
+        {
+            "value": "9",
+            "static_message_key": "m_list_data_PD_017_9"
+        },
+        {
+            "value": "10",
+            "static_message_key": "m_list_data_PD_017_10"
+        },
+        {
+            "value": "10_FULL",
+            "static_message_key": "m_list_data_PD_017_10_FULL"
+        },
+        {
+            "value": "11",
+            "static_message_key": "m_list_data_PD_017_11"
+        },
+        {
+            "value": "11_FULL",
+            "static_message_key": "m_list_data_PD_017_11_FULL"
+        },
+        {
+            "value": "12",
+            "static_message_key": "m_list_data_PD_017_12"
+        },
+        {
+            "value": "12_FULL",
+            "static_message_key": "m_list_data_PD_017_12_FULL"
+        }
+    ]
+}

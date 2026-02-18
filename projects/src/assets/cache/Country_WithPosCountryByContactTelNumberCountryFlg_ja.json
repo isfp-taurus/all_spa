@@ -1,0 +1,15 @@
+{
+    "JP": [
+        {
+            "country_3letter_code": "JPN",
+            "country_2letter_code": "JP",
+            "country_name": "日本",
+            "international_tel_country_code": "81",
+            "revenue_display_order": 1460,
+            "contact_tel_number_country_flg": true,
+            "apis_passport_flag": true,
+            "lang": "ja",
+            "pos_country_code": "JP"
+        }
+    ]
+}

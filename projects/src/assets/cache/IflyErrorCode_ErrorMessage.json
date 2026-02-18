@@ -1,0 +1,50 @@
+[
+    {
+        "space_error_code": "EIFH100001",
+        "error_message_id": "EA021"
+    },
+    {
+        "space_error_code": "EIFH100002",
+        "error_message_id": "EA022"
+    },
+    {
+        "space_error_code": "EIFH100003",
+        "error_message_id": "EA014"
+    },
+    {
+        "space_error_code": "EIFH100004",
+        "error_message_id": "EA020"
+    },
+    {
+        "space_error_code": "EIFH100005",
+        "error_message_id": "EA013"
+    },
+    {
+        "space_error_code": "EIFH100006",
+        "error_message_id": "EA016"
+    },
+    {
+        "space_error_code": "EIFH100007",
+        "error_message_id": "EA023"
+    },
+    {
+        "space_error_code": "EIFH100009",
+        "error_message_id": "EA017"
+    },
+    {
+        "space_error_code": "EIFH100010",
+        "error_message_id": "EA026"
+    },
+    {
+        "space_error_code": "EIFH100011",
+        "error_message_id": "EA015"
+    },
+    {
+        "space_error_code": "FIFH100001",
+        "error_message_id": "EA015"
+    },
+    {
+        "space_error_code": "FIFH100002",
+        "error_message_id": "EA019"
+    }
+]

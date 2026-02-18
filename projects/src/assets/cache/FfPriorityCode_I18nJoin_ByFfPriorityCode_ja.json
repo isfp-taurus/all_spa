@@ -1,0 +1,132 @@
+{
+    "2500": [
+        {
+            "ff_priority_code": "2500",
+            "cabin": "eco",
+            "change_type": "2",
+            "refund_type": "1",
+            "seat_chargeable_type": "2",
+            "group_id": "0",
+            "voucher_type_fare": false,
+            "domestic_ff_url": "https://www.airdo.jp/plan/fare/list/flex/",
+            "m_ff_priority_code_i18n_key": "m_ff_priority_code_i18n_2500"
+        }
+    ],
+    "1000": [
+        {
+            "ff_priority_code": "1000",
+            "cabin": "eco",
+            "change_type": "0",
+            "refund_type": "1",
+            "seat_chargeable_type": "2",
+            "group_id": "0",
+            "voucher_type_fare": false,
+            "domestic_ff_url": "https://www.airdo.jp/plan/fare/list/dovalue/",
+            "m_ff_priority_code_i18n_key": "m_ff_priority_code_i18n_1000"
+        }
+    ],
+    "0500": [
+        {
+            "ff_priority_code": "0500",
+            "cabin": "eco",
+            "change_type": "0",
+            "refund_type": "1",
+            "seat_chargeable_type": "2",
+            "group_id": "0",
+            "voucher_type_fare": false,
+            "domestic_ff_url": "https://www.airdo.jp/plan/fare/list/dosale/",
+            "m_ff_priority_code_i18n_key": "m_ff_priority_code_i18n_0500"
+        }
+    ],
+    "1500": [
+        {
+            "ff_priority_code": "1500",
+            "cabin": "eco",
+            "change_type": "2",
+            "refund_type": "1",
+            "seat_chargeable_type": "2",
+            "group_id": "0",
+            "voucher_type_fare": true,
+            "domestic_ff_url": "https://www.airdo.jp/plan/fare/list/doumin/",
+            "m_ff_priority_code_i18n_key": "m_ff_priority_code_i18n_1500"
+        }
+    ],
+    "3000": [
+        {
+            "ff_priority_code": "3000",
+            "cabin": "eco",
+            "change_type": "2",
+            "refund_type": "1",
+            "seat_chargeable_type": "2",
+            "group_id": "0",
+            "voucher_type_fare": false,
+            "domestic_ff_url": "https://www.airdo.jp/corporate/info/shareholder/",
+            "m_ff_priority_code_i18n_key": "m_ff_priority_code_i18n_3000"
+        }
+    ],
+    "4000": [
+        {
+            "ff_priority_code": "4000",
+            "cabin": "eco",
+            "change_type": "0",
+            "refund_type": "1",
+            "seat_chargeable_type": "2",
+            "group_id": "0",
+            "voucher_type_fare": true,
+            "domestic_ff_url": "https://www.airdo.jp/plan/fare/list/dosenior65/",
+            "m_ff_priority_code_i18n_key": "m_ff_priority_code_i18n_4000"
+        }
+    ],
+    "4500": [
+        {
+            "ff_priority_code": "4500",
+            "cabin": "eco",
+            "change_type": "0",
+            "refund_type": "1",
+            "seat_chargeable_type": "2",
+            "group_id": "0",
+            "voucher_type_fare": true,
+            "domestic_ff_url": "https://www.airdo.jp/plan/fare/list/youth25/",
+            "m_ff_priority_code_i18n_key": "m_ff_priority_code_i18n_4500"
+        }
+    ],
+    "3500": [
+        {
+            "ff_priority_code": "3500",
+            "cabin": "eco",
+            "change_type": "2",
+            "refund_type": "1",
+            "seat_chargeable_type": "2",
+            "group_id": "0",
+            "voucher_type_fare": true,
+            "domestic_ff_url": "https://www.airdo.jp/plan/fare/list/recruit/",
+            "m_ff_priority_code_i18n_key": "m_ff_priority_code_i18n_3500"
+        }
+    ],
+    "2000": [
+        {
+            "ff_priority_code": "2000",
+            "cabin": "eco",
+            "change_type": "2",
+            "refund_type": "2",
+            "seat_chargeable_type": "2",
+            "group_id": "0",
+            "voucher_type_fare": false,
+            "domestic_ff_url": "https://www.airdo.jp/biz/fare/do-business/",
+            "m_ff_priority_code_i18n_key": "m_ff_priority_code_i18n_2000"
+        }
+    ],
+    "5000": [
+        {
+            "ff_priority_code": "5000",
+            "cabin": "eco",
+            "change_type": "2",
+            "refund_type": "1",
+            "seat_chargeable_type": "2",
+            "group_id": "0",
+            "voucher_type_fare": false,
+            "domestic_ff_url": "https://www.airdo.jp/myairdo/do-mile/use/",
+            "m_ff_priority_code_i18n_key": "m_ff_priority_code_i18n_5000"
+        }
+    ]
+}

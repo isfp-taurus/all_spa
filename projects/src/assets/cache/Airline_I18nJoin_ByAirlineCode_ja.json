@@ -1,0 +1,4881 @@
+{
+    "0B": [
+        {
+            "airline_code": "0B",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Blue Air Aviation",
+            "operating_airline_url": ""
+        }
+    ],
+    "2A": [
+        {
+            "airline_code": "2A",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "DE",
+            "country_3letter_code": "DEU",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "ドイツ鉄道",
+            "operating_airline_url": ""
+        }
+    ],
+    "2C": [
+        {
+            "airline_code": "2C",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "SNCF",
+            "operating_airline_url": ""
+        }
+    ],
+    "2F": [
+        {
+            "airline_code": "2F",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2023-11-09T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Azul Conecta",
+            "operating_airline_url": ""
+        }
+    ],
+    "2L": [
+        {
+            "airline_code": "2L",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Helvetic Airways",
+            "operating_airline_url": ""
+        }
+    ],
+    "2N": [
+        {
+            "airline_code": "2N",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2023-05-22T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Smartlynx Airlines Malta",
+            "operating_airline_url": ""
+        }
+    ],
+    "2P": [
+        {
+            "airline_code": "2P",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "パルエクスプレス",
+            "operating_airline_url": ""
+        }
+    ],
+    "2W": [
+        {
+            "airline_code": "2W",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "World 2 Fly",
+            "operating_airline_url": ""
+        }
+    ],
+    "2Z": [
+        {
+            "airline_code": "2Z",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Passaredo Transportes Aereos",
+            "operating_airline_url": ""
+        }
+    ],
+    "3K": [
+        {
+            "airline_code": "3K",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Jetstar Asia Airways",
+            "operating_airline_url": ""
+        }
+    ],
+    "3M": [
+        {
+            "airline_code": "3M",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Silver Airways Corp",
+            "operating_airline_url": ""
+        }
+    ],
+    "4C": [
+        {
+            "airline_code": "4C",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2024-04-17T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "LATAM Airlines Colombia",
+            "operating_airline_url": ""
+        }
+    ],
+    "4M": [
+        {
+            "airline_code": "4M",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Mavi Gok Aviation",
+            "operating_airline_url": ""
+        }
+    ],
+    "4Q": [
+        {
+            "airline_code": "4Q",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "25only Aviation",
+            "operating_airline_url": ""
+        }
+    ],
+    "4X": [
+        {
+            "airline_code": "4X",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2023-11-09T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Avion Express Malta",
+            "operating_airline_url": ""
+        }
+    ],
+    "4Y": [
+        {
+            "airline_code": "4Y",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "FR",
+            "country_3letter_code": "FRA",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "EW Discover",
+            "operating_airline_url": ""
+        }
+    ],
+    "4Z": [
+        {
+            "airline_code": "4Z",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Airlink",
+            "operating_airline_url": ""
+        }
+    ],
+    "5K": [
+        {
+            "airline_code": "5K",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "SPRINGJET",
+            "operating_airline_url": ""
+        }
+    ],
+    "5O": [
+        {
+            "airline_code": "5O",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "ASL AIRLINES FRANCE",
+            "operating_airline_url": ""
+        }
+    ],
+    "6G": [
+        {
+            "airline_code": "6G",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Go2Sky",
+            "operating_airline_url": ""
+        }
+    ],
+    "6I": [
+        {
+            "airline_code": "6I",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Air Alsie",
+            "operating_airline_url": ""
+        }
+    ],
+    "6J": [
+        {
+            "airline_code": "6J",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "JP",
+            "country_3letter_code": "JPN",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2025-12-23T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "ソラシドエア",
+            "operating_airline_url": ""
+        }
+    ],
+    "6Y": [
+        {
+            "airline_code": "6Y",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "SmartLynx Airlines",
+            "operating_airline_url": ""
+        }
+    ],
+    "7A": [
+        {
+            "airline_code": "7A",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Express Air Cargo",
+            "operating_airline_url": ""
+        }
+    ],
+    "7G": [
+        {
+            "airline_code": "7G",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "JP",
+            "country_3letter_code": "JPN",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "スターフライヤー",
+            "operating_airline_url": ""
+        }
+    ],
+    "8H": [
+        {
+            "airline_code": "8H",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "PT",
+            "country_3letter_code": "PRT",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "ビーエイチエア運航",
+            "operating_airline_url": ""
+        }
+    ],
+    "8M": [
+        {
+            "airline_code": "8M",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "MM",
+            "country_3letter_code": "MMR",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "ミャンマー国際航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "8R": [
+        {
+            "airline_code": "8R",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2023-05-22T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "AMELIA",
+            "operating_airline_url": ""
+        }
+    ],
+    "9B": [
+        {
+            "airline_code": "9B",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "AccesRail",
+            "operating_airline_url": ""
+        }
+    ],
+    "9E": [
+        {
+            "airline_code": "9E",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Endeavor Air",
+            "operating_airline_url": ""
+        }
+    ],
+    "9I": [
+        {
+            "airline_code": "9I",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Alliance Air",
+            "operating_airline_url": ""
+        }
+    ],
+    "9K": [
+        {
+            "airline_code": "9K",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Cape Air",
+            "operating_airline_url": ""
+        }
+    ],
+    "A0": [
+        {
+            "airline_code": "A0",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2023-05-22T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "BA Euroflyer",
+            "operating_airline_url": ""
+        }
+    ],
+    "A2": [
+        {
+            "airline_code": "A2",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2021-08-04T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Anima Wings Aviation",
+            "operating_airline_url": ""
+        }
+    ],
+    "A3": [
+        {
+            "airline_code": "A3",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": true,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "GR",
+            "country_3letter_code": "GRC",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "エーゲ航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "A5": [
+        {
+            "airline_code": "A5",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "HOP!",
+            "operating_airline_url": ""
+        }
+    ],
+    "AA": [
+        {
+            "airline_code": "AA",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "US",
+            "country_3letter_code": "USA",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "アメリカン航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "AC": [
+        {
+            "airline_code": "AC",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": true,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "CA",
+            "country_3letter_code": "CAN",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "エア・カナダ",
+            "operating_airline_url": ""
+        }
+    ],
+    "AD": [
+        {
+            "airline_code": "AD",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "アズールブラジル航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "AF": [
+        {
+            "airline_code": "AF",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "FR",
+            "country_3letter_code": "FRA",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "エールフランス",
+            "operating_airline_url": ""
+        }
+    ],
+    "AH": [
+        {
+            "airline_code": "AH",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Air Algerie",
+            "operating_airline_url": ""
+        }
+    ],
+    "AI": [
+        {
+            "airline_code": "AI",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": true,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "IN",
+            "country_3letter_code": "IND",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2024-04-17T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "エアインディア",
+            "operating_airline_url": ""
+        }
+    ],
+    "AM": [
+        {
+            "airline_code": "AM",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "MX",
+            "country_3letter_code": "MEX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "アエロメヒコ航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "AN": [
+        {
+            "airline_code": "AN",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Advanced Air",
+            "operating_airline_url": ""
+        }
+    ],
+    "AP": [
+        {
+            "airline_code": "AP",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Alba Star",
+            "operating_airline_url": ""
+        }
+    ],
+    "AR": [
+        {
+            "airline_code": "AR",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Aerolineas Argentinas",
+            "operating_airline_url": ""
+        }
+    ],
+    "AS": [
+        {
+            "airline_code": "AS",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "US",
+            "country_3letter_code": "USA",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "アラスカ航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "AT": [
+        {
+            "airline_code": "AT",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "GB",
+            "country_3letter_code": "GBR",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "ロイヤル・エア・モロッコ",
+            "operating_airline_url": ""
+        }
+    ],
+    "AU": [
+        {
+            "airline_code": "AU",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Canada Jetlines",
+            "operating_airline_url": ""
+        }
+    ],
+    "AV": [
+        {
+            "airline_code": "AV",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": true,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "BR",
+            "country_3letter_code": "BRA",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "アビアンカ航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "AX": [
+        {
+            "airline_code": "AX",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Air X Charter",
+            "operating_airline_url": ""
+        }
+    ],
+    "AY": [
+        {
+            "airline_code": "AY",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "FI",
+            "country_3letter_code": "FIN",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "フィンランド航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "AZ": [
+        {
+            "airline_code": "AZ",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "IT",
+            "country_3letter_code": "ITA",
+            "umnr_restricted_age": 14,
+            "last_modification_date_time": "2024-05-16T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "ITA Airways",
+            "operating_airline_url": ""
+        }
+    ],
+    "B6": [
+        {
+            "airline_code": "B6",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "US",
+            "country_3letter_code": "USA",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "ジェットブルー航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "B7": [
+        {
+            "airline_code": "B7",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "UNI Airways Corporation",
+            "operating_airline_url": ""
+        }
+    ],
+    "BA": [
+        {
+            "airline_code": "BA",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "GB",
+            "country_3letter_code": "GBR",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "ブリティッシュ・エアウェイズ",
+            "operating_airline_url": ""
+        }
+    ],
+    "BD": [
+        {
+            "airline_code": "BD",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Budget Lines",
+            "operating_airline_url": ""
+        }
+    ],
+    "BE": [
+        {
+            "airline_code": "BE",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "GB",
+            "country_3letter_code": "GBR",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "フライビー",
+            "operating_airline_url": ""
+        }
+    ],
+    "BG": [
+        {
+            "airline_code": "BG",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Biman",
+            "operating_airline_url": ""
+        }
+    ],
+    "BI": [
+        {
+            "airline_code": "BI",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "BN",
+            "country_3letter_code": "BRN",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "ロイヤルブルネイ航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "BJ": [
+        {
+            "airline_code": "BJ",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Nouvelair",
+            "operating_airline_url": ""
+        }
+    ],
+    "BL": [
+        {
+            "airline_code": "BL",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "VN",
+            "country_3letter_code": "VNM",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Pacific Airlines",
+            "operating_airline_url": ""
+        }
+    ],
+    "BR": [
+        {
+            "airline_code": "BR",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": true,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "TW",
+            "country_3letter_code": "TWN",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "エバー航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "BT": [
+        {
+            "airline_code": "BT",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Air Baltic",
+            "operating_airline_url": ""
+        }
+    ],
+    "BW": [
+        {
+            "airline_code": "BW",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Caribbean Airlines",
+            "operating_airline_url": ""
+        }
+    ],
+    "BX": [
+        {
+            "airline_code": "BX",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Air Busan",
+            "operating_airline_url": ""
+        }
+    ],
+    "C3": [
+        {
+            "airline_code": "C3",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "TRADE AIR",
+            "operating_airline_url": ""
+        }
+    ],
+    "C5": [
+        {
+            "airline_code": "C5",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "US",
+            "country_3letter_code": "USA",
+            "umnr_restricted_age": 14,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "CommuteAir",
+            "operating_airline_url": ""
+        }
+    ],
+    "C9": [
+        {
+            "airline_code": "C9",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Cronos Airlines Benin",
+            "operating_airline_url": ""
+        }
+    ],
+    "CA": [
+        {
+            "airline_code": "CA",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": true,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "CN",
+            "country_3letter_code": "CHN",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "中国国際航空公司",
+            "operating_airline_url": ""
+        }
+    ],
+    "CI": [
+        {
+            "airline_code": "CI",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "TW",
+            "country_3letter_code": "TWN",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "チャイナエアライン",
+            "operating_airline_url": ""
+        }
+    ],
+    "CJ": [
+        {
+            "airline_code": "CJ",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "BA Cityflyer",
+            "operating_airline_url": ""
+        }
+    ],
+    "CL": [
+        {
+            "airline_code": "CL",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": true,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "DE",
+            "country_3letter_code": "DEU",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2023-10-19T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "ルフトハンザ ドイツ航空（ルフトハンザ・シティライン）",
+            "operating_airline_url": ""
+        }
+    ],
+    "CM": [
+        {
+            "airline_code": "CM",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": true,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "BR",
+            "country_3letter_code": "BRA",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "コパ航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "CT": [
+        {
+            "airline_code": "CT",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Air Atlanta Europe",
+            "operating_airline_url": ""
+        }
+    ],
+    "CX": [
+        {
+            "airline_code": "CX",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "HK",
+            "country_3letter_code": "HKG",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "キャセイパシフィック航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "CY": [
+        {
+            "airline_code": "CY",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2024-04-17T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Cyprus Airways",
+            "operating_airline_url": ""
+        }
+    ],
+    "CZ": [
+        {
+            "airline_code": "CZ",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "CN",
+            "country_3letter_code": "CHN",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "中国南方航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "DB": [
+        {
+            "airline_code": "DB",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "MALETH-AERO",
+            "operating_airline_url": ""
+        }
+    ],
+    "DC": [
+        {
+            "airline_code": "DC",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "AIR GEORGIA",
+            "operating_airline_url": ""
+        }
+    ],
+    "DE": [
+        {
+            "airline_code": "DE",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Condor",
+            "operating_airline_url": ""
+        }
+    ],
+    "DL": [
+        {
+            "airline_code": "DL",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "US",
+            "country_3letter_code": "USA",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "デルタ航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "DX": [
+        {
+            "airline_code": "DX",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Danish Air Transport",
+            "operating_airline_url": ""
+        }
+    ],
+    "E2": [
+        {
+            "airline_code": "E2",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Eurowings Europe",
+            "operating_airline_url": ""
+        }
+    ],
+    "E6": [
+        {
+            "airline_code": "E6",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Eurowings Europe",
+            "operating_airline_url": ""
+        }
+    ],
+    "E9": [
+        {
+            "airline_code": "E9",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Iberojet Airlines",
+            "operating_airline_url": ""
+        }
+    ],
+    "EB": [
+        {
+            "airline_code": "EB",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Wamos Air",
+            "operating_airline_url": ""
+        }
+    ],
+    "EC": [
+        {
+            "airline_code": "EC",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "easyJet Europe Airline",
+            "operating_airline_url": ""
+        }
+    ],
+    "ED": [
+        {
+            "airline_code": "ED",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "AirExplore",
+            "operating_airline_url": ""
+        }
+    ],
+    "EE": [
+        {
+            "airline_code": "EE",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Xfly",
+            "operating_airline_url": ""
+        }
+    ],
+    "EH": [
+        {
+            "airline_code": "EH",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": true,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "JP",
+            "country_3letter_code": "JPN",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "ANAウイングス",
+            "operating_airline_url": ""
+        }
+    ],
+    "EI": [
+        {
+            "airline_code": "EI",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Aer Lingus",
+            "operating_airline_url": ""
+        }
+    ],
+    "EK": [
+        {
+            "airline_code": "EK",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "AE",
+            "country_3letter_code": "ARE",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "エミレーツ航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "EN": [
+        {
+            "airline_code": "EN",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "DE",
+            "country_3letter_code": "DEU",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2023-10-19T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "ルフトハンザ ドイツ航空（エア　ドロミティ）",
+            "operating_airline_url": ""
+        }
+    ],
+    "EQ": [
+        {
+            "airline_code": "EQ",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "FLY ANGOLA",
+            "operating_airline_url": ""
+        }
+    ],
+    "ET": [
+        {
+            "airline_code": "ET",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": true,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "ET",
+            "country_3letter_code": "ETH",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "エチオピア航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "EV": [
+        {
+            "airline_code": "EV",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "エクスプレスジェットエアラインズ",
+            "operating_airline_url": ""
+        }
+    ],
+    "EW": [
+        {
+            "airline_code": "EW",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "DE",
+            "country_3letter_code": "DEU",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "ユーロウィングス",
+            "operating_airline_url": ""
+        }
+    ],
+    "EY": [
+        {
+            "airline_code": "EY",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "AE",
+            "country_3letter_code": "ARE",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "エティハド航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "EZ": [
+        {
+            "airline_code": "EZ",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Sun Air of Scandinavia",
+            "operating_airline_url": ""
+        }
+    ],
+    "F6": [
+        {
+            "airline_code": "F6",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2023-05-22T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Fly2Sky",
+            "operating_airline_url": ""
+        }
+    ],
+    "F7": [
+        {
+            "airline_code": "F7",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "I Fly",
+            "operating_airline_url": ""
+        }
+    ],
+    "FB": [
+        {
+            "airline_code": "FB",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Bulgaria Air",
+            "operating_airline_url": ""
+        }
+    ],
+    "FI": [
+        {
+            "airline_code": "FI",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "IS",
+            "country_3letter_code": "ISL",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "アイスランド航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "FJ": [
+        {
+            "airline_code": "FJ",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Fiji Airways",
+            "operating_airline_url": ""
+        }
+    ],
+    "FM": [
+        {
+            "airline_code": "FM",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "CN",
+            "country_3letter_code": "CHN",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "上海航空公司",
+            "operating_airline_url": ""
+        }
+    ],
+    "FS": [
+        {
+            "airline_code": "FS",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Flyr",
+            "operating_airline_url": ""
+        }
+    ],
+    "FV": [
+        {
+            "airline_code": "FV",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Rossiya Airlines",
+            "operating_airline_url": ""
+        }
+    ],
+    "FW": [
+        {
+            "airline_code": "FW",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": true,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "JP",
+            "country_3letter_code": "JPN",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "ＩＢＥＸエアラインズ",
+            "operating_airline_url": ""
+        }
+    ],
+    "FY": [
+        {
+            "airline_code": "FY",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Firefly",
+            "operating_airline_url": ""
+        }
+    ],
+    "FZ": [
+        {
+            "airline_code": "FZ",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Flydubai",
+            "operating_airline_url": ""
+        }
+    ],
+    "G3": [
+        {
+            "airline_code": "G3",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "BR",
+            "country_3letter_code": "BRA",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "ゴル航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "G6": [
+        {
+            "airline_code": "G6",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "FLY ARNA",
+            "operating_airline_url": ""
+        }
+    ],
+    "G7": [
+        {
+            "airline_code": "G7",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": true,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "US",
+            "country_3letter_code": "USA",
+            "umnr_restricted_age": 14,
+            "last_modification_date_time": "2023-10-19T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "ユナイテッドエクスプレス（ゴー・ジェット）",
+            "operating_airline_url": ""
+        }
+    ],
+    "GA": [
+        {
+            "airline_code": "GA",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "ID",
+            "country_3letter_code": "IDN",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2025-11-16T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "ガルーダ・インドネシア航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "GF": [
+        {
+            "airline_code": "GF",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "AE",
+            "country_3letter_code": "ARE",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "ガルフ・エア",
+            "operating_airline_url": ""
+        }
+    ],
+    "GH": [
+        {
+            "airline_code": "GH",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Georgian Airlines",
+            "operating_airline_url": ""
+        }
+    ],
+    "GK": [
+        {
+            "airline_code": "GK",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Jetstar Japan",
+            "operating_airline_url": ""
+        }
+    ],
+    "GW": [
+        {
+            "airline_code": "GW",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "LT",
+            "country_3letter_code": "LTU",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "GetJet Airline",
+            "operating_airline_url": ""
+        }
+    ],
+    "HA": [
+        {
+            "airline_code": "HA",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "US",
+            "country_3letter_code": "USA",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "ハワイアン航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "HD": [
+        {
+            "airline_code": "HD",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "JP",
+            "country_3letter_code": "JPN",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "AIR DO",
+            "operating_airline_url": ""
+        }
+    ],
+    "HO": [
+        {
+            "airline_code": "HO",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": true,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "CN",
+            "country_3letter_code": "CHN",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "吉祥航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "HR": [
+        {
+            "airline_code": "HR",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Hahn Air Lines",
+            "operating_airline_url": ""
+        }
+    ],
+    "HU": [
+        {
+            "airline_code": "HU",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Hainan Airlines",
+            "operating_airline_url": ""
+        }
+    ],
+    "HV": [
+        {
+            "airline_code": "HV",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Transavia Airlines",
+            "operating_airline_url": ""
+        }
+    ],
+    "HX": [
+        {
+            "airline_code": "HX",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "HK",
+            "country_3letter_code": "HKG",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "香港航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "HY": [
+        {
+            "airline_code": "HY",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "UZ",
+            "country_3letter_code": "UZB",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "ウズベキスタン航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "HZ": [
+        {
+            "airline_code": "HZ",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Aurora Airlines",
+            "operating_airline_url": ""
+        }
+    ],
+    "I2": [
+        {
+            "airline_code": "I2",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Iberia Express",
+            "operating_airline_url": ""
+        }
+    ],
+    "IB": [
+        {
+            "airline_code": "IB",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "ES",
+            "country_3letter_code": "ESP",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "イベリア航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "ID": [
+        {
+            "airline_code": "ID",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Batik Air",
+            "operating_airline_url": ""
+        }
+    ],
+    "IQ": [
+        {
+            "airline_code": "IQ",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": true,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "DE",
+            "country_3letter_code": "DEU",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2023-10-19T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "ルフトハンザ ドイツ航空（アウグスブルク　エアウェイズ）",
+            "operating_airline_url": ""
+        }
+    ],
+    "IT": [
+        {
+            "airline_code": "IT",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Tigerair Taiwan",
+            "operating_airline_url": ""
+        }
+    ],
+    "J2": [
+        {
+            "airline_code": "J2",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Azerbaijan Airlines",
+            "operating_airline_url": ""
+        }
+    ],
+    "JC": [
+        {
+            "airline_code": "JC",
+            "apply_from_date": "20220622",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "JP",
+            "country_3letter_code": "JPN",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2023-10-19T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "日本エアコミューター",
+            "operating_airline_url": ""
+        }
+    ],
+    "JD": [
+        {
+            "airline_code": "JD",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Beijing Capital Airlines",
+            "operating_airline_url": ""
+        }
+    ],
+    "JE": [
+        {
+            "airline_code": "JE",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Jettainer",
+            "operating_airline_url": ""
+        }
+    ],
+    "JJ": [
+        {
+            "airline_code": "JJ",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "BR",
+            "country_3letter_code": "BRA",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "TAM航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "JL": [
+        {
+            "airline_code": "JL",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Japan Airlines",
+            "operating_airline_url": ""
+        }
+    ],
+    "JM": [
+        {
+            "airline_code": "JM",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "KE",
+            "country_3letter_code": "KEN",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Jambojet",
+            "operating_airline_url": ""
+        }
+    ],
+    "JN": [
+        {
+            "airline_code": "JN",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Alaska Air Transit",
+            "operating_airline_url": ""
+        }
+    ],
+    "JO": [
+        {
+            "airline_code": "JO",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Jonica",
+            "operating_airline_url": ""
+        }
+    ],
+    "JQ": [
+        {
+            "airline_code": "JQ",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Jetstar Airways",
+            "operating_airline_url": ""
+        }
+    ],
+    "JU": [
+        {
+            "airline_code": "JU",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Air Serbia",
+            "operating_airline_url": ""
+        }
+    ],
+    "K2": [
+        {
+            "airline_code": "K2",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "PAKLOOK AIR",
+            "operating_airline_url": ""
+        }
+    ],
+    "K6": [
+        {
+            "airline_code": "K6",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "KH",
+            "country_3letter_code": "KHM",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2025-03-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "エアカンボジア",
+            "operating_airline_url": ""
+        }
+    ],
+    "KC": [
+        {
+            "airline_code": "KC",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Air Astana",
+            "operating_airline_url": ""
+        }
+    ],
+    "KE": [
+        {
+            "airline_code": "KE",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "KR",
+            "country_3letter_code": "KOR",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "大韓航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "KF": [
+        {
+            "airline_code": "KF",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Air Belgium",
+            "operating_airline_url": ""
+        }
+    ],
+    "KK": [
+        {
+            "airline_code": "KK",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "LEAV Aviation",
+            "operating_airline_url": ""
+        }
+    ],
+    "KL": [
+        {
+            "airline_code": "KL",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "NL",
+            "country_3letter_code": "NLD",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "KLMオランダ航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "KM": [
+        {
+            "airline_code": "KM",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "MT",
+            "country_3letter_code": "MLT",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "マルタ航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "KN": [
+        {
+            "airline_code": "KN",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "China United Airlines",
+            "operating_airline_url": ""
+        }
+    ],
+    "KQ": [
+        {
+            "airline_code": "KQ",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "AE",
+            "country_3letter_code": "ARE",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "ケニア航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "KY": [
+        {
+            "airline_code": "KY",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Kunming Airlines",
+            "operating_airline_url": ""
+        }
+    ],
+    "LA": [
+        {
+            "airline_code": "LA",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "BR",
+            "country_3letter_code": "BRA",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "ラン航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "LG": [
+        {
+            "airline_code": "LG",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "LU",
+            "country_3letter_code": "LUX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "ルクス航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "LH": [
+        {
+            "airline_code": "LH",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": true,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "DE",
+            "country_3letter_code": "DEU",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "ルフトハンザ ドイツ航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "LJ": [
+        {
+            "airline_code": "LJ",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Jin Air Co. Ltd",
+            "operating_airline_url": ""
+        }
+    ],
+    "LO": [
+        {
+            "airline_code": "LO",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": true,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "PL",
+            "country_3letter_code": "POL",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "LOTポーランド航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "LP": [
+        {
+            "airline_code": "LP",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "JP",
+            "country_3letter_code": "JPN",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2023-10-19T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "ラン・ペル",
+            "operating_airline_url": ""
+        }
+    ],
+    "LR": [
+        {
+            "airline_code": "LR",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": true,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "CR",
+            "country_3letter_code": "CRI",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "ラクサ航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "LX": [
+        {
+            "airline_code": "LX",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": true,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "CH",
+            "country_3letter_code": "CHE",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "スイスインターナショナルエアラインズ",
+            "operating_airline_url": ""
+        }
+    ],
+    "LY": [
+        {
+            "airline_code": "LY",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "AE",
+            "country_3letter_code": "ARE",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "エル・アル航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "LZ": [
+        {
+            "airline_code": "LZ",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Altitude Aviation",
+            "operating_airline_url": ""
+        }
+    ],
+    "M4": [
+        {
+            "airline_code": "M4",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Poste Air Cargo",
+            "operating_airline_url": ""
+        }
+    ],
+    "MA": [
+        {
+            "airline_code": "MA",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Elitavia Malta",
+            "operating_airline_url": ""
+        }
+    ],
+    "MB": [
+        {
+            "airline_code": "MB",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "MNG Airlines Cargo",
+            "operating_airline_url": ""
+        }
+    ],
+    "MD": [
+        {
+            "airline_code": "MD",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Air Madagascar",
+            "operating_airline_url": ""
+        }
+    ],
+    "ME": [
+        {
+            "airline_code": "ME",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Middle East Airlines",
+            "operating_airline_url": ""
+        }
+    ],
+    "MF": [
+        {
+            "airline_code": "MF",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "CN",
+            "country_3letter_code": "CHN",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "厦門航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "MH": [
+        {
+            "airline_code": "MH",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "MY",
+            "country_3letter_code": "MYS",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "マレーシア航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "MJ": [
+        {
+            "airline_code": "MJ",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Myway Airlines",
+            "operating_airline_url": ""
+        }
+    ],
+    "MM": [
+        {
+            "airline_code": "MM",
+            "apply_from_date": "20210324",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "JP",
+            "country_3letter_code": "JPN",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2021-04-06T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Peach Aviation",
+            "operating_airline_url": ""
+        }
+    ],
+    "MS": [
+        {
+            "airline_code": "MS",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": true,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "EG",
+            "country_3letter_code": "EGY",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "エジプト航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "MT": [
+        {
+            "airline_code": "MT",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Malta MedAir",
+            "operating_airline_url": ""
+        }
+    ],
+    "MU": [
+        {
+            "airline_code": "MU",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "CN",
+            "country_3letter_code": "CHN",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "中国東方航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "MZ": [
+        {
+            "airline_code": "MZ",
+            "apply_from_date": "20220622",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "JP",
+            "country_3letter_code": "JPN",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2023-10-19T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "天草エアライン",
+            "operating_airline_url": ""
+        }
+    ],
+    "NH": [
+        {
+            "airline_code": "NH",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": true,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "JP",
+            "country_3letter_code": "JPN",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "ANA",
+            "operating_airline_url": ""
+        }
+    ],
+    "NI": [
+        {
+            "airline_code": "NI",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "ポルトガリア",
+            "operating_airline_url": ""
+        }
+    ],
+    "NL": [
+        {
+            "airline_code": "NL",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2023-11-09T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Amelia International",
+            "operating_airline_url": ""
+        }
+    ],
+    "NO": [
+        {
+            "airline_code": "NO",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Neos",
+            "operating_airline_url": ""
+        }
+    ],
+    "NQ": [
+        {
+            "airline_code": "NQ",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": true,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "JP",
+            "country_3letter_code": "JPN",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "エアージャパン",
+            "operating_airline_url": ""
+        }
+    ],
+    "NX": [
+        {
+            "airline_code": "NX",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "CN",
+            "country_3letter_code": "CHN",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "マカオ航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "NZ": [
+        {
+            "airline_code": "NZ",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": true,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": false,
+            "country_2letter_code": "NZ",
+            "country_3letter_code": "NZL",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "ニュージーランド航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "OA": [
+        {
+            "airline_code": "OA",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "GR",
+            "country_3letter_code": "GRC",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "オリンピック航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "OC": [
+        {
+            "airline_code": "OC",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": true,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "JP",
+            "country_3letter_code": "JPN",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "オリエンタルエアブリッジ",
+            "operating_airline_url": ""
+        }
+    ],
+    "OD": [
+        {
+            "airline_code": "OD",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Malindo Air",
+            "operating_airline_url": ""
+        }
+    ],
+    "OK": [
+        {
+            "airline_code": "OK",
+            "apply_from_date": "19000101",
+            "apply_to_date": "20251027",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "CZ",
+            "country_3letter_code": "CZE",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2025-09-15T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "チェコ航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "OM": [
+        {
+            "airline_code": "OM",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "MN",
+            "country_3letter_code": "MNG",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "MIATモンゴル航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "OO": [
+        {
+            "airline_code": "OO",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": true,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "US",
+            "country_3letter_code": "USA",
+            "umnr_restricted_age": 14,
+            "last_modification_date_time": "2023-10-19T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "ユナイテッドエクスプレス（スカイウエスト）",
+            "operating_airline_url": ""
+        }
+    ],
+    "OR": [
+        {
+            "airline_code": "OR",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "TUI Airlines Netherlands",
+            "operating_airline_url": ""
+        }
+    ],
+    "OS": [
+        {
+            "airline_code": "OS",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": true,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "AT",
+            "country_3letter_code": "AUT",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "オーストリア航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "OU": [
+        {
+            "airline_code": "OU",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": true,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "HR",
+            "country_3letter_code": "HRV",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "クロアチア航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "OV": [
+        {
+            "airline_code": "OV",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Salam Air",
+            "operating_airline_url": ""
+        }
+    ],
+    "OY": [
+        {
+            "airline_code": "OY",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "US",
+            "country_3letter_code": "USA",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Omni Air International",
+            "operating_airline_url": ""
+        }
+    ],
+    "OZ": [
+        {
+            "airline_code": "OZ",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": true,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "KR",
+            "country_3letter_code": "KOR",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "アシアナ航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "P5": [
+        {
+            "airline_code": "P5",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Aero Republica",
+            "operating_airline_url": ""
+        }
+    ],
+    "PC": [
+        {
+            "airline_code": "PC",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Pegasus Airlines",
+            "operating_airline_url": ""
+        }
+    ],
+    "PG": [
+        {
+            "airline_code": "PG",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "TH",
+            "country_3letter_code": "THA",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "バンコク・エアウェイズ",
+            "operating_airline_url": ""
+        }
+    ],
+    "PK": [
+        {
+            "airline_code": "PK",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "KP",
+            "country_3letter_code": "PRK",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "パキスタン国際航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "PR": [
+        {
+            "airline_code": "PR",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "PH",
+            "country_3letter_code": "PHL",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "フィリピン航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "PT": [
+        {
+            "airline_code": "PT",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Piedmont Airlines",
+            "operating_airline_url": ""
+        }
+    ],
+    "PW": [
+        {
+            "airline_code": "PW",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Precision Air",
+            "operating_airline_url": ""
+        }
+    ],
+    "PZ": [
+        {
+            "airline_code": "PZ",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "BR",
+            "country_3letter_code": "BRA",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "TAM航空パラグアイ",
+            "operating_airline_url": ""
+        }
+    ],
+    "QF": [
+        {
+            "airline_code": "QF",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "AU",
+            "country_3letter_code": "AUS",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "カンタス航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "QK": [
+        {
+            "airline_code": "QK",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": true,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "CA",
+            "country_3letter_code": "CAN",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "エア・カナダ・エクスプレス",
+            "operating_airline_url": ""
+        }
+    ],
+    "QR": [
+        {
+            "airline_code": "QR",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "QA",
+            "country_3letter_code": "QAT",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "カタール航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "QS": [
+        {
+            "airline_code": "QS",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Smartwings",
+            "operating_airline_url": ""
+        }
+    ],
+    "QV": [
+        {
+            "airline_code": "QV",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Lao Airlines",
+            "operating_airline_url": ""
+        }
+    ],
+    "QX": [
+        {
+            "airline_code": "QX",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Horizon Air",
+            "operating_airline_url": ""
+        }
+    ],
+    "R6": [
+        {
+            "airline_code": "R6",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2023-05-22T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "DAT",
+            "operating_airline_url": ""
+        }
+    ],
+    "RA": [
+        {
+            "airline_code": "RA",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "NP",
+            "country_3letter_code": "NPL",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "ネパール航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "RC": [
+        {
+            "airline_code": "RC",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Atlantic Airways",
+            "operating_airline_url": ""
+        }
+    ],
+    "RE": [
+        {
+            "airline_code": "RE",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Airhub Airlines",
+            "operating_airline_url": ""
+        }
+    ],
+    "RJ": [
+        {
+            "airline_code": "RJ",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Royal Jordanian",
+            "operating_airline_url": ""
+        }
+    ],
+    "RO": [
+        {
+            "airline_code": "RO",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "TAROM",
+            "operating_airline_url": ""
+        }
+    ],
+    "RP": [
+        {
+            "airline_code": "RP",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Budapest Aircraft Service",
+            "operating_airline_url": ""
+        }
+    ],
+    "RV": [
+        {
+            "airline_code": "RV",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Air Canada Rouge",
+            "operating_airline_url": ""
+        }
+    ],
+    "S7": [
+        {
+            "airline_code": "S7",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "RU",
+            "country_3letter_code": "RUS",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "S7 Airlines",
+            "operating_airline_url": ""
+        }
+    ],
+    "SA": [
+        {
+            "airline_code": "SA",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": true,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "ZA",
+            "country_3letter_code": "ZAF",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "南アフリカ航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "SB": [
+        {
+            "airline_code": "SB",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Air Caledonie International",
+            "operating_airline_url": ""
+        }
+    ],
+    "SC": [
+        {
+            "airline_code": "SC",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "CN",
+            "country_3letter_code": "CHN",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "山東航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "SI": [
+        {
+            "airline_code": "SI",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "GB",
+            "country_3letter_code": "GBR",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Blue Islands",
+            "operating_airline_url": ""
+        }
+    ],
+    "SK": [
+        {
+            "airline_code": "SK",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "SE",
+            "country_3letter_code": "SWE",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2025-03-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "スカンジナビア航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "SN": [
+        {
+            "airline_code": "SN",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": true,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "BE",
+            "country_3letter_code": "BEL",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "ブリュッセル航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "SQ": [
+        {
+            "airline_code": "SQ",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": true,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "SG",
+            "country_3letter_code": "SGP",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "シンガポール航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "SS": [
+        {
+            "airline_code": "SS",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Corsair",
+            "operating_airline_url": ""
+        }
+    ],
+    "ST": [
+        {
+            "airline_code": "ST",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Air Thanlwin",
+            "operating_airline_url": ""
+        }
+    ],
+    "SU": [
+        {
+            "airline_code": "SU",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "RU",
+            "country_3letter_code": "RUS",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "アエロフロート・ロシア航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "T3": [
+        {
+            "airline_code": "T3",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Eastern Airways",
+            "operating_airline_url": ""
+        }
+    ],
+    "TA": [
+        {
+            "airline_code": "TA",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": true,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "SV",
+            "country_3letter_code": "SLV",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2023-08-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "TACA航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "TF": [
+        {
+            "airline_code": "TF",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Braathens Regional Airways",
+            "operating_airline_url": ""
+        }
+    ],
+    "TG": [
+        {
+            "airline_code": "TG",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": true,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "TH",
+            "country_3letter_code": "THA",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "タイ国際航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "TK": [
+        {
+            "airline_code": "TK",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": true,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "TR",
+            "country_3letter_code": "TUR",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "ターキッシュエアラインズ",
+            "operating_airline_url": ""
+        }
+    ],
+    "TN": [
+        {
+            "airline_code": "TN",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Air Tahiti Nui",
+            "operating_airline_url": ""
+        }
+    ],
+    "TP": [
+        {
+            "airline_code": "TP",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": true,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "PT",
+            "country_3letter_code": "PRT",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2023-08-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "TAPポルトガル航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "TU": [
+        {
+            "airline_code": "TU",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Tunisair",
+            "operating_airline_url": ""
+        }
+    ],
+    "UA": [
+        {
+            "airline_code": "UA",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": true,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "US",
+            "country_3letter_code": "USA",
+            "umnr_restricted_age": 14,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "ユナイテッド航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "UH": [
+        {
+            "airline_code": "UH",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Jet Exchange",
+            "operating_airline_url": ""
+        }
+    ],
+    "UK": [
+        {
+            "airline_code": "UK",
+            "apply_from_date": "19000101",
+            "apply_to_date": "20251112",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2025-09-15T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "ビスタラ",
+            "operating_airline_url": ""
+        }
+    ],
+    "UL": [
+        {
+            "airline_code": "UL",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "LK",
+            "country_3letter_code": "LKA",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "スリランカ航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "UN": [
+        {
+            "airline_code": "UN",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Business Aviation Asia",
+            "operating_airline_url": ""
+        }
+    ],
+    "UO": [
+        {
+            "airline_code": "UO",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Hong Kong Express Airways",
+            "operating_airline_url": ""
+        }
+    ],
+    "UX": [
+        {
+            "airline_code": "UX",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "ES",
+            "country_3letter_code": "ESP",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "エア・ヨーロッパ",
+            "operating_airline_url": ""
+        }
+    ],
+    "V3": [
+        {
+            "airline_code": "V3",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Carpatair",
+            "operating_airline_url": ""
+        }
+    ],
+    "VA": [
+        {
+            "airline_code": "VA",
+            "apply_from_date": "20150916",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "AU",
+            "country_3letter_code": "AUS",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2024-02-07T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "ヴァージン・オーストラリア航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "VG": [
+        {
+            "airline_code": "VG",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Vipper",
+            "operating_airline_url": ""
+        }
+    ],
+    "VJ": [
+        {
+            "airline_code": "VJ",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Vietjet Aviation",
+            "operating_airline_url": ""
+        }
+    ],
+    "VN": [
+        {
+            "airline_code": "VN",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "VN",
+            "country_3letter_code": "VNM",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "ベトナム航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "VS": [
+        {
+            "airline_code": "VS",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "GB",
+            "country_3letter_code": "GBR",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "ヴァージンアトランティック航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "VW": [
+        {
+            "airline_code": "VW",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Aeromar",
+            "operating_airline_url": ""
+        }
+    ],
+    "VY": [
+        {
+            "airline_code": "VY",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Vueling Airlines",
+            "operating_airline_url": ""
+        }
+    ],
+    "W2": [
+        {
+            "airline_code": "W2",
+            "apply_from_date": "20220101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2021-12-12T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "FLEXFLIGHT",
+            "operating_airline_url": ""
+        }
+    ],
+    "WA": [
+        {
+            "airline_code": "WA",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "KLM Cityhopper",
+            "operating_airline_url": ""
+        }
+    ],
+    "WC": [
+        {
+            "airline_code": "WC",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Meregrass",
+            "operating_airline_url": ""
+        }
+    ],
+    "WE": [
+        {
+            "airline_code": "WE",
+            "apply_from_date": "19000101",
+            "apply_to_date": "20241231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2024-02-07T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Thai Smile Airways Company Limited",
+            "operating_airline_url": ""
+        }
+    ],
+    "WF": [
+        {
+            "airline_code": "WF",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Wideroe",
+            "operating_airline_url": ""
+        }
+    ],
+    "WI": [
+        {
+            "airline_code": "WI",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "PT",
+            "country_3letter_code": "PRT",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "ホワイトエアウェイズ",
+            "operating_airline_url": ""
+        }
+    ],
+    "WK": [
+        {
+            "airline_code": "WK",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "エーデルワイス航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "WR": [
+        {
+            "airline_code": "WR",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "WestJet Encore",
+            "operating_airline_url": ""
+        }
+    ],
+    "WS": [
+        {
+            "airline_code": "WS",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "WestJet",
+            "operating_airline_url": ""
+        }
+    ],
+    "WX": [
+        {
+            "airline_code": "WX",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "CityJet",
+            "operating_airline_url": ""
+        }
+    ],
+    "X3": [
+        {
+            "airline_code": "X3",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "DE",
+            "country_3letter_code": "DEU",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "トゥイフライ",
+            "operating_airline_url": ""
+        }
+    ],
+    "X8": [
+        {
+            "airline_code": "X8",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2023-11-09T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Airmax S.A.",
+            "operating_airline_url": ""
+        }
+    ],
+    "X9": [
+        {
+            "airline_code": "X9",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "LT",
+            "country_3letter_code": "LTU",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Avion Express",
+            "operating_airline_url": ""
+        }
+    ],
+    "XE": [
+        {
+            "airline_code": "XE",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "JSX Air",
+            "operating_airline_url": ""
+        }
+    ],
+    "XK": [
+        {
+            "airline_code": "XK",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Air Corsica",
+            "operating_airline_url": ""
+        }
+    ],
+    "XL": [
+        {
+            "airline_code": "XL",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "GB",
+            "country_3letter_code": "GBR",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "XL航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "XQ": [
+        {
+            "airline_code": "XQ",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2023-11-09T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "SunExpress",
+            "operating_airline_url": ""
+        }
+    ],
+    "XZ": [
+        {
+            "airline_code": "XZ",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "AEROITALIA",
+            "operating_airline_url": ""
+        }
+    ],
+    "YS": [
+        {
+            "airline_code": "YS",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Flightlink",
+            "operating_airline_url": ""
+        }
+    ],
+    "YU": [
+        {
+            "airline_code": "YU",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "euroAtlantic airways",
+            "operating_airline_url": ""
+        }
+    ],
+    "YV": [
+        {
+            "airline_code": "YV",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": true,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "US",
+            "country_3letter_code": "USA",
+            "umnr_restricted_age": 14,
+            "last_modification_date_time": "2023-10-19T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "ユナイテッドエクスプレス（メサ）",
+            "operating_airline_url": ""
+        }
+    ],
+    "YW": [
+        {
+            "airline_code": "YW",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Air Nostrum",
+            "operating_airline_url": ""
+        }
+    ],
+    "YX": [
+        {
+            "airline_code": "YX",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": 14,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "リパブリックエアラインズ",
+            "operating_airline_url": ""
+        }
+    ],
+    "ZH": [
+        {
+            "airline_code": "ZH",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": true,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "CN",
+            "country_3letter_code": "CHN",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2020-04-08T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "深圳航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "ZK": [
+        {
+            "airline_code": "ZK",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "ZetAvia",
+            "operating_airline_url": ""
+        }
+    ],
+    "ZQ": [
+        {
+            "airline_code": "ZQ",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-06-13T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "German Airways",
+            "operating_airline_url": ""
+        }
+    ],
+    "ZT": [
+        {
+            "airline_code": "ZT",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Titan Airways",
+            "operating_airline_url": ""
+        }
+    ],
+    "ZW": [
+        {
+            "airline_code": "ZW",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": true,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "US",
+            "country_3letter_code": "USA",
+            "umnr_restricted_age": 14,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Air Wisconsin Airlines",
+            "operating_airline_url": ""
+        }
+    ],
+    "ZX": [
+        {
+            "airline_code": "ZX",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2022-11-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Pivot Airlines",
+            "operating_airline_url": ""
+        }
+    ],
+    "0V": [
+        {
+            "airline_code": "0V",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2024-07-18T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Vietnam Air Service",
+            "operating_airline_url": ""
+        }
+    ],
+    "VL": [
+        {
+            "airline_code": "VL",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": true,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2025-11-05T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "ルフトハンザ・シティ航空",
+            "operating_airline_url": ""
+        }
+    ],
+    "H3": [
+        {
+            "airline_code": "H3",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2025-03-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Hello Jets",
+            "operating_airline_url": ""
+        }
+    ],
+    "VF": [
+        {
+            "airline_code": "VF",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2025-03-20T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Ajet",
+            "operating_airline_url": ""
+        }
+    ],
+    "0C": [
+        {
+            "airline_code": "0C",
+            "apply_from_date": "19000101",
+            "apply_to_date": "99991231",
+            "star_alliance_flag": false,
+            "ptc_change_restriction_flag": false,
+            "mile_accrual_display_flag": true,
+            "country_2letter_code": "XX",
+            "country_3letter_code": "XXX",
+            "umnr_restricted_age": null,
+            "last_modification_date_time": "2025-09-15T15:00:00+0000",
+            "lang": "ja",
+            "airline_name": "Cobra Aviation",
+            "operating_airline_url": ""
+        }
+    ]
+}

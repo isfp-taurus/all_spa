@@ -1,0 +1,12 @@
+{
+    "domestic": [
+        {
+            "value": "priced",
+            "label": "有償航空券"
+        },
+        {
+            "value": "award",
+            "label": "特典航空券"
+        }
+    ]
+}

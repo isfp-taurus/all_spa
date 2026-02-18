@@ -1,0 +1,30 @@
+{
+    "international": [
+        {
+            "value": "eco",
+            "label": "エコノミークラス"
+        },
+        {
+            "value": "ecoPremium",
+            "label": "プレミアムエコノミー"
+        },
+        {
+            "value": "business",
+            "label": "ビジネスクラス"
+        },
+        {
+            "value": "first",
+            "label": "ファーストクラス"
+        }
+    ],
+    "domestic": [
+        {
+            "value": "eco",
+            "label": "エコノミークラス"
+        },
+        {
+            "value": "first",
+            "label": "ファーストクラス"
+        }
+    ]
+}

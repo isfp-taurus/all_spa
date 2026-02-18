@@ -1,0 +1,278 @@
+{
+    "3": {
+        "eco": [
+            {
+                "commercial_fare_family_code": "HDCFF39",
+                "commercial_fare_family_type": "3",
+                "cabin": "eco",
+                "value": "50",
+                "first_label": "指定なし",
+                "second_label": ""
+            },
+            {
+                "commercial_fare_family_code": "HDCFF29",
+                "commercial_fare_family_type": "3",
+                "cabin": "eco",
+                "value": "51",
+                "first_label": "DOセール",
+                "second_label": "発売期間・搭乗期間を限定したWebサイト専用の運賃"
+            },
+            {
+                "commercial_fare_family_code": "HDCFF25",
+                "commercial_fare_family_type": "3",
+                "cabin": "eco",
+                "value": "52",
+                "first_label": "フレックス",
+                "second_label": ""
+            },
+            {
+                "commercial_fare_family_code": "HDCFF27",
+                "commercial_fare_family_type": "3",
+                "cabin": "eco",
+                "value": "53",
+                "first_label": "DOバリュー",
+                "second_label": "予約の変更ができない運賃"
+            },
+            {
+                "commercial_fare_family_code": "HDCFF37",
+                "commercial_fare_family_type": "3",
+                "cabin": "eco",
+                "value": "54",
+                "first_label": "DOビジネス",
+                "second_label": ""
+            },
+            {
+                "commercial_fare_family_code": "HDCFF41",
+                "commercial_fare_family_type": "3",
+                "cabin": "eco",
+                "value": "55",
+                "first_label": "フレックスとDOバリュー",
+                "second_label": ""
+            },
+            {
+                "commercial_fare_family_code": "HDCFF43",
+                "commercial_fare_family_type": "3",
+                "cabin": "eco",
+                "value": "56",
+                "first_label": "フレックスとDOセール",
+                "second_label": ""
+            },
+            {
+                "commercial_fare_family_code": "HDCFF45",
+                "commercial_fare_family_type": "3",
+                "cabin": "eco",
+                "value": "57",
+                "first_label": "フレックスとDOビジネス",
+                "second_label": ""
+            },
+            {
+                "commercial_fare_family_code": "HDCFF47",
+                "commercial_fare_family_type": "3",
+                "cabin": "eco",
+                "value": "58",
+                "first_label": "DOバリューとDOセール",
+                "second_label": ""
+            },
+            {
+                "commercial_fare_family_code": "HDCFF49",
+                "commercial_fare_family_type": "3",
+                "cabin": "eco",
+                "value": "59",
+                "first_label": "DOバリューとDOビジネス",
+                "second_label": ""
+            },
+            {
+                "commercial_fare_family_code": "HDCFF51",
+                "commercial_fare_family_type": "3",
+                "cabin": "eco",
+                "value": "60",
+                "first_label": "DOセールとDOビジネス",
+                "second_label": ""
+            },
+            {
+                "commercial_fare_family_code": "HDCFF53",
+                "commercial_fare_family_type": "3",
+                "cabin": "eco",
+                "value": "61",
+                "first_label": "フレックス、DOバリュー、DOｾｰﾙ",
+                "second_label": ""
+            },
+            {
+                "commercial_fare_family_code": "HDCFF55",
+                "commercial_fare_family_type": "3",
+                "cabin": "eco",
+                "value": "62",
+                "first_label": "フレックス、DOバリュー、DOビジネス",
+                "second_label": ""
+            },
+            {
+                "commercial_fare_family_code": "HDCFF57",
+                "commercial_fare_family_type": "3",
+                "cabin": "eco",
+                "value": "63",
+                "first_label": "フレックス、DOセール、DOビジネス",
+                "second_label": ""
+            },
+            {
+                "commercial_fare_family_code": "HDCFF59",
+                "commercial_fare_family_type": "3",
+                "cabin": "eco",
+                "value": "64",
+                "first_label": "DOバリュー、DOセール、DOビジネス",
+                "second_label": ""
+            },
+            {
+                "commercial_fare_family_code": "HDCFF71",
+                "commercial_fare_family_type": "3",
+                "cabin": "eco",
+                "value": "65",
+                "first_label": "道民割引運賃",
+                "second_label": "北海道在住のMy AIRDO会員に適用"
+            },
+            {
+                "commercial_fare_family_code": "HDCFF69",
+                "commercial_fare_family_type": "3",
+                "cabin": "eco",
+                "value": "66",
+                "first_label": "株主優待割引運賃",
+                "second_label": "「株主優待番号ご案内書」をお持ちの方に適用"
+            },
+            {
+                "commercial_fare_family_code": "HDCFF31",
+                "commercial_fare_family_type": "3",
+                "cabin": "eco",
+                "value": "67",
+                "first_label": "障がい者割引",
+                "second_label": "対象者と介護人の方に適用"
+            },
+            {
+                "commercial_fare_family_code": "HDCFF33",
+                "commercial_fare_family_type": "3",
+                "cabin": "eco",
+                "value": "68",
+                "first_label": "障がい者割引",
+                "second_label": "対象者と介護人の方に適用"
+            },
+            {
+                "commercial_fare_family_code": "HDCFF35",
+                "commercial_fare_family_type": "3",
+                "cabin": "eco",
+                "value": "69",
+                "first_label": "障がい者割引",
+                "second_label": "対象者と介護人の方に適用"
+            },
+            {
+                "commercial_fare_family_code": "HDCFF63",
+                "commercial_fare_family_type": "3",
+                "cabin": "eco",
+                "value": "70",
+                "first_label": "障がい者割引",
+                "second_label": "対象者と介護人の方に適用"
+            },
+            {
+                "commercial_fare_family_code": "HDCFF65",
+                "commercial_fare_family_type": "3",
+                "cabin": "eco",
+                "value": "71",
+                "first_label": "障がい者割引",
+                "second_label": "対象者と介護人の方に適用"
+            },
+            {
+                "commercial_fare_family_code": "HDCFF67",
+                "commercial_fare_family_type": "3",
+                "cabin": "eco",
+                "value": "72",
+                "first_label": "障がい者割引",
+                "second_label": "対象者と介護人の方に適用"
+            },
+            {
+                "commercial_fare_family_code": "HDCFF61",
+                "commercial_fare_family_type": "3",
+                "cabin": "eco",
+                "value": "73",
+                "first_label": "障がい者割引",
+                "second_label": "対象者と介護人の方に適用"
+            }
+        ]
+    },
+    "2": {
+        "eco": [
+            {
+                "commercial_fare_family_code": "HDCFF73",
+                "commercial_fare_family_type": "2",
+                "cabin": "eco",
+                "value": "0",
+                "first_label": "指定なし",
+                "second_label": ""
+            },
+            {
+                "commercial_fare_family_code": "HDCFF23",
+                "commercial_fare_family_type": "2",
+                "cabin": "eco",
+                "value": "20",
+                "first_label": "DOセール",
+                "second_label": "発売期間・搭乗期間を限定したWebサイト専用の運賃"
+            },
+            {
+                "commercial_fare_family_code": "HDCFF07",
+                "commercial_fare_family_type": "2",
+                "cabin": "eco",
+                "value": "12",
+                "first_label": "DOユース25",
+                "second_label": "満12歳以上25歳以下のMy AIRDO会員が対象で、搭乗日当日に予約が可能な運賃"
+            },
+            {
+                "commercial_fare_family_code": "HDCFF05",
+                "commercial_fare_family_type": "2",
+                "cabin": "eco",
+                "value": "11",
+                "first_label": "DOシニア65",
+                "second_label": "満65歳以上のMy AIRDO会員が対象で、搭乗日当日に予約が可能な運賃"
+            },
+            {
+                "commercial_fare_family_code": "HDCFF15",
+                "commercial_fare_family_type": "2",
+                "cabin": "eco",
+                "value": "17",
+                "first_label": "道民割引運賃",
+                "second_label": "北海道在住のMy AIRDO会員に適用"
+            },
+            {
+                "commercial_fare_family_code": "HDCFF09",
+                "commercial_fare_family_type": "2",
+                "cabin": "eco",
+                "value": "13",
+                "first_label": "株主優待割引運賃",
+                "second_label": "「株主優待番号ご案内書」をお持ちの方に適用"
+            },
+            {
+                "commercial_fare_family_code": "HDCFF13",
+                "commercial_fare_family_type": "2",
+                "cabin": "eco",
+                "value": "14",
+                "first_label": "就活支援割引運賃",
+                "second_label": "利用申請があった学校に在学する、就職活動中の学生の方に適用"
+            },
+            {
+                "commercial_fare_family_code": "HDCFF21",
+                "commercial_fare_family_type": "2",
+                "cabin": "eco",
+                "value": "10",
+                "first_label": "障がい者割引",
+                "second_label": "対象者と介護人の方に適用"
+            }
+        ]
+    },
+    "6": {
+        "eco": [
+            {
+                "commercial_fare_family_code": "HDCFF17",
+                "commercial_fare_family_type": "6",
+                "cabin": "eco",
+                "value": "49",
+                "first_label": "特典航空券",
+                "second_label": ""
+            }
+        ]
+    }
+}

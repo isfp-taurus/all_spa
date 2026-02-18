@@ -1,0 +1,101 @@
+[
+    {
+        "payment_method": "LD",
+        "dxapi_payment_type": "",
+        "dxapi_payment_id": "",
+        "dxapi_payment_name": "",
+        "available_pc": true,
+        "available_sp": true,
+        "available_tab": true,
+        "last_modification_user_id": "",
+        "last_modification_date_time": "2013-11-17T15:00:00+0000"
+    },
+    {
+        "payment_method": "IB",
+        "dxapi_payment_type": "CustomPayment",
+        "dxapi_payment_id": "WBCASH",
+        "dxapi_payment_name": "",
+        "available_pc": true,
+        "available_sp": true,
+        "available_tab": true,
+        "last_modification_user_id": "",
+        "last_modification_date_time": "2013-12-25T15:00:00+0000"
+    },
+    {
+        "payment_method": "CV",
+        "dxapi_payment_type": "CustomPayment",
+        "dxapi_payment_id": "WCCASH",
+        "dxapi_payment_name": "",
+        "available_pc": true,
+        "available_sp": true,
+        "available_tab": true,
+        "last_modification_user_id": "",
+        "last_modification_date_time": "2013-12-25T15:00:00+0000"
+    },
+    {
+        "payment_method": "CD",
+        "dxapi_payment_type": "PaymentCard",
+        "dxapi_payment_id": "",
+        "dxapi_payment_name": "",
+        "available_pc": true,
+        "available_sp": true,
+        "available_tab": true,
+        "last_modification_user_id": "",
+        "last_modification_date_time": "2013-12-25T15:00:00+0000"
+    },
+    {
+        "payment_method": "SC",
+        "dxapi_payment_type": "CustomPayment",
+        "dxapi_payment_id": "SKYC",
+        "dxapi_payment_name": "",
+        "available_pc": true,
+        "available_sp": true,
+        "available_tab": true,
+        "last_modification_user_id": "",
+        "last_modification_date_time": "2014-06-19T15:00:00+0000"
+    },
+    {
+        "payment_method": "CU",
+        "dxapi_payment_type": "AlternativePaymentMethod",
+        "dxapi_payment_id": "123456795",
+        "dxapi_payment_name": "China Union Pay online",
+        "available_pc": true,
+        "available_sp": true,
+        "available_tab": true,
+        "last_modification_user_id": "",
+        "last_modification_date_time": "2024-06-27T15:00:00+0000"
+    },
+    {
+        "payment_method": "AP",
+        "dxapi_payment_type": "AlternativePaymentMethod",
+        "dxapi_payment_id": "123456797",
+        "dxapi_payment_name": "Alipay domestic",
+        "available_pc": true,
+        "available_sp": true,
+        "available_tab": true,
+        "last_modification_user_id": "",
+        "last_modification_date_time": "2024-06-27T15:00:00+0000"
+    },
+    {
+        "payment_method": "PP",
+        "dxapi_payment_type": "AlternativePaymentMethod",
+        "dxapi_payment_id": "NH_PAYPAL",
+        "dxapi_payment_name": "PAYPAL",
+        "available_pc": true,
+        "available_sp": true,
+        "available_tab": true,
+        "last_modification_user_id": "",
+        "last_modification_date_time": "2024-06-27T15:00:00+0000"
+    },
+    {
+        "payment_method": "PE",
+        "dxapi_payment_type": "CustomPayment",
+        "dxapi_payment_id": "WCCASH",
+        "dxapi_payment_name": "PayEasy",
+        "available_pc": true,
+        "available_sp": true,
+        "available_tab": true,
+        "last_modification_user_id": "",
+        "last_modification_date_time": "2023-12-25T15:00:00+0000"
+    }
+]
