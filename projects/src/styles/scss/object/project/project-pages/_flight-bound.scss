@@ -1,0 +1,104 @@
+@use "../../../core" as *;
+
+.p-flight-bound {
+  &__heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &-watching {
+      margin-left: 24px;
+      color: $color_text_secondary_red;
+      @include font-line(14, 19.6);
+    }
+
+    &-title {
+      .c-bound-title01 {
+        @include font-line(18, 21.6);
+      }
+    }
+  }
+
+  &__bound {
+    margin-top: 16px;
+    @include font-line(24, 28.8);
+
+    font-weight: bold;
+  }
+
+  &__bound02 {
+    margin-top: 16px;
+    @include font-line(24, 28.8);
+
+    font-weight: bold;
+  }
+
+  &__bound03 {
+    margin-top: 8px;
+    @include font-line(20, 26);
+
+    font-weight: bold;
+  }
+
+  &__fromto {
+    letter-spacing: -0.4em;
+
+    &-from,
+    &-separator,
+    &-to {
+      display: inline-block;
+      vertical-align: middle;
+      letter-spacing: normal;
+    }
+
+    &-separator {
+      margin: 0 8px;
+    }
+  }
+
+  &__via {
+    margin-top: 4px;
+    @include font-line(16, 22.4);
+  }
+}
+@include is-tb {
+  .p-flight-bound {
+    &__bound {
+      @include font-line(32, 38.4);
+
+      margin-top: 16px;
+    }
+
+    &__bound02 {
+      @include font-line(32, 38.4);
+    }
+
+    &__bound03 {
+      @include font-line(24, 28.8);
+
+      margin-top: 16px;
+    }
+
+    &__via {
+      margin-top: 8px;
+      @include font-line(18, 26);
+    }
+  }
+}
+@include is-pc {
+  .p-flight-bound {
+    &__heading {
+      justify-content: flex-start;
+    }
+
+    &__bound {
+      @include font-line(40, 48);
+
+      margin-top: 20px;
+    }
+
+    &__bound03 {
+      @include font-line(40, 48);
+    }
+  }
+}

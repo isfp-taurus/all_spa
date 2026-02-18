@@ -1,0 +1,192 @@
+@use "../../core" as *;
+
+.p-form-origin-to-destination {
+  $this: &;
+
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+
+  &__item {
+    width: 100%;
+    position: relative;
+
+    &.is-active {
+      z-index: 1;
+    }
+
+    &--origin {
+      .c-form-element-input {
+        $input: &;
+
+        &__box {
+          border-radius: 10px 10px 0 0;
+        }
+      }
+    }
+
+    &--destination {
+      margin-top: -2px;
+
+      .c-form-element-input {
+        $input: &;
+
+        &__box {
+          border-radius: 0 0 10px 10px;
+        }
+      }
+    }
+  }
+
+  // has inverse function
+  &--has-inverse {
+    #{$this}__item {
+      .c-form-element-input {
+        &__box {
+          padding-right: calc(12px + 40px + 0.4em);
+        }
+
+        &.is-focus {
+          &.is-typed {
+            .c-form-element-input__box {
+              padding-right: calc(64px + 24px + 0.4em);
+            }
+
+            .c-form-element-input__clear {
+              right: 64px;
+            }
+          }
+        }
+      }
+    }
+
+    #{$this}__inverse {
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      top: 50%;
+      margin-top: -20px;
+      right: 12px;
+      z-index: 3;
+
+      &-btn {
+        &::before {
+          content: "";
+          display: block;
+          width: 40px;
+          height: 40px;
+          background: url("~/assets/images/btn_inverse_vertical_ado_40.svg") no-repeat center center;
+          background-size: cover;
+        }
+      }
+    }
+  }
+}
+@include is-tb {
+  .p-form-origin-to-destination {
+    $this: &;
+
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+
+    &__item {
+      &--origin {
+        margin-right: -2px;
+
+        .c-form-element-input {
+          $input: &;
+
+          &__box {
+            border-radius: 10px 0 0 10px;
+          }
+        }
+      }
+
+      &--destination {
+        margin-top: 0;
+
+        .c-form-element-input {
+          $input: &;
+
+          &__box {
+            border-radius: 0 10px 10px 0;
+          }
+
+          &.is-focus {
+            &.is-typed {
+              .c-form-element-input__clear {
+                right: 12px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // has inverse function
+    &--has-inverse {
+      #{$this}__item {
+        &--origin {
+          .c-form-element-input {
+            &__box {
+              padding-right: calc(32px + 24px + 0.4em);
+            }
+
+            &__function {
+              right: 32px;
+            }
+
+            &.is-focus {
+              &.is-typed {
+                .c-form-element-input__box {
+                  padding-right: calc(32px + 24px + 0.4em);
+                }
+
+                .c-form-element-input__clear {
+                  right: 32px;
+                }
+              }
+            }
+          }
+        }
+
+        &--destination {
+          .c-form-element-input {
+            &__box {
+              padding-left: 32px !important;
+              padding-right: calc(12px + 24px + 0.4em);
+            }
+
+            &__clear {
+              right: 32px;
+            }
+
+            &.is-focus {
+              &.is-typed {
+                .c-form-element-input__box {
+                  padding-right: calc(12px + 24px + 0.4em);
+                }
+
+                .c-form-element-input__clear {
+                  right: 12px;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      #{$this}__inverse {
+        right: 50%;
+        margin-right: -20px;
+
+        &-btn {
+          &::before {
+            background-image: url("~/assets/images/btn_inverse_horizontal_ado_40.svg");
+          }
+        }
+      }
+    }
+  }
+}

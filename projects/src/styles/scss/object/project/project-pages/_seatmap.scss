@@ -1,0 +1,746 @@
+@use "../../../core" as *;
+
+.p-seatmap {
+  $this: &;
+
+  text-align: center;
+  height: 100%;
+
+  &__title {
+    padding: 0 1px 16px;
+    font-weight: bold;
+    @include font-line(16, 22.4);
+
+    text-align: left;
+  }
+
+  &__container {
+    display: inline-block;
+    background: $color_white;
+    padding: 16px 14px;
+    margin: 0 11px 0 20px;
+    box-shadow: 0 0 10px rgb(51 51 51 / 20%);
+    height: 100%;
+  }
+
+  &__tab {
+    &-list {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      padding: 0 1px;
+
+      &-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 38px;
+        border: 1px solid $color_primary_blue;
+        @include font-line(16, 22.4);
+
+        &.is-current {
+          font-weight: bold;
+          background-color: $color_secondary_blue;
+        }
+
+        & + & {
+          border-left: none;
+        }
+
+        &:first-child {
+          border-radius: 19px 0 0 19px;
+        }
+
+        &:last-child {
+          border-radius: 0 19px 19px 0;
+        }
+      }
+    }
+
+    &-container {
+      display: none;
+
+      &.is-current {
+        display: block;
+      }
+    }
+  }
+
+  &__seatmap {
+    padding-bottom: 110px;
+
+    & + & {
+      margin-top: 20px;
+    }
+
+    & > #{$this}__row {
+      &:last-child {
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  &__row {
+    display: flex;
+    letter-spacing: -0.4em;
+    position: relative;
+    padding-bottom: 16px;
+    line-height: 0;
+
+    &-num {
+      position: absolute;
+      right: calc(100% + 20px);
+      top: 50%;
+      transform: translateY(-100%);
+      width: 40px;
+      text-align: right;
+      @include font-line(12, 16.8);
+
+      font-weight: bold;
+      letter-spacing: normal;
+    }
+
+    &--large {
+      padding-bottom: 32px;
+    }
+
+    &--has-wing {
+      #{$this}__row-num {
+        color: #fff;
+      }
+    }
+  }
+
+  &__wing-left {
+    position: absolute;
+    right: calc(100% + 14px);
+    top: 0;
+    width: 82px;
+    height: 100%;
+    background-image: url("~/assets/images/seatmap_wing_left.svg");
+    background-size: cover;
+    background-position: right top;
+    background-repeat: no-repeat;
+
+    &--start {
+      background-image: url("~/assets/images/seatmap_wing_left_start.svg");
+    }
+  }
+
+  &__wing-right {
+    position: absolute;
+    left: calc(100% + 14px);
+    top: 0;
+    width: 82px;
+    height: 100%;
+    background-image: url("~/assets/images/seatmap_wing_right.svg");
+    background-size: cover;
+    background-position: left top;
+    background-repeat: no-repeat;
+
+    &--start {
+      background-image: url("~/assets/images/seatmap_wing_right_start.svg");
+    }
+  }
+
+  &__emergency-exit {
+    position: absolute;
+    top: 0;
+    width: 12px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    &--left {
+      left: -14px;
+      background-image: url("~/assets/images/seatmap_emergency_exit_left_ado.svg");
+    }
+
+    &--right {
+      right: -14px;
+      background-image: url("~/assets/images/seatmap_emergency_exit_right_ado.svg");
+    }
+  }
+
+  &__empty {
+    display: inline-flex;
+    vertical-align: top;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__facility,
+  &__empty {
+    width: 38px;
+    height: 40px;
+
+    &--2col {
+      width: 80px;
+    }
+
+    &--2col-aisle {
+      width: calc(80px + 12px);
+    }
+
+    &--3col {
+      width: 122px;
+    }
+
+    &--4col {
+      width: 162px;
+    }
+    + #{$this}__facility,
+    + #{$this}__empty,
+    + #{$this}__seat {
+      margin-left: 2px;
+    }
+  }
+
+  &__partition {
+    display: inline-flex;
+    vertical-align: top;
+    align-items: center;
+    justify-content: center;
+    background: $color_gray_70;
+    width: 38px;
+    height: 4px;
+    border-radius: 1px;
+    + #{$this}__partition {
+      margin-left: 2px;
+    }
+
+    &-wrap {
+      height: 40px;
+    }
+
+    &--empty {
+      background: none;
+    }
+  }
+
+  &__seat {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: normal;
+    vertical-align: top;
+    position: relative;
+    width: 38px;
+    height: 40px;
+    background-image: url("~/assets/images/seat_economy_ado.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    + #{$this}__facility,
+    + #{$this}__empty,
+    + #{$this}__seat {
+      margin-left: 2px;
+    }
+
+    &-passenger {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      width: 38px;
+      height: 40px;
+
+      &-num {
+        font-weight: bold;
+        color: #fff;
+        @include font-line(16, 22.4);
+      }
+    }
+
+    &-exitdoor {
+      display: block;
+      width: 10px;
+      height: 6px;
+      position: absolute;
+      top: 4px;
+      left: 50%;
+      margin-left: -5px;
+
+      img {
+        vertical-align: top;
+      }
+    }
+
+    &-no-recline {
+      display: block;
+      width: 16px;
+      height: 7px;
+      position: absolute;
+      left: 50%;
+      margin-left: -8px;
+      bottom: -3px;
+
+      img {
+        vertical-align: top;
+      }
+    }
+
+    &-no-window {
+      display: block;
+      width: 7px;
+      height: 16px;
+      position: absolute;
+      top: 50%;
+      margin-top: -8px;
+
+      img {
+        vertical-align: top;
+      }
+
+      &--left {
+        left: -3px;
+      }
+
+      &--right {
+        right: -3px;
+      }
+    }
+
+    &.is-unchangeable {
+      background-image: url("~/assets/images/seat_economy_unchangeable_ado.svg");
+      #{$this}__seat-passenger {
+        + #{$this}__seat-passenger {
+          margin-left: 1px;
+        }
+
+        &-num {
+          color: $color_gray_60;
+        }
+      }
+    }
+
+    &.is-selected {
+      background-image: url("~/assets/images/seat_economy_selected_ado.svg");
+      #{$this}__seat-passenger {
+        + #{$this}__seat-passenger {
+          margin-left: 1px;
+        }
+      }
+    }
+
+    &.is-before-change {
+      #{$this}__seat-passenger {
+        + #{$this}__seat-passenger {
+          margin-left: 1px;
+        }
+
+        &::before {
+          content: "";
+          display: block;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background: $color_gray_20;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          margin: -10px 0 0 -10px;
+        }
+
+        &-num {
+          position: relative;
+          color: $color_gray_60;
+        }
+      }
+    }
+
+    &.is-unavailable,
+    &.is-infant {
+      background-image: none;
+      #{$this}__seat-passenger {
+        display: none;
+      }
+    }
+  }
+
+  &__facility {
+    display: inline-flex;
+    vertical-align: top;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    background-color: $color_gray_5;
+    position: relative;
+
+    &--bg-white {
+      background-color: $color_white;
+    }
+
+    img + img {
+      margin-left: 4px;
+    }
+  }
+
+  &__col {
+    display: inline-flex;
+    letter-spacing: normal;
+    vertical-align: top;
+    justify-content: center;
+    align-items: center;
+    @include font-line(14, 20);
+
+    font-weight: bold;
+    position: relative;
+    width: 42px;
+    padding: 0 2px;
+
+    &--2col {
+      width: 84px;
+    }
+
+    &--2col-aisle {
+      width: calc(84px + 12px);
+    }
+
+    &--3col {
+      width: 126px;
+    }
+
+    &--4col {
+      width: 168px;
+    }
+
+    &-aisle {
+      width: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &__aisle {
+    width: 12px;
+    display: inline-flex;
+    letter-spacing: normal;
+    vertical-align: top;
+  }
+}
+@media (max-width: 374px) {
+  .p-seatmap {
+    $this: &;
+
+    &__col {
+      width: 36px;
+      padding: 0 1px;
+      @include font-line(12, 20);
+
+      &--2col {
+        width: 72px;
+      }
+
+      &--2col-aisle {
+        width: calc(72px + 12px);
+      }
+
+      &--3col {
+        width: 108px;
+      }
+
+      &--4col {
+        width: 144px;
+      }
+    }
+
+    &__facility,
+    &__empty {
+      width: 34px;
+
+      &--2col {
+        width: 70px;
+      }
+
+      &--2col-aisle {
+        width: calc(70px + 12px);
+      }
+
+      &--3col {
+        width: 106px;
+      }
+
+      &--4col {
+        width: 142px;
+      }
+    }
+
+    &__partition {
+      width: 34px;
+    }
+
+    &__seat {
+      width: 34px;
+
+      &-passenger {
+        width: 34px;
+      }
+    }
+  }
+}
+@media (max-width: 359px) {
+  .p-seatmap {
+    $this: &;
+
+    &__col {
+      width: 34px;
+      padding: 0 1px;
+      @include font-line(12, 20);
+
+      &--2col {
+        width: 68px;
+      }
+
+      &--2col-aisle {
+        width: calc(68px + 12px);
+      }
+
+      &--3col {
+        width: 102px;
+      }
+
+      &--4col {
+        width: 136px;
+      }
+    }
+
+    &__facility,
+    &__empty {
+      width: 32px;
+
+      &--2col {
+        width: 66px;
+      }
+
+      &--2col-aisle {
+        width: calc(66px + 12px);
+      }
+
+      &--3col {
+        width: 100px;
+      }
+
+      &--4col {
+        width: 134px;
+      }
+    }
+
+    &__partition {
+      width: 32px;
+    }
+
+    &__seat {
+      width: 32px;
+
+      &-passenger {
+        width: 32px;
+      }
+    }
+  }
+}
+@include is-tb {
+  .p-seatmap {
+    $this: &;
+
+    &__container {
+      margin: 0;
+    }
+
+    &__row {
+      &-num {
+        right: calc(100% + 24px);
+        @include font-line(16, 22.4);
+      }
+    }
+
+    &__seatmap {
+      padding-bottom: 40px;
+    }
+  }
+}
+@include is-pc {
+  .p-seatmap {
+    $this: &;
+
+    &__container {
+      padding: 20px 24px;
+    }
+
+    &__title {
+      padding: 0 2px 16px;
+    }
+
+    &__tab {
+      &-list {
+        padding: 0 2px;
+      }
+    }
+
+    &__row {
+      padding-bottom: 16px;
+
+      &-num {
+        right: calc(100% + 29px);
+      }
+
+      &--large {
+        padding-bottom: 50px;
+      }
+    }
+
+    &__wing-left {
+      right: calc(100% + 24px);
+    }
+
+    &__wing-right {
+      left: calc(100% + 24px);
+    }
+
+    &__emergency-exit {
+      width: 20px;
+      height: 60px;
+
+      &--left {
+        left: -24px;
+        background-image: url("~/assets/images/seatmap_emergency_exit_left_ado_pc.svg");
+      }
+
+      &--right {
+        right: -24px;
+        background-image: url("~/assets/images/seatmap_emergency_exit_right_ado_pc.svg");
+      }
+    }
+
+    &__facility,
+    &__empty {
+      width: 50px;
+      height: 60px;
+
+      &--2col {
+        width: 108px;
+      }
+
+      &--2col-aisle {
+        width: calc(108px + 24px);
+      }
+
+      &--3col {
+        width: 166px;
+      }
+
+      &--4col {
+        width: 224px;
+      }
+      + #{$this}__facility,
+      + #{$this}__empty,
+      + #{$this}__seat {
+        margin-left: 4px;
+      }
+    }
+
+    &__partition {
+      width: 50px;
+      + #{$this}__partition {
+        margin-left: 4px;
+      }
+
+      &-wrap {
+        height: 60px;
+      }
+    }
+
+    &__seat {
+      width: 50px;
+      height: 60px;
+      background-image: url("~/assets/images/seat_economy_ado_pc.svg");
+      background-size: 50px 60px;
+      + #{$this}__facility,
+      + #{$this}__empty,
+      + #{$this}__seat {
+        margin-left: 4px;
+      }
+
+      &-passenger {
+        width: 50px;
+        height: 60px;
+
+        &-num {
+          color: #fff;
+          @include font-line(20, 26);
+        }
+      }
+
+      &.is-unchangeable {
+        background-image: url("~/assets/images/seat_economy_unchangeable_ado_pc.svg");
+        #{$this}__seat-passenger {
+          + #{$this}__seat-passenger {
+            margin-left: 2px;
+          }
+        }
+      }
+
+      &.is-selected {
+        background-image: url("~/assets/images/seat_economy_selected_ado_pc.svg");
+        #{$this}__seat-passenger {
+          + #{$this}__seat-passenger {
+            margin-left: 2px;
+          }
+        }
+      }
+
+      &.is-before-change {
+        #{$this}__seat-passenger {
+          + #{$this}__seat-passenger {
+            margin-left: 2px;
+          }
+
+          &::before {
+            width: 24px;
+            height: 24px;
+            margin: -12px 0 0 -12px;
+          }
+        }
+      }
+
+      &.is-unavailable,
+      &.is-infant {
+        background-image: none;
+      }
+    }
+
+    &__col {
+      width: 58px;
+      padding: 0 4px;
+      @include font-line(16, 22);
+
+      &-aisle {
+        width: 24px;
+        height: 22px;
+      }
+
+      &--2col {
+        width: 116px;
+      }
+
+      &--2col-aisle {
+        width: calc(116px + 24px);
+      }
+
+      &--3col {
+        width: 174px;
+      }
+
+      &--4col {
+        width: 232px;
+      }
+    }
+
+    &__aisle {
+      width: 24px;
+    }
+  }
+}

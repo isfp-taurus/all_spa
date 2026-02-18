@@ -1,0 +1,401 @@
+@use "../../../core" as *;
+
+.p-vacant-seat {
+  &01 {
+    position: relative;
+    margin-top: 40px;
+    $this01: &;
+    // 見出しエリア
+    &__heading {
+      position: sticky;
+      top: 0;
+      background: $color_gray_5;
+      display: flex;
+      z-index: 2;
+
+      &-left {
+        width: 368px;
+        padding-right: 16px;
+        border-right: 1px solid $color_gray_5;
+        display: flex;
+        flex-flow: column;
+        align-items: flex-end;
+        justify-content: flex-end;
+        flex-shrink: 0;
+      }
+
+      &-right {
+        position: relative;
+        flex: 1;
+      }
+
+      &-class {
+        width: 100%;
+        display: flex;
+        margin-bottom: 16px;
+      }
+
+      &-title {
+        display: flex;
+        align-items: flex-end;
+        @include font-line(20, 26);
+
+        font-weight: bold;
+
+        &:last-child {
+          flex: 1;
+        }
+      }
+
+      &-list {
+        display: flex;
+        width: 100%;
+        border-radius: 16px;
+        overflow: hidden;
+      }
+
+      &-item {
+        position: relative;
+        width: 100%;
+        background: $color_white;
+        padding: 16px 16px 0;
+        border-left: 1px solid $color_gray_10;
+
+        &:first-child {
+          border-left: none;
+        }
+
+        &::before {
+          content: "";
+          display: block;
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 16px;
+          background-color: $color_class_eco;
+        }
+
+        &--eco {
+          &::before {
+            background-color: $color_class_eco;
+          }
+        }
+
+        &--ecoPremium {
+          &::before {
+            background-color: $color_class_eco_premium;
+          }
+        }
+
+        &--business {
+          &::before {
+            background-color: $color_class_business;
+          }
+        }
+
+        &--first {
+          &::before {
+            background-color: $color_class_first;
+          }
+        }
+      }
+
+      &-fare {
+        @include font-line(16, 22.4);
+
+        font-weight: bold;
+        padding: 16px 0;
+      }
+    }
+
+    &__overview {
+      &-heading {
+        display: none;
+        padding-bottom: 12px;
+
+        &.is-open {
+          display: block;
+        }
+      }
+
+      &-contents {
+        display: none;
+        padding-bottom: 12px;
+
+        &.is-open {
+          display: block;
+        }
+      }
+
+      &-btn {
+        display: flex;
+        align-items: center;
+        @include font-line(16, 22.4);
+
+        color: $color_text_primary_blue;
+        margin-bottom: 16px;
+
+        &::after {
+          content: "";
+          display: block;
+          width: 20px;
+          height: 20px;
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center;
+          margin-left: 4px;
+          background-image: url("~/assets/images/icon_chevron_down_primary_20.svg");
+        }
+
+        &.is-open {
+          &::after {
+            content: "";
+            background-image: url("~/assets/images/icon_chevron_up_primary_20.svg");
+          }
+        }
+      }
+
+      &-item {
+        & + & {
+          margin-top: 8px;
+        }
+
+        &-text {
+          @include font-line(14, 19.6);
+
+          &--heading {
+            color: $color_gray_70;
+            text-align: right;
+          }
+        }
+      }
+    }
+
+    &__promotion-applied {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    // コンテンツエリア
+    &__body {
+      position: relative;
+      z-index: 1;
+    }
+
+    &__item {
+      margin-top: 8px;
+      background: $color-white;
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+
+      &--unavailable,
+      &--cancelled {
+        background: $color_gray_10;
+        #{$this01}__flight {
+          border-right: 1px solid $color_gray_30;
+        }
+        #{$this01}__cell {
+          border-left: 1px solid $color_gray_30;
+        }
+      }
+    }
+
+    &__flight {
+      width: 368px;
+      padding: 16px 20px 12px;
+      border-right: 1px solid $color_gray_10;
+      order: 1;
+      display: flex;
+      flex-flow: column;
+      gap: 8px 0;
+
+      &-item {
+        &:last-child {
+          margin-top: auto;
+        }
+      }
+    }
+
+    &__cells {
+      flex: 1;
+      order: 2;
+      display: flex;
+    }
+
+    &__cell {
+      width: 100%;
+      border-left: 1px solid $color_gray_10;
+
+      &:first-child {
+        border-left: none;
+      }
+
+      &:last-child {
+        #{$this01}__btn {
+          border-radius: 0 16px 16px 0;
+        }
+      }
+
+      &--selected {
+        #{$this01}__btn {
+          &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            border: 4px solid $color_primary_blue;
+          }
+
+          &:focus-within {
+            outline-offset: -6px;
+          }
+        }
+      }
+
+      &--non-price {
+        #{$this01}__btn-info {
+          position: static;
+        }
+      }
+
+      &--unavailable {
+        background: $color_gray_10;
+      }
+    }
+
+    &__btn {
+      height: 100%;
+      min-height: 162px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 6px;
+      text-align: center;
+      outline-offset: -1px;
+
+      &[role="button"] {
+        cursor: pointer;
+      }
+
+      &-promotion {
+        position: absolute;
+        right: 12px;
+        top: 0;
+      }
+
+      &-lowest {
+        width: 100%;
+        position: absolute;
+        bottom: calc(100% + 12px);
+      }
+
+      &-waiver {
+        width: 100%;
+        position: absolute;
+        bottom: calc(100% + 14px);
+        color: $color_primary_blue;
+      }
+
+      &-inner {
+        position: relative;
+        width: 100%;
+      }
+
+      &-price {
+        @include font-line(18, 25.2);
+
+        font-weight: bold;
+        color: $color_text_primary_blue;
+
+        &-currency {
+          @include font-line(14, 19.6);
+
+          font-weight: bold;
+          color: $color_text_primary_blue;
+          margin-right: 2px;
+        }
+
+        &-sign {
+          @include font-line(14, 19.6);
+
+          font-weight: bold;
+          color: $color_text_primary_blue;
+          margin-right: 4px;
+        }
+
+        &--small {
+          @include font-line(16, 22.4);
+
+          #{$this01}__btn-price-currency,
+          #{$this01}__btn-price-sign {
+            @include font-line(12, 16.8);
+          }
+        }
+      }
+
+      &-info {
+        position: absolute;
+        top: 100%;
+        width: 100%;
+      }
+
+      &-del {
+        @include font-line(14, 19.6);
+
+        &--small {
+          @include font-line(12, 16.8);
+        }
+      }
+
+      &-attention {
+        @include font-line(14, 19.6);
+
+        color: $color_text_secondary_red;
+      }
+
+      &-select {
+        @include font-line(16, 22.4);
+
+        color: $color_text_primary_blue;
+      }
+
+      &-text {
+        @include font-line(16, 22.4);
+
+        color: $color_gray_70;
+      }
+    }
+
+    // flight detail
+    &__detail {
+      width: 100%;
+      order: 3;
+      padding: 20px 0;
+      position: relative;
+      display: none;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: block;
+        width: 100%;
+        height: 12px;
+        background: linear-gradient(180deg, rgb(0 0 0 / 10%) 0%, rgb(0 0 0 / 0%) 100%);
+      }
+
+      &.is-open {
+        display: block;
+      }
+    }
+  }
+}

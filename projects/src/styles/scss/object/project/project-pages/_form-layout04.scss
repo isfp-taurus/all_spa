@@ -1,0 +1,65 @@
+@use "../../../core" as *;
+
+.p-form-layout04 {
+  &__item {
+    padding: 16px;
+    border-top: 4px solid $color_gray_5;
+
+    &-title {
+      $item-title: &;
+
+      &-label {
+        &--em {
+          font-weight: bold;
+        }
+      }
+
+      &-lead {
+        @include font-line(16, 22.4);
+      }
+
+      &--m {
+        margin-bottom: 8px;
+        @include font-line(16, 22.4);
+      }
+
+      &--l {
+        margin-bottom: 16px;
+        @include font-line(20, 26);
+      }
+
+      &--has-text {
+        #{$item-title} {
+          &-label {
+            float: left;
+          }
+
+          &-lead {
+            margin-top: 2px;
+            float: right;
+          }
+        }
+
+        &::after {
+          @include clearfix;
+        }
+      }
+    }
+
+    &-airport {
+      &-departure,
+      &-arrival {
+        display: inline-block;
+      }
+
+      &-to {
+        margin-right: 8px;
+        margin-left: 8px;
+      }
+    }
+
+    &:first-child {
+      border-top: 0;
+    }
+  }
+}

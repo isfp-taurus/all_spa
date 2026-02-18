@@ -1,0 +1,345 @@
+@use "../../../core" as *;
+
+.p-bottom-float-navi {
+  &01 {
+    padding: 12px 0;
+    $navi01: &;
+
+    &__wrap {
+      max-width: $contents-max-width-unit;
+      margin: 0 auto;
+      $this: &;
+    }
+
+    &__inner {
+      @include contents-garter;
+
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    &--2col {
+      #{$navi01}__inner {
+        justify-content: space-between;
+      }
+      #{$navi01}__item {
+        &:first-child {
+          padding-right: 8px;
+        }
+
+        &:last-child {
+          padding-left: 8px;
+        }
+      }
+    }
+  }
+
+  &02 {
+    padding: 12px 0;
+    $navi02: &;
+
+    &--has-promotion {
+      #{$navi02}__detail {
+        padding-top: 8px;
+      }
+    }
+
+    &__wrap {
+      max-width: $contents-max-width-unit;
+      margin: 0 auto;
+    }
+
+    &__inner {
+      @include contents-garter;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__item {
+      display: flex;
+      align-items: center;
+
+      &:first-child {
+        padding-right: 8px;
+      }
+
+      &:last-child {
+        justify-content: flex-end;
+        padding-left: 8px;
+        flex-shrink: 0;
+      }
+    }
+
+    &__detail {
+      position: relative;
+      display: flex;
+      flex-flow: row wrap;
+      align-items: center;
+
+      &-promotion {
+        position: absolute;
+        top: -12px;
+        left: 0;
+      }
+
+      &-price {
+        margin-right: 8px;
+        @include font-line(24, 28.8);
+
+        font-weight: bold;
+
+        &-currency {
+          @include font-line(16, 22.4);
+
+          margin-right: 2px;
+        }
+      }
+
+      &-del {
+        width: 100%;
+        @include font-line(14, 19.6);
+      }
+
+      &-info {
+        width: 100%;
+        @include font-line(10, 14);
+
+        color: $color_gray_60;
+      }
+    }
+
+    &__miles {
+      @include font-line(14, 19.6);
+
+      margin-right: 16px;
+    }
+  }
+
+  // 02のSP用
+  &03 {
+    padding: 0 0 12px;
+    $navi03: &;
+
+    &--has-promotion {
+      #{$navi03}__detail {
+        padding-top: 8px;
+      }
+    }
+
+    &__miles {
+      max-width: $contents-max-width-unit;
+      margin: 0 auto;
+      background: $color_secondary_blue;
+      padding: 4px 0;
+
+      &-inner {
+        @include contents-garter-tb;
+        @include font-line(14, 19.6);
+      }
+    }
+
+    &__wrap {
+      max-width: $contents-max-width-unit;
+      margin: 0 auto;
+      padding-top: 12px;
+    }
+
+    &__inner {
+      @include contents-garter-tb;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__item {
+      display: flex;
+      align-items: center;
+
+      &:first-child {
+        padding-right: 8px;
+      }
+
+      &:last-child {
+        justify-content: flex-end;
+        padding-left: 8px;
+        flex-shrink: 0;
+      }
+    }
+
+    &__detail {
+      position: relative;
+      display: flex;
+      flex-flow: row wrap;
+      align-items: center;
+
+      &-promotion {
+        position: absolute;
+        top: -12px;
+        left: 0;
+      }
+
+      &-price {
+        margin-right: 8px;
+        @include font-line(24, 28.8);
+
+        font-weight: bold;
+
+        &-currency {
+          @include font-line(16, 22.4);
+
+          margin-right: 2px;
+        }
+      }
+
+      &-del {
+        width: 100%;
+        @include font-line(14, 19.6);
+      }
+
+      &-info {
+        width: 100%;
+        @include font-line(10, 14);
+
+        color: $color_gray_60;
+      }
+    }
+  }
+
+  &04 {
+    padding: 12px 0;
+
+    &__wrap {
+      max-width: $contents-max-width-unit;
+      margin: 0 auto;
+    }
+
+    &__inner {
+      @include contents-garter;
+    }
+
+    &__item {
+      margin-top: 12px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    &__detail {
+      &-price {
+        color: $color_text_primary_blue;
+        @include font-line(24, 28.8);
+
+        font-weight: bold;
+
+        &-currency {
+          @include font-line(16, 22.4);
+
+          margin-right: 2px;
+        }
+      }
+
+      &-info {
+        width: 100%;
+        @include font-line(10, 14);
+
+        color: $color_gray_60;
+      }
+    }
+
+    &__btn {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &05 {
+    padding: 12px 0;
+
+    &__wrap {
+      max-width: $contents-max-width-unit;
+      margin: 0 auto;
+    }
+
+    &__inner {
+      @include contents-garter-tb;
+    }
+
+    &__btn {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+  }
+}
+@include is-tb {
+  .p-bottom-float-navi {
+    &01 {
+      &__inner {
+        @include contents-garter-tb;
+      }
+    }
+
+    &02 {
+      &__detail {
+        &-price {
+          @include font-line(28, 33.6);
+        }
+      }
+    }
+
+    &03 {
+      &__detail {
+        &-price {
+          @include font-line(28, 33.6);
+        }
+      }
+    }
+
+    &04 {
+      &__inner {
+        @include contents-garter-tb;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      &__item {
+        margin-top: 0;
+      }
+
+      &__detail {
+        padding-right: 16px;
+
+        &-price {
+          @include font-line(28, 33.6);
+
+          font-weight: bold;
+        }
+      }
+
+      &__btn {
+        display: flex;
+        justify-content: flex-end;
+        gap: 8px;
+      }
+    }
+
+    &05 {
+      &__btn {
+        &--tb-end {
+          display: flex;
+          justify-content: flex-end;
+        }
+      }
+    }
+  }
+}

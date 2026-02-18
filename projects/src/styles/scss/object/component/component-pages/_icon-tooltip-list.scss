@@ -1,0 +1,25 @@
+@use "../../../core" as *;
+
+.c-icon-tooltip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  &__item {
+    position: relative;
+
+    button {
+      width: 28px;
+      height: 28px;
+      background-color: $color_gray_5;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &[aria-expanded="true"] {
+        background-color: $color_secondary_blue;
+      }
+    }
+  }
+}

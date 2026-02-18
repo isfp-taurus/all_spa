@@ -1,0 +1,16 @@
+@use "../../core" as *;
+
+.p-modal-select-month {
+  position: sticky;
+  top: 0;
+  overflow-x: auto;
+  padding: 16px 0;
+  border-bottom: 1px solid $color_gray_10;
+  background-color: $color_white;
+  z-index: 1;
+}
+@include is-pc {
+  .p-modal-select-month {
+    padding: 20px 0;
+  }
+}

@@ -1,0 +1,77 @@
+@use "../../core" as *;
+
+.p-terms-conditions {
+  margin-top: 16px;
+  padding: 16px;
+  background-color: $color_white;
+  border-radius: 15px;
+
+  &__foot {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid $color_gray_10;
+
+    &-btn {
+      margin-top: 24px;
+      display: flex;
+      justify-content: flex-end;
+
+      &--2col {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+  }
+
+  &__title + &__contents {
+    margin-top: 16px;
+  }
+
+  &__list {
+    margin-left: 20px;
+
+    & + & {
+      margin-top: 16px;
+    }
+
+    &-item {
+      @include font-line(12, 16.8);
+
+      position: relative;
+
+      &:not(:first-child) {
+        margin-top: 2px;
+      }
+
+      &::before {
+        content: "・";
+        position: absolute;
+        top: 0;
+        left: -16px;
+        font-weight: bold;
+        @include font-line(12, 16.8);
+      }
+    }
+  }
+
+  &__text {
+    margin-top: 16px;
+    @include font-line(12, 16.8);
+
+    &-link {
+      display: inline-block;
+      color: $color_ado_blue;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+@include is-tb {
+  .p-terms-conditions {
+    padding: 20px 24px;
+  }
+}

@@ -1,0 +1,49 @@
+@use "../../../core" as *;
+
+.c-option {
+  &-btn01 {
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: $color_text_ado_blue;
+    @include font-line(16, 22.4);
+
+    &::after {
+      content: "";
+      display: block;
+      width: 20px;
+      height: 20px;
+      margin-left: 0.4em;
+      background: url("~/assets/images/icon_add_ado_blue_20.svg") no-repeat;
+    }
+
+    &.is-open {
+      &::after {
+        background: url("~/assets/images/icon_remove_ado_blue_20.svg") no-repeat;
+      }
+    }
+  }
+
+  &-btn02 {
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: $color_text_primary_blue;
+    @include font-line(16, 22.4);
+
+    &::after {
+      content: "";
+      display: block;
+      width: 20px;
+      height: 20px;
+      margin-left: 0.4em;
+      background: url("~/assets/images/icon_chevron_down_primary_20.svg") no-repeat;
+    }
+
+    &.is-open {
+      &::after {
+        background: url("~/assets/images/icon_chevron_up_primary_20.svg") no-repeat;
+      }
+    }
+  }
+}

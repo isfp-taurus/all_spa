@@ -1,0 +1,214 @@
+@use "variables" as *;
+@use "sass:math";
+
+// ---------------------------------------------------------------
+//  Breakpoint
+// > usage
+// > @include is-tb {...}
+// > @include is-pc {...}
+// ---------------------------------------------------------------
+@mixin is-sp {
+  @media only screen and (max-width: $breakpoint-sp) {
+    @content;
+  }
+}
+@mixin is-tb {
+  @media only screen and (min-width: $breakpoint-tb) {
+    @content;
+  }
+}
+@mixin is-pc {
+  @media only screen and (min-width: $breakpoint-pc) {
+    @content;
+  }
+}
+
+// ---------------------------------------------------------------
+//  contents garter
+// > usage
+// > @include contents-garter
+// > @include contents-garter-tb
+// ---------------------------------------------------------------
+@mixin contents-garter {
+  padding-left: $contents-garter-unit;
+  padding-right: $contents-garter-unit;
+}
+@mixin contents-garter-tb {
+  padding-left: $contents-garter-tb-unit;
+  padding-right: $contents-garter-tb-unit;
+}
+
+// ---------------------------------------------------------------
+//  pc core contents width
+// > usage
+// > @include pc-core-main-contents-width
+// > @include pc-core-sub-contents-width
+// ---------------------------------------------------------------
+@mixin pc-core-main-contents-width {
+  width: calc(832 / $contents-width * 100%);
+}
+@mixin pc-core-sub-contents-width {
+  width: calc(312 / $contents-width * 100%);
+}
+
+// ---------------------------------------------------------------
+//  font-size line-height
+// > usage
+// > @include font-line(16, 20);
+// >
+// > output
+// > font-size: 1.6rem;
+// > line-height: 1.25;
+// ---------------------------------------------------------------
+@mixin font-line($size, $line) {
+  $rem: math.div($size, 10);
+
+  font-size: #{$rem}rem;
+  line-height: math.div($line, $size);
+}
+
+// ---------------------------------------------------------------
+//  visually hidden (Screen Leader onry)
+// > usage
+// > @include visually-hidden;
+// ---------------------------------------------------------------
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+@mixin visually-hidden-reset {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  border: 0;
+}
+
+// ---------------------------------------------------------------
+//  clearfix
+// > usage
+// > @include clearfix;
+// ---------------------------------------------------------------
+@mixin clearfix {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+// ---------------------------------------------------------------
+//  label-text
+// > usage
+// > @include label-text;
+// ---------------------------------------------------------------
+@mixin label-text {
+  display: block;
+  font-weight: bold;
+  font-size: 0;
+
+  &-text {
+    display: inline-block;
+    @include font-line(14, 19.6);
+
+    margin-right: 4px;
+  }
+
+  &-required {
+    display: inline-block;
+    @include font-line(12, 16.8);
+
+    font-weight: normal;
+    color: $color_text_ado_blue;
+  }
+  @content;
+}
+
+// ---------------------------------------------------------------
+//  label-text-disabled
+// > usage
+// > @include label-text;
+// ---------------------------------------------------------------
+@mixin label-text-disabled {
+  &-text {
+    color: $color_text_input_disabled;
+  }
+
+  &-required {
+    color: $color_text_input_disabled;
+  }
+  @content;
+}
+
+// ---------------------------------------------------------------
+//  form element default
+// > usage
+// > @include form-element-default;
+// ---------------------------------------------------------------
+@mixin form-element-default {
+  box-shadow: 0 0 0 1px $color_ado_gray inset;
+  @content;
+}
+
+// ---------------------------------------------------------------
+//  form element focus
+// > usage
+// > @include form-element-focus;
+// ---------------------------------------------------------------
+@mixin form-element-focus {
+  box-shadow: 0 0 0 1px $color_gray_90 inset, 0 0 10px rgb(0 0 0 / 20%);
+  @content;
+}
+
+// ---------------------------------------------------------------
+//  form element checkbox/radio focus
+// > usage
+// > @include form-element-checkbox-radio-focus;
+// ---------------------------------------------------------------
+@mixin form-element-checkbox-radio-focus {
+  outline: 1px solid #222;
+  outline-offset: 1px;
+}
+
+// ---------------------------------------------------------------
+//  form element error
+// > usage
+// > @include form-element-error;
+// ---------------------------------------------------------------
+@mixin form-element-error {
+  box-shadow: 0 0 0 2px $color_ado_red01 inset;
+  @content;
+}
+
+// ---------------------------------------------------------------
+//  form element error + focus
+// > usage
+// > @include form-element-error;
+// ---------------------------------------------------------------
+@mixin form-element-error-focus {
+  box-shadow: 0 0 0 2px $color_ado_red01 inset, 0 0 10px rgb(0 0 0 / 20%);
+  @content;
+}
+
+// ---------------------------------------------------------------
+//  form element error
+// > usage
+// > @include form-element-error;
+// ---------------------------------------------------------------
+@mixin form-element-disabled {
+  background-color: $color_bg_input_disabled;
+  color: $color_text_input_disabled;
+  -webkit-text-fill-color: $color_text_input_disabled;
+  opacity: 1;
+  cursor: auto;
+  @content;
+}

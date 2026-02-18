@@ -1,0 +1,259 @@
+@use "../../../core" as *;
+
+.c-plan-table01 {
+  $table: &;
+
+  width: 100%;
+  height: 100%;
+  display: table;
+  table-layout: fixed;
+  border-collapse: collapse;
+  text-align: left;
+
+  &__head {
+    #{$table} {
+      &__col {
+        padding-top: 0;
+
+        &-inner {
+          padding-top: 0;
+          display: flex;
+          justify-content: flex-end;
+          flex-flow: column;
+        }
+
+        &:first-child {
+          width: 120px;
+        }
+
+        &:not(:first-child) {
+          width: 180px;
+        }
+      }
+    }
+  }
+
+  &__body {
+    #{$table} {
+      &__inner {
+        &:first-child {
+          #{$table} {
+            &__col {
+              &-inner {
+                border-top: 1px solid $color_gray_90;
+              }
+            }
+          }
+        }
+
+        &:not(:first-child) {
+          #{$table} {
+            &__col {
+              &-inner {
+                border-top: 1px solid $color_gray_10;
+              }
+            }
+          }
+        }
+
+        &:last-child {
+          #{$table} {
+            &__col {
+              &-inner {
+                padding-bottom: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__col {
+    $table-col: &;
+
+    height: 100%;
+    display: table-cell;
+    font-weight: normal;
+    vertical-align: top;
+    position: relative;
+    z-index: 1;
+    transition: 0.2s;
+
+    &-inner {
+      height: 100%;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      padding-right: 16px;
+    }
+
+    &-item {
+      &--em {
+        font-weight: bold;
+      }
+
+      &--blue {
+        color: $color_ado_blue;
+      }
+
+      &--red {
+        color: $color_ado_red01;
+      }
+
+      &--gray {
+        &60 {
+          color: $color_gray_60;
+        }
+      }
+
+      &--mt {
+        &8 {
+          margin-top: 8px;
+        }
+      }
+
+      &--fs16 {
+        @include font-line(16, 22.4);
+      }
+    }
+
+    &:first-child {
+      background-color: $color_white;
+      position: relative;
+      z-index: 2;
+    }
+
+    &--em {
+      font-weight: bold;
+    }
+
+    &--not-border {
+      #{$table-col} {
+        &-inner {
+          border-top: 0 !important;
+        }
+      }
+    }
+
+    &--pb0 {
+      #{$table-col} {
+        &-inner {
+          padding-bottom: 0;
+        }
+      }
+    }
+  }
+
+  &--2col {
+    #{$table}__head {
+      #{$table}__col {
+        &:not(:first-child) {
+          width: auto;
+        }
+      }
+    }
+  }
+
+  &__airport {
+    &-departure,
+    &-arrival {
+      display: inline-block;
+    }
+
+    &-to {
+      margin-right: 8px;
+      margin-left: 8px;
+    }
+  }
+
+  &__text {
+    &-link {
+      color: $color_ado_blue;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__icon {
+    &-available {
+      display: flex;
+
+      &-image {
+        flex-shrink: 0;
+        margin-right: 4px;
+      }
+    }
+
+    &-add {
+      display: flex;
+      align-items: center;
+
+      &-image {
+        flex-shrink: 0;
+        margin-right: 4px;
+      }
+    }
+  }
+}
+
+@include is-tb {
+  .c-plan-table01 {
+    $table: &;
+
+    &__head {
+      #{$table} {
+        &__col {
+          &:first-child {
+            width: 192px;
+          }
+
+          &:not(:first-child) {
+            width: 234px;
+          }
+        }
+      }
+    }
+
+    &--3col {
+      #{$table}__head {
+        #{$table}__col {
+          &:not(:first-child) {
+            width: auto;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include is-pc {
+  .c-plan-table01 {
+    $table: &;
+
+    &__head {
+      #{$table} {
+        &__col {
+          &:first-child {
+            width: 184px;
+          }
+
+          &:not(:first-child) {
+            width: 200px;
+          }
+        }
+      }
+    }
+
+    &--4col {
+      #{$table}__head {
+        #{$table}__col {
+          &:not(:first-child) {
+            width: auto;
+          }
+        }
+      }
+    }
+  }
+}

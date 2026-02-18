@@ -1,0 +1,35 @@
+@use "../../../core" as *;
+
+.c-available-list {
+  $this: &;
+
+  &__item {
+    position: relative;
+    padding-left: 28px;
+
+    &:not(:first-child) {
+      margin-top: 10px;
+    }
+
+    &-icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    &-title {
+      padding: 2px 0;
+
+      &--gray60 {
+        color: $color_gray_60;
+      }
+    }
+
+    &-text {
+      &-link {
+        color: $color_text_ado_blue;
+      }
+    }
+    // &-contents {}
+  }
+}

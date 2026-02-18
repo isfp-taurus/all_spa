@@ -1,0 +1,53 @@
+@use "../../../core" as *;
+
+.c-completed-message {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+
+  &__title {
+    @include font-line(32, 38.4);
+
+    &--em {
+      font-weight: bold;
+    }
+
+    &--blue {
+      color: $color_primary_blue;
+    }
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 64px;
+    background: url("~/assets/images/icon_check_circle_primary_64.svg") no-repeat center center;
+    background-size: cover;
+    margin-bottom: 16px;
+    flex-shrink: 0;
+  }
+}
+
+@include is-tb {
+  .c-completed-message {
+    &__title {
+      @include font-line(40, 48);
+    }
+
+    &::before {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+@include is-pc {
+  .c-completed-message {
+    flex-flow: row nowrap;
+
+    &::before {
+      margin-bottom: 0;
+      margin-right: 16px;
+    }
+  }
+}

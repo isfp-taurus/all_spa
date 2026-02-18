@@ -1,0 +1,127 @@
+@use "../../../core" as *;
+
+.p-card-to-use {
+  $this: &;
+
+  margin-top: 16px;
+
+  &__change {
+    display: none;
+
+    &.is-open {
+      display: block;
+    }
+
+    &-item {
+      width: 100%;
+      padding: 0 16px;
+      min-height: 66px;
+      border-radius: 15px;
+      border: 1px solid $color_ado_blue;
+      box-shadow: 0 0 0 1px $color_ado_blue inset;
+      background-color: $color_white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &-title {
+      &-label {
+        @include font-line(16, 22.4);
+
+        font-weight: bold;
+      }
+    }
+
+    &-btn {
+      flex-shrink: 0;
+    }
+  }
+
+  &__menu {
+    $menu: &;
+
+    &.is-hide {
+      display: none;
+    }
+
+    &-item {
+      width: 100%;
+      padding: 0 16px;
+      min-height: 66px;
+      border: 1px solid $color_white;
+      box-shadow: 0 0 0 1px $color_white inset;
+      background-color: $color_white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &:first-child {
+        border-radius: 15px 15px 0 0;
+      }
+
+      &:last-child {
+        border-radius: 0 0 15px 15px;
+      }
+
+      &:not(:first-child) {
+        border-top: 1px solid $color_gray_10;
+      }
+
+      &--selected {
+        border: 1px solid $color_ado_blue !important;
+        box-shadow: 0 0 0 1px $color_ado_blue inset !important;
+        #{$menu} {
+          &-btn {
+            &-select {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    &-title {
+      padding-right: 8px;
+
+      &-label {
+        @include font-line(16, 22.4);
+
+        font-weight: bold;
+      }
+
+      &-lead {
+        color: $color_gray_60;
+      }
+    }
+
+    &-btn {
+      flex-shrink: 0;
+    }
+  }
+}
+@include is-tb {
+  .p-card-to-use {
+    &__menu {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+
+      &-item {
+        width: calc(100% / 2 - 12px);
+        padding: 16px;
+        min-height: 74px;
+        border-radius: 15px;
+
+        &:first-child,
+        &:last-child {
+          border-radius: 15px;
+        }
+
+        &:not(:first-child) {
+          border-top: 1px solid $color_white;
+        }
+      }
+    }
+  }
+}

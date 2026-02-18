@@ -1,0 +1,13 @@
+@use "../../../core" as *;
+
+.p-modal-body01 {
+  padding: 16px 16px 24px;
+
+  &__checkbox {
+    margin-top: 18px;
+
+    .c-form-element-checkbox:not(:first-child) {
+      margin-top: 14px;
+    }
+  }
+}

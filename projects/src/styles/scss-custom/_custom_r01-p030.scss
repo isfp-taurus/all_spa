@@ -1,0 +1,28 @@
+@use "../scss/core" as *;
+
+.custom-remaining-seats {
+  $this: &;
+
+  text-align: left;
+}
+
+.p-vacant-seat01__heading-item--international-first-domestic {
+  &::before {
+    background: #005bab;
+  }
+}
+
+.p-fare-panel__item--first-domestic {
+  background: linear-gradient(180deg, #005bab 0%, #005bab 15px, $color_white 15px, $color_white 100%);
+}
+
+/* 運賃変更モーダル用 */
+.l-modal01__contents {
+  &.is-fullscroll-r01-p030-m09 {
+    overflow-y: scroll;
+
+    .js-modal-body {
+      overflow-y: hidden;
+    }
+  }
+}

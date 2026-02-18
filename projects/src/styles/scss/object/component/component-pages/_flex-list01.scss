@@ -1,0 +1,115 @@
+@use "../../../core" as *;
+
+.c-flex-list {
+  &01 {
+    $this: &;
+
+    &__item {
+      display: flex;
+      margin-top: 8px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &--sb {
+        justify-content: space-between;
+      }
+
+      &--center {
+        align-items: center;
+      }
+
+      &--wrap {
+        flex-wrap: wrap;
+      }
+
+      &--mt12 {
+        margin-top: 12px;
+      }
+
+      &--mt16 {
+        margin-top: 16px;
+      }
+    }
+
+    &__text {
+      &-strong {
+        font-weight: bold;
+      }
+    }
+
+    &__title {
+      flex-shrink: 0;
+      padding-right: 8px;
+
+      &-item {
+        display: block;
+
+        &--mt4 {
+          margin-top: 4px;
+        }
+
+        &--em {
+          font-weight: bold;
+        }
+
+        &--gray {
+          &60 {
+            color: $color_gray_60;
+          }
+        }
+      }
+
+      &--em {
+        font-weight: bold;
+      }
+
+      &--fs16 {
+        @include font-line(16, 22.4);
+      }
+
+      &--fs18 {
+        @include font-line(18, 26);
+      }
+
+      &--gray {
+        &60 {
+          color: $color_gray_60;
+        }
+      }
+    }
+
+    &__contents {
+      text-align: right;
+
+      &-item {
+        margin-top: 4px;
+
+        &:first-child {
+          margin-top: 0;
+        }
+
+        &--mt8 {
+          margin-top: 8px;
+        }
+
+        &--em {
+          font-weight: bold;
+        }
+      }
+
+      &--em {
+        font-weight: bold;
+      }
+
+      &--fs16 {
+        @include font-line(16, 22.4);
+      }
+
+      &--fs18 {
+        @include font-line(18, 26);
+      }
+    }
+  }
+}

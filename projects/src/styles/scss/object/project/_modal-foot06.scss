@@ -1,0 +1,25 @@
+@use "../../core" as *;
+
+.p-modal-foot06 {
+  padding: 12px 16px;
+
+  &__btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+@include is-tb {
+  .p-modal-foot06 {
+    padding-left: $contents-garter-tb-unit;
+    padding-right: $contents-garter-tb-unit;
+
+    &__btn {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 8px;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+@use "../../../core" as *;
+
+.c-wifi-icon {
+  &01 {
+    $this01: &;
+
+    display: flex;
+
+    &__text {
+      display: block;
+      margin-left: 4px;
+      @include font-line(14, 19.6);
+    }
+
+    &__img {
+      flex-shrink: 0;
+    }
+
+    &--large {
+      #{$this01}__text {
+        @include font-line(16, 22.4);
+      }
+    }
+  }
+}

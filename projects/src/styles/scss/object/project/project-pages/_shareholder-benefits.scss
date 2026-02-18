@@ -1,0 +1,108 @@
+@use "../../../core" as *;
+
+.p-shareholder-benefits {
+  margin-top: 16px;
+
+  &__item {
+    margin-top: 16px;
+    padding: 16px;
+    border-radius: 15px;
+    background-color: $color_white;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &-head {
+      @include font-line(20, 26);
+
+      font-weight: bold;
+    }
+
+    &-head + &-body {
+      margin-top: 16px;
+    }
+  }
+
+  &__member {
+    margin-top: 16px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &-item {
+      margin-top: 16px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    &-label {
+      @include font-line(16, 22.4);
+
+      font-weight: bold;
+    }
+
+    &-input {
+      margin-top: 12px;
+
+      &-item {
+        margin-top: 12px;
+
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+
+  &__text {
+    &-airport {
+      &-departure,
+      &-arrival {
+        display: inline-block;
+      }
+
+      &-to {
+        margin-right: 8px;
+        margin-left: 8px;
+      }
+    }
+  }
+}
+@include is-tb {
+  .p-shareholder-benefits {
+    &__item {
+      padding: 20px 24px;
+    }
+
+    &__member {
+      &-input {
+        display: flex;
+        justify-content: space-between;
+
+        &-item {
+          margin-top: 0;
+          width: 49.0909%;
+        }
+      }
+    }
+  }
+}
+@include is-pc {
+  .p-shareholder-benefits {
+    &__item {
+      padding: 24px;
+    }
+
+    &__member {
+      &-input {
+        &-item {
+          width: 49.2347%;
+        }
+      }
+    }
+  }
+}

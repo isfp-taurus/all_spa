@@ -1,0 +1,67 @@
+@use "../../../core" as *;
+
+.p-payment-method-finance {
+  &__item {
+    padding: 16px;
+    border-radius: 15px;
+    background-color: $color_white;
+
+    &-title {
+      &--m {
+        @include font-line(20, 26);
+      }
+    }
+
+    &-title + &-contents {
+      margin-top: 16px;
+    }
+
+    &-block {
+      margin-top: 16px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    &-text {
+      &--fs16 {
+        @include font-line(16, 22.4);
+      }
+    }
+  }
+
+  &__cvs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}
+@include is-tb {
+  .p-payment-method-finance {
+    &__item {
+      padding: 20px 24px;
+
+      &-block {
+        &-box {
+          &--select {
+            width: 49.0909%;
+          }
+        }
+      }
+    }
+  }
+}
+@include is-pc {
+  .p-payment-method-finance {
+    &__item {
+      &-block {
+        &-box {
+          &--select {
+            width: 49.2347%;
+          }
+        }
+      }
+    }
+  }
+}

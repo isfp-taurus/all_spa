@@ -1,0 +1,88 @@
+@use "../../core" as *;
+
+.p-tips-for-use {
+  position: relative;
+
+  &__title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    @include font-line(18, 26);
+
+    font-weight: bold;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 24px;
+      height: 24px;
+      background: url("~/assets/images/icon_hint_24.svg") no-repeat center center;
+      background-size: cover;
+      margin-right: 0.2em;
+    }
+
+    &-text {
+      display: block;
+    }
+  }
+
+  &__text {
+    margin-bottom: 16px;
+    line-height: 1.4;
+  }
+
+  &__contents {
+    display: none;
+
+    &:focus {
+      outline: none;
+    }
+
+    &.is-open {
+      display: block;
+    }
+  }
+
+  &__btn {
+    position: absolute;
+    right: 0;
+    top: 2px;
+    display: flex;
+    align-items: center;
+    @include font-line(16, 22.4);
+
+    color: $color_text_ado_blue;
+
+    &-text {
+      margin-right: 0.4em;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: 20px;
+      height: 20px;
+      background: url("~/assets/images/icon_chevron_down_ado_blue_20.svg") no-repeat center center;
+      background-size: cover;
+      position: relative;
+      top: -1px;
+    }
+
+    &.is-open {
+      position: static;
+      margin: 16px 0 0 auto;
+      overflow: hidden; /* for safari */
+
+      &::after {
+        transform: rotate(-180deg);
+      }
+    }
+  }
+}
+@include is-tb {
+  .p-tips-for-use {
+    &__title {
+      @include font-line(20, 26);
+    }
+  }
+}

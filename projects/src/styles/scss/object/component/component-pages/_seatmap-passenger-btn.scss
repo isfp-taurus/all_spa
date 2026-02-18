@@ -1,0 +1,145 @@
+@use "../../../core" as *;
+
+.c-seatmap-passenger-btn {
+  $this: &;
+
+  width: 100%;
+  padding: 16px;
+  border: 1px solid $color_white;
+  border-bottom: 1px solid $color_gray_10;
+  box-shadow: 0 0 0 1px $color_white inset;
+  background-color: $color_white;
+  @include font-line(16, 22.4);
+
+  &__wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 16px;
+    text-align: left;
+
+    &-num {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+      width: 30px;
+      height: 30px;
+      margin-right: 8px;
+      background: url("~/assets/images/icon_square_line_gray20_30.svg") center no-repeat;
+      background-size: cover;
+    }
+
+    &-label {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-between;
+
+      &-member {
+        font-weight: bold;
+      }
+
+      &-sub {
+        @include font-line(14, 19.6);
+
+        color: $color_gray_70;
+      }
+
+      &-member,
+      &-sub {
+        display: block;
+      }
+    }
+  }
+
+  &__status {
+    flex-shrink: 0;
+    font-weight: bold;
+    color: $color_gray_60;
+  }
+
+  &.is-current {
+    background-color: $color_ado_lightblue02;
+    border: 1px solid $color_ado_blue !important;
+    box-shadow: 0 0 0 1px $color_ado_blue inset;
+    border-radius: 15px;
+    #{$this} {
+      &__title {
+        &-num {
+          background: url("~/assets/images/icon_square_line_ado_blue_30.svg") center no-repeat;
+          background-size: cover;
+          font-weight: bold;
+          color: $color_ado_blue;
+        }
+
+        &-label {
+          &-member {
+            color: $color_ado_blue;
+          }
+        }
+      }
+
+      &__status {
+        color: $color_gray_60;
+      }
+    }
+  }
+
+  &.is-selected {
+    #{$this} {
+      &__title {
+        &-num {
+          background: url("~/assets/images/icon_square_ado_blue_30.svg") center no-repeat;
+          background-size: cover;
+          font-weight: bold;
+          color: $color_white;
+        }
+
+        &-label {
+          &-member {
+            color: $color_ado_blue;
+          }
+        }
+      }
+
+      &__status {
+        @include font-line(22, 28);
+
+        color: $color_ado_blue;
+      }
+    }
+  }
+
+  &.is-unchangeable {
+    #{$this} {
+      &__title {
+        &-num {
+          background: url("~/assets/images/icon_square_diagonal_line_gray40_30.svg") center no-repeat;
+          background-size: cover;
+          font-weight: bold;
+          color: $color_gray_60;
+        }
+
+        &-label {
+          &-member,
+          &-sub {
+            font-weight: bold;
+            color: $color_gray_60;
+          }
+        }
+      }
+
+      &__status {
+        font-weight: bold;
+        @include font-line(22, 28);
+      }
+    }
+  }
+}

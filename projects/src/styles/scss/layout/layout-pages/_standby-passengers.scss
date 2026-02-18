@@ -1,0 +1,31 @@
+@use "../../core" as *;
+
+.l-standby-passengers {
+  background: $color_white;
+  padding: 16px 0;
+  border-top: 1px solid $color_gray_7;
+
+  &__fromto {
+    letter-spacing: -0.4em;
+    @include font-line(16, 22.4);
+
+    font-weight: bold;
+
+    &-item {
+      display: inline-block;
+      letter-spacing: normal;
+    }
+
+    &-separator {
+      display: inline-block;
+      letter-spacing: normal;
+      margin: 0 4px;
+    }
+  }
+
+  &__date {
+    @include font-line(16, 22.4);
+
+    margin-top: 4px;
+  }
+}

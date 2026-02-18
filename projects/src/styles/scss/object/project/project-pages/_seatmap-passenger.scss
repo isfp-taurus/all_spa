@@ -1,0 +1,67 @@
+@use "../../../core" as *;
+
+.p-seatmap-passenger {
+  margin-top: 16px;
+  padding-left: 16px;
+  background-color: $color_white;
+  border-radius: 15px;
+
+  &__item {
+    $item: &;
+
+    border-top: 1px solid $color_gray_10;
+
+    &-wrap {
+      margin-left: -16px;
+    }
+
+    &:first-child {
+      border-top: 0 !important;
+    }
+
+    &.is-current {
+      border-top: 1px solid $color_white;
+      & + #{$item} {
+        border-top: 1px solid $color_white;
+      }
+    }
+
+    .c-seatmap-passenger-btn {
+      border-bottom: 1px solid $color_white;
+      border-radius: 15px;
+
+      &__title {
+        &-label {
+          &-member {
+            font-weight: normal;
+          }
+        }
+      }
+
+      &.is-current {
+        .c-seatmap-passenger-btn__title {
+          &-label {
+            &-member {
+              font-weight: bold;
+            }
+          }
+        }
+      }
+
+      &.is-selected {
+        .c-seatmap-passenger-btn__title {
+          &-label {
+            &-sub {
+              color: $color_primary_blue;
+            }
+
+            &-member,
+            &-sub {
+              font-weight: bold;
+            }
+          }
+        }
+      }
+    }
+  }
+}

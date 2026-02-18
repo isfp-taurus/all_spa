@@ -1,0 +1,79 @@
+@use "../core" as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+img {
+  vertical-align: middle;
+  max-width: 100%;
+}
+
+input,
+textarea {
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  font-weight: normal;
+}
+
+input::-ms-clear {
+  visibility: hidden;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  appearance: none;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  font-weight: normal;
+
+  &:disabled {
+    outline: none;
+  }
+}
+
+select {
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  font-weight: normal;
+}
+
+textarea {
+  &:read-only,
+  &:disabled {
+    resize: none;
+  }
+}
+
+fieldset,
+legend {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+em {
+  font-style: normal;
+}
+
+/* Angularのパーツ用に追加 */
+.cdk-overlay-container,
+.cdk-overlay-connected-position-bounding-box,
+.cdk-overlay-backdrop,
+.cdk-global-overlay-wrapper,
+.cdk-overlay-pane {
+  z-index: 8000;
+}

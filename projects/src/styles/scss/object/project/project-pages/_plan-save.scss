@@ -1,0 +1,93 @@
+@use "../../../core" as *;
+
+.p-plan-save {
+  padding: 16px;
+  border-radius: 15px;
+  background: $color_white;
+  border: 2px solid $color_ado_blue;
+
+  &__title {
+    &-text {
+      font-weight: bold;
+      @include font-line(18, 26);
+    }
+  }
+
+  &__contents {
+    &-item {
+      margin-top: 12px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &--btn {
+        margin-top: 16px;
+      }
+    }
+
+    &-text {
+      margin-top: 8px;
+      @include font-line(16, 22.4);
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &-attention {
+        color: $color_ado_red01;
+      }
+    }
+  }
+
+  &__title + &__contents {
+    margin-top: 12px;
+  }
+
+  &__btn {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    &-item {
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+
+@include is-tb {
+  .p-plan-save {
+    padding: 20px 24px;
+
+    &__contents {
+      $this: &;
+
+      &-item {
+        &--btn {
+          margin-top: 0;
+          display: flex;
+        }
+      }
+
+      &--has-btn {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+
+        #{$this} {
+          &-item {
+            &--btn {
+              flex-shrink: 0;
+            }
+          }
+        }
+      }
+    }
+
+    &__btn {
+      justify-content: flex-end;
+      align-items: flex-end;
+    }
+  }
+}

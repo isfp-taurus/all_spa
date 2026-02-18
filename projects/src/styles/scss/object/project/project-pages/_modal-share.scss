@@ -1,0 +1,7 @@
+@use "../../../core" as *;
+
+.p-modal-share {
+  &__text + &__btn {
+    margin-top: 16px;
+  }
+}

@@ -1,0 +1,90 @@
+@use "../../../core" as *;
+
+.p-refund-amount {
+  margin: -20px (-$contents-garter + vw) 0;
+
+  .c-float-list01 {
+    margin-top: 12px;
+
+    &__title {
+      margin-top: 4px;
+    }
+  }
+
+  .c-float-list03 {
+    &__title {
+      margin-top: 4px;
+    }
+  }
+
+  &__item {
+    padding: 16px;
+    background-color: $color_white;
+
+    &:not(:first-child) {
+      border-top: 1px solid $color_gray_10;
+    }
+  }
+
+  &__title {
+    &-item {
+      &:first-child {
+        .c-float-list01 {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+
+  &__body {
+    &-item {
+      padding-top: 12px;
+      margin-top: 4px;
+
+      & + & {
+        margin-top: 8px;
+        border-top: 1px solid $color_gray_10;
+      }
+    }
+  }
+
+  .p-heading-area01 {
+    @include visually-hidden;
+  }
+}
+@include is-tb {
+  .p-refund-amount {
+    margin: -24px (-$contents-garter-tb + vw) 0;
+
+    &__item {
+      padding: 24px 30px;
+    }
+
+    &__title {
+      &-item {
+        .c-float-list01 {
+          margin-top: 16px;
+        }
+      }
+    }
+  }
+}
+@include is-pc {
+  .p-refund-amount {
+    margin: 0;
+
+    &__item {
+      padding: 20px 24px;
+      border-radius: 15px;
+
+      &:not(:first-child) {
+        margin-top: 16px;
+        border-top: 0;
+      }
+    }
+
+    .p-heading-area01 {
+      @include visually-hidden-reset;
+    }
+  }
+}

@@ -1,0 +1,35 @@
+@use "../../../core" as *;
+
+.c-btn-show {
+  $this: &;
+
+  display: inline-flex;
+  align-items: center;
+  border-radius: 120px;
+  color: $color_text_primary_blue;
+  background-color: $color_white;
+  border: 1px solid $color_white;
+  @include font-line(16, 22.4);
+
+  font-weight: bold;
+  min-height: 38px;
+  padding: 4px 8px 4px 20px;
+
+  &__text {
+    display: block;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: url("~/assets/images/icon_unfold_primary_20.svg") no-repeat center center;
+    background-size: cover;
+    margin-left: 8px;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

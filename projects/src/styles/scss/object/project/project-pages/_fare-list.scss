@@ -1,0 +1,108 @@
+@use "../../../core" as *;
+
+.p-fare-list {
+  &__head {
+    padding: 16px;
+
+    &-item {
+      &:not(:first-child) {
+        margin-top: 4px;
+      }
+
+      &-class {
+        font-weight: bold;
+      }
+
+      &-rank {
+        @include font-line(20, 26);
+      }
+
+      &-class + &-rank {
+        margin-top: 4px;
+      }
+    }
+  }
+
+  &__body {
+    padding: 0 16px;
+
+    &-item {
+      padding: 16px 0;
+
+      & + & {
+        border-top: 1px solid $color_gray_10;
+      }
+
+      &-title {
+        font-weight: bold;
+        @include font-line(14, 19.6);
+
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+
+        & + .c-available-list {
+          margin-top: 12px;
+        }
+      }
+
+      &-text {
+        &-link {
+          display: inline-block;
+          color: $color_primary_blue;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      &-color {
+        &-gray60 {
+          color: $color_gray_60;
+        }
+      }
+
+      &-to {
+        margin-left: 4px;
+        margin-right: 4px;
+      }
+
+      .c-icon-tooltip-list {
+        margin-top: 10px;
+      }
+
+      .c-available-list {
+        .c-remaining-seats {
+          margin-top: 4px;
+        }
+      }
+    }
+  }
+
+  &__head + &__body {
+    border-top: 1px solid $color_gray_10;
+  }
+}
+@include is-tb {
+  .p-fare-list {
+    &__head {
+      padding: 20px 24px;
+    }
+
+    &__body {
+      padding: 0 24px;
+    }
+  }
+}
+@include is-pc {
+  .p-fare-list {
+    &__head {
+      padding: 16px;
+    }
+
+    &__body {
+      padding: 0 16px;
+    }
+  }
+}

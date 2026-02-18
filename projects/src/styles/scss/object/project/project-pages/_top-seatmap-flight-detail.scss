@@ -1,0 +1,36 @@
+@use "../../../core" as *;
+
+.p-top-seatmap-flight-detail {
+  padding: 12px 0;
+  background-color: $color_white;
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    min-width: 90px;
+    padding-right: 12px;
+    @include font-line(16, 22.4);
+
+    &--em {
+      font-weight: bold;
+    }
+  }
+}
+
+@include is-tb {
+  .p-top-seatmap-flight-detail {
+    &__item {
+      min-width: 124px;
+    }
+  }
+}
+@include is-tb {
+  .p-top-seatmap-flight-detail {
+    &__item {
+      min-width: 104px;
+    }
+  }
+}

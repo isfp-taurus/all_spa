@@ -1,0 +1,118 @@
+@use "../core" as *;
+
+.l-modal08 {
+  $this: &;
+
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 8000;
+
+  &__bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.4s;
+    background-color: rgb(51 51 51 / 50%);
+  }
+
+  &.is-open {
+    #{$this}__bg {
+      opacity: 1;
+    }
+    #{$this}__inner {
+      bottom: 0%;
+    }
+  }
+
+  &__inner {
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    transition: bottom 0.4s;
+    pointer-events: none;
+  }
+
+  &__contents {
+    background-color: #fff;
+    pointer-events: auto;
+    z-index: 1;
+
+    &--gray {
+      background-color: $color_gray_5;
+      #{$this}__header {
+        background-color: $color_white;
+      }
+    }
+
+    &--bg-gray5 {
+      background-color: $color_gray_5;
+    }
+  }
+
+  &__header {
+    border-bottom: 1px solid $color_gray_10;
+    background-color: $color_white;
+  }
+
+  &__body {
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    &--bg-gray5 {
+      background-color: $color_gray_5;
+    }
+  }
+
+  &__footer {
+    border-top: 1px solid $color_gray_10;
+    background-color: $color_white;
+
+    &.is-shadow {
+      position: relative;
+      border-top: 1px solid $color_white;
+      box-shadow: 0 0 10px rgb(51 51 51 / 20%);
+    }
+  }
+}
+
+@include is-pc {
+  .l-modal08 {
+    $this: &;
+
+    &__inner {
+      position: fixed;
+      top: 0;
+      left: auto;
+      right: -100vw;
+      bottom: auto;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.4s, right 0.4s;
+    }
+
+    &.is-open {
+      #{$this}__inner {
+        opacity: 1;
+        right: 0;
+      }
+    }
+
+    &__contents {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 375px;
+      height: 100%;
+      box-shadow: 0 0 10px rgb(51 51 51 / 20%);
+    }
+  }
+}

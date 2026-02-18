@@ -1,0 +1,287 @@
+@use "../../../core" as *;
+
+.p-select-flight-panel01 {
+  margin-top: 16px;
+  padding: 20px 24px;
+  background-color: $color_white;
+  border-radius: 15px;
+
+  &__item {
+    & + & {
+      margin-top: 16px;
+    }
+
+    &-text {
+      &-link {
+        display: inline-block;
+        color: $color_primary_blue;
+      }
+
+      &-gray60 {
+        color: $color_gray_60;
+      }
+
+      &-price {
+        font-size: 0;
+      }
+
+      &-num,
+      &-currency {
+        @include font-line(16, 22.4);
+      }
+
+      &-num + &-currency,
+      &-currency + &-num {
+        margin-left: 4px;
+      }
+    }
+  }
+
+  &__grade {
+    &-head {
+      $this: &;
+
+      font-weight: bold;
+
+      &-item {
+        padding-right: 20px;
+      }
+
+      &--3col {
+        display: flex;
+        #{$this} {
+          &-item {
+            &:nth-child(1) {
+              width: 24%;
+            }
+
+            &:nth-child(2) {
+              width: 28%;
+            }
+
+            &:nth-child(3) {
+              width: 48%;
+            }
+          }
+        }
+      }
+    }
+    $this: &;
+
+    &-body {
+      border-top: 1px solid $color_gray_90;
+
+      &-inner {
+        padding-top: 16px;
+
+        &--grade-class {
+          display: flex;
+          #{$this}-cur {
+            width: 24%;
+          }
+          #{$this}-move {
+            width: 26.333%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+          }
+        }
+
+        &--blank {
+          display: flex;
+          #{$this}-cur {
+            width: 52%;
+          }
+          #{$this}-move {
+            width: calc(100% - 52%);
+          }
+        }
+
+        &--cancel {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          align-items: center;
+        }
+      }
+    }
+
+    &-head + &-body {
+      margin-top: 8px;
+    }
+
+    &-cur {
+      padding-right: 20px;
+
+      &-class {
+        font-weight: bold;
+        @include font-line(16, 22.4);
+      }
+
+      &-status {
+        margin-top: 4px;
+      }
+    }
+
+    &-class-list {
+      width: calc(100% - 24%);
+
+      &-item {
+        $this: &;
+
+        &--eco {
+          #{$this}-inner {
+            &::before {
+              background-color: $color_class_eco_premium;
+            }
+          }
+        }
+
+        &--ecoPremium {
+          #{$this}-inner {
+            &::before {
+              background-color: $color_class_eco_premium;
+            }
+          }
+        }
+
+        &--business {
+          #{$this}-inner {
+            &::before {
+              background-color: $color_class_business;
+            }
+          }
+        }
+
+        &--first {
+          #{$this}-inner {
+            &::before {
+              background-color: $color_class_first;
+            }
+          }
+        }
+
+        &:first-child {
+          padding-bottom: 12px;
+        }
+
+        &:not(:first-child) {
+          padding-top: 12px;
+        }
+
+        & + & {
+          border-top: 1px solid $color_gray_10;
+        }
+
+        &-inner {
+          position: relative;
+          display: flex;
+
+          &::before {
+            content: "";
+            display: block;
+            width: 10px;
+            height: 100%;
+            background-color: $color_class_eco_premium;
+            border-radius: 10px;
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+        }
+      }
+    }
+
+    &-upg {
+      width: 37.333%;
+      padding-left: 22px;
+      padding-right: 20px;
+      @include font-line(16, 22.4);
+
+      &-title {
+        &-label {
+          font-weight: bold;
+        }
+
+        &-label + &-status {
+          margin-top: 4px;
+        }
+      }
+
+      &-contents {
+        margin-top: 4px;
+
+        &-seat {
+          @include font-line(14, 19.6);
+
+          color: $color_gray_60;
+        }
+
+        &-seat + &-map {
+          margin-top: 4px;
+        }
+      }
+    }
+
+    &-amt {
+      width: 36.333%;
+
+      &-info {
+        width: 100%;
+
+        &-item {
+          &::after {
+            @include clearfix;
+          }
+
+          & + & {
+            margin-top: 8px;
+          }
+
+          &--status {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            &::after {
+              display: none;
+            }
+          }
+        }
+
+        &-title {
+          float: left;
+          padding-right: 8px;
+          color: $color_gray_60;
+        }
+
+        &-contents {
+          float: right;
+          font-weight: bold;
+          @include font-line(16, 22.4);
+
+          text-align: right;
+        }
+
+        &-status {
+          margin-top: 4px;
+        }
+      }
+    }
+
+    &-amt,
+    &-move {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &-note {
+        padding-right: 16px;
+      }
+
+      &-btn {
+        flex-shrink: 0;
+      }
+    }
+  }
+}

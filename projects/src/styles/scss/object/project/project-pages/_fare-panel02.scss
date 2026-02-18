@@ -1,0 +1,286 @@
+@use "../../../core" as *;
+
+.p-fare-panel02 {
+  $this: &;
+
+  display: flex;
+
+  &--in-modal {
+    margin-left: -16px;
+    margin-right: -16px;
+    padding-left: 16px;
+  }
+
+  &__item {
+    $item: &;
+
+    flex-shrink: 0;
+    position: relative;
+    padding-top: 15px;
+    width: 300px;
+    border-radius: 15px;
+    background-color: $color_white;
+
+    &:not(:first-child) {
+      margin-left: 15px;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 16px;
+      border-radius: 15px 15px 0 0;
+      // background-color: $color_class_eco;
+    }
+
+    &--eco {
+      &::before {
+        background-color: $color_class_eco;
+      }
+    }
+
+    &--ecoPremium {
+      &::before {
+        background-color: $color_class_eco_premium;
+      }
+    }
+    // &--business {}
+    // &--first {}
+    &--select {
+      box-shadow: 0 0 0 4px $color_ado_blue inset;
+      #{$this}__footer {
+        &::before {
+          width: calc(100% - 4px * 2);
+        }
+      }
+
+      &::before {
+        top: 4px;
+        left: 4px;
+        width: calc(100% - 4px * 2);
+        height: 12px;
+        border-radius: 11px 11px 0 0;
+      }
+    }
+
+    &--disabled {
+      background-color: $color_gray_10;
+      #{$this}__head + #{$this}__body {
+        &::before {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__selected {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    padding: 4px 15px;
+    background-color: $color_primary_blue;
+    border-radius: 15px 0;
+    color: $color_white;
+    font-weight: 700;
+  }
+
+  &__promotion {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+
+    img {
+      vertical-align: top;
+    }
+  }
+
+  &__head {
+    padding: 16px 15px 0;
+
+    &-item {
+      &:not(:first-child) {
+        margin-top: 8px;
+      }
+
+      &-class,
+      &-rank,
+      &-fare {
+        font-weight: 700;
+      }
+
+      &-rank {
+        margin-top: 4px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        @include font-line(22, 28);
+
+        .c-tag-lowest-price {
+          font-weight: 400;
+        }
+      }
+
+      &-fare {
+        &-price {
+          @include font-line(28, 32);
+        }
+
+        &-currency {
+          @include font-line(20, 32);
+        }
+
+        &-price + &-currency {
+          margin-right: 2px;
+        }
+
+        &-currency + &-price {
+          margin-left: 2px;
+        }
+      }
+
+      &-correction {
+        @include font-line(20, 26);
+
+        &-currency,
+        &-price {
+          @include font-line(20, 26);
+        }
+
+        &-price + &-currency {
+          margin-right: 6px;
+        }
+
+        &-currency + &-price {
+          margin-left: 6px;
+        }
+      }
+
+      &-not-available {
+        @include font-line(20, 26);
+
+        font-weight: 400;
+      }
+
+      &-remaining {
+        color: $color_text_secondary_red;
+      }
+
+      &-select-btn {
+        min-width: 90px;
+        text-align: right;
+      }
+    }
+
+    &-price {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    &-guidance {
+      margin-top: 8px;
+      color: $color_text_secondary_red;
+    }
+  }
+
+  &__body {
+    position: relative;
+    padding: 16px;
+    border-radius: 0 0 15px 15px;
+
+    &-item {
+      position: relative;
+
+      &-title {
+        font-weight: 700;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+
+        & + .c-available-list {
+          margin-top: 12px;
+        }
+      }
+
+      &:not(:first-child) {
+        &::before {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          margin: auto;
+          width: 100%;
+          border-top: 1px solid $color_gray_10;
+        }
+
+        .c-available-list {
+          &__item:not(:first-child) {
+            margin-top: 12px;
+          }
+
+          .c-remaining-seats {
+            margin-top: 4px;
+          }
+        }
+      }
+
+      &-text {
+        &-link {
+          color: $color_primary_blue;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      &-color {
+        &-gray {
+          color: $color_gray_60;
+        }
+      }
+
+      .c-icon-tooltip-list {
+        width: 160px;
+
+        &__item {
+          margin-top: 8px;
+        }
+      }
+    }
+  }
+
+  &__footer {
+    position: relative;
+    padding: 16px;
+    text-align: right;
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 100%;
+      border-top: 1px solid $color_gray_10;
+    }
+  }
+}
+@include is-tb {
+  .p-fare-panel02 {
+    &--in-modal {
+      margin-left: -24px;
+      margin-right: -24px;
+      padding-left: 24px;
+    }
+  }
+}

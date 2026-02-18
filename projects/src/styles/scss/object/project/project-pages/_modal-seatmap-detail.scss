@@ -1,0 +1,138 @@
+@use "../../../core" as *;
+
+.p-modal-seatmap-detail {
+  $this: &;
+
+  padding: 16px 0 56px;
+
+  &__head {
+    padding: 0 16px;
+
+    &-label {
+      @include font-line(24, 28.8);
+    }
+
+    &-lead {
+      margin-top: 8px;
+
+      &--gray60 {
+        color: $color_gray_60;
+      }
+    }
+  }
+
+  &__head + &__body {
+    margin-top: 16px;
+  }
+
+  &__title {
+    padding: 0 16px;
+    margin-bottom: 8px;
+    @include font-line(18, 21.6);
+  }
+
+  &__btn {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__img {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__layout {
+    #{$this} {
+      &__img {
+        margin: 0 auto;
+        width: 375px;
+      }
+    }
+  }
+
+  &__legend {
+    margin-top: 16px;
+    #{$this} {
+      &__img {
+        margin: 0 auto;
+        width: 264px;
+      }
+    }
+  }
+}
+
+@include is-tb {
+  .p-modal-seatmap-detail {
+    $this: &;
+
+    padding: 16px 0 48px;
+
+    &__head {
+      padding: 0 24px;
+    }
+
+    &__head + &__body {
+      margin-top: 24px;
+    }
+
+    &__title {
+      margin-bottom: 16px;
+      padding: 0 24px;
+    }
+
+    &__detail {
+      padding: 0 28px 0 24px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__layout {
+      width: 67.1%;
+      #{$this} {
+        &__img {
+          width: 480px;
+        }
+      }
+    }
+
+    &__legend {
+      width: calc(100% - 67.1%);
+      margin-top: 0;
+      #{$this} {
+        &__img {
+          width: 232px;
+        }
+      }
+    }
+  }
+}
+
+@include is-pc {
+  .p-modal-seatmap-detail {
+    $this: &;
+
+    padding: 16px 0 112px;
+
+    &__btn {
+      margin-top: 24px;
+    }
+
+    &__detail {
+      padding: 0 40px 0 24px;
+    }
+
+    &__layout {
+      width: 67%;
+      #{$this} {
+        &__img {
+          width: 469px;
+        }
+      }
+    }
+
+    &__legend {
+      width: calc(100% - 67%);
+    }
+  }
+}

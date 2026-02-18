@@ -1,0 +1,84 @@
+@use "../../core" as *;
+
+.p-modal-foot02 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+
+  &__content {
+    &-date {
+      color: $color_primary_blue;
+      @include font-line(14, 19.6);
+
+      font-weight: bold;
+    }
+
+    &-supp {
+      @include font-line(10, 14);
+
+      color: $color_gray_60;
+    }
+
+    &-price {
+      &-currency {
+        color: $color_primary_blue;
+        @include font-line(14, 19.6);
+
+        font-weight: bold;
+      }
+
+      &-num {
+        color: $color_primary_blue;
+        @include font-line(20, 26);
+
+        font-weight: bold;
+      }
+
+      &-currency + &-num,
+      &-num + &-currency {
+        margin-left: 4px;
+      }
+
+      &-text {
+        margin-left: 8px;
+        color: $color_text_base;
+        @include font-line(12, 16.8);
+
+        vertical-align: middle;
+      }
+
+      &--em {
+        font-weight: bold;
+      }
+
+      &--blue {
+        color: $color_primary_blue;
+      }
+    }
+  }
+}
+
+@include is-tb {
+  .p-modal-foot02 {
+    &__content {
+      &-date {
+        @include font-line(18, 26);
+      }
+
+      &-price {
+        &-yen {
+          @include font-line(16, 28);
+        }
+
+        &-val {
+          @include font-line(22, 28);
+        }
+
+        &-text {
+          @include font-line(12, 16.8);
+        }
+      }
+    }
+  }
+}

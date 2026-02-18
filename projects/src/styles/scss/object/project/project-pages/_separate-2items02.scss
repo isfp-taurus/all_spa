@@ -1,0 +1,25 @@
+@use "../../../core" as *;
+
+.p-separate-2items02 {
+  &__item {
+    &:not(:first-child) {
+      margin-top: 16px;
+    }
+  }
+}
+
+@include is-tb {
+  .p-separate-2items02 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__item {
+      flex-shrink: 0;
+
+      &:not(:first-child) {
+        margin-top: 0;
+      }
+    }
+  }
+}

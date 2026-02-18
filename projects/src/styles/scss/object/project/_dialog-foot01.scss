@@ -1,0 +1,16 @@
+@use "../../core" as *;
+
+.p-dialog-foot01 {
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+
+  .c-btn-primary,
+  .c-btn-secondary,
+  .c-btn-tertiary,
+  .c-btn-warn {
+    justify-content: center;
+    min-width: 100px;
+    padding: 4px 8px;
+  }
+}

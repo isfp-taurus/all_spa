@@ -1,0 +1,59 @@
+@use "../../../core" as *;
+
+.p-modal-seatmap-seat-type {
+  $this: &;
+
+  &__item {
+    margin-top: 24px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  &__link {
+    $link: &;
+
+    display: block;
+
+    &-title {
+      @include font-line(16, 22.4);
+
+      &--em {
+        font-weight: bold;
+      }
+    }
+
+    &-contents {
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    &-title + &-contents {
+      margin-top: 8px;
+    }
+
+    &-img {
+      display: block;
+      width: 100%;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &--external {
+      #{$link} {
+        &-title {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          &-label {
+            padding-right: 8px;
+          }
+        }
+      }
+    }
+  }
+}

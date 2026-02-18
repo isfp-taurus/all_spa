@@ -1,0 +1,119 @@
+@use "../../../core" as *;
+
+.c-flight-info01 {
+  &__title {
+    font-weight: bold;
+    @include font-line(20, 26);
+
+    &-airport {
+      &-departure,
+      &-arrival {
+        display: inline-block;
+      }
+
+      &-to {
+        margin-right: 8px;
+        margin-left: 8px;
+      }
+    }
+
+    &-date + &-airport {
+      margin-top: 4px;
+    }
+  }
+
+  &__contents {
+    &-info {
+      display: flex;
+      flex-flow: row wrap;
+      gap: 8px;
+
+      &-item {
+        display: inline-block;
+
+        &--aircraft {
+          width: 100%;
+        }
+      }
+
+      &-title {
+        color: $color_gray_60;
+        @include visually-hidden;
+      }
+
+      &-contents {
+        @include font-line(16, 22.4);
+      }
+
+      &-text {
+        &-em {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  &__title + &__contents {
+    margin-top: 8px;
+  }
+}
+@include is-tb {
+  .c-flight-info01 {
+    display: flex;
+
+    &__title {
+      width: 52%;
+      padding-right: 20px;
+    }
+
+    &__contents {
+      width: calc(100% - 52%);
+
+      &-info {
+        display: flex;
+        flex-flow: column;
+        gap: 0;
+
+        &-item {
+          display: flex;
+          width: 100%;
+
+          & + & {
+            margin-top: 8px;
+          }
+        }
+
+        &-title {
+          @include visually-hidden-reset;
+
+          width: 123px;
+        }
+
+        &-contents {
+          width: calc(100% - 123px);
+        }
+      }
+    }
+
+    &__title + &__contents {
+      margin-top: 0;
+    }
+  }
+}
+@include is-pc {
+  .c-flight-info01 {
+    &__contents {
+      &-info {
+        &-title {
+          @include visually-hidden-reset;
+
+          width: 104px;
+        }
+
+        &-contents {
+          width: calc(100% - 104px);
+        }
+      }
+    }
+  }
+}

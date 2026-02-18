@@ -1,0 +1,9 @@
+@use "../../../core" as *;
+
+.c-enclosure-text {
+  padding: 16px;
+  @include font-line(16, 22.4);
+
+  border-radius: 15px;
+  border: 1px solid $color_gray_20;
+}

@@ -1,0 +1,13 @@
+@use "../../../core" as *;
+
+.p-top-float-navi {
+  &01 {
+    &__item {
+      border-bottom: 1px solid $color_gray_7;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
+  }
+}

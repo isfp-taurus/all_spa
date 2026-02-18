@@ -1,0 +1,42 @@
+@use "../../../core" as *;
+
+.c-bound-title {
+  // font-size SP:16px PC/TB:18px
+  &01 {
+    display: flex;
+    align-items: center;
+    @include font-line(16, 22.4);
+
+    font-weight: bold;
+
+    &::before {
+      content: "";
+      flex-shrink: 0;
+      display: block;
+      width: 20px;
+      height: 20px;
+      margin-right: 4px;
+      background: url("~/assets/images/icon_plane_20.svg") no-repeat;
+    }
+  }
+
+  // font-size 14px
+  &02 {
+    display: flex;
+    align-items: center;
+    color: $color_text_white;
+    @include font-line(14, 19.6);
+
+    font-weight: bold;
+
+    &::before {
+      content: "";
+      flex-shrink: 0;
+      display: block;
+      width: 20px;
+      height: 20px;
+      margin-right: 4px;
+      background: url("~/assets/images/icon_plane_white_20.svg") no-repeat;
+    }
+  }
+}

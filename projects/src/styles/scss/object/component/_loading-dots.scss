@@ -1,0 +1,15 @@
+@use "../../core" as *;
+
+.c-loading-dots {
+  display: inline-flex;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+
+  &__icon {
+    display: block;
+    width: 24px;
+    height: 24px;
+  }
+}

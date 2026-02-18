@@ -1,0 +1,56 @@
+@use "../../../core" as *;
+
+.p-keep-my-fare {
+  $this: &;
+
+  margin: -4px (-$contents-garter + vw) 0;
+  padding: 0 ($contents-garter + vw);
+  background-color: $color_white;
+  padding-bottom: 16px;
+
+  &__box {
+    padding: 15px;
+    box-shadow: 0 0 0 1px $color_gray_40 inset;
+    border-radius: 10px;
+    background-color: $color_white;
+
+    &.is-open {
+      box-shadow: 0 0 0 2px $color_primary_blue inset;
+
+      &__title {
+        #{$this} {
+          color: $color_primary_blue;
+        }
+      }
+    }
+  }
+
+  &__title {
+    font-weight: bold;
+  }
+
+  &__title + &__contents {
+    margin-top: 12px;
+  }
+}
+@include is-tb {
+  .p-keep-my-fare {
+    margin: -4px (-$contents-garter-tb + vw) 0;
+    padding: 0 ($contents-garter-tb + vw) 16px;
+
+    &__box {
+      padding: 16px 12px;
+    }
+  }
+}
+@include is-pc {
+  .p-keep-my-fare {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+
+    &__box {
+      padding: 20px 24px;
+    }
+  }
+}

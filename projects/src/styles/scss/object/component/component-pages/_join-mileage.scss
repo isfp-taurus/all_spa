@@ -1,0 +1,72 @@
+@use "../../../core" as *;
+
+.c-join-mileage {
+  border: 2px solid $color_primary_blue;
+  border-radius: 15px;
+  background-color: $color_white;
+
+  &__title {
+    padding: 16px;
+
+    &-label {
+      @include font-line(18, 26);
+
+      &--em {
+        font-weight: bold;
+      }
+
+      &--primary {
+        color: $color_primary_blue;
+      }
+    }
+
+    &-lead {
+      @include font-line(16, 22.4);
+    }
+
+    &-label + &-lead {
+      margin-top: 8px;
+    }
+  }
+
+  &__list {
+    &-item {
+      border-top: 1px solid $color_gray_10;
+    }
+
+    &-link {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px;
+      @include font-line(16, 22.4);
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        flex-shrink: 0;
+        width: 20px;
+        height: 20px;
+        margin-left: 8px;
+        background: url("~/assets/images/icon_chevron_right_20.svg") no-repeat center center;
+      }
+    }
+  }
+}
+@include is-tb {
+  .c-join-mileage {
+    &__title {
+      padding: 20px 24px;
+    }
+
+    &__list {
+      &-link {
+        padding: 16px 24px;
+      }
+    }
+  }
+}

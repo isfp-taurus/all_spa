@@ -1,0 +1,130 @@
+@use "../../../core" as *;
+
+.c-amount {
+  $this: &;
+
+  &__num {
+    @include font-line(16, 22.4);
+
+    &--fs14 {
+      @include font-line(14, 19.6);
+    }
+
+    &--fs18 {
+      @include font-line(18, 26);
+    }
+
+    &--fs20 {
+      @include font-line(20, 26);
+    }
+
+    &--fs22 {
+      @include font-line(22, 28);
+    }
+
+    &--fs24 {
+      @include font-line(24, 28.8);
+    }
+
+    &--fs28 {
+      @include font-line(28, 33.6);
+    }
+  }
+
+  &__unit {
+    @include font-line(14, 19.6);
+
+    &--fs12 {
+      @include font-line(12, 16.8);
+    }
+
+    &--fs14 {
+      @include font-line(14, 19.6);
+    }
+
+    &--fs16 {
+      @include font-line(16, 22.4);
+    }
+
+    &--fs18 {
+      @include font-line(18, 26);
+    }
+
+    &--fs20 {
+      @include font-line(20, 26);
+    }
+
+    &--fs24 {
+      @include font-line(24, 28.8);
+    }
+
+    &--fs28 {
+      @include font-line(28, 33.6);
+    }
+  }
+
+  &__num,
+  &__unit {
+    display: inline-block;
+  }
+
+  &__num + &__unit,
+  &__unit + &__num,
+  &__unit + &__unit {
+    margin-left: 4px;
+  }
+
+  &--em {
+    font-weight: bold;
+  }
+
+  &--price {
+    #{$this} {
+      &__num,
+      &__unit {
+        display: inline;
+      }
+    }
+  }
+
+  &--no-space {
+    #{$this} {
+      &__num,
+      &__unit {
+        margin-left: 0;
+      }
+    }
+  }
+}
+@include is-tb {
+  .c-amount {
+    &__num {
+      &--tb-fs28 {
+        @include font-line(28, 33.6);
+      }
+    }
+  }
+}
+@include is-pc {
+  .c-amount {
+    &__num {
+      &--pc-fs16 {
+        @include font-line(16, 22.4);
+      }
+
+      &--pc-fs28 {
+        @include font-line(28, 33.6);
+      }
+    }
+
+    &__unit {
+      &--pc-fs14 {
+        @include font-line(14, 19.6);
+      }
+
+      &--pc-fs28 {
+        @include font-line(28, 33.6);
+      }
+    }
+  }
+}

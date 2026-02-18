@@ -1,0 +1,118 @@
+@use "../../../core" as *;
+
+.p-modal-menu01 {
+  $menu: &;
+
+  &__title {
+    padding: 16px;
+    background-color: $color_white;
+    font-weight: bold;
+    @include font-line(16, 22.4);
+
+    &:not(:first-child) {
+      border-top: 4px solid $color_gray_5;
+    }
+  }
+
+  &__list {
+    $menu-list: &;
+
+    padding-left: 16px;
+    background-color: $color_white;
+
+    &-item {
+      &:not(:first-child) {
+        border-top: 1px solid $color_gray_10;
+      }
+    }
+
+    &-btn {
+      width: 100%;
+      padding: 16px 12px 16px 0;
+      display: block;
+      text-align: left;
+      cursor: pointer;
+      @include font-line(16, 22.4);
+
+      &-label {
+        &--em {
+          font-weight: bold;
+        }
+      }
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      &--arrow {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &::after {
+          content: "";
+          display: block;
+          width: 20px;
+          height: 20px;
+          margin-left: 8px;
+          background: url("~/assets/images/icon_chevron_right_20.svg") no-repeat center center;
+          background-size: cover;
+        }
+      }
+    }
+  }
+
+  &__title + &__list {
+    #{$menu} {
+      &__list {
+        &-item {
+          border-top: 1px solid $color_gray_10;
+        }
+      }
+    }
+  }
+
+  &__add {
+    padding: 16px;
+    display: flex;
+    justify-content: flex-end;
+
+    &-btn {
+      display: flex;
+      align-items: center;
+
+      &-label {
+        @include font-line(16, 22.4);
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        width: 20px;
+        height: 20px;
+        margin-left: 4px;
+        background: url("~/assets/images/icon_add_circle_20.svg") no-repeat center center;
+        background-size: cover;
+      }
+    }
+  }
+
+  &__note {
+    padding: 20px 16px;
+    border: 1px solid $color_gray_20;
+    border-radius: 16px;
+
+    &-title {
+      margin-bottom: 16px;
+      @include font-line(18, 21.6);
+
+      &--em {
+        font-weight: bold;
+      }
+    }
+
+    &-contents {
+      @include font-line(16, 22.4);
+    }
+  }
+}

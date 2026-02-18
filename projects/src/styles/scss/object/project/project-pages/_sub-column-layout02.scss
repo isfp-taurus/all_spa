@@ -1,0 +1,131 @@
+@use "../../../core" as *;
+
+.p-sub-column-layout02 {
+  margin-top: 32px;
+
+  &__title {
+    &--has-btn {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__list {
+    border-top: 1px solid $color_gray_20;
+
+    &-item {
+      border-bottom: 1px solid $color_gray_20;
+    }
+
+    &-link {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      @include font-line(16, 22.4);
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        flex-shrink: 0;
+        width: 20px;
+        height: 20px;
+        margin-left: 8px;
+        background: url("~/assets/images/icon_chevron_right_20.svg") no-repeat center center;
+      }
+
+      &--red {
+        color: $color_text_ado_red02;
+      }
+    }
+  }
+
+  &__payment {
+    margin-top: 16px;
+    padding: 16px;
+    border-radius: 15px;
+    background-color: $color_white;
+
+    &-body {
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px solid $color_gray_10;
+    }
+  }
+
+  .c-float-list01 {
+    &__item {
+      &--has-border-gray20 {
+        padding-top: 8px;
+      }
+    }
+
+    &__title {
+      margin-top: 2px;
+    }
+  }
+
+  .c-join-mileage {
+    margin-top: 32px;
+  }
+}
+@include is-tb {
+  .p-sub-column-layout02 {
+    margin-top: 40px;
+
+    &__payment {
+      padding: 24px;
+    }
+
+    .c-join-mileage {
+      margin-top: 40px;
+    }
+  }
+}
+@include is-pc {
+  .p-sub-column-layout02 {
+    margin-top: 48px;
+    position: sticky;
+    top: 0;
+    left: 0;
+
+    &__body {
+      &-item {
+        margin-top: 16px;
+        border-top: 1px solid $color_gray_90;
+
+        &--has-border-gray20 {
+          border-top: 1px solid $color_gray_20;
+        }
+
+        &--has-border-none {
+          border-top: 0;
+        }
+      }
+    }
+
+    &__list {
+      border-top: none;
+    }
+
+    &__payment {
+      margin-top: 16px;
+      padding: 0;
+      border-radius: 0;
+      background-color: transparent;
+
+      &-body {
+        border-color: $color_gray_20;
+      }
+    }
+
+    .c-join-mileage {
+      margin-top: 56px;
+    }
+  }
+}

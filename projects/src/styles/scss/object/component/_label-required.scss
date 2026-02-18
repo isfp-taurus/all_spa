@@ -1,0 +1,9 @@
+@use "../../core" as *;
+
+.c-label-required {
+  display: inline-block;
+  @include font-line(12, 16.8);
+
+  color: $color_ado_blue;
+  vertical-align: middle;
+}

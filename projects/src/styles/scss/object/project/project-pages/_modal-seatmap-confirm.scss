@@ -1,0 +1,65 @@
+@use "../../../core" as *;
+
+.p-modal-seatmap-confirm {
+  &__item {
+    padding: 16px;
+    border-bottom: 4px solid $color_gray_5;
+  }
+
+  &__title {
+    padding-bottom: 16px;
+    border-bottom: 1px solid $color_gray_90;
+    @include font-line(16, 22.4);
+
+    &-date {
+      margin-bottom: 4px;
+      font-weight: bold;
+    }
+
+    &-airport {
+      font-weight: bold;
+
+      &-departure,
+      &-arrival {
+        display: inline-block;
+      }
+
+      &-to {
+        margin-right: 8px;
+        margin-left: 8px;
+      }
+    }
+
+    &-date + &-airport {
+      margin-top: 4px;
+    }
+
+    &--not-border {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+  }
+
+  &__contents {
+    &-item {
+      padding: 16px 0;
+      border-top: 1px solid $color_gray_10;
+
+      &:first-child {
+        border-top: 0;
+      }
+
+      &:last-child {
+        padding-bottom: 0;
+      }
+    }
+  }
+}
+
+@include is-tb {
+  .p-modal-seatmap-confirm {
+    &__item {
+      padding: 20px 24px;
+    }
+  }
+}

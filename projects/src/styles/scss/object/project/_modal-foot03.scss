@@ -1,0 +1,13 @@
+@use "../../core" as *;
+
+.p-modal-foot03 {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 16px;
+}
+
+@include is-tb {
+  .p-modal-foot03 {
+    padding: 12px 30px;
+  }
+}

@@ -1,0 +1,65 @@
+@use "../../../core" as *;
+
+.c-next-action03 {
+  $this: &;
+
+  &__body {
+    padding: 12px 16px;
+    border: 1px solid $color_ado_blue;
+    border-radius: 10px;
+    background-color: $color_ado_lightyellow01;
+    @include font-line(16, 22.4);
+  }
+
+  &__title {
+    font-weight: bold;
+  }
+
+  &__contents {
+    &-item {
+      margin-top: 4px;
+    }
+  }
+
+  &__text {
+    &--attention {
+      display: flex;
+      color: $color_text_ado_red01;
+
+      &::before {
+        content: "";
+        display: block;
+        margin-right: 0.2em;
+        width: 20px;
+        height: 20px;
+        background: url("~/assets/images/icon_guidance_ado_red_20.svg") no-repeat center center;
+        flex-shrink: 0;
+      }
+    }
+  }
+}
+
+@include is-pc {
+  .c-next-action03 {
+    $this: &;
+
+    &--pc-inline {
+      #{$this} {
+        &__title {
+          margin-right: 16px;
+        }
+
+        &__body {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        &__contents {
+          margin-left: auto;
+          flex-shrink: 0;
+        }
+      }
+    }
+  }
+}

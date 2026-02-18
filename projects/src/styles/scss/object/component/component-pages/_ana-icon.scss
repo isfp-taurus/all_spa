@@ -1,0 +1,35 @@
+@use "../../../core" as *;
+
+.c-ana-icon {
+  &01 {
+    $this01: &;
+
+    display: flex;
+    flex-flow: row wrap;
+    gap: 4px;
+
+    &__img {
+      flex-shrink: 0;
+    }
+
+    &__text {
+      display: block;
+      @include font-line(14, 22);
+
+      color: $color_gray_60;
+
+      &--dark {
+        color: $color_gray_70;
+      }
+    }
+  }
+}
+@include is-tb {
+  .c-ana-icon {
+    &01 {
+      &__text {
+        @include font-line(16, 22);
+      }
+    }
+  }
+}

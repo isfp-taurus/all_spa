@@ -1,0 +1,35 @@
+@use "../../../core" as *;
+
+.c-inline-list {
+  &01 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+
+    &__item {
+      &--em {
+        font-weight: bold;
+      }
+
+      &--fs16 {
+        @include font-line(16, 22.4);
+      }
+    }
+
+    &__text {
+      &-link {
+        display: inline-block;
+        color: $color_primary_blue;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    &--center {
+      display: flex;
+      align-items: center;
+    }
+  }
+}

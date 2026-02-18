@@ -1,0 +1,78 @@
+@use "../../core" as *;
+
+.p-loading-fade-image {
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "";
+    display: block;
+    padding-top: 133.3333%;
+  }
+
+  &__item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    animation-name: loading-fade-image-animation;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
+
+    &:nth-child(1) {
+      animation-delay: 0s;
+    }
+
+    &:nth-child(2) {
+      animation-delay: 5s;
+    }
+
+    &:nth-child(3) {
+      animation-delay: 10s;
+    }
+  }
+
+  &__picture {
+    display: block;
+  }
+}
+@keyframes loading-fade-image-animation {
+  0% {
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 1;
+  }
+
+  33% {
+    opacity: 1;
+  }
+
+  38% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+@include is-tb {
+  .p-loading-fade-image {
+    &::before {
+      content: "";
+      display: block;
+      padding-top: 75%;
+    }
+  }
+}
+@include is-pc {
+  .p-loading-fade-image {
+    &::before {
+      content: "";
+      display: block;
+      padding-top: 40%;
+    }
+  }
+}

@@ -1,0 +1,51 @@
+@use "../../core" as *;
+
+.p-error-block {
+  margin: 20px 0 72px;
+
+  &__inner {
+    border: 1px solid $color_gray_20;
+    border-radius: 15px;
+    padding: 16px 15px;
+  }
+
+  &__message {
+    display: flex;
+    @include font-line(14, 19.6);
+
+    &::before {
+      content: "";
+      margin-right: 4px;
+      width: 20px;
+      height: 20px;
+      background: url("~/assets/images/icon_error_tri_20.svg") no-repeat center center;
+    }
+  }
+
+  &__text {
+    color: $color_text_secondary_red;
+  }
+
+  &__btn {
+    margin-top: 16px;
+    text-align: center;
+  }
+}
+@include is-tb {
+  .p-error-block {
+    margin: 24px 0 72px;
+
+    &__inner {
+      padding: 24px;
+    }
+
+    &__btn {
+      text-align: right;
+    }
+  }
+}
+@include is-pc {
+  .p-error-block {
+    margin: 40px 0 96px;
+  }
+}

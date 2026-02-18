@@ -1,0 +1,33 @@
+@use "../../../core" as *;
+
+.p-date-display {
+  &01 {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+  }
+
+  &02 {
+    margin-top: 26px;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+@include is-tb {
+  .p-date-display {
+    &01 {
+      justify-content: flex-end;
+    }
+  }
+}
+@include is-pc {
+  .p-date-display {
+    &01 {
+      margin-top: 64px;
+    }
+
+    &02 {
+      margin-top: 56px;
+    }
+  }
+}

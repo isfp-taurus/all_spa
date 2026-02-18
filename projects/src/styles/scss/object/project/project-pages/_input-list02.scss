@@ -1,0 +1,215 @@
+@use "../../../core" as *;
+
+.p-input-list02 {
+  &-area01 {
+    padding: 16px;
+    background-color: $color_white;
+
+    &:not(:first-child) {
+      border-top: 4px solid $color_gray_5;
+    }
+
+    &__item {
+      &:not(:first-child) {
+        margin-top: 12px;
+      }
+    }
+
+    &__block {
+      &-item {
+        &:not(:first-child) {
+          margin-top: 16px;
+        }
+
+        &-box {
+          &:not(:first-child) {
+            margin-top: 16px;
+          }
+        }
+
+        &-lv2title {
+          @include font-line(14, 19.6);
+
+          font-weight: bold;
+          margin-bottom: 8px;
+        }
+
+        &-link {
+          &--right {
+            text-align: right;
+          }
+        }
+      }
+    }
+
+    &__heading {
+      margin-bottom: 12px;
+
+      &::after {
+        @include clearfix;
+      }
+
+      &-title {
+        float: left;
+        @include font-line(16, 22.4);
+
+        font-weight: bold;
+      }
+
+      &-sub-function {
+        float: right;
+      }
+    }
+  }
+
+  &-area02 {
+    position: relative;
+
+    &__head {
+      padding: 0 16px 16px;
+      text-align: right;
+      background-color: $color_white;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    &__body {
+      display: none;
+      padding: 16px;
+      background-color: $color_gray_10;
+
+      &.is-open {
+        display: block;
+      }
+    }
+
+    &__item {
+      &:not(:first-child) {
+        padding-top: 16px;
+        border-top: 1px solid $color_gray_20;
+      }
+    }
+
+    &__block {
+      &-item {
+        padding-bottom: 16px;
+
+        &:not(:first-child) {
+          padding-top: 16px;
+          border-top: 1px solid $color_gray_20;
+        }
+
+        &-box {
+          &:not(:first-child) {
+            margin-top: 16px;
+          }
+        }
+
+        &-title {
+          @include font-line(16, 22.4);
+
+          font-weight: bold;
+          margin-bottom: 16px;
+        }
+
+        &-lv2title {
+          @include font-line(14, 19.6);
+
+          font-weight: bold;
+          margin-bottom: 8px;
+        }
+
+        &--pb0 {
+          padding-bottom: 0;
+        }
+      }
+
+      &-link {
+        text-align: right;
+      }
+    }
+  }
+}
+
+@include is-tb {
+  .p-input-list02 {
+    &-area01 {
+      padding: 20px 24px;
+
+      &__block {
+        $this: &;
+
+        display: flex;
+        justify-content: space-between;
+
+        &-item {
+          width: 100%;
+
+          &:not(:first-child) {
+            margin-top: 0;
+          }
+        }
+
+        &--half {
+          #{$this}-item {
+            width: 49.17%;
+          }
+        }
+
+        .c-form-element-input,
+        .c-form-element-button__box {
+          height: auto;
+        }
+      }
+    }
+
+    &-area02 {
+      &__head {
+        display: block;
+        position: absolute;
+        top: -40px;
+        right: 24px;
+        margin-top: 0;
+        padding: 0;
+        border-bottom: none;
+        background-color: transparent;
+      }
+
+      &__body {
+        padding: 20px 24px;
+      }
+
+      &__block {
+        $this: &;
+
+        display: flex;
+        justify-content: space-between;
+
+        &--half {
+          #{$this}-item {
+            width: 49.17%;
+          }
+        }
+
+        &-item {
+          padding-bottom: 0;
+
+          &:not(:first-child) {
+            padding-top: 0;
+            border-top: none;
+          }
+
+          .c-form-element-input {
+            height: auto;
+          }
+        }
+      }
+
+      &__item {
+        &:not(:first-child) {
+          margin-top: 16px;
+        }
+      }
+    }
+  }
+}

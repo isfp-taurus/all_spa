@@ -1,0 +1,39 @@
+@use "../core" as *;
+
+.l-dialog {
+  $this: &;
+
+  display: none;
+
+  &.is-open {
+    position: fixed;
+    z-index: 8000;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(51 51 51 / 50%);
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__contents {
+    width: 345px;
+    max-width: calc(100% - #{$contents-garter-unit} * 2);
+  }
+
+  &--w500 {
+    #{$this}__contents {
+      width: 500px;
+    }
+  }
+}
+
+@include is-tb {
+  .l-dialog {
+    &__contents {
+      max-width: calc(100% - #{$contents-garter-tb-unit} * 2);
+    }
+  }
+}

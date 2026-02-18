@@ -1,0 +1,17 @@
+@use "../core" as *;
+
+.l-container {
+  background-color: $color_gray_5;
+
+  &--light-blue01 {
+    background-color: $color_blue03;
+  }
+
+  &--gray7 {
+    background-color: $color_gray_7;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

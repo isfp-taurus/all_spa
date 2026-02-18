@@ -1,0 +1,150 @@
+@use "../../../core" as *;
+
+.p-form-layout01 {
+  $this: &;
+
+  &:not(:first-child) {
+    margin-top: 16px;
+  }
+
+  border-radius: 15px;
+  background-color: $color_white;
+
+  &__ac {
+    &-item {
+      #{$this}__item {
+        border-top: 1px solid $color_gray_10;
+      }
+    }
+
+    &-open {
+      border-top: 1px solid $color_gray_10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      min-height: 78px;
+      padding: 16px;
+
+      &.is-open {
+        display: none;
+      }
+
+      &-head {
+        text-align: left;
+      }
+
+      &-title {
+        @include font-line(16, 22.4);
+
+        font-weight: bold;
+        display: block;
+      }
+
+      &-subtext {
+        @include font-line(14, 19.6);
+
+        color: $color_gray_60;
+        display: block;
+      }
+
+      &-view {
+        @include font-line(16, 22.4);
+
+        flex-shrink: 0;
+        margin-left: 16px;
+        color: $color_text_primary_blue;
+
+        &::after {
+          content: "";
+          display: inline-block;
+          vertical-align: middle;
+          width: 20px;
+          height: 20px;
+          background-image: url("~/assets/images/icon_chevron_down_primary_20.svg");
+          background-position: center center;
+          background-repeat: no-repeat;
+          background-size: cover;
+          margin-left: 4px;
+        }
+      }
+    }
+
+    &-contents {
+      display: none;
+
+      &.is-open {
+        display: block;
+      }
+    }
+  }
+
+  &__item {
+    padding: 16px;
+
+    & + & {
+      border-top: 1px solid $color_gray_10;
+    }
+
+    &-title {
+      font-weight: bold;
+
+      &--l {
+        @include font-line(20, 26);
+      }
+
+      &--m {
+        @include font-line(16, 22.4);
+      }
+    }
+
+    &-text {
+      color: $color_gray_60;
+      @include font-line(16, 22.4);
+
+      font-weight: normal;
+    }
+
+    &--sticky {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: $color_white;
+      border-radius: 15px 15px 0 0;
+    }
+
+    &--top0 {
+      padding-top: 0;
+      border-top: none !important;
+    }
+  }
+}
+
+@include is-tb {
+  .p-form-layout01 {
+    &__ac {
+      &-open {
+        padding: 16px 24px;
+      }
+    }
+
+    &__item {
+      padding: 20px 24px;
+
+      &--top0 {
+        padding-top: 0;
+        border-top: none !important;
+      }
+    }
+  }
+}
+
+@include is-pc {
+  .p-form-layout01 {
+    &__ac {
+      &-open {
+        padding: 20px 24px;
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+@use "../../core" as *;
+
+.p-infloat-favorites {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+}

@@ -1,0 +1,199 @@
+@use "../core" as *;
+
+.l-top-info {
+  $this: &;
+
+  background-color: $color_ado_red01;
+  padding: 8px 8px 8px 4px;
+
+  &__inner {
+    max-width: $contents-max-width-unit;
+    margin: 0 auto;
+    min-height: 37px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__wrap {
+    flex: 1;
+    align-self: center;
+  }
+
+  &__list {
+    display: none;
+    margin-top: 4px;
+
+    &--headline {
+      margin-top: 0;
+      display: block;
+    }
+
+    &.is-open {
+      display: block;
+    }
+  }
+
+  &__item {
+    & + & {
+      margin-top: 4px;
+    }
+  }
+
+  &__link {
+    color: $color_white;
+    @include font-line(14, 20);
+
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &::before {
+      flex-shrink: 0;
+      margin-right: 4px;
+      content: "";
+      display: block;
+      width: 20px;
+      height: 20px;
+      background: url("~/assets/images/icon_chevron_right_white_20.svg") no-repeat center center;
+      background-size: cover;
+    }
+
+    &-text {
+      font-weight: normal;
+    }
+  }
+
+  &__control {
+    margin-left: 8px;
+    flex-shrink: 0;
+  }
+
+  &__btn {
+    border: 1px solid $color_white;
+    border-radius: 8px;
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 37px;
+    height: 37px;
+    color: $color_white;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &-text {
+      @include font-line(10, 14);
+
+      flex-shrink: 0;
+      padding: 0 4px;
+    }
+
+    &::after {
+      flex-shrink: 0;
+      margin-top: -1px;
+      content: "";
+      display: block;
+      width: 17px;
+      height: 16px;
+      background: url("~/assets/images/icon_add2_white_16.svg") no-repeat center center;
+      background-size: cover;
+    }
+
+    &.is-open {
+      &::after {
+        margin-top: -1px;
+        content: "";
+        display: block;
+        width: 17px;
+        height: 16px;
+        background: url("~/assets/images/icon_remove2_white_16.svg") no-repeat center center;
+        background-size: cover;
+      }
+    }
+  }
+
+  &--warning {
+    background-color: $color_ado_pink;
+    #{$this}__btn {
+      border: 1px solid $color_gray_90;
+      color: $color_text_base;
+
+      &::after {
+        background-image: url("~/assets/images/icon_add2_16.svg");
+      }
+
+      &.is-open {
+        &::after {
+          background-image: url("~/assets/images/icon_remove2_16.svg");
+        }
+      }
+    }
+    #{$this}__link {
+      color: $color_text_base;
+
+      &::before {
+        background-image: url("~/assets/images/icon_chevron_right_20.svg");
+      }
+    }
+  }
+}
+@include is-tb {
+  .l-top-info {
+    padding: 12px 0;
+
+    &__inner {
+      padding: 0;
+      min-height: 24px;
+    }
+
+    &__control {
+      margin-left: 16px;
+    }
+
+    &__btn {
+      border: 1px solid $color_white;
+      border-radius: 12px;
+      flex-flow: row nowrap;
+      align-items: center;
+      padding: 0 12px;
+      min-width: initial;
+      height: 24px;
+
+      &-text {
+        @include font-line(12, 14);
+
+        white-space: nowrap;
+        padding: 0;
+      }
+
+      &::after {
+        margin-left: 4px;
+        margin-top: -1px;
+        content: "";
+        display: block;
+        width: 17px;
+        height: 16px;
+        background: url("~/assets/images/icon_add2_white_16.svg") no-repeat center center;
+        background-size: cover;
+      }
+
+      &.is-open {
+        &::after {
+          margin-top: -1px;
+          content: "";
+          display: block;
+          width: 17px;
+          height: 16px;
+          background: url("~/assets/images/icon_remove2_white_16.svg") no-repeat center center;
+          background-size: cover;
+        }
+      }
+    }
+  }
+}

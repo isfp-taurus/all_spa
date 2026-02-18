@@ -1,0 +1,58 @@
+@use "../../../core" as *;
+
+.c-tag {
+  display: inline-block;
+  @include font-line(14, 18);
+
+  font-weight: bold;
+  padding: 2px 8px;
+  border-radius: 4px;
+
+  &--type01 {
+    color: $color_white;
+    background: $color_ado_red01;
+    border: 1px solid $color_ado_red01;
+  }
+
+  &--type02 {
+    color: $color_gray_70;
+    background: $color_gray_10;
+    border: 1px solid $color_gray_10;
+  }
+
+  &--type03 {
+    color: $color_text_secondary_red;
+    background: $color_secondary_pink;
+    border: 1px solid $color_secondary_pink;
+  }
+
+  &--type04 {
+    color: $color_white;
+    background: $color_ado_blue;
+    border: 1px solid $color_ado_blue;
+  }
+
+  &--type05 {
+    color: $color_text_ado_red01;
+    background: $color_white;
+    border: 1px solid $color_ado_red01;
+  }
+
+  &--type06 {
+    color: $color_text_primary_blue;
+    background: $color_white;
+    border: 1px solid $color_primary_blue;
+  }
+
+  &--type07 {
+    color: $color_text_primary_blue;
+    background: $color_secondary_blue;
+    border: 1px solid $color_secondary_blue;
+  }
+
+  &--type08 {
+    color: $color_white;
+    background: $color_gray_60;
+    border: 1px solid $color_gray_60;
+  }
+}

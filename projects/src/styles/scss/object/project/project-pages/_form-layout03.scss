@@ -1,0 +1,63 @@
+@use "../../../core" as *;
+
+.p-form-layout03 {
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 15px;
+  background-color: $color_white;
+
+  &__item {
+    &-title {
+      font-weight: bold;
+
+      &--l {
+        @include font-line(20, 26);
+      }
+    }
+
+    &--input-radio {
+      .c-radio-list {
+        &__list {
+          flex-flow: column wrap;
+        }
+
+        &__item {
+          margin-top: 12px;
+        }
+      }
+    }
+  }
+
+  .p-input-block01 {
+    &__row {
+      margin-top: 0;
+      padding-top: 16px;
+
+      &-title {
+        @include font-line(16, 22.4);
+      }
+    }
+  }
+}
+@include is-tb {
+  .p-form-layout03 {
+    padding: 20px 24px;
+  }
+}
+@include is-pc {
+  .p-form-layout03 {
+    &__item {
+      &--input-radio {
+        .c-radio-list {
+          &__list {
+            flex-flow: row wrap;
+          }
+
+          &__item {
+            margin-top: 16px;
+          }
+        }
+      }
+    }
+  }
+}

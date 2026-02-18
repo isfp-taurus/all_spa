@@ -1,0 +1,34 @@
+@use "../scss/core" as *;
+
+.custom-text {
+  &01 {
+    $this01: &;
+
+    display: flex;
+
+    &__airlineText {
+      display: block;
+      margin-left: 4px;
+      @include font-line(14, 19.6);
+
+      color: $color_gray_70;
+
+      @include is-pc {
+        display: inline;
+      }
+
+      &--link {
+        display: inline-block;
+        color: $color_primary_blue;
+
+        @include is-pc {
+          display: inline;
+        }
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

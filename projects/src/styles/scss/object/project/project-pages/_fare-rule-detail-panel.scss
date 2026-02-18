@@ -1,0 +1,71 @@
+@use "../../../core" as *;
+
+.p-fare-rule-detail-panel {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+
+  &__item {
+    min-width: 300px;
+    border-radius: 15px;
+    background-color: $color_white;
+  }
+
+  &__head {
+    padding: 16px;
+
+    &-airport {
+      font-weight: bold;
+
+      &-departure,
+      &-arrival {
+        display: inline-block;
+      }
+
+      &-to {
+        margin-right: 8px;
+        margin-left: 8px;
+      }
+    }
+  }
+
+  &__body {
+    &-item {
+      padding: 16px;
+      border-top: 1px solid $color_gray_10;
+
+      &:first-child {
+        padding-top: 0;
+        border-top: 0;
+      }
+    }
+  }
+
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+
+    &-label {
+      @include font-line(16, 22.4);
+
+      &--em {
+        font-weight: bold;
+      }
+    }
+  }
+}
+@include is-tb {
+  .p-fare-rule-detail-panel {
+    &__item {
+      width: 48.9583%;
+    }
+  }
+}
+@include is-pc {
+  .p-fare-rule-detail-panel {
+    &__item {
+      width: 49.2122%;
+    }
+  }
+}

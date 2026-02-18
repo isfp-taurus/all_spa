@@ -1,0 +1,7 @@
+@use "../../../core" as *;
+
+.p-modal-airticket-reserve-ado {
+  &__title {
+    @include font-line(24, 28.8);
+  }
+}

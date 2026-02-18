@@ -1,0 +1,24 @@
+@use "../../../core" as *;
+
+.p-seatmap-legend {
+  margin-top: 16px;
+
+  &__list {
+    display: flex;
+    flex-flow: column;
+    gap: 16px 0;
+
+    &-title {
+      display: flex;
+      gap: 0 8px;
+
+      &-icon {
+        flex-shrink: 0;
+      }
+
+      &-label {
+        @include font-line(16, 22.4);
+      }
+    }
+  }
+}

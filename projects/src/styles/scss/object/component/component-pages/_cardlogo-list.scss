@@ -1,0 +1,13 @@
+@use "../../../core" as *;
+
+.c-cardlogo-list {
+  $this: &;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  &__item {
+    flex-shrink: 0;
+  }
+}

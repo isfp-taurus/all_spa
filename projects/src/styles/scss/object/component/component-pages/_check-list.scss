@@ -1,0 +1,31 @@
+@use "../../../core" as *;
+
+.c-check-list {
+  &01 {
+    $this01: &;
+
+    display: flex;
+    flex-flow: column;
+    gap: 4px 0;
+
+    &__item {
+      display: flex;
+      gap: 0 8px;
+
+      &::before {
+        content: "";
+        display: block;
+        width: 20px;
+        height: 20px;
+        background: url("~/assets/images/icon_check_ado_blue_20.svg") no-repeat center center;
+        background-size: cover;
+        flex-shrink: 0;
+      }
+    }
+
+    &__text {
+      flex: 1;
+      @include font-line(16, 22.4);
+    }
+  }
+}

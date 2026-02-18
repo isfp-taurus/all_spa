@@ -1,0 +1,54 @@
+@use "../../../core" as *;
+
+.c-sort-list {
+  $this: &;
+
+  padding-left: 16px;
+
+  &__item {
+    &:not(:first-child) {
+      border-top: 1px solid $color_gray_10;
+    }
+
+    &-btn {
+      position: relative;
+      width: 100%;
+      padding: 16px 0;
+      text-align: left;
+    }
+
+    &-text {
+      display: block;
+      @include font-line(16, 22.4);
+    }
+
+    &--selected {
+      #{$this} {
+        &__item {
+          &-btn {
+            padding-right: 16px;
+          }
+
+          &-text {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+          }
+
+          &-body {
+            &-icon {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include is-tb {
+  .c-sort-list {
+    border-bottom: 1px solid $color_gray_10;
+  }
+}

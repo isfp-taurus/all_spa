@@ -1,0 +1,82 @@
+@use "../core" as *;
+
+.l-core-contents {
+  $coreContents: &;
+
+  &__inner {
+    display: flex;
+    flex-flow: column nowrap;
+    padding-bottom: 32px;
+
+    &--bt-0 {
+      padding-bottom: 0;
+    }
+
+    &--bt-16 {
+      padding-bottom: 16px;
+    }
+  }
+
+  &__tabpanel {
+    display: none;
+
+    &.is-current {
+      display: block;
+    }
+  }
+}
+@include is-tb {
+  .l-core-contents {
+    $coreContents: &;
+
+    &__inner {
+      padding-bottom: 40px;
+
+      &--bt-0 {
+        padding-bottom: 0;
+      }
+
+      &--bt-16 {
+        padding-bottom: 16px;
+      }
+    }
+  }
+}
+@include is-pc {
+  .l-core-contents {
+    $coreContents: &;
+
+    &__main {
+      @include pc-core-main-contents-width;
+    }
+
+    &__sub {
+      order: 2;
+      @include pc-core-sub-contents-width;
+      + #{$coreContents}__main {
+        order: 1;
+      }
+    }
+
+    &__inner {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      padding-bottom: 56px;
+
+      &--bt-0 {
+        padding-bottom: 0;
+      }
+
+      &--bt-16 {
+        padding-bottom: 16px;
+      }
+
+      &--full {
+        #{$coreContents}__main {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

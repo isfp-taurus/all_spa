@@ -1,0 +1,214 @@
+@use "../../core" as *;
+
+.p-airport-list-modal {
+  $this: &;
+
+  position: relative;
+  background-color: $color-white;
+
+  &__area {
+    position: relative;
+    overflow-x: auto;
+    padding: 0 16px 16px;
+    background-color: $color_white;
+    overflow: auto;
+
+    &-list {
+      display: flex;
+
+      &::after {
+        content: "";
+        width: 16px;
+        display: block;
+        flex-shrink: 0;
+      }
+    }
+
+    &-item {
+      flex-shrink: 0;
+      margin-right: 8px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    &-btn {
+      min-width: 60px;
+      padding: 0 18px;
+      @include font-line(16, 36);
+
+      text-align: center;
+      border: 1px solid $color_gray_40;
+      border-radius: 19px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      &.is-current {
+        color: $color_primary_blue;
+        border: 1px solid $color_primary_blue;
+        background-color: $color_secondary_blue;
+        font-weight: bold;
+      }
+    }
+  }
+
+  &__input {
+    padding: 0 16px 16px;
+  }
+
+  &__suggest {
+    display: none;
+    border-top: 1px solid $color_gray_10;
+
+    &.is-open {
+      display: block;
+    }
+  }
+
+  &__contents {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__block {
+    display: none;
+    border-top: 1px solid $color_gray_10;
+
+    &.is-open {
+      display: block;
+    }
+  }
+
+  &__ac {
+    &-item {
+      border-bottom: 1px solid $color_gray_10;
+      position: relative;
+    }
+
+    &-title {
+      display: block;
+      text-align: left;
+      width: 100%;
+      padding: 16px 44px 16px 16px;
+      @include font-line(16, 22);
+
+      font-weight: bold;
+      position: relative;
+      background-color: $color-white;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        margin-top: -10px;
+        display: block;
+        width: 20px;
+        height: 20px;
+        background: url("~/assets/images/icon_chevron_down_20.svg") no-repeat center center;
+        background-size: cover;
+      }
+
+      &.is-open {
+        &::after {
+          background-image: url("~/assets/images/icon_chevron_up_20.svg");
+        }
+      }
+    }
+
+    &-contents {
+      display: none;
+
+      &.is-open {
+        display: block;
+      }
+    }
+  }
+
+  &__airport {
+    &-list {
+      padding: 0 16px;
+    }
+
+    &-item {
+      border-top: 1px solid $color_gray_10;
+
+      &:first-child {
+        border-top: 0;
+      }
+    }
+  }
+
+  &__btn {
+    padding: 12px 12px 12px 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    @include font-line(16, 22);
+
+    text-align: left;
+    height: 100%;
+
+    &-name {
+      display: block;
+    }
+
+    &-id {
+      flex-shrink: 0;
+      display: block;
+      padding-left: 8px;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &.is-open {
+    #{$this}__suggest {
+      display: block;
+    }
+  }
+
+  &.is-closeAirport {
+    #{$this}__contents,
+    .js-modal-select-area {
+      display: none;
+    }
+  }
+
+  &__semifixed {
+    border-bottom: 1px solid $color_gray_7;
+    background-color: $color_white;
+    z-index: 2;
+  }
+}
+
+@include is-tb {
+  .p-airport-list-modal {
+    &__area {
+      padding-top: 16px;
+    }
+
+    &__input {
+      display: none;
+    }
+
+    &__semifixed {
+      border-bottom: 1px solid $color_gray_10;
+    }
+
+    &__block {
+      display: none;
+      border-top: none;
+    }
+  }
+}

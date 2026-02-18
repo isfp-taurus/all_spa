@@ -1,0 +1,114 @@
+@use "../../../core" as *;
+
+.c-next-action01 {
+  $this: &;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  padding: 12px 12px 12px 16px;
+  border-radius: 10px;
+  border: 1px solid $color_ado_blue;
+  background-color: $color_white;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: url("~/assets/images/icon_chevron_right_20.svg") no-repeat center center;
+    flex-shrink: 0;
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &__text {
+    &--em {
+      font-weight: bold;
+    }
+  }
+
+  &__title {
+    @include font-line(16, 22.4);
+
+    color: $color_ado_blue;
+
+    &--em {
+      font-weight: bold;
+    }
+  }
+
+  &__contents {
+    &-item {
+      margin-top: 4px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &--due {
+        display: flex;
+      }
+    }
+
+    &-due {
+      margin-right: 8px;
+    }
+  }
+
+  &__title + &__contents {
+    margin-top: 4px;
+  }
+
+  &__body {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    padding-right: 12px;
+    @include font-line(16, 22.4);
+  }
+
+  &__message {
+    &--attention {
+      display: flex;
+
+      &::before {
+        content: "";
+        margin-right: 0.2em;
+        width: 20px;
+        height: 20px;
+        background: url("~/assets/images/icon_guidance_ado_red_20.svg") no-repeat center center;
+        flex-shrink: 0;
+      }
+
+      #{$this}__text {
+        color: $color_text_ado_red01;
+      }
+    }
+  }
+
+  &--external {
+    &::after {
+      content: "";
+      display: block;
+      width: 16px;
+      height: 16px;
+      background: url("~/assets/images/icon_external_ado_blue_16.svg") no-repeat center center;
+      flex-shrink: 0;
+    }
+  }
+
+  &--note {
+    background-color: $color_ado_lightyellow01;
+
+    #{$this} {
+      &__title {
+        color: $color_gray_90;
+      }
+    }
+  }
+}

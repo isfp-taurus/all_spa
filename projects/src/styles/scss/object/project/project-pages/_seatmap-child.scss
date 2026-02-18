@@ -1,0 +1,76 @@
+@use "../../../core" as *;
+
+.p-seatmap-child {
+  margin-top: 16px;
+
+  &__btn {
+    width: 100%;
+    padding: 16px 8px 16px 16px;
+    background-color: $color_white;
+    border: 1px solid $color_white;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &-body {
+      display: block;
+      padding-right: 8px;
+    }
+
+    &-seat {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+      min-width: 20px;
+      height: 20px;
+      background: url("~/assets/images/icon_circle_primary_20.svg") no-repeat center center;
+      background-size: 20px;
+      font-weight: bold;
+      font-size: 1.6rem;
+      line-height: 1;
+      color: $color_white;
+    }
+
+    &-title {
+      @include font-line(16, 22.4);
+
+      &--em {
+        font-weight: bold;
+      }
+    }
+
+    &-contents {
+      &--gray60 {
+        color: $color_gray_60;
+      }
+    }
+
+    &-title,
+    &-contents {
+      display: block;
+      text-align: left;
+    }
+
+    &-title + &-contents {
+      margin-top: 8px;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: 20px;
+      height: 20px;
+      background: url("~/assets/images/icon_chevron_right_20.svg") no-repeat center center;
+      background-size: 20px auto;
+      flex-shrink: 0;
+    }
+
+    &--has-seat {
+      &::after {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,353 @@
+@use "../core" as *;
+
+.l-header {
+  $this: &;
+
+  position: relative;
+  z-index: 900;
+
+  &__main {
+    background: $color_gray_80;
+    border-bottom: 1px solid $color_gray_70;
+    color: $color_text_white;
+    position: relative;
+    z-index: 2;
+  }
+
+  &__block {
+    padding: 8px 0;
+    background: $color_white;
+    border-bottom: 1px solid $color_gray_10;
+    #{$this} {
+      &__wrap {
+        height: auto;
+      }
+    }
+  }
+
+  &__wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 41px;
+    position: relative;
+  }
+
+  &__logo {
+    &-area {
+      width: 65px;
+
+      a {
+        display: block;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+  &__company {
+    &-area {
+      padding-right: 16px;
+      display: flex;
+      flex-flow: column;
+    }
+
+    &-main {
+      font-weight: bold;
+      @include font-line(16, 22.4);
+    }
+  }
+
+  &__sub {
+    &-area {
+      flex: 1;
+      padding-left: 10px;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    &-list {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    &-item {
+      display: flex;
+      align-items: center;
+      color: $color_text_white;
+
+      &:not(:first-child) {
+        margin-left: 16px;
+      }
+
+      a {
+        font-size: 1.4rem;
+        font-weight: bold;
+        color: $color_text_white;
+      }
+    }
+  }
+
+  &__user {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 30px;
+    height: 30px;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 24px;
+      height: 24px;
+      background: url("~/assets/images/icon_avator_white_24.svg") no-repeat center center;
+      background-size: cover;
+    }
+
+    &-name {
+      @include visually-hidden;
+    }
+  }
+
+  &__close {
+    display: none;
+  }
+  // non-member drawer close
+  &-non-member-drawer-close {
+    display: block;
+    position: relative;
+    width: 24px;
+    height: 24px;
+
+    span {
+      display: inline-block;
+      transition: all 0.4s;
+      position: absolute;
+      left: 4px;
+      height: 2px;
+      border-radius: 2px;
+      background: $color_white;
+      width: 16px;
+
+      &:nth-of-type(1) {
+        top: 5px;
+      }
+
+      &:nth-of-type(2) {
+        top: 11px;
+      }
+
+      &:nth-of-type(3) {
+        top: 17px;
+      }
+    }
+  }
+  // member drawer close
+  &-member-drawer-close {
+    position: absolute;
+    top: 9px;
+    right: 0;
+    width: 24px;
+    height: 24px;
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: $color_white;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin: -1px 0 0 -10px;
+    }
+
+    &::before {
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+  // drawer ***********************************/
+  &-drawer {
+    width: 100%;
+    position: absolute;
+    top: 42px;
+    left: 0;
+    height: 0;
+    overflow: hidden;
+    z-index: 1;
+
+    &__inner {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      z-index: 2;
+    }
+
+    &__body {
+      display: flex;
+      justify-content: flex-end;
+      height: 0;
+    }
+
+    &__menu-area {
+      margin-left: auto;
+      background: $color_white;
+      max-height: 100vh;
+      width: 92%;
+      height: 0;
+      overflow-x: hidden;
+    }
+  }
+  // ANA Pro Flyers ***********************************/
+  &--apf {
+    #{$this} {
+      &__logo {
+        &-area {
+          width: 96px;
+        }
+      }
+    }
+  }
+}
+
+.is-drawer-open {
+  .l-header {
+    &__sub {
+      &-list {
+        display: none;
+      }
+    }
+
+    &__close {
+      display: block;
+    }
+    // non-member drawer close
+    &-non-member-drawer-close {
+      span {
+        &:nth-of-type(1) {
+          transform: translateY(6px) rotate(-45deg);
+        }
+
+        &:nth-of-type(2) {
+          opacity: 0;
+        }
+
+        &:nth-of-type(3) {
+          transform: translateY(-6px) rotate(45deg);
+        }
+      }
+    }
+    // drawer ***********************************/
+    &-drawer {
+      height: calc(100vh - 42px);
+      transition: height 0.3s ease-in-out;
+
+      &__bg {
+        background-color: rgb(51 51 51 / 50%);
+        height: 100%;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+        transition: all 0.7s ease;
+      }
+
+      &__menu-area {
+        top: 41px;
+        height: calc(100vh - 42px);
+        // transition: height 0.5s ease-in-out;
+      }
+    }
+  }
+}
+@include is-tb {
+  .l-header {
+    $this: &;
+
+    &__user {
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: auto;
+      height: auto;
+      font-size: 1.4rem;
+      font-weight: bold;
+
+      &::before {
+        width: 20px;
+        height: 20px;
+        background: url("~/assets/images/icon_avator_white_20.svg") no-repeat center center;
+        margin-right: 4px;
+      }
+
+      &-name {
+        @include visually-hidden-reset;
+
+        display: block;
+      }
+    }
+    // drawer ***********************************/
+    &-drawer {
+      &__menu-area {
+        width: 344px;
+      }
+    }
+  }
+}
+@include is-pc {
+  .l-header {
+    $this: &;
+
+    &__wrap {
+      height: 51px;
+    }
+
+    // &__logo {
+    //   &-area {
+    //     width: 258px;
+    //   }
+    // }
+    // member drawer close
+    &-member-drawer-close {
+      top: 13px;
+      right: 15px;
+    }
+    // drawer ***********************************/
+    &-drawer {
+      top: 52px;
+    }
+    // ANA Pro Flyers ***********************************/
+    &--apf {
+      #{$this} {
+        &__logo {
+          &-area {
+            width: 144px;
+          }
+        }
+      }
+    }
+  }
+
+  .is-drawer-open {
+    .l-header {
+      // drawer ***********************************/
+      &-drawer {
+        height: calc(100vh - 52px);
+
+        &__menu-area {
+          top: 52px;
+          height: calc(100vh - 52px);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+@use "../../../core" as *;
+
+.p-modal-body09 {
+  padding: 16px;
+}
+@include is-tb {
+  .p-modal-body09 {
+    padding: 20px 24px;
+  }
+}

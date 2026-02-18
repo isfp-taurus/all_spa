@@ -1,0 +1,34 @@
+@use "../../../core" as *;
+
+.p-modal-flight-plan {
+  padding: 12px 16px 8px;
+
+  &__item {
+    &:not(:first-child) {
+      margin-top: 8px;
+    }
+  }
+
+  .c-flight-plan {
+    &__location {
+      margin-bottom: 8px;
+    }
+
+    &__time-val {
+      color: $color_primary_blue;
+    }
+  }
+}
+@include is-tb {
+  .p-modal-flight-plan {
+    padding: 12px 24px 8px;
+  }
+}
+@include is-pc {
+  .p-modal-flight-plan {
+    .c-flight-plan {
+      max-width: 493px;
+      padding-right: 16px;
+    }
+  }
+}

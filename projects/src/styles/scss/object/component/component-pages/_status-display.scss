@@ -1,0 +1,140 @@
+@use "../../../core" as *;
+
+.c-status-display {
+  $this: &;
+
+  width: 100%;
+  padding: 16px;
+  box-shadow: 0 0 0 1px $color_gray_30 inset;
+  border-radius: 10px;
+  background-color: $color_white;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+
+  &__body {
+    width: 100%;
+    text-align: left;
+
+    &--has-status {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2px 8px;
+    }
+
+    &--has-mark {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2px 8px;
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    gap: 2px;
+
+    &-label {
+      @include font-line(16, 22.4);
+
+      &--em {
+        font-weight: bold;
+      }
+    }
+  }
+
+  &__status {
+    @include font-line(16, 22.4);
+
+    &--em {
+      font-weight: bold;
+    }
+
+    &--gray {
+      &60 {
+        color: $color_gray_60;
+      }
+    }
+  }
+
+  &.is-selected {
+    box-shadow: 0 0 0 2px $color_primary_blue inset;
+  }
+
+  &-button {
+    $this: &;
+
+    width: 100%;
+    padding: 16px;
+    box-shadow: 0 0 0 1px $color_gray_30 inset;
+    border-radius: 10px;
+    background-color: $color_white;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+    &__body {
+      width: 100%;
+      padding-right: 8px;
+      text-align: left;
+
+      &--has-status {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2px 8px;
+      }
+    }
+
+    &__text {
+      display: flex;
+      flex-flow: column;
+      align-items: flex-start;
+      gap: 2px;
+
+      &-label {
+        @include font-line(16, 22.4);
+
+        &--em {
+          font-weight: bold;
+        }
+      }
+    }
+
+    &__status {
+      &--em {
+        font-weight: bold;
+      }
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      background: url("~/assets/images/icon_chevron_right_20.svg") no-repeat center center;
+    }
+
+    &.is-selected {
+      box-shadow: 0 0 0 2px $color_primary_blue inset;
+
+      &::after {
+        content: "";
+        display: block;
+        flex-shrink: 0;
+        width: 24px;
+        height: 24px;
+        background: url("~/assets/images/btn_delete_24.svg") no-repeat center center;
+      }
+    }
+  }
+}

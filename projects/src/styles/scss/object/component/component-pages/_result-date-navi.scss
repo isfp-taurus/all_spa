@@ -1,0 +1,91 @@
+@use "../../../core" as *;
+
+.c-result-date-navi {
+  $this: &;
+
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  position: relative;
+  overflow: hidden;
+  margin-left: -($contents-garter + vw);
+  margin-right: -($contents-garter + vw);
+
+  &__box {
+    display: flex;
+    flex-flow: column;
+  }
+
+  &__btn {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    min-width: calc((100vw - 13.11vw - 16px) / 3);
+    outline-offset: -1px;
+    background-color: $color_white;
+    border-radius: 15px;
+    color: $color_text_primary_blue;
+    @include font-line(14, 19.6);
+
+    &:not(:first-child) {
+      margin-left: 8px;
+    }
+
+    &.is-selected {
+      background-color: $color_secondary_blue;
+      border: 2px solid $color_primary_blue;
+      #{$this}__btn-price {
+        color: $color_text_primary_blue;
+      }
+    }
+
+    &:disabled {
+      background-color: $color_bg_input_disabled;
+      color: $color_text_input_disabled;
+      cursor: default;
+    }
+
+    &-date {
+      @include font-line(22, 28);
+
+      font-weight: bold;
+    }
+
+    &-price {
+      color: $color_gray_60;
+    }
+  }
+}
+
+@include is-tb {
+  .c-result-date-navi {
+    overflow: visible;
+    margin: 0;
+
+    &__btn {
+      padding: 11px;
+      width: calc((100vw - 48px) / 7);
+      min-width: auto;
+    }
+  }
+}
+
+@include is-pc {
+  .c-result-date-navi {
+    &__btn {
+      padding: 12px;
+
+      &-week {
+        @include font-line(16, 22.4);
+      }
+
+      &-date {
+        @include font-line(28, 34);
+
+        letter-spacing: 0.08em;
+      }
+    }
+  }
+}

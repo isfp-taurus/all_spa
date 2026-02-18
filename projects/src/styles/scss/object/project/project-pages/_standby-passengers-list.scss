@@ -1,0 +1,167 @@
+@use "../../../core" as *;
+
+.p-standby-passengers-list {
+  &01 {
+    margin-top: 16px;
+
+    &__item {
+      margin-top: 16px;
+      border-radius: 15px;
+      background: $color_white;
+      padding: 16px;
+      position: relative;
+    }
+
+    &__status {
+      margin-bottom: 8px;
+
+      &-message {
+        margin-top: 8px;
+        color: $color_text_secondary_red;
+        @include font-line(14, 19.6);
+
+        strong {
+          font-weight: normal;
+        }
+      }
+    }
+
+    &__from {
+      margin-bottom: 4px;
+      @include font-line(16, 22.4);
+    }
+
+    &__time {
+      margin-bottom: 6px;
+      letter-spacing: -0.4em;
+      @include font-line(26, 32);
+
+      font-weight: bold;
+
+      &-num {
+        display: inline-block;
+        letter-spacing: normal;
+      }
+
+      &-separator {
+        display: inline-block;
+        letter-spacing: normal;
+        margin: 0 4px;
+      }
+    }
+
+    &__flight {
+      @include font-line(16, 22.4);
+
+      font-weight: bold;
+    }
+
+    &__btn {
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+      display: inline-flex;
+
+      &.is-got {
+        display: none;
+      }
+
+      &-text {
+        color: $color_text_primary_blue;
+        @include font-line(16, 22.4);
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+        background: url("~/assets/images/icon_reload_20.svg") no-repeat center center;
+        background-size: cover;
+        margin-left: 4px;
+      }
+    }
+
+    &__get {
+      margin-top: 4px;
+      border-top: 1px solid $color_gray_10;
+      padding-top: 6px;
+      display: none;
+
+      &.is-got {
+        display: block;
+      }
+
+      &-counts {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: 0 16px;
+
+        &-item {
+          width: 100%;
+        }
+
+        &-title {
+          color: $color_gray_60;
+          @include font-line(14, 19.6);
+        }
+
+        &-value {
+          margin-top: 4px;
+          @include font-line(20, 26);
+
+          font-weight: bold;
+        }
+      }
+
+      &-asof {
+        margin-top: 4px;
+        text-align: right;
+        @include font-line(14, 19.6);
+      }
+    }
+  }
+}
+@include is-tb {
+  .p-standby-passengers-list {
+    &01 {
+      &__item {
+        padding: 16px;
+        display: flex;
+        justify-content: space-between;
+        gap: 0 16px;
+      }
+
+      &__detail {
+        flex: 1;
+      }
+
+      &__btn {
+        top: 16px;
+        bottom: auto;
+      }
+
+      &__get {
+        margin-top: 0;
+        border-top: none;
+        padding-top: 0;
+        flex-flow: column nowrap;
+        min-width: 324px;
+
+        &.is-got {
+          display: flex;
+        }
+
+        &-counts {
+          justify-content: flex-end;
+          margin-bottom: 10px;
+        }
+
+        &-asof {
+          margin-top: auto;
+        }
+      }
+    }
+  }
+}

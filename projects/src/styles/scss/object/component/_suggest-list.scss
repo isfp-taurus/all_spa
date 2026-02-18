@@ -1,0 +1,49 @@
+@use "../../core" as *;
+
+.c-suggest-list {
+  padding: 0 16px;
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 12px 0;
+    cursor: pointer;
+
+    &:not(:first-child) {
+      border-top: 1px solid $color_gray_7;
+    }
+  }
+
+  &__label {
+    @include font-line(16, 22.4);
+
+    &:nth-child(2) {
+      flex-shrink: 0;
+      margin-left: 16px;
+    }
+  }
+
+  &[role="listbox"] [role="option"][aria-selected="true"] {
+    text-decoration: underline;
+  }
+}
+
+@include is-tb {
+  .c-suggest-list {
+    display: none;
+    position: absolute;
+    z-index: 400;
+    top: calc(100% + 9px);
+    left: 0;
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgb(51 51 51 / 20%);
+    box-sizing: border-box;
+    background-color: $color_white;
+
+    &[role="listbox"] [role="option"]:hover {
+      text-decoration: underline;
+    }
+  }
+}

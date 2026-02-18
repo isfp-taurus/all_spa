@@ -1,0 +1,273 @@
+@use "../../core" as *;
+
+.c-calendar {
+  margin: 0 auto; //確認用
+  padding: 0 $contents-garter-unit;
+
+  &__title {
+    @include font-line(20, 26);
+
+    font-weight: bold;
+    text-align: center;
+  }
+
+  &__body {
+    margin-top: 16px;
+  }
+
+  &-month {
+    &__week {
+      &-row {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      &-cell {
+        flex-grow: 1;
+        width: 50px;
+        text-align: center;
+
+        &-item {
+          color: $color_gray_70;
+          @include font-line(14, 19.6);
+        }
+      }
+    }
+
+    &__body {
+      margin-top: 16px;
+    }
+
+    &__row {
+      display: flex;
+
+      &:not(:first-child) {
+        margin-top: 4px;
+      }
+    }
+
+    &__cell {
+      $month__cell: &;
+
+      flex-grow: 1;
+      width: 14.49%;
+      text-align: center;
+
+      &--sunday,
+      &--holiday {
+        #{$month__cell}-button {
+          color: $color_text_ado_red02;
+
+          &:disabled {
+            color: $color_gray_30;
+          }
+        }
+      }
+
+      &--saturday {
+        #{$month__cell}-button {
+          color: $color_text_ado_blue;
+
+          &:disabled {
+            color: $color_gray_30;
+          }
+        }
+      }
+
+      &--selected {
+        span {
+          color: $color_text_base;
+          background-color: $color_ado_yellow;
+        }
+        #{$month__cell}-button {
+          &:hover {
+            span {
+              background-color: $color_ado_lightyellow02;
+            }
+          }
+        }
+      }
+
+      &--prevselected {
+        span {
+          border: 2px solid $color_gray_90;
+        }
+        #{$month__cell}-button {
+          &:hover {
+            span {
+              background-color: transparent;
+            }
+          }
+        }
+      }
+
+      &--start {
+        span {
+          color: $color_text_base;
+          border-radius: 50% 0 0 50%;
+          background-color: $color_ado_yellow;
+        }
+        &#{$month__cell}--interval {
+          background: linear-gradient(
+            to right,
+            transparent 0,
+            transparent 50%,
+            $color_ado_yellow 50%,
+            $color_ado_yellow 100%
+          );
+        }
+        #{$month__cell}-button {
+          &:hover {
+            span {
+              background-color: $color_ado_lightyellow02;
+            }
+          }
+        }
+      }
+
+      &--end {
+        span {
+          color: $color_text_base;
+          border-radius: 0 50% 50% 0;
+          background-color: $color_ado_yellow;
+        }
+        &#{$month__cell}--interval {
+          background: linear-gradient(
+            to right,
+            $color_ado_yellow 0,
+            $color_ado_yellow 50%,
+            transparent 50%,
+            transparent 100%
+          );
+        }
+        #{$month__cell}-button {
+          &:hover {
+            span {
+              background-color: $color_ado_lightyellow02;
+            }
+          }
+        }
+      }
+
+      &--interval {
+        background-color: $color_ado_yellow;
+      }
+
+      &--last-interval {
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: -100%;
+          width: 100%;
+          height: 100%;
+          pointer-events: none;
+          background: linear-gradient(to right, $color_ado_yellow 0, rgb(255 243 73 / 50%), rgb(255 243 73 / 0%));
+        }
+      }
+
+      &--first-interval {
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          pointer-events: none;
+          background: linear-gradient(to right, rgb(255 243 73 / 0%), rgb(255 243 73 / 50%), $color_ado_yellow 100%);
+        }
+      }
+
+      &-button {
+        @include font-line(16, 40);
+
+        font-weight: bold;
+
+        span {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 40px;
+          height: 40px;
+          box-sizing: border-box;
+          border-radius: 50%;
+        }
+
+        &:hover {
+          span {
+            background-color: $color_ado_lightyellow02;
+          }
+        }
+
+        &:disabled {
+          color: $color_gray_30;
+          font-weight: normal;
+          pointer-events: none;
+        }
+      }
+    }
+  }
+
+  &__btn-arrow {
+    display: none;
+  }
+}
+
+@include is-tb {
+  .c-calendar {
+    width: 420px;
+    margin: 0 auto;
+    padding: 0;
+
+    &-month {
+      &__week {
+        &-cell {
+          width: 60px;
+        }
+      }
+
+      &__cell {
+        $month__cell: &;
+
+        width: 60px;
+      }
+    }
+  }
+}
+
+@include is-pc {
+  .c-calendar {
+    margin: 0;
+
+    &__btn {
+      &-arrow {
+        display: block;
+        position: absolute;
+        top: 50%;
+        width: 40px;
+        height: 40px;
+        transform: translateY(-50%);
+      }
+
+      &--hide {
+        display: none;
+      }
+
+      &-prev {
+        left: 16px;
+        background: url("~/assets/images/btn_arrow_circle_left_40.svg") no-repeat center center;
+      }
+
+      &-next {
+        right: 16px;
+        background: url("~/assets/images/btn_arrow_circle_right_40.svg") no-repeat center center;
+      }
+    }
+  }
+}

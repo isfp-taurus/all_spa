@@ -1,0 +1,132 @@
+@use "../../core" as *;
+
+.c-btn-warn-secondary {
+  $this: &;
+
+  display: inline-flex;
+  align-items: center;
+  border-radius: 120px;
+  font-weight: bold;
+  color: $color_ado_red01;
+  background-color: $color_white;
+  border: 1px solid $color_ado_red01;
+  @include font-line(16, 22.4);
+
+  min-height: 46px;
+  padding: 4px 24px;
+
+  &:disabled {
+    background-color: $color_bg_btn_disabled;
+    border: 1px solid $color_bg_btn_disabled;
+    color: $color_text_btn_disabled;
+    cursor: auto;
+    pointer-events: none;
+    &#{$this}--external {
+      &::after {
+        background-image: url("~/assets/images/icon_external_gray60_16.svg");
+      }
+    }
+    &#{$this}--next {
+      &::after {
+        background-image: url("~/assets/images/icon_chevron_right_gray60_20.svg");
+      }
+    }
+  }
+
+  &__text {
+    display: block;
+  }
+
+  &--next {
+    padding: 4px 12px 4px 24px;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 20px;
+      height: 20px;
+      background: url("~/assets/images/icon_chevron_right_ado_red_20.svg") no-repeat center center;
+      background-size: cover;
+      margin-left: 0.4em;
+    }
+  }
+
+  &--external {
+    padding: 4px 12px 4px 24px;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 16px;
+      height: 16px;
+      background: url("~/assets/images/icon_external_ado_red_16.svg") no-repeat center center;
+      background-size: cover;
+      margin-left: 0.4em;
+    }
+  }
+
+  &--s {
+    min-height: 38px;
+    padding: 4px 18px;
+    &#{$this}--next,
+    &#{$this}--external {
+      padding: 4px 8px 4px 18px;
+    }
+  }
+
+  &--xs {
+    min-height: 28px;
+    @include font-line(14, 19.6);
+
+    padding: 3px 14px;
+    &#{$this}--next,
+    &#{$this}--external {
+      padding: 3px 6px 3px 14px;
+    }
+  }
+
+  &--sp-s {
+    min-height: 38px;
+    padding: 4px 18px;
+    &#{$this}--next,
+    &#{$this}--external {
+      padding: 4px 8px 4px 18px;
+    }
+  }
+
+  &--min-w100 {
+    min-width: 100px;
+    justify-content: center;
+  }
+
+  &--border-white {
+    border-color: $color_white;
+  }
+
+  &:focus {
+    text-decoration: underline;
+  }
+}
+@include is-tb {
+  .c-btn-warn-secondary {
+    $this: &;
+
+    &--sp-s {
+      @include font-line(16, 22.4);
+
+      min-height: 46px;
+      padding: 4px 24px;
+      &#{$this}--next,
+      &#{$this}--external {
+        padding: 4px 12px 4px 24px;
+      }
+    }
+  }
+}
+@include is-pc {
+  .c-btn-warn-secondary {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

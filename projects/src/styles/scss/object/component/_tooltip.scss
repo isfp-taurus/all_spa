@@ -1,0 +1,54 @@
+@use "../../core" as *;
+
+.c-tooltip {
+  $this: &;
+
+  display: none;
+  position: absolute;
+  width: 320px;
+  z-index: 150;
+
+  &--bottom {
+    top: calc(100% + 4px) !important;
+  }
+
+  &__content {
+    visibility: hidden;
+    display: inline-block;
+    text-align: left;
+    background-color: $color_ado_lightblue02;
+    box-shadow: 0 25.6px 57.6px rgb(0 0 0 / 22%), 0 4.8px 14.4px rgb(0 0 0 / 18%);
+    border-radius: 8px;
+    padding: 8px;
+    opacity: 0;
+    transition: all 0.2s ease;
+
+    &.is-open {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &__text {
+    @include font-line(14, 19.6);
+
+    color: $color_text_base;
+  }
+
+  a {
+    color: $color_text_ado_blue;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &.is-open {
+    display: block;
+  }
+}
+@include is-tb {
+  .c-tooltip {
+    width: 440px;
+  }
+}

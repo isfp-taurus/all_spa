@@ -1,0 +1,79 @@
+@use "../../../core" as *;
+
+.c-float-list03 {
+  &__item {
+    margin-top: 8px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &::after {
+      @include clearfix;
+    }
+
+    &--mt4 {
+      margin-top: 4px;
+    }
+  }
+
+  &__title {
+    float: left;
+    padding-right: 8px;
+    text-align: left;
+
+    &-item {
+      &--em {
+        font-weight: bold;
+      }
+
+      &--gray60 {
+        color: $color_gray_60;
+      }
+    }
+
+    &--em {
+      font-weight: bold;
+    }
+
+    &--fs16 {
+      @include font-line(15, 22.4);
+    }
+
+    &--gray60 {
+      color: $color_gray_60;
+    }
+  }
+
+  &__contents {
+    float: right;
+    font-weight: bold;
+    text-align: right;
+
+    &--1col {
+      width: 100%;
+    }
+
+    &--fs16 {
+      @include font-line(16, 22.4);
+    }
+
+    &--gray40 {
+      color: $color_gray_40;
+    }
+  }
+
+  &__text {
+    &--normal {
+      font-weight: normal;
+    }
+
+    &--strong {
+      font-weight: bold;
+    }
+
+    &--fs16 {
+      @include font-line(16, 22.4);
+    }
+  }
+}

@@ -1,0 +1,47 @@
+@use "../../../core" as *;
+
+.p-add-other-reserve {
+  &__head {
+    margin-bottom: 16px;
+  }
+
+  &__row {
+    margin-top: 12px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &-text {
+      &--mt4 {
+        margin-top: 4px;
+      }
+    }
+  }
+
+  &__title {
+    margin-bottom: 8px;
+
+    &--em {
+      font-weight: bold;
+    }
+  }
+
+  &__btn {
+    margin-top: 16px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .c-radio-list02 {
+    &__list {
+      gap: 6px;
+    }
+
+    &__item {
+      &-text {
+        @include font-line(14, 19.6);
+      }
+    }
+  }
+}

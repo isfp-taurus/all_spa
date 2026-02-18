@@ -1,0 +1,49 @@
+@use "../core" as *;
+
+.l-wrap {
+  max-width: $contents-max-width-unit;
+  margin: 0 auto;
+  $this: &;
+
+  &__inner {
+    @include contents-garter;
+  }
+
+  &--sp-tb-full {
+    #{$this}__inner {
+      padding: 0;
+    }
+  }
+
+  &--sp-full {
+    #{$this}__inner {
+      padding: 0;
+    }
+  }
+}
+@include is-tb {
+  .l-wrap {
+    $this: &;
+
+    &__inner {
+      @include contents-garter-tb;
+    }
+
+    &--sp-full {
+      #{$this}__inner {
+        @include contents-garter-tb;
+      }
+    }
+  }
+}
+@include is-pc {
+  .l-wrap {
+    $this: &;
+
+    &--sp-tb-full {
+      #{$this}__inner {
+        @include contents-garter-tb;
+      }
+    }
+  }
+}

@@ -1,0 +1,73 @@
+@use "../../../core" as *;
+
+.p-bottom-float-function-icon {
+  position: relative;
+
+  &__item {
+    position: absolute;
+    display: block;
+    width: 40px;
+    height: 40px;
+
+    &--left01 {
+      left: calc($contents-garter-unit + 0px);
+      top: -50px;
+    }
+
+    &--left02 {
+      left: calc($contents-garter-unit + 56px);
+      top: -50px;
+    }
+
+    &--left03 {
+      left: calc($contents-garter-unit + 112px);
+      top: -50px;
+    }
+
+    &--right01 {
+      right: calc($contents-garter-unit + 0px);
+      top: -50px;
+    }
+
+    &--right02 {
+      right: calc($contents-garter-unit + 56px);
+      top: -50px;
+    }
+
+    &--right03 {
+      right: calc($contents-garter-unit + 112px);
+      top: -50px;
+    }
+  }
+
+  &__btn {
+    display: flex;
+    height: 40px;
+    width: 40px;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgb(0 0 0 / 20%);
+  }
+
+  &__add-to-favorite {
+    display: block;
+    width: 40px;
+    height: 40px;
+  }
+}
+@include is-tb {
+  .p-bottom-float-function-icon {
+    $this: &;
+
+    &__inner {
+      @include contents-garter-tb;
+    }
+  }
+}
+@include is-pc {
+  .p-bottom-float-function-icon {
+    display: none;
+  }
+}

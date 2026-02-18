@@ -1,0 +1,166 @@
+@use "../../../core" as *;
+
+.p-flight-select-list {
+  margin-top: 16px;
+
+  &__item {
+    background-color: $color_white;
+    border-radius: 15px;
+    overflow: hidden;
+
+    &:not(:first-child) {
+      margin-top: 16px;
+    }
+  }
+
+  &__head {
+    padding: 16px 16px 12px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+
+    &-item {
+      &--1 {
+        grid-column: 1/2;
+        grid-row: 1/2;
+      }
+
+      &--2 {
+        grid-column: 1/3;
+        grid-row: 2/3;
+      }
+
+      &--3 {
+        grid-column: 2/3;
+        grid-row: 1/2;
+      }
+
+      &--4 {
+        margin-top: 8px;
+        grid-column: 1/3;
+        grid-row: 3/4;
+      }
+
+      &--3,
+      &--4 {
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+
+    &-status {
+      margin-top: 4px;
+    }
+
+    &-title {
+      margin-top: 8px;
+
+      &-date,
+      &-airport {
+        font-weight: 700;
+        @include font-line(20, 26);
+      }
+
+      &-airport {
+        margin-top: 4px;
+
+        &-departure,
+        &-arrival {
+          display: inline-block;
+        }
+
+        &-to {
+          margin-left: 8px;
+          margin-right: 8px;
+        }
+      }
+    }
+
+    .c-form-element-checkbox {
+      &__text {
+        @include visually-hidden;
+      }
+    }
+
+    .c-accordion-btn01 {
+      &__text {
+        @include font-line(16, 22.4);
+      }
+    }
+  }
+
+  &__body {
+    display: none;
+
+    &.is-open {
+      display: block;
+    }
+
+    &--gray10 {
+      background-color: $color_gray_10;
+    }
+
+    .p-flight-detail01 {
+      &__block {
+        &:first-child {
+          padding-top: 16px;
+        }
+
+        &:last-child {
+          padding-bottom: 16px;
+        }
+      }
+    }
+  }
+
+  &__head + &__body {
+    border-top: 1px solid $color_gray_10;
+  }
+}
+@include is-tb {
+  .p-flight-select-list {
+    &__head {
+      padding: 20px 24px 16px;
+
+      &-item {
+        &--4 {
+          display: none;
+        }
+      }
+
+      &-title {
+        display: flex;
+
+        &-date {
+          width: 160px;
+          flex-shrink: 0;
+        }
+
+        &-airport {
+          margin-top: 0;
+        }
+      }
+
+      .c-form-element-checkbox {
+        &__text {
+          @include visually-hidden-reset;
+
+          font-weight: 400 !important;
+        }
+      }
+    }
+
+    &__body {
+      .p-flight-detail01 {
+        &__block {
+          &:first-child {
+            padding-top: 20px;
+          }
+
+          &:last-child {
+            padding-bottom: 20px;
+          }
+        }
+      }
+    }
+  }
+}

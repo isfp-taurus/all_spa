@@ -1,0 +1,27 @@
+@use "../../../core" as *;
+
+.p-modal-seatmap-child-not {
+  &__item {
+    margin-bottom: 16px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__img {
+    &--center {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .c-def-list02 {
+    &__item {
+      &:last-child {
+        padding-bottom: 16px;
+        border-bottom: 1px solid $color_gray_10;
+      }
+    }
+  }
+}

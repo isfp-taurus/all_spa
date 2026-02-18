@@ -1,0 +1,147 @@
+@use "../../../core" as *;
+
+.c-history-list {
+  $this: &;
+
+  &__item {
+    position: relative;
+
+    &:not(:first-child) {
+      border-top: 4px solid $color_gray_5;
+    }
+  }
+
+  &__link {
+    display: block;
+    position: relative;
+    width: 100%;
+    padding: 16px;
+    outline-offset: -1px;
+    text-align: left;
+    cursor: pointer;
+    @at-root a#{$this}__link:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 8px;
+      width: 24px;
+      height: 24px;
+      transform: translateY(-50%);
+      background: url("~/assets/images/icon_chevron_right_24.svg") no-repeat;
+    }
+  }
+
+  &__loading {
+    padding: 16px;
+  }
+
+  &__head {
+    &-text {
+      @include font-line(16, 22.4);
+    }
+  }
+
+  &__body {
+    margin-top: 16px;
+    padding-right: 32px;
+  }
+
+  &__unit {
+    &:not(:first-child) {
+      margin-top: 16px;
+    }
+    #{$this}__condition-list {
+      margin-top: 2px;
+    }
+  }
+
+  &__text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    @include font-line(14, 19.6);
+
+    &:not(:first-child) {
+      margin-top: 2px;
+    }
+
+    &-m {
+      @include font-line(16, 22.4);
+
+      font-weight: bold;
+
+      &:not(:first-child) {
+        margin-top: 2px;
+      }
+    }
+  }
+
+  &__fromto {
+    letter-spacing: -0.4em;
+
+    &-item {
+      display: inline-block;
+      letter-spacing: normal;
+    }
+
+    &-separator {
+      display: inline-block;
+      letter-spacing: normal;
+      margin: 0 4px;
+    }
+  }
+
+  &__transit-list {
+    &-item {
+      color: $color_gray_60;
+      @include font-line(14, 19.6);
+    }
+  }
+
+  &__foot {
+    margin-top: 16px;
+    padding-right: 40%;
+  }
+
+  &__condition-list {
+    &-item {
+      @include font-line(14, 19.6);
+
+      &:not(:first-child) {
+        margin-top: 2px;
+      }
+    }
+  }
+
+  &__delete {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+  }
+
+  &__favorite {
+    position: absolute;
+    bottom: 8px;
+    right: 0;
+    max-width: 40%;
+    padding-left: 8px;
+    @include font-line(14, 19.6);
+
+    text-align: right;
+    z-index: 1;
+
+    &-added {
+      padding-right: 12px;
+      padding-bottom: 8px;
+      color: $color_gray_60;
+    }
+
+    &-icon {
+      width: 40px;
+      height: 40px;
+      background: url("~/assets/images/icon_addtofavorite_24.svg") no-repeat center center;
+      background-size: 24px 24px;
+    }
+  }
+}

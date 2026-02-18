@@ -1,0 +1,311 @@
+@use "../../../core" as *;
+
+.p-fare-panel {
+  $this: &;
+
+  display: flex;
+  gap: 0 16px;
+
+  &__item {
+    position: relative;
+    padding-top: 15px;
+    width: 300px;
+    flex-shrink: 0;
+    background: linear-gradient(
+      180deg,
+      $color_class_eco 0%,
+      $color_class_eco 15px,
+      $color_white 15px,
+      $color_white 100%
+    );
+    border-radius: 15px;
+
+    &--selected {
+      box-shadow: 0 0 0 4px #069 inset;// 文字色引数直し。#00146E⇒#006699
+      #{$this}__head + #{$this}__body {
+        &::before {
+          width: calc(100% - 4px * 2);
+        }
+      }
+    }
+
+    &--disabled {
+      #{$this}__head,
+      #{$this}__body {
+        background-color: $color_gray_10;
+      }
+      #{$this}__head + #{$this}__body {
+        &::before {
+          display: none;
+        }
+      }
+    }
+
+    &--eco {
+      background: linear-gradient(
+        180deg,
+        $color_class_eco 0%,
+        $color_class_eco 15px,
+        $color_white 15px,
+        $color_white 100%
+      );
+    }
+
+    &--ecoPremium {
+      background: linear-gradient(
+        180deg,
+        $color_class_eco_premium 0%,
+        $color_class_eco_premium 15px,
+        $color_white 15px,
+        $color_white 100%
+      );
+    }
+
+    &--business {
+      background: linear-gradient(
+        180deg,
+        $color_class_business 0%,
+        $color_class_business 15px,
+        $color_white 15px,
+        $color_white 100%
+      );
+    }
+
+    &--first {
+      background: linear-gradient(
+        180deg,
+        $color_class_first 0%,
+        $color_class_first 15px,
+        $color_white 15px,
+        $color_white 100%
+      );
+    }
+
+    & + & {
+      margin-top: 15px;
+    };
+  }
+
+  &__selected,
+  &__current {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    padding: 4px 16px;
+    background-color: $color_primary_blue;
+    border-radius: 15px 0;
+    color: $color_white;
+    font-weight: bold;
+  }
+
+  &__promotion {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+
+    img {
+      vertical-align: top;
+    }
+  }
+
+  &__head {
+    padding: 16px 16px 12px;
+
+    &-item {
+      &:not(:first-child) {
+        margin-top: 8px;
+      }
+
+      &-class,
+      &-rank,
+      &-fare {
+        font-weight: bold;
+      }
+
+      &-rank,
+      &-correction {
+        @include font-line(20, 26);
+      }
+
+      &-rank {
+        margin-top: 4px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        .c-tag-lowest-price {
+          font-weight: 400;
+        }
+      }
+
+      &-waiver {
+        color: $color_primary_blue;
+      }
+
+      &-fare,
+      &-correction {
+        &-plus {
+          @include font-line(20, 26);
+        }
+      }
+
+      &-fare {
+        &-price {
+          font-size: 0;
+        }
+
+        &-num {
+          @include font-line(28, 33.6);
+        }
+
+        &-currency {
+          @include font-line(20, 26);
+        }
+
+        &-currency + &-num,
+        &-num + &-currency,
+        &-plus + &-currency {
+          margin-left: 4px;
+        }
+      }
+
+      &-correction {
+        &-price {
+          font-size: 0;
+        }
+
+        &-currency,
+        &-num {
+          @include font-line(20, 26);
+        }
+
+        &-num + &-currency,
+        &-currency + &-num,
+        &-plus + &-currency {
+          margin-left: 4px;
+        }
+      }
+
+      &-not-available {
+        font-weight: 400;
+        @include font-line(20, 26);
+      }
+
+      &-remaining {
+        color: $color_text_secondary_red;
+      }
+    }
+
+    &-price {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      &-item {
+        &--btn {
+          display: flex;
+          flex-shrink: 0;
+        }
+      }
+    }
+
+    &-guidance {
+      margin-top: 8px;
+      color: $color_text_secondary_red;
+    }
+  }
+
+  &__body {
+    position: relative;
+    padding: 0 16px;
+    border-radius: 0 0 15px 15px;
+
+    &-item {
+      position: relative;
+      padding: 16px 0;
+
+      &:not(:first-child) {
+        &::before {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          margin: auto;
+          width: 100%;
+          border-top: 1px solid $color_gray_10;
+        }
+      }
+
+      &-title {
+        font-weight: bold;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+
+        & + .c-available-list {
+          margin-top: 12px;
+        }
+      }
+
+      &-text {
+        &-link {
+          display: inline-block;
+          color: $color_primary_blue;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      &-color {
+        &-gray60 {
+          color: $color_gray_60;
+        }
+      }
+
+      &-to {
+        margin-left: 4px;
+        margin-right: 4px;
+      }
+
+      .c-icon-tooltip-list {
+        width: 160px;
+        margin-top: 4px;
+      }
+
+      .c-available-list {
+        .c-remaining-seats {
+          margin-top: 4px;
+        }
+      }
+
+      &:first-child {
+        .c-available-list {
+          &__item {
+            &:not(:first-child) {
+              margin-top: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__head + &__body {
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 100%;
+      border-top: 1px solid $color_gray_10;
+    }
+  }
+}

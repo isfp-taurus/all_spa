@@ -1,0 +1,67 @@
+@use "../../../core" as *;
+
+.p-international-filter {
+  background-color: $color_gray_7;
+
+  &__box {
+    background-color: $color_white;
+
+    &:not(:first-child) {
+      margin-top: 4px;
+    }
+
+    &-inner {
+      &:nth-of-type(n + 2) {
+        border-top: 1px solid #e6e6e6;
+      }
+    }
+
+    &-unit {
+      margin: 0 16px;
+      padding: 16px 0;
+
+      &:not(:first-child) {
+        border-top: 1px solid #e6e6e6;
+      }
+    }
+
+    &-title {
+      @include font-line(16, 22.4);
+
+      font-weight: bold;
+    }
+
+    &-item {
+      margin-top: 16px;
+
+      &:nth-of-type(n + 2) {
+        padding-top: 16px;
+        border-top: 1px solid #e6e6e6;
+      }
+
+      &-wrap {
+        &:not(:first-child) {
+          margin-top: 16px;
+        }
+
+        &-head {
+          @include font-line(14, 19.6);
+
+          font-weight: bold;
+        }
+
+        &-body {
+          margin-top: 16px;
+
+          &--min {
+            margin-top: 8px;
+          }
+        }
+      }
+
+      &--mt0 {
+        margin-top: 0;
+      }
+    }
+  }
+}

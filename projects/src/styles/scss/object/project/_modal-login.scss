@@ -1,0 +1,48 @@
+@use "../../core" as *;
+
+.p-modal-login {
+  padding: 16px 16px 32px;
+
+  &__title + &__text {
+    margin-top: 8px;
+  }
+
+  &__item {
+    margin-top: 16px;
+
+    &-link {
+      margin-top: 12px;
+    }
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  &__check {
+    margin-top: 32px;
+    text-align: center;
+  }
+
+  &__btn {
+    margin-top: 24px;
+    text-align: center;
+    display: flex;
+    flex-flow: column;
+
+    &-item {
+      & + & {
+        margin-top: 24px;
+      }
+    }
+  }
+
+  &__join {
+    margin-top: 24px;
+    text-align: center;
+
+    &-link {
+      margin-top: 2px;
+    }
+  }
+}

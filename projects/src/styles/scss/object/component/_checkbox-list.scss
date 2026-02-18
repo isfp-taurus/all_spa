@@ -1,0 +1,98 @@
+@use "../../core" as *;
+
+.c-checkbox-list {
+  $this: &;
+
+  font-size: 0;
+
+  &__legend {
+    @include visually-hidden;
+  }
+
+  &__wrap {
+    position: relative;
+    display: inline-flex;
+  }
+
+  &__list {
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: -16px;
+  }
+
+  &__item {
+    margin: 16px 16px 0 0;
+  }
+
+  &.is-error {
+    #{$this}__wrap {
+      &::before {
+        content: "";
+        display: block;
+        width: calc(100% - 8px);
+        height: calc(100% + 8px);
+        position: absolute;
+        left: -4px;
+        top: -4px;
+        border: 2px solid $color_ado_red01;
+        border-radius: 5px;
+      }
+    }
+  }
+
+  &--sp-vertical {
+    #{$this}__list {
+      flex-flow: column nowrap;
+    }
+    #{$this}__item {
+      margin-right: 0;
+    }
+
+    &.is-error {
+      #{$this}__wrap {
+        &::before {
+          width: calc(100% + 8px);
+        }
+      }
+    }
+  }
+
+  &--vertical {
+    #{$this}__list {
+      flex-flow: column nowrap;
+    }
+    #{$this}__item {
+      margin-right: 0;
+    }
+
+    &.is-error {
+      #{$this}__wrap {
+        &::before {
+          width: calc(100% + 8px);
+        }
+      }
+    }
+  }
+}
+@include is-tb {
+  .c-checkbox-list {
+    $this: &;
+
+    &--sp-vertical {
+      #{$this}__list {
+        flex-flow: row wrap;
+      }
+      #{$this}__item {
+        margin-right: 16px;
+      }
+
+      &.is-error {
+        #{$this}__wrap {
+          &::before {
+            width: calc(100% - 8px);
+          }
+        }
+      }
+    }
+  }
+}

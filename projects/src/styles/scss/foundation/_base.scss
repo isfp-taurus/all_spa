@@ -1,0 +1,55 @@
+@use "../core" as *;
+@use "sass:math";
+
+body {
+  color: $color_text_base;
+  font-size: 1.4rem;
+  line-height: 1.4;
+  font-family: $font-family-base;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgb(0 0 0 / 0%);
+}
+
+html {
+  font-size: 62.5%;
+
+  * {
+    hyphens: auto;
+    overflow-wrap: anywhere;
+  }
+
+  &[lang="ja"] body {
+    font-family: $font-family-base-ja;
+  }
+
+  &[lang="es"] body,
+  &[lang="it"] body,
+  &[lang="fr"] body,
+  &[lang="de"] body,
+  &[lang="ru"] body,
+  &[lang="sv"] body,
+  &[lang="tr"] body,
+  &[lang="vi"] body,
+  &[lang="id"] body {
+    font-family: $font-family-base-etc;
+  }
+
+  &[lang*="zh"] body {
+    font-family: $font-family-base-zh;
+  }
+
+  &[lang="ko"] body {
+    font-family: $font-family-base-ko;
+  }
+
+  &[lang="th"] body {
+    font-family: $font-family-base-th;
+  }
+}
+
+a {
+  color: $color_linktext_base;
+  text-decoration: none;
+}

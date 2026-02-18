@@ -1,0 +1,437 @@
+@use "../../../core" as *;
+
+.p-booking-info-mdl {
+  $this: &;
+
+  &__item {
+    border-bottom: 4px solid $color_gray_5;
+  }
+
+  &__open {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 78px;
+    padding: 16px;
+
+    &.is-open {
+      display: none;
+    }
+
+    &-head {
+      text-align: left;
+    }
+
+    &-title {
+      @include font-line(20, 26);
+
+      font-weight: bold;
+      display: block;
+    }
+
+    &-subtext {
+      @include font-line(14, 19.6);
+
+      color: $color_gray_60;
+      display: block;
+    }
+
+    &-state {
+      @include font-line(16, 22.4);
+
+      flex-shrink: 0;
+      margin-left: 16px;
+
+      &::after {
+        content: "";
+        display: inline-block;
+        vertical-align: middle;
+        width: 20px;
+        height: 20px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-left: 4px;
+      }
+
+      &--not-registered {
+        color: $color_gray_60;
+
+        &::after {
+          display: none;
+        }
+      }
+
+      &--registered,
+      &--editing {
+        color: $color_text_ado_blue;
+
+        &::after {
+          background-image: url("~/assets/images/icon_chevron_down_ado_blue_20.svg");
+        }
+      }
+    }
+  }
+
+  &__contents {
+    display: none;
+
+    &.is-open {
+      display: block;
+    }
+  }
+
+  &__item-head {
+    position: sticky;
+    top: 0;
+    background-color: $color_white;
+    z-index: 10;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &--pb8 {
+      padding-bottom: 8px;
+    }
+
+    &-title {
+      @include font-line(20, 26);
+
+      font-weight: bold;
+    }
+
+    &-status {
+      @include font-line(16, 22.4);
+
+      color: $color_text_ado_blue;
+    }
+
+    &-text {
+      @include font-line(16, 22.4);
+
+      margin-top: 8px;
+    }
+
+    &-subtext {
+      @include font-line(14, 19.6);
+
+      color: $color_gray_60;
+    }
+  }
+
+  &__usual {
+    padding: 0 16px 16px;
+  }
+
+  &__section {
+    border-top: 1px solid $color_gray_10;
+    padding: 16px;
+
+    &--pb0 {
+      padding-bottom: 0;
+    }
+  }
+
+  &__block {
+    border-top: 1px solid $color_gray_10;
+    padding: 16px 0;
+
+    &:first-child {
+      padding-top: 0;
+      border-top: none;
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+
+    &--top0 {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    &--non-border {
+      border-top: none;
+    }
+
+    &--pb0 {
+      padding-bottom: 0;
+    }
+  }
+
+  &__heading {
+    $heading: &;
+
+    font-size: 0;
+
+    &-title {
+      margin-right: 4px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    &--01 {
+      margin-bottom: 12px;
+      #{$heading}-title {
+        @include font-line(16, 22.4);
+
+        font-weight: bold;
+      }
+    }
+
+    &--02 {
+      margin-bottom: 8px;
+      #{$heading}-title {
+        @include font-line(14, 19.6);
+
+        font-weight: bold;
+      }
+    }
+
+    &--additional {
+      margin-bottom: 16px;
+    }
+
+    &--has-edit {
+      &::after {
+        @include clearfix;
+      }
+      #{$heading}-title {
+        float: left;
+      }
+      #{$heading}-btn {
+        float: right;
+        margin-left: 16px;
+      }
+    }
+  }
+
+  &__row {
+    margin-bottom: 12px;
+    $row: &;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    &--mt16 {
+      margin-top: 16px;
+    }
+
+    &--mb16 {
+      margin-bottom: 16px;
+    }
+
+    &--mb8 {
+      margin-bottom: 8px;
+    }
+
+    &--mb0 {
+      margin-bottom: 0;
+    }
+
+    &--03 {
+      display: flex;
+      flex-flow: column;
+      gap: 12px 0;
+    }
+  }
+
+  &__describe {
+    @include font-line(14, 19.6);
+
+    color: $color_gray_60;
+  }
+
+  &__text {
+    @include font-line(16, 22.4);
+
+    &--fs14 {
+      @include font-line(14, 19.6);
+    }
+  }
+
+  &__btn {
+    padding: 32px 16px;
+    background-color: $color_gray_5;
+    text-align: center;
+
+    &-next {
+      @include font-line(16, 22.4);
+
+      margin-bottom: 16px;
+    }
+
+    &-list {
+      display: inline-flex;
+      flex-flow: column nowrap;
+      gap: 12px 0;
+      min-width: 216px;
+
+      .c-btn-primary__text,
+      .c-btn-secondary__text {
+        flex-grow: 1;
+      }
+    }
+  }
+
+  &__additional {
+    margin: 0 -16px;
+
+    &-open {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 16px;
+      text-align: left;
+      border-top: 1px solid $color_gray_10;
+
+      &.is-open {
+        display: none;
+      }
+
+      &-title {
+        @include font-line(14, 19.6);
+
+        font-weight: bold;
+        flex: 1;
+      }
+
+      &-icon {
+        flex-shrink: 0;
+        width: 20px;
+        margin-left: 16px;
+      }
+    }
+
+    &-contents {
+      display: none;
+
+      &.is-open {
+        display: block;
+      }
+    }
+  }
+
+  &__close {
+    text-align: right;
+
+    &-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0 4px;
+
+      &::after {
+        content: "";
+        display: block;
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+        background-image: url("~/assets/images/icon_chevron_up_ado_blue_20.svg");
+        background-size: cover;
+      }
+    }
+
+    &-text {
+      @include font-line(16, 22.4);
+
+      color: $color_text_ado_blue;
+    }
+  }
+}
+
+@include is-tb {
+  .p-booking-info-mdl {
+    $this: &;
+
+    &__open {
+      min-height: 86px;
+      padding: 20px 24px;
+    }
+
+    &__item-head {
+      padding: 20px 24px;
+
+      &--pb8 {
+        padding-bottom: 8px;
+      }
+    }
+
+    &__usual {
+      padding: 0 24px 20px;
+    }
+
+    &__section {
+      padding: 20px 24px;
+
+      &--pb0 {
+        padding-bottom: 0;
+      }
+    }
+
+    &__block {
+      $block: &;
+
+      &--01 {
+        width: 354px;
+      }
+    }
+
+    &__heading {
+      &--additional {
+        margin-bottom: 20px;
+      }
+    }
+
+    &__row {
+      $row: &;
+
+      &--01 {
+        #{$row}-item {
+          width: 354px;
+        }
+      }
+
+      &--02 {
+        #{$row}-item {
+          width: 136px;
+        }
+      }
+
+      &--03 {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        gap: 12px;
+        #{$row}-item {
+          width: 100%;
+        }
+      }
+
+      &--04 {
+        #{$row}-item {
+          width: 354px;
+        }
+      }
+    }
+
+    &__btn {
+      padding: 32px 24px;
+    }
+
+    &__additional {
+      margin: 0 -24px;
+
+      &-open {
+        padding: 20px 24px;
+
+        &.is-open {
+          display: none;
+        }
+      }
+    }
+  }
+}

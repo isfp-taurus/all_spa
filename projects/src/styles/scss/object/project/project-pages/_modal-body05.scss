@@ -1,0 +1,16 @@
+@use "../../../core" as *;
+
+.p-modal-body05 {
+  padding: 16px 16px 32px;
+  background-color: $color_gray_5;
+}
+@include is-tb {
+  .p-modal-body05 {
+    padding: 16px 24px 52px;
+  }
+}
+@include is-pc {
+  .p-modal-body05 {
+    padding: 16px 24px 22px;
+  }
+}

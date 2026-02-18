@@ -1,0 +1,75 @@
+@use "../../../core" as *;
+
+.p-review-changes02 {
+  margin-top: 16px;
+  background-color: $color_white;
+  border-radius: 15px;
+
+  &__title {
+    padding: 16px 16px 12px;
+    font-weight: bold;
+  }
+
+  &__contents {
+    padding: 12px 0 16px;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: block;
+      width: calc(100% - 32px);
+      height: 1px;
+      margin: auto;
+      background-color: $color_gray_90;
+    }
+  }
+
+  &__date {
+    &-label {
+      font-weight: bold;
+      @include font-line(18, 26);
+    }
+
+    &-required {
+      @include font-line(16, 22.4);
+    }
+  }
+
+  &__tag,
+  &__date {
+    padding: 0 16px;
+  }
+
+  &__tag + &__date {
+    margin-top: 16px;
+  }
+
+  .p-flight-detail01 {
+    margin-top: 16px;
+  }
+}
+@include is-tb {
+  .p-review-changes02 {
+    &__title {
+      padding: 20px 24px 12px;
+      font-weight: bold;
+    }
+
+    &__contents {
+      padding: 12px 0 20px;
+
+      &::before {
+        width: calc(100% - 48px);
+      }
+    }
+
+    &__tag,
+    &__date {
+      padding: 0 24px;
+    }
+  }
+}

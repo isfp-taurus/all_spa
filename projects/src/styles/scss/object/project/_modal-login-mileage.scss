@@ -1,0 +1,37 @@
+@use "../../core" as *;
+
+.p-modal-login-mileage {
+  padding: 16px 16px 24px;
+
+  &__title {
+    font-weight: bold;
+    @include font-line(20, 26);
+  }
+
+  &__title + &__contents {
+    margin-top: 16px;
+  }
+
+  &__item {
+    margin-top: 16px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &-input + &-link {
+      margin-top: 12px;
+    }
+  }
+
+  &__btn {
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .c-btn-primary {
+    min-width: 120px;
+    justify-content: center;
+  }
+}

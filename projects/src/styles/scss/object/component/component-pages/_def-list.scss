@@ -1,0 +1,242 @@
+@use "../../../core" as *;
+
+.c-def-list {
+  &01 {
+    &__item {
+      $item01: &;
+
+      &-title {
+        @include font-line(14, 19.6);
+
+        font-weight: bold;
+        margin-bottom: 8px;
+
+        &--fs {
+          &16 {
+            @include font-line(16, 22.4);
+          }
+        }
+      }
+
+      & + & {
+        margin-top: 16px;
+        border-top: 1px solid $color_secondary_blue;
+        padding-top: 16px;
+      }
+
+      &--one {
+        &::after {
+          @include clearfix;
+        }
+        #{$item01}-title {
+          float: left;
+          padding-right: 8px;
+          @include font-line(14, 19.6);
+
+          font-weight: bold;
+          margin-bottom: 0;
+
+          &--fs {
+            &16 {
+              @include font-line(16, 22.4);
+            }
+          }
+        }
+        #{$item01}-body {
+          float: right;
+          @include font-line(16, 22.4);
+
+          text-align: right;
+        }
+      }
+
+      & + &--one {
+        padding: 0;
+        border-top: none;
+      }
+    }
+  }
+
+  &02 {
+    padding-top: 16px;
+    border-top: 1px solid $color_black;
+
+    &--not-border {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    &__item {
+      $item02: &;
+
+      &-title {
+        @include font-line(16, 22.4);
+
+        font-weight: bold;
+        margin-bottom: 8px;
+
+        &--mb16 {
+          margin-bottom: 16px;
+        }
+      }
+
+      & + & {
+        margin-top: 16px;
+        border-top: 1px solid $color_gray_10;
+        padding-top: 16px;
+      }
+
+      &--one {
+        &::after {
+          @include clearfix;
+        }
+        #{$item02}-title {
+          float: left;
+          padding-right: 8px;
+          @include font-line(16, 22.4);
+
+          font-weight: bold;
+          margin-bottom: 0;
+        }
+        #{$item02}-body {
+          float: right;
+          @include font-line(16, 22.4);
+
+          text-align: right;
+        }
+      }
+    }
+  }
+
+  &03 {
+    &__item {
+      $item03: &;
+
+      margin-top: 8px;
+
+      &-title {
+        @include font-line(14, 19.6);
+
+        font-weight: bold;
+        margin-bottom: 8px;
+
+        &-row {
+          &--normal {
+            font-weight: normal;
+          }
+        }
+
+        &-lead {
+          &--gray {
+            &60 {
+              color: $color_gray_60;
+            }
+          }
+        }
+
+        &--normal {
+          font-weight: normal;
+        }
+
+        &--gray {
+          &60 {
+            color: $color_gray_60;
+          }
+        }
+
+        &--fs {
+          &16 {
+            @include font-line(16, 22.4);
+          }
+        }
+      }
+
+      &-body {
+        &-row {
+          &--em {
+            font-weight: bold;
+          }
+
+          &--mt {
+            &4 {
+              margin-top: 4px;
+            }
+          }
+        }
+
+        &--em {
+          font-weight: bold;
+        }
+
+        &--fs {
+          &16 {
+            @include font-line(16, 22.4);
+          }
+
+          &18 {
+            @include font-line(18, 26);
+          }
+        }
+      }
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &--flex,
+      &--float {
+        #{$item03} {
+          &-title {
+            padding-right: 8px;
+            margin-bottom: 0;
+          }
+
+          &-body {
+            text-align: right;
+          }
+        }
+      }
+
+      &--flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        #{$item03} {
+          &-title {
+            flex-shrink: 0;
+          }
+        }
+      }
+
+      &--float {
+        &::after {
+          @include clearfix;
+        }
+        #{$item03} {
+          &-title {
+            float: left;
+          }
+
+          &-body {
+            float: right;
+          }
+        }
+      }
+
+      &--has-border-gray {
+        &10 {
+          margin-top: 12px;
+          padding-top: 12px;
+          border-top: 1px solid $color_gray_10;
+        }
+
+        &20 {
+          margin-top: 12px;
+          padding-top: 12px;
+          border-top: 1px solid $color_gray_20;
+        }
+      }
+    }
+  }
+}

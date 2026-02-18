@@ -1,0 +1,11 @@
+@use "../../core" as *;
+
+/* font weight - utility
+--------------------------------------------------------- */
+.u-weight-normal {
+  font-weight: normal !important;
+}
+
+.u-weight-bold {
+  font-weight: bold !important;
+}

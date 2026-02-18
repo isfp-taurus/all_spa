@@ -1,0 +1,64 @@
+@use "../../../core" as *;
+
+.p-top-saved-plan {
+  padding: 12px 0;
+
+  &__title {
+    &-text {
+      @include font-line(22, 26.4);
+    }
+  }
+
+  &__list {
+    margin-top: 4px;
+
+    &::after {
+      @include clearfix;
+    }
+
+    &-item {
+      float: left;
+      color: $color_gray_60;
+
+      & + & {
+        padding-left: 8px;
+        margin-left: 8px;
+        border-left: 1px solid $color_gray_10;
+      }
+    }
+  }
+
+  &__tag {
+    margin-top: 8px;
+  }
+
+  &__note {
+    margin-top: 8px;
+
+    &-icon {
+      margin-right: 8px;
+    }
+  }
+}
+
+@include is-tb {
+  .p-top-saved-plan {
+    padding: 16px 0;
+
+    &__title {
+      &-text {
+        @include font-line(22, 28);
+      }
+    }
+  }
+}
+
+@include is-pc {
+  .p-top-saved-plan {
+    &__title {
+      &-text {
+        @include font-line(28, 33.6);
+      }
+    }
+  }
+}

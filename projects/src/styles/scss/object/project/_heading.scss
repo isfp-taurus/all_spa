@@ -1,0 +1,26 @@
+@use "../../core" as *;
+
+.p-heading {
+  &-area01 {
+    &::after {
+      @include clearfix;
+    }
+
+    &__title {
+      float: left;
+    }
+
+    &__sub-function {
+      float: right;
+      padding-top: 5px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px 16px;
+
+      &-item {
+        flex-shrink: 0;
+      }
+    }
+  }
+}

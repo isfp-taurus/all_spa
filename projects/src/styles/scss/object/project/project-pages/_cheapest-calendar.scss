@@ -1,0 +1,348 @@
+@use "../../../core" as *;
+
+.p-cheapest-calendar {
+  $this: &;
+
+  display: flex;
+  justify-content: center;
+  background-color: $color_gray_5;
+
+  &__inner {
+    display: flex;
+    overflow-x: hidden;
+    padding: 16px 24px 24px 0;
+
+    &.is-scroll {
+      #{$this}__side {
+        z-index: 1;
+      }
+    }
+  }
+
+  &__side {
+    flex-shrink: 0;
+    width: 75px;
+    margin-right: 8px;
+    padding-left: 16px;
+    box-sizing: content-box;
+    background-color: $color_gray_5;
+    box-shadow: 3px 0 10px rgb(241 241 241);
+
+    &-head {
+      &-title {
+        display: inline-block;
+        @include font-line(16, 22.4);
+
+        font-weight: bold;
+      }
+    }
+
+    &-body {
+      position: relative;
+      margin-top: 74px;
+      text-align: center;
+    }
+
+    &-arrow {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%) translateZ(0);
+      filter: drop-shadow(0 0 10px rgb(51 51 51 / 20%));
+
+      &--top {
+        top: -12px;
+      }
+
+      &--bottom {
+        bottom: -12px;
+      }
+    }
+
+    &-week {
+      &-cell {
+        padding: 8px 0;
+        border-bottom: 1px solid $color_gray_10;
+        background-color: $color_white;
+
+        &:nth-of-type(1) {
+          border-radius: 15px 15px 0 0;
+        }
+
+        &:last-child {
+          border: none;
+          border-radius: 0 0 15px 15px;
+        }
+
+        &-text {
+          @include font-line(14, 19.6);
+        }
+
+        &-date {
+          @include font-line(16, 22.4);
+
+          font-weight: bold;
+        }
+
+        &--interval {
+          background-color: $color_secondary_blue;
+        }
+      }
+    }
+  }
+
+  &__main {
+    $main: &;
+
+    &-head {
+      &-title {
+        display: inline-block;
+        position: sticky;
+        left: 99px;
+        @include font-line(16, 22.4);
+
+        font-weight: bold;
+      }
+    }
+
+    &-scroll {
+      display: none;
+      position: absolute;
+      top: 300px;
+      $scroll: &;
+
+      z-index: 5;
+
+      &-btn {
+        transform: translateZ(0);
+        filter: drop-shadow(0 0 10px rgb(51 51 51 / 20%));
+      }
+
+      &.is-active {
+        display: block;
+      }
+
+      &--left {
+        left: 100px;
+      }
+
+      &--right {
+        right: 4px;
+      }
+    }
+
+    &-body {
+      margin-top: 8px;
+      padding-right: 16px;
+
+      &-week {
+        display: flex;
+        position: relative;
+        text-align: center;
+      }
+
+      &-data {
+        overflow: hidden;
+        margin-top: 8px;
+        border-radius: 15px;
+        background-color: $color_gray_10;
+      }
+    }
+
+    &-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%) translateZ(0);
+      filter: drop-shadow(0 0 10px rgb(51 51 51 / 20%));
+      cursor: pointer;
+
+      &--left {
+        left: -12px;
+      }
+
+      &--right {
+        right: -12px;
+      }
+    }
+
+    &-week {
+      &-cell {
+        width: 90px;
+        padding: 8px 0;
+        background-color: $color_white;
+
+        &:nth-of-type(1) {
+          border-radius: 15px 0 0 15px;
+        }
+
+        &:last-child {
+          border-radius: 0 15px 15px 0;
+        }
+
+        &-text {
+          @include font-line(14, 19.6);
+        }
+
+        &-date {
+          @include font-line(16, 22.4);
+
+          font-weight: bold;
+        }
+
+        &--interval {
+          background-color: $color_secondary_blue;
+        }
+      }
+    }
+
+    &-row {
+      display: flex;
+
+      &:last-child {
+        #{$main}-cell {
+          &-inner {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+
+    &-cell {
+      width: 90px;
+      height: 59px;
+      text-align: center;
+
+      &-inner {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        outline-offset: -2px;
+        border-bottom: 1px solid $color_gray_10;
+        background-color: $color_white;
+      }
+
+      &-tag {
+        margin-bottom: 4px;
+      }
+
+      &-text {
+        color: $color_text_primary_blue;
+        @include font-line(14, 19.6);
+      }
+
+      &-price {
+        color: $color_text_primary_blue;
+        font-size: 0;
+
+        &-currency {
+          @include font-line(14, 19.6);
+        }
+
+        &-num {
+          @include font-line(16, 22.4);
+        }
+
+        &-currency + &-num,
+        &-num + &-currency {
+          margin-left: 4px;
+        }
+      }
+
+      &--not {
+        #{$main}-cell {
+          &-inner {
+            background-color: $color_gray_20;
+            cursor: default;
+          }
+
+          &-price {
+            color: $color_gray_60;
+            @include font-line(14, 19.6);
+          }
+        }
+      }
+
+      &--interval {
+        background-color: $color_secondary_blue;
+        #{$main}-cell {
+          &-inner {
+            border: none;
+            background-color: $color_secondary_blue;
+          }
+        }
+      }
+
+      &--selected {
+        border: 2px solid $color_primary_blue;
+        #{$main}-cell {
+          &-inner {
+            border: none;
+            background-color: $color_secondary_blue;
+          }
+
+          &-price {
+            font-weight: bold;
+          }
+
+          &-text {
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include is-tb {
+  .p-cheapest-calendar {
+    &__main {
+      &-body {
+        padding-right: 26px;
+      }
+
+      &-week {
+        &-cell {
+          width: 105px;
+        }
+      }
+
+      &-cell {
+        width: 105px;
+      }
+    }
+  }
+}
+
+@include is-pc {
+  .p-cheapest-calendar {
+    &__inner {
+      padding: 16px 0 24px;
+    }
+
+    &__main {
+      &-scroll {
+        display: none;
+
+        &.is-active {
+          display: none;
+        }
+      }
+
+      &-body {
+        padding-right: 16px;
+      }
+
+      &-week {
+        &-cell {
+          width: 122px;
+        }
+      }
+
+      &-cell {
+        width: 122px;
+      }
+    }
+  }
+}

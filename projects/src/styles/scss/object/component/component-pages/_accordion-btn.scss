@@ -1,0 +1,38 @@
+@use "../../../core" as *;
+
+.c-accordion-btn {
+  &01 {
+    display: flex;
+    align-items: center;
+    @include font-line(14, 20);
+
+    color: $color_text_primary_blue;
+    $this01: &;
+
+    &__text {
+      display: block;
+      margin-right: 0.4em;
+      text-align: left;
+    }
+
+    &__icon {
+      content: "";
+      display: block;
+      width: 20px;
+      height: 20px;
+      background: url("~/assets/images/icon_chevron_down_primary_20.svg") no-repeat center center;
+      background-size: cover;
+    }
+
+    &.is-open {
+      #{$this01}__icon {
+        content: "";
+        display: block;
+        width: 20px;
+        height: 20px;
+        background: url("~/assets/images/icon_chevron_up_primary_20.svg") no-repeat center center;
+        background-size: cover;
+      }
+    }
+  }
+}

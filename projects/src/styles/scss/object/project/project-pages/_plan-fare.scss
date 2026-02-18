@@ -1,0 +1,31 @@
+@use "../../../core" as *;
+
+.p-plan-fare {
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 15px;
+  background: $color_white;
+
+  &__head + &__body {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid $color_gray_10;
+  }
+
+  &--disabled {
+    background-color: $color_gray_10;
+    color: $color_gray_70;
+
+    .c-float-list01 {
+      &__title {
+        color: $color_gray_70;
+      }
+    }
+  }
+}
+
+@include is-tb {
+  .p-plan-fare {
+    padding: 24px;
+  }
+}

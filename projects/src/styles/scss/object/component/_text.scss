@@ -1,0 +1,64 @@
+@use "../../core" as *;
+
+.c-text {
+  @include font-line(14, 19.6);
+
+  &--bold {
+    font-weight: bold;
+  }
+
+  &-xxl {
+    @include font-line(32, 38.4);
+
+    font-weight: bold;
+  }
+
+  &-xl {
+    @include font-line(24, 28.8);
+
+    font-weight: bold;
+  }
+
+  &-l {
+    @include font-line(20, 26);
+
+    font-weight: bold;
+  }
+
+  &-m {
+    @include font-line(16, 22.4);
+
+    &--bold {
+      font-weight: bold;
+    }
+  }
+
+  &-xs {
+    @include font-line(12, 16.8);
+
+    &--bold {
+      font-weight: bold;
+    }
+  }
+
+  &-xxs {
+    @include font-line(10, 14);
+
+    &--bold {
+      font-weight: bold;
+    }
+  }
+}
+@include is-pc {
+  .c-text {
+    &-xxl {
+      @include font-line(40, 48);
+    }
+
+    &-xl {
+      @include font-line(28, 33.6);
+
+      font-weight: bold;
+    }
+  }
+}

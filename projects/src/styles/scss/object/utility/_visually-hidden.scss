@@ -1,0 +1,8 @@
+@use "../../core" as *;
+
+/* visually hidden - utility
+--------------------------------------------------------- */
+.u-visually-hidden,
+.visuallyHidden {
+  @include visually-hidden;
+}

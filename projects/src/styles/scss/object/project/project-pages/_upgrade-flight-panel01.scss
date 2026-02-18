@@ -1,0 +1,123 @@
+@use "../../../core" as *;
+
+.p-upgrade-flight-panel01 {
+  margin-top: 16px;
+  padding: 16px;
+  background-color: $color_white;
+  border-radius: 15px;
+
+  &__item {
+    display: flex;
+    align-items: stretch;
+
+    & + & {
+      margin-top: 16px;
+    }
+  }
+
+  &__grade {
+    $this: &;
+
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    &--edit {
+      display: flex;
+      justify-content: space-between;
+      #{$this} {
+        &-item {
+          &--before,
+          &--after {
+            width: 45.528%;
+          }
+        }
+      }
+    }
+
+    &-item {
+      width: 100%;
+      height: 100%;
+
+      &--arrow {
+        width: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+
+  &__seat {
+    width: 100%;
+    height: 100%;
+    padding: 16px 24px;
+    border: 1px solid $color_gray_10;
+    border-radius: 10px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &--eco {
+      border: 1px solid $color_gray_10;
+    }
+
+    &--ecoPremium {
+      border: 2px solid $color_class_eco_premium;
+      border-left: 15px solid $color_class_eco_premium;
+    }
+
+    &--business {
+      border: 2px solid $color_class_business;
+      border-left: 15px solid $color_class_business;
+    }
+
+    &--first {
+      border: 2px solid $color_class_first;
+      border-left: 15px solid $color_class_first;
+    }
+
+    &-label {
+      @include font-line(16, 22.4);
+    }
+  }
+}
+@include is-tb {
+  .p-upgrade-flight-panel01 {
+    padding: 20px 24px;
+
+    &__grade {
+      $this: &;
+
+      &--edit {
+        #{$this} {
+          &-item {
+            &--before,
+            &--after {
+              width: 47.122%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@include is-pc {
+  .p-upgrade-flight-panel01 {
+    &__grade {
+      $this: &;
+
+      &--edit {
+        #{$this} {
+          &-item {
+            &--before,
+            &--after {
+              width: 47.571%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

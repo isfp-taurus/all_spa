@@ -1,0 +1,21 @@
+@use "../../core" as *;
+
+/* hidden - utility
+--------------------------------------------------------- */
+.u-hidden {
+  display: none !important;
+}
+@include is-tb {
+  .u-hidden {
+    &-tb {
+      display: none !important;
+    }
+  }
+}
+@include is-pc {
+  .u-hidden {
+    &-pc {
+      display: none !important;
+    }
+  }
+}

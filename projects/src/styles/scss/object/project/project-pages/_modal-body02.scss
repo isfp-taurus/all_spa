@@ -1,0 +1,37 @@
+@use "../../../core" as *;
+
+.p-modal-body02 {
+  padding: 16px 16px 24px;
+  background-color: $color_gray_5;
+
+  &__item {
+    &--promotion {
+      margin-bottom: 16px;
+    }
+  }
+
+  .c-flight-plan {
+    &__location {
+      margin-bottom: 8px;
+    }
+
+    &__time-val {
+      color: $color_primary_blue;
+    }
+  }
+
+  .c-flight-detail-overview02 {
+    margin-top: 8px;
+
+    &__item {
+      &-title {
+        @include visually-hidden;
+      }
+    }
+  }
+}
+@include is-tb {
+  .p-modal-body02 {
+    padding: 16px 24px 24px;
+  }
+}

@@ -1,0 +1,27 @@
+@use "../../../core" as *;
+
+.c-modified-element {
+  display: inline-block;
+  background: $color_ado_lightyellow01;
+  $this: &;
+
+  &__text {
+    display: inline-block;
+    position: relative;
+  }
+
+  &__icon {
+    line-height: 1;
+    font-size: 0;
+  }
+
+  &--has-icon {
+    #{$this}__icon {
+      margin-right: 10px;
+
+      &-img {
+        position: absolute;
+      }
+    }
+  }
+}

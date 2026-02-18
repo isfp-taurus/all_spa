@@ -1,0 +1,130 @@
+// ---------------------------------------------------------------
+//  Breakpoint
+// ---------------------------------------------------------------
+
+// SP
+$breakpoint-sp: 767px;
+// Tablet
+$breakpoint-tb: 768px;
+// PC
+$breakpoint-pc: 1025px;
+
+// ---------------------------------------------------------------
+//  contents width
+// ---------------------------------------------------------------
+$contents-width: 1200;
+$contents-width-unit: $contents-width + px;
+
+// ---------------------------------------------------------------
+//  contents garter
+// ---------------------------------------------------------------
+$contents-garter: 4;
+$contents-garter-tb: 3.7037;
+$contents-garter-unit: $contents-garter * 1%;
+$contents-garter-tb-unit: $contents-garter-tb * 1%;
+
+// ---------------------------------------------------------------
+//  contents max width
+// ---------------------------------------------------------------
+$contents-max-width: calc($contents-width + ($contents-width * $contents-garter / 100) * 2);
+$contents-max-width-unit: $contents-max-width + px;
+
+// ---------------------------------------------------------------
+//  Font
+// ---------------------------------------------------------------
+$font-family-base: "Myriad Pro", "Segoe UI", Helvetica, Arial, Verdana, Roboto, "Droid Sans", "Hiragino Sans",
+  "Hiragino Kaku Gothic ProN", HiraKakuProN-W3, "Hiragino Kaku Gothic Pro", HiraKakuPro-W3, "Noto Sans CJK JP", Meiryo,
+  Osaka, "MS PGothic", sans-serif;
+$font-family-base-ja: "Myriad Pro", "Segoe UI", Helvetica, Arial, Verdana, Roboto, "Droid Sans", ヒラギノ角ゴシック,
+  "Hiragino Sans", "Hiragino Kaku Gothic ProN", HiraKakuProN-W3, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic Pro",
+  HiraKakuPro-W3, "ヒラギノ角ゴ Pro W3", "Noto Sans", "Noto Sans CJK JP", メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック",
+  "MS PGothic", sans-serif;
+$font-family-base-zh: "PingFang SC", "Noto Sans CJK SC", "Microsoft Yahei", SimSun, Song, "Lantinghei SC",
+  "Apple LiSung", PMingLiU, "Myriad Pro", "Segoe UI", Helvetica, Arial, Verdana, Roboto, "Droid Sans", "Hiragino Sans",
+  "Hiragino Kaku Gothic ProN", HiraKakuProN-W3, "Hiragino Kaku Gothic Pro", HiraKakuPro-W3, "Noto Sans CJK JP", Meiryo,
+  Osaka, "MS PGothic", sans-serif;
+$font-family-base-ko: "Apple SD Gothic Neo", "Noto Sans CJK KR", "Malgun Gothic", dotum, AppleGothic, "Myriad Pro",
+  "Segoe UI", Helvetica, Arial, Verdana, Roboto, "Droid Sans", "Hiragino Sans", "Hiragino Kaku Gothic ProN",
+  HiraKakuProN-W3, "Hiragino Kaku Gothic Pro", HiraKakuPro-W3, "Noto Sans CJK JP", Meiryo, Osaka, "MS PGothic",
+  sans-serif;
+$font-family-base-th: Sukhumvit, "Noto Sans Thai", Leelawadee, thonburi, Tahoma, "Myriad Pro", "Segoe UI", Helvetica,
+  Arial, Verdana, Roboto, "Droid Sans", "Hiragino Sans", "Hiragino Kaku Gothic ProN", HiraKakuProN-W3,
+  "Hiragino Kaku Gothic Pro", HiraKakuPro-W3, "Noto Sans CJK JP", Meiryo, Osaka, "MS PGothic", sans-serif;
+$font-family-base-etc: "Myriad Pro", "Segoe UI", Helvetica, Arial, Verdana, Roboto, "Droid Sans", "Hiragino Sans",
+  "Hiragino Kaku Gothic ProN", HiraKakuProN-W3, "Hiragino Kaku Gothic Pro", HiraKakuPro-W3, "Noto Sans CJK JP", Meiryo,
+  Osaka, "MS PGothic", sans-serif;
+
+// ---------------------------------------------------------------
+//  Color
+// ---------------------------------------------------------------
+// text
+$color_text_base: #222;
+$color_text_white: #fff;
+$color_text_black: #000;
+//color_text_primary_blueで参照しているため、変更時は確認する。
+$color_text_ado_blue: #069;
+//color_text_secondary_redで参照しているため、変更時は確認する。
+$color_text_ado_red01: #e5004f;
+//color_text_secondary_red_darkで参照しているため、変更時は確認する。
+$color_text_ado_red02: #cd0047;
+//NEOS資材の9画面とそれ以外で色が異なるがNEOS側で対応不可のため対応。
+//$color_text_primary_blue: #00146e;
+$color_text_primary_blue: $color_text_ado_blue;
+//$color_text_secondary_red: #d91829;
+$color_text_secondary_red: $color_text_ado_red01;
+//$color_text_secondary_red_dark: #cf0012;
+$color_text_secondary_red_dark: $color_text_ado_red02;
+
+// link
+$color_linktext_base: #222;
+$color_linktext_primary_blue: #069;// 文字色引数直し。#00146E⇒#006699
+
+// btn disabled
+$color_text_btn_disabled: #6e6e6e;
+$color_bg_btn_disabled: #c7c7c7;
+
+// input disabled
+$color_text_input_disabled: #6e6e6e;
+$color_bg_input_disabled: #e5e5e5;
+
+// placeholder
+$color_text_placeholder: #6e6e6e;
+
+// class
+$color_class_eco: #4ab033;
+$color_class_eco_premium: #007440;
+$color_class_business: #1a2d7a;
+$color_class_first: #b01f24;
+
+// other
+$color_white: #fff;
+$color_black: #000;
+$color_ado_yellow: #fff349;
+$color_ado_lightyellow01: #fff9a4;
+$color_ado_lightyellow02: #fffab2;
+$color_ado_blue: #069;
+$color_ado_lightblue01: #87d1f6;
+$color_ado_lightblue02: #c3e8fa;
+$color_ado_red01: #e5004f;
+$color_ado_red02: #cd0047;
+$color_ado_pink: #fce6ed;
+$color_ado_gray: #ccc;
+$color_primary_blue: #069;// 文字色引数直し。#00146E⇒#006699
+$color_primary_lightblue: #00aff0;
+$color_secondary_blue: #ccd4ea;
+$color_secondary_red: #E5004F;// 文字色引数直し。#D91829⇒#E5004F
+$color_secondary_pink: #f8e0e5;
+$color_gray_90: #222;
+$color_gray_80: #333;
+$color_gray_70: #525252;
+$color_gray_60: #6e6e6e;
+$color_gray_40: #949499;
+$color_gray_30: #b2b2b2;
+$color_gray_20: #c7c7c7;
+$color_gray_10: #e5e5e5;
+$color_gray_7: #ededed;
+$color_gray_5: #f1f1f1;
+$color_blue01: #e3e8f4;
+$color_blue02: #e0e8ff;
+$color_blue03: #e2e9f9;
+$color_orange01: #f7c844;

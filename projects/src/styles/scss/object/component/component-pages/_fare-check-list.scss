@@ -1,0 +1,67 @@
+@use "../../../core" as *;
+
+.c-fare-check-list {
+  &__legend {
+    @include visually-hidden;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &:not(:first-child) {
+      border-top: 1px solid $color_gray_10;
+    }
+
+    &-head {
+      width: 100%;
+      padding: 0 16px;
+    }
+
+    &-label {
+      display: block;
+      @include font-line(16, 22.4);
+    }
+
+    &-em {
+      font-weight: bold;
+    }
+
+    &-wrap {
+      display: block;
+      padding: 16px 0;
+    }
+
+    &-lead {
+      display: block;
+      margin-top: 4px;
+      color: $color_gray_60;
+      @include font-line(14, 19.6);
+    }
+
+    &-body {
+      display: flex;
+      align-items: center;
+      padding-right: 16px;
+    }
+  }
+}
+
+@include is-tb {
+  .c-fare-check-list {
+    &__item {
+      &-wrap {
+        cursor: pointer;
+      }
+
+      &-head {
+        padding: 0 16px;
+      }
+
+      &-body {
+        padding-right: 24px;
+      }
+    }
+  }
+}

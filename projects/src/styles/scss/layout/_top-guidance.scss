@@ -1,0 +1,85 @@
+@use "../core" as *;
+
+.l-top-guidance {
+  $this: &;
+
+  background-color: $color_ado_lightyellow01;
+  padding: 8px 0;
+
+  &__inner {
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__message {
+    display: flex;
+    margin-left: -3px;
+    + #{$this}__message {
+      margin-top: 8px;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      width: 20px;
+      height: 20px;
+      background: url("~/assets/images/icon_guidance_20.svg") no-repeat center center;
+      background-size: cover;
+      margin-right: 0.2em;
+    }
+  }
+
+  &__text {
+    display: block;
+    flex: 1;
+  }
+
+  &__close {
+    width: 20px;
+    margin-left: 16px;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 20px;
+      height: 20px;
+      background: url("~/assets/images/icon_close_20.svg") no-repeat center center;
+      background-size: cover;
+    }
+  }
+
+  &--error {
+    background-color: $color_white;
+    #{$this}__message {
+      &::before {
+        background: url("~/assets/images/icon_error_tri_ado_red_20.svg") no-repeat center center;
+      }
+    }
+    #{$this}__text {
+      color: $color_text_ado_red01;
+      font-weight: normal;
+    }
+  }
+
+  &--attention {
+    background-color: $color_white;
+    #{$this}__message {
+      &::before {
+        background: url("~/assets/images/icon_guidance_ado_red_20.svg") no-repeat center center;
+      }
+    }
+    #{$this}__text {
+      color: $color_text_ado_red01;
+      font-weight: normal;
+    }
+  }
+}
+@include is-pc {
+  .l-top-guidance {
+    &__inner {
+      padding: 0;
+    }
+  }
+}

@@ -1,0 +1,72 @@
+@use "../../../core" as *;
+
+.p-modal-seatmap-child {
+  &__message {
+    padding: 16px;
+    color: #666;
+  }
+
+  &__list {
+    padding-left: 16px;
+
+    &-item {
+      border-top: 1px solid $color_gray_10;
+
+      &:first-child {
+        border-top: 0;
+      }
+    }
+  }
+
+  &__message + &__list {
+    border-top: 1px solid $color_gray_10;
+  }
+
+  &__title {
+    margin-bottom: 16px;
+
+    &--em {
+      font-weight: bold;
+    }
+  }
+
+  &__contents {
+    display: none;
+    padding-bottom: 16px;
+
+    &.is-open {
+      display: block;
+    }
+  }
+
+  &__check {
+    $check: &;
+
+    padding: 16px 16px 16px 0;
+    @include font-line(16, 22.4);
+
+    &-status {
+      &--em {
+        font-weight: bold;
+      }
+
+      &--gray60 {
+        color: $color_gray_60;
+      }
+    }
+
+    &--has-status {
+      display: flex;
+      justify-content: space-between;
+      #{$check} {
+        &-label {
+          padding-right: 8px;
+        }
+
+        &-status {
+          flex-shrink: 0;
+        }
+      }
+    }
+  }
+}

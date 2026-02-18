@@ -1,0 +1,208 @@
+@use "../../../core" as *;
+
+.p-trip-summary {
+  margin-top: 16px;
+
+  &__item {
+    border-radius: 15px;
+    background-color: $color_white;
+
+    & + & {
+      margin-top: 16px;
+    }
+
+    &--disabled {
+      background-color: $color_gray_10;
+
+      .p-flight-detail01 {
+        color: $color_gray_70;
+
+        &__detail {
+          &-info {
+            &-title {
+              color: $color_gray_70;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__title {
+    padding: 16px;
+    $title: &;
+
+    &-label {
+      margin-bottom: 4px;
+
+      &-text {
+        margin-right: 8px;
+      }
+
+      &-btn {
+        flex-shrink: 0;
+      }
+
+      &--has-btn {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    &-tag {
+      margin-bottom: 12px;
+
+      &-item {
+        margin-top: 4px;
+
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+
+      &-status {
+        margin-top: 4px;
+
+        &--red {
+          color: $color_secondary_red;
+        }
+      }
+    }
+
+    &-date {
+      font-weight: bold;
+      @include font-line(20, 26);
+    }
+
+    &-elapsed {
+      margin-top: 4px;
+      @include font-line(16, 22.4);
+    }
+  }
+
+  &__contents {
+    $contents: &;
+
+    padding-bottom: 16px;
+    border-radius: 0 0 15px 15px;
+
+    &-item {
+      padding-top: 16px;
+      background-color: $color_white;
+
+      &:first-child {
+        padding-top: 0;
+      }
+    }
+
+    &-inner {
+      padding: 0 16px;
+    }
+
+    .p-flight-detail01 {
+      &__block {
+        &--gray10 {
+          &:first-child {
+            padding-top: 16px;
+          }
+
+          &:last-child {
+            padding-bottom: 16px;
+          }
+        }
+      }
+    }
+
+    &--gray10 {
+      &#{$contents} {
+        background-color: $color_gray_10;
+        padding-top: 16px;
+        #{$contents} {
+          &-item {
+            background-color: $color_gray_10;
+          }
+        }
+
+        .p-flight-detail01 {
+          &__block {
+            &:first-child {
+              padding-top: 16px;
+            }
+
+            &:last-child {
+              padding-bottom: 16px;
+            }
+
+            &--gray10 {
+              &:first-child {
+                padding-top: 0;
+              }
+
+              &:last-child {
+                padding-bottom: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__other {
+    position: relative;
+    padding: 16px 16px 16px 36px;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 4px;
+      height: 100%;
+      background-color: $color_gray_40;
+      position: absolute;
+      top: 0;
+      left: 20px;
+    }
+
+    &-item {
+      margin-top: 8px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    &-text {
+      @include font-line(16, 22.4);
+    }
+  }
+}
+@include is-tb {
+  .p-trip-summary {
+    &__title {
+      padding: 20px 24px 16px;
+    }
+
+    &__contents {
+      padding-bottom: 20px;
+
+      &-inner {
+        padding: 0 24px;
+      }
+
+      &--gray10 {
+        padding-top: 20px;
+      }
+    }
+
+    &__other {
+      padding: 16px 24px 16px 44px;
+
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 28px;
+      }
+    }
+  }
+}

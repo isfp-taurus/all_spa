@@ -1,0 +1,17 @@
+@use "../core" as *;
+
+.l-section {
+  margin-top: 20px;
+}
+
+@include is-tb {
+  .l-section {
+    margin-top: 24px;
+  }
+}
+
+@include is-pc {
+  .l-section {
+    margin-top: 40px;
+  }
+}

@@ -1,0 +1,168 @@
+@use "../../../core" as *;
+
+.c-float-list01 {
+  width: 100%;
+
+  &__item {
+    margin-top: 8px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &::after {
+      @include clearfix;
+    }
+
+    &--mt4 {
+      margin-top: 4px;
+    }
+
+    &--mt16 {
+      margin-top: 16px;
+    }
+
+    &--has-border-gray10 {
+      border-top: 1px solid $color_gray_10;
+      padding-top: 12px;
+    }
+
+    &--has-border-gray20 {
+      border-top: 1px solid $color_gray_20;
+      padding-top: 12px;
+    }
+
+    &--has-border-gray90 {
+      border-top: 1px solid $color_gray_90;
+      padding-top: 12px;
+    }
+  }
+
+  &__title {
+    float: left;
+    padding-right: 8px;
+    color: $color_gray_60;
+    font-weight: 400;
+
+    &--fs16 {
+      @include font-line(16, 22.4);
+    }
+
+    &--gray90 {
+      color: $color_gray_90;
+    }
+
+    &--gray70 {
+      color: $color_gray_70;
+    }
+
+    &--em {
+      font-weight: bold;
+    }
+
+    &--block {
+      width: 100%;
+    }
+
+    &-item {
+      margin-top: 4px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &--gray90 {
+        color: $color_gray_90;
+      }
+
+      &--em {
+        font-weight: bold;
+      }
+
+      &--mt0 {
+        margin-top: 0;
+      }
+    }
+  }
+
+  &__contents {
+    float: right;
+    font-weight: bold;
+    text-align: right;
+
+    &--normal {
+      font-weight: normal;
+    }
+
+    &--fs16 {
+      @include font-line(16, 22.4);
+    }
+
+    &--fs18 {
+      @include font-line(18, 26);
+    }
+
+    &--block {
+      width: 100%;
+    }
+
+    &--mt8 {
+      margin-top: 8px;
+    }
+
+    &--w100 {
+      width: 100%;
+    }
+
+    &-item {
+      margin-top: 4px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &--normal {
+        font-weight: normal;
+      }
+
+      &--fs14 {
+        @include font-line(14, 19.6);
+      }
+
+      &--fs16 {
+        @include font-line(16, 22.4);
+      }
+
+      &--fs18 {
+        @include font-line(18, 26);
+      }
+
+      &--mt0 {
+        margin-top: 0;
+      }
+    }
+  }
+
+  &__text {
+    &-link {
+      color: $color_text_ado_blue;
+    }
+  }
+
+  &__airport {
+    &-departure,
+    &-arrival {
+      display: inline-block;
+    }
+
+    &-to {
+      margin-right: 4px;
+      margin-left: 4px;
+    }
+  }
+
+  &--has-border-gray90 {
+    padding-top: 16px;
+    border-top: 1px solid $color_gray_90;
+  }
+}

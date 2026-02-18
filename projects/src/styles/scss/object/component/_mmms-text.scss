@@ -1,0 +1,60 @@
+@use "../../core" as *;
+
+.m-text {
+  margin-bottom: 16px;
+  font-size: 1.4rem;
+  line-height: 1.4;
+}
+
+.m-strong {
+  font-weight: bold;
+}
+
+.m-list {
+  margin-bottom: 16px;
+
+  li {
+    margin-bottom: 2px;
+    padding-left: 14px;
+    font-size: 1.4rem;
+    line-height: 1.4;
+    position: relative;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      width: 3px;
+      height: 3px;
+      border-radius: 3px;
+      background-color: #222;
+      position: absolute;
+      left: 4px;
+      top: 7px;
+    }
+  }
+}
+
+.m-dlist {
+  margin-bottom: 16px;
+
+  dt {
+    margin-bottom: 4px;
+    font-size: 1.6rem;
+    line-height: 1.4;
+    font-weight: bold;
+  }
+
+  dd {
+    margin-bottom: 16px;
+    font-size: 1.4rem;
+    line-height: 1.4;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

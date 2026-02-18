@@ -1,0 +1,348 @@
+@use "../../../core" as *;
+
+.p-sky-coins {
+  $this: &;
+
+  margin-top: 16px;
+  border-radius: 15px;
+  background-color: $color_white;
+
+  &__item {
+    padding: 16px;
+
+    &:not(:first-child) {
+      border-top: 1px solid $color_gray_10;
+    }
+
+    &.is-open {
+      display: block;
+    }
+
+    &--payment {
+      display: none;
+      #{$this} {
+        &__row {
+          &-body {
+            margin-top: 12px;
+          }
+        }
+      }
+    }
+
+    &-title {
+      margin-bottom: 12px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid $color_gray_10;
+
+      &--has-btn {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      &-label {
+        font-weight: bold;
+
+        &--m {
+          @include font-line(16, 22.4);
+        }
+
+        &--l {
+          @include font-line(20, 26);
+        }
+      }
+    }
+
+    &-text {
+      &-em {
+        font-weight: bold;
+      }
+
+      &-gray {
+        &60 {
+          color: $color_gray_60;
+        }
+      }
+
+      &-link {
+        display: inline-block;
+        color: $color_primary_blue;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  &__row {
+    &-head {
+      font-weight: bold;
+      @include font-line(20, 26);
+    }
+
+    &-body {
+      margin-top: 16px;
+    }
+  }
+
+  &__balances {
+    &--sb {
+      display: flex;
+      justify-content: space-between;
+    }
+    #{$this} {
+      &__item {
+        &-text {
+          text-align: right;
+
+          &:not(:first-child) {
+            margin-top: 12px;
+          }
+        }
+      }
+    }
+
+    .c-flex-list01 {
+      &__item {
+        &:not(:first-child) {
+          margin-top: 12px;
+        }
+      }
+    }
+  }
+
+  &__payment {
+    &-head + &-body,
+    &-foot {
+      padding-top: 8px;
+      border-top: 1px solid $color_gray_10;
+    }
+
+    &-head + &-body,
+    &-body + &-foot {
+      margin-top: 8px;
+    }
+  }
+
+  &__use {
+    display: none;
+
+    &.is-open {
+      display: block;
+    }
+
+    &-item {
+      padding-top: 16px;
+      border-top: 1px solid $color_gray_10;
+
+      &:not(:first-child) {
+        margin-top: 16px;
+      }
+    }
+
+    &-title {
+      font-weight: bold;
+      @include font-line(16, 22.4);
+    }
+
+    &-table {
+      margin-top: 8px;
+    }
+
+    &-input {
+      margin-top: 12px;
+    }
+  }
+
+  &__table {
+    $table: &;
+
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+
+    &-head {
+      #{$table} {
+        &-col {
+          padding-bottom: 12px;
+          border-bottom: 1px solid $color_gray_90;
+        }
+      }
+    }
+
+    &-body {
+      #{$table} {
+        &-col {
+          padding-top: 12px;
+        }
+      }
+    }
+
+    &-col {
+      font-weight: bold;
+
+      &:not(:first-child) {
+        padding-left: 4.546%;
+        text-align: right;
+      }
+
+      &:nth-child(1) {
+        width: 29.0909%;
+      }
+
+      &:nth-child(2) {
+        width: 32.5758%;
+      }
+
+      &:nth-child(3) {
+        width: 37.8788%;
+      }
+
+      .c-amount {
+        &__unit {
+          transform: translateY(-1px);
+        }
+      }
+    }
+  }
+
+  &__use,
+  &__table {
+    margin-top: 16px;
+  }
+}
+
+@include is-tb {
+  .p-sky-coins {
+    $this: &;
+
+    padding: 0;
+
+    &__item {
+      padding: 20px 24px;
+
+      &:not(:first-child) {
+        margin-top: 0;
+        border-top: 1px solid $color_gray_10;
+      }
+
+      &-title {
+        margin-bottom: 16px;
+      }
+    }
+
+    &__balances {
+      &-item {
+        width: 47.7273%;
+
+        &:not(:first-child) {
+          margin-top: 0;
+        }
+      }
+      #{$this} {
+        &__item {
+          &-text {
+            text-align: left;
+
+            &:not(:first-child) {
+              margin-top: 4px;
+            }
+          }
+        }
+      }
+    }
+
+    &__payment {
+      &-head + &-body,
+      &-body + &-foot {
+        margin-top: 12px;
+      }
+
+      .c-flex-list01 {
+        &__item {
+          &:not(:first-child) {
+            margin-top: 12px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include is-pc {
+  .p-sky-coins {
+    padding: 20px 24px;
+
+    &__item {
+      padding: 0;
+
+      &:not(:first-child) {
+        margin-top: 16px;
+      }
+
+      &--payment {
+        margin-top: 20px;
+      }
+
+      &-title {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border: 0;
+      }
+    }
+
+    &__row {
+      padding-top: 16px;
+
+      &-item {
+        display: flex;
+      }
+
+      &-head {
+        width: 23.4694%;
+        padding-right: 8px;
+        @include font-line(16, 22.4);
+      }
+
+      &-body {
+        width: calc(100% - 23.4694%);
+      }
+
+      &-head + &-body {
+        margin-top: 0;
+      }
+    }
+
+    &__balances {
+      &-item {
+        width: 48%;
+      }
+    }
+
+    &__table {
+      &-col {
+        &:not(:first-child) {
+          padding-left: 8%;
+        }
+
+        &:nth-child(1) {
+          width: 26.6667%;
+        }
+
+        &:nth-child(2) {
+          width: 34.6667%;
+        }
+
+        &:nth-child(3) {
+          width: 38.6667%;
+        }
+      }
+    }
+
+    &__use,
+    &__table {
+      margin-top: 12px;
+    }
+  }
+}

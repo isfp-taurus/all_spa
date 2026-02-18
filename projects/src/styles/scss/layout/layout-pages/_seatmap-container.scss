@@ -1,0 +1,105 @@
+@use "../../core" as *;
+
+.l-seatmap-container {
+  position: relative;
+
+  &__body {
+    display: block;
+
+    &-left {
+      display: none;
+      position: relative;
+      z-index: 2;
+    }
+
+    &-seatmap {
+      margin: 0 (-$contents-garter + vw);
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+    }
+
+    &-right {
+      display: none;
+      position: relative;
+      z-index: 2;
+    }
+
+    &-left,
+    &-right {
+      padding-bottom: 80px;
+    }
+  }
+
+  &__item {
+    &-title {
+      font-weight: bold;
+      @include font-line(16, 22.4);
+    }
+  }
+}
+@include is-tb {
+  .l-seatmap-container {
+    &__body {
+      display: flex;
+      justify-content: space-between;
+      overflow: hidden;
+      margin: 0 (-$contents-garter-tb + vw) 0 0;
+
+      &-left {
+        display: block;
+        flex: 1;
+      }
+
+      &-seatmap {
+        width: 344px;
+        margin-left: 44px;
+        margin-right: $contents-garter-tb + vw;
+        overflow: visible;
+      }
+    }
+
+    &__item {
+      margin-top: 24px;
+
+      &:first-child {
+        margin-top: 16px;
+      }
+    }
+  }
+}
+@include is-pc {
+  .l-seatmap-container {
+    &__body {
+      display: flex;
+      justify-content: space-between;
+      overflow: hidden;
+      margin: 0;
+
+      &-left {
+        display: block;
+        flex: 1;
+      }
+
+      &-seatmap {
+        width: 508px;
+        margin-left: 54px;
+        margin-right: 0;
+      }
+
+      &-right {
+        display: block;
+        width: 18.3333%;
+        margin-left: 4.6666%;
+      }
+    }
+
+    &__item {
+      margin-top: 30px;
+
+      &:first-child {
+        margin-top: 20px;
+      }
+    }
+  }
+}

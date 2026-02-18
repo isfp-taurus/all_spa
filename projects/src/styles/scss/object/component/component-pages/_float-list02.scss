@@ -1,0 +1,31 @@
+@use "../../../core" as *;
+
+.c-float-list02 {
+  &__item {
+    &::after {
+      @include clearfix;
+    }
+  }
+
+  &__title {
+    float: left;
+    padding-right: 8px;
+    font-weight: 400;
+    @include font-line(16, 22.4);
+  }
+
+  &__contents {
+    float: right;
+    font-weight: bold;
+    text-align: right;
+  }
+}
+@include is-pc {
+  .c-float-list02 {
+    &__item {
+      &:not(:first-child) {
+        margin-top: 12px;
+      }
+    }
+  }
+}

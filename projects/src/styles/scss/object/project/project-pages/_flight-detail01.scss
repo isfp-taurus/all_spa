@@ -1,0 +1,664 @@
+@use "../../../core" as *;
+
+.p-flight-detail01 {
+  $this: &;
+
+  background-color: $color_white;
+  @include font-line(16, 22.4);
+
+  &__block {
+    position: relative;
+
+    &:last-child {
+      padding-top: 16px;
+      #{$this}__item {
+        &:last-child {
+          #{$this}__time {
+            padding-bottom: 0;
+          }
+          #{$this}__detail {
+            &-item {
+              &:last-child {
+                padding-bottom: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &:first-child {
+      padding-top: 0;
+    }
+
+    &--gray10 {
+      background-color: $color_gray_10;
+    }
+  }
+
+  &__item {
+    padding: 0 15px;
+    display: flex;
+    position: relative;
+
+    &--2col {
+      #{$this}__time {
+        width: 135px;
+      }
+      #{$this}__detail {
+        width: calc(100% - 135px);
+      }
+    }
+
+    &--departure,
+    &--arrival,
+    &--wait {
+      #{$this}__time {
+        &::before {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 2;
+          width: 12px;
+          height: 100%;
+          background-color: $color_ado_blue;
+        }
+      }
+    }
+
+    &--departure {
+      #{$this}__time {
+        &::before {
+          height: calc(100% - 14px);
+          top: 14px;
+        }
+      }
+    }
+
+    &--arrival {
+      #{$this}__time {
+        padding-bottom: 16px;
+
+        &::before {
+          height: 14px;
+          top: 0;
+        }
+      }
+    }
+
+    &--wait {
+      #{$this}__time {
+        display: flex;
+        align-items: center;
+
+        &-elapsed {
+          display: block;
+          margin-top: -8px;
+        }
+      }
+    }
+
+    &--other {
+      #{$this}__time {
+        &::before {
+          background-color: $color_gray_70;
+        }
+
+        &-stamp {
+          &::after {
+            border-color: $color_gray_70;
+          }
+        }
+      }
+    }
+
+    &--changed {
+      &#{$this}__item {
+        &--arrival {
+          #{$this}__time {
+            &-item {
+              &--begin {
+                &::before {
+                  top: 7px;
+                  height: calc(100% - 7px);
+                }
+              }
+
+              &--end {
+                &::before {
+                  height: 14px;
+                }
+              }
+            }
+          }
+        }
+      }
+      #{$this}__time {
+        &-item {
+          &--begin,
+          &--middle,
+          &--end {
+            position: relative;
+
+            &::before {
+              content: "";
+              display: block;
+              position: absolute;
+              top: 0;
+              left: -20px;
+              z-index: 3;
+              width: 12px;
+              height: 100%;
+              background-color: $color_ado_red01;
+            }
+          }
+
+          &--begin {
+            &::before {
+              height: calc(100% - 14px);
+              top: 14px;
+            }
+          }
+
+          &--end {
+            &::before {
+              height: 21px;
+              top: 0;
+            }
+          }
+        }
+
+        &-stamp {
+          &::after {
+            border-color: $color_ado_red01;
+          }
+        }
+      }
+    }
+
+    &--transit,
+    &--transfer {
+      #{$this}__time,
+      #{$this}__detail {
+        &-item {
+          padding-top: 12px;
+          padding-bottom: 12px;
+        }
+      }
+      #{$this}__line {
+        top: 0;
+      }
+    }
+
+    &--transit {
+      background-color: $color_ado_lightblue02;
+      #{$this}__line {
+        border-left: 4px solid $color_gray_40;
+      }
+    }
+
+    &--transfer {
+      background-color: $color_ado_lightyellow01;
+      #{$this}__line {
+        border-left: 4px dotted $color_gray_40;
+      }
+    }
+
+    &--nextday {
+      #{$this}__time,
+      #{$this}__detail {
+        &-item {
+          padding-bottom: 16px;
+        }
+      }
+    }
+
+    &--route {
+      &-bottom {
+        #{$this} {
+          &__route {
+            padding-bottom: 0;
+          }
+        }
+      }
+    }
+
+    &-text {
+      &-link {
+        display: inline-block;
+        color: $color_ado_blue;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  &__route,
+  &__time {
+    padding-left: 20px;
+    position: relative;
+
+    &-stamp {
+      position: relative;
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 7px;
+        left: -20px;
+        z-index: 4;
+        width: 12px;
+        height: 12px;
+        background-color: $color_white;
+        border-radius: 50%;
+        border: 2px solid $color_ado_blue;
+      }
+    }
+  }
+
+  &__route {
+    padding-bottom: 16px;
+
+    &-stamp {
+      &::after {
+        top: 4px;
+      }
+    }
+  }
+
+  &__time {
+    &-apm,
+    &-plus,
+    &-day {
+      display: inline-block;
+      @include font-line(14, 19.6);
+    }
+
+    &-apm,
+    &-plus {
+      margin-left: 4px;
+    }
+
+    &-stamp,
+    &-apm,
+    &-plus,
+    &-day {
+      &--red {
+        color: $color_ado_red01;
+      }
+    }
+
+    &-stamp {
+      font-weight: bold;
+      @include font-line(20, 26);
+    }
+
+    &-day {
+      margin: 4px 0;
+    }
+  }
+
+  &__detail {
+    &-item {
+      padding-bottom: 16px;
+    }
+
+    &-airport {
+      font-weight: bold;
+      @include font-line(20, 26);
+    }
+
+    &-tag + &-airport {
+      margin-top: 8px;
+    }
+
+    &-terminal {
+      margin-top: 4px;
+    }
+
+    &-info {
+      $this: &;
+
+      &-item {
+        display: flex;
+
+        &:not(:first-child) {
+          margin-top: 8px;
+        }
+
+        &--service {
+          display: block;
+          #{$this} {
+            &-title {
+              @include visually-hidden-reset;
+
+              margin-bottom: 4px;
+            }
+          }
+        }
+      }
+
+      &-title {
+        @include visually-hidden;
+        @include font-line(14, 19.6);
+
+        color: $color_gray_60;
+      }
+
+      &-contents {
+        .c-information-list01 {
+          &__item {
+            @include font-line(16, 22.4);
+          }
+        }
+
+        .c-flight-detail-overview01 {
+          &__item {
+            @include font-line(16, 22.4);
+          }
+
+          &__2col {
+            &-left {
+              margin-top: 0;
+            }
+          }
+        }
+
+        .c-icon-tooltip-list {
+          width: 136px;
+        }
+      }
+
+      &-text {
+        &-em {
+          font-weight: bold;
+        }
+      }
+
+      &-supp {
+        display: inline-block;
+      }
+    }
+  }
+
+  &__line {
+    position: absolute;
+    left: 19px;
+    z-index: 1;
+    margin: auto;
+    height: 0;
+    border-left: 4px solid $color_gray_40;
+
+    &--route {
+      &-top {
+        top: 10px;
+        height: 100%;
+      }
+
+      &-bottom {
+        top: 0;
+        height: 10px;
+      }
+
+      &-before {
+        height: 100%;
+      }
+    }
+  }
+  $this: &;
+
+  &--sr {
+    #{$this}__item {
+      &--wait {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        #{$this}__time {
+          height: 100%;
+        }
+      }
+
+      &--nextday {
+        #{$this}__time {
+          width: 100%;
+        }
+      }
+
+      &--2col {
+        #{$this}__time {
+          width: 112px;
+        }
+        #{$this}__detail {
+          width: calc(100% - 112px);
+        }
+      }
+    }
+    #{$this}__sr {
+      &-wrap {
+        width: 100%;
+      }
+
+      &-right {
+        #{$this}__detail {
+          padding-left: 112px;
+          position: relative;
+
+          &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            width: 12px;
+            height: 100%;
+            background-color: $color_ado_blue;
+          }
+
+          &-item {
+            padding-bottom: 16px !important;
+          }
+        }
+        #{$this}__item {
+          &--other {
+            #{$this}__detail {
+              &::before {
+                background-color: $color_gray_70;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@include is-tb {
+  .p-flight-detail01 {
+    $this: &;
+
+    &__item {
+      padding: 0 24px;
+
+      &--2col {
+        #{$this}__time {
+          width: 190px;
+        }
+        #{$this}__detail {
+          width: calc(100% - 190px);
+        }
+      }
+    }
+
+    &__detail {
+      &-info {
+        $this: &;
+
+        &-item {
+          &--service {
+            display: flex;
+            #{$this}-title {
+              width: 123px;
+            }
+          }
+        }
+
+        &-title {
+          @include visually-hidden-reset;
+
+          width: 123px;
+          flex-shrink: 0;
+        }
+
+        &-contents {
+          .c-icon-tooltip-list {
+            width: auto;
+          }
+        }
+
+        &-text {
+          &-em {
+            font-weight: bold;
+          }
+        }
+
+        &-supp {
+          display: none;
+        }
+      }
+    }
+
+    &__line {
+      left: 28px;
+    }
+    $this: &;
+
+    &--sr {
+      @include font-line(14, 19.6);
+      #{$this}__item {
+        padding: 0 20px;
+
+        &--departure {
+          #{$this}__time {
+            &::before {
+              height: calc(100% - 12px);
+              top: 12px;
+            }
+          }
+        }
+
+        &--arrival {
+          #{$this}__time {
+            &::before {
+              height: 12px;
+            }
+          }
+        }
+
+        &--changed {
+          &#{$this}__item {
+            &--arrival {
+              #{$this}__time {
+                &-item {
+                  &--begin {
+                    &::before {
+                      top: 5px;
+                      height: calc(100% - 5px);
+                    }
+                  }
+
+                  &--end {
+                    &::before {
+                      height: 12px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        &--nextday {
+          #{$this}__time,
+          #{$this}__detail {
+            &-item {
+              padding-bottom: 8px;
+            }
+          }
+        }
+      }
+      #{$this}__time {
+        &-item {
+          &--begin {
+            &::before {
+              height: calc(100% - 11px);
+              top: 11px;
+            }
+          }
+
+          &--end {
+            &::before {
+              height: 18px;
+            }
+          }
+        }
+
+        &-stamp {
+          @include font-line(16, 22.4);
+
+          &::after {
+            top: 4px;
+          }
+        }
+      }
+      #{$this}__detail {
+        &-airport {
+          @include font-line(16, 22.4);
+        }
+
+        &-info {
+          &-contents {
+            @include font-line(16, 22.4);
+          }
+        }
+      }
+      #{$this}__sr {
+        &-wrap {
+          display: flex;
+          flex-flow: row nowrap;
+        }
+
+        &-left {
+          display: flex;
+          flex-flow: column;
+          justify-content: space-between;
+          width: 350px;
+          #{$this}__item {
+            padding-right: 0;
+          }
+        }
+
+        &-right {
+          width: calc(100% - 350px);
+          #{$this}__item {
+            padding-left: 0;
+          }
+          #{$this}__detail {
+            padding-left: 0;
+
+            &::before {
+              display: none;
+            }
+          }
+        }
+      }
+      #{$this}__line {
+        left: 24px;
+      }
+    }
+  }
+}

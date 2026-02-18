@@ -1,0 +1,30 @@
+@use "../../../core" as *;
+
+.p-modal-payment-detail-panel {
+  $this: &;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+
+  &__item {
+    min-width: 300px;
+    padding: 16px;
+    border-radius: 15px;
+    background-color: #fff;
+  }
+
+  &__head {
+    margin-bottom: 16px;
+
+    &-title {
+      &-label {
+        font-weight: bold;
+      }
+
+      &-passenger {
+        @include font-line(16, 22.4);
+      }
+    }
+  }
+}

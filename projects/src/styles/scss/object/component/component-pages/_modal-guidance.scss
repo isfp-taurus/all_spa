@@ -1,0 +1,68 @@
+@use "../../../core" as *;
+
+.c-modal-guidance {
+  $this: &;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px 8px 8px;
+  background-color: $color_secondary_blue;
+
+  &__message {
+    display: flex;
+    @include font-line(14, 20);
+
+    &::before {
+      content: "";
+      margin-right: 0.2em;
+      width: 20px;
+      height: 20px;
+      background: url("~/assets/images/icon_guidance_20.svg") no-repeat;
+    }
+  }
+
+  &__text {
+    display: block;
+    flex: 1;
+  }
+
+  &__close {
+    margin-left: 16px;
+    width: 20px;
+    height: 20px;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 20px;
+      height: 20px;
+      background: url("~/assets/images/icon_close_20.svg") no-repeat center center;
+      background-size: cover;
+    }
+  }
+
+  &--error {
+    background-color: $color_white;
+    #{$this}__message {
+      &::before {
+        background: url("~/assets/images/icon_error_tri_20.svg") no-repeat center center;
+      }
+    }
+    #{$this}__text {
+      color: $color_secondary_red;
+    }
+  }
+
+  &--attention {
+    background-color: $color_white;
+    #{$this}__message {
+      &::before {
+        background: url("~/assets/images/icon_guidance_red_20.svg") no-repeat center center;
+      }
+    }
+    #{$this}__text {
+      color: $color_secondary_red;
+    }
+  }
+}

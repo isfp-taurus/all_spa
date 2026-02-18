@@ -1,0 +1,39 @@
+@use "../../core" as *;
+
+.p-modal-head01 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+
+  &__title {
+    @include font-line(18, 26);
+
+    font-weight: bold;
+  }
+
+  &__close {
+    position: absolute;
+    top: -40px;
+    right: 8px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    background: url("~/assets/images/icon_close_white_24.svg") no-repeat center center;
+    background-size: 24px auto;
+    z-index: 10;
+  }
+}
+
+@include is-tb {
+  .p-modal-head01 {
+    padding: 12px 56px 12px 16px;
+
+    &__close {
+      top: 8px;
+      right: 11px;
+      background: url("~/assets/images/icon_close_ado_blue_24.svg") no-repeat center center;
+      background-size: 24px auto;
+    }
+  }
+}

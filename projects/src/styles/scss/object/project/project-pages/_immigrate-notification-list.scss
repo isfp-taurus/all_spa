@@ -1,0 +1,13 @@
+@use "../../../core" as *;
+
+.p-immigrate-notification-list {
+  $this: &;
+
+  &__head {
+    margin-bottom: 8px;
+  }
+
+  &__item {
+    margin-top: 16px;
+  }
+}

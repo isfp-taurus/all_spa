@@ -1,0 +1,23 @@
+@use "../../../core" as *;
+
+.c-message-box {
+  padding: 16px;
+  border-radius: 15px;
+  background-color: $color_white;
+
+  &__title {
+    @include font-line(20, 26);
+
+    &--em {
+      font-weight: bold;
+    }
+  }
+
+  &__contents {
+    @include font-line(16, 22.4);
+  }
+
+  &__title + &__contents {
+    margin-top: 12px;
+  }
+}

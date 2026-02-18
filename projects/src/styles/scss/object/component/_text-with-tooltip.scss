@@ -1,0 +1,73 @@
+@use "../../core" as *;
+
+.c-text-with-tooltip {
+  $this: &;
+
+  letter-spacing: -0.4em;
+
+  &__text {
+    display: inline;
+    letter-spacing: normal;
+    margin-right: 4px;
+  }
+
+  &__tooltip {
+    letter-spacing: normal;
+    position: relative;
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    vertical-align: middle;
+    font-weight: normal;
+    line-height: 0;
+  }
+
+  &__btn {
+    display: block;
+    height: 20px;
+    width: 20px;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 20px;
+      height: 20px;
+      background: url("~/assets/images/icon_help_ado_blue_20.svg") no-repeat center center;
+      background-size: cover;
+    }
+  }
+
+  &--modified {
+    #{$this}__text {
+      display: inline-block;
+      background-color: $color_ado_lightyellow01;
+      margin-right: 0;
+      line-height: 1;
+      position: relative;
+
+      &-label {
+        @include font-line(16, 22.4);
+
+        &--fs14 {
+          @include font-line(14, 19.6);
+        }
+      }
+
+      &-icon {
+        margin-right: 10px;
+
+        &-img {
+          position: absolute;
+        }
+      }
+
+      &-btn {
+        display: inline;
+      }
+    }
+
+    #{$this}__btn {
+      display: inline;
+    }
+  }
+}

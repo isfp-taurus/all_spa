@@ -1,0 +1,70 @@
+@use "../../../core" as *;
+
+.p-seatmap-attr {
+  margin-top: 16px;
+
+  &__legend {
+    @include visually-hidden;
+  }
+
+  &__item {
+    border: 1px solid $color_white;
+    border-top: 1px solid $color_gray_10;
+    border-bottom: 0;
+    background-color: $color_white;
+
+    &:first-child {
+      border-radius: 15px 15px 0 0;
+      border-top: 1px solid $color_white;
+    }
+
+    &:last-child {
+      border-radius: 0 0 15px 15px;
+      border-bottom: 1px solid $color_white;
+    }
+
+    &-wrap {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &-head {
+      width: 100%;
+    }
+
+    &-body {
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+    }
+
+    &-label {
+      &-text {
+        display: block;
+        padding: 20px 0 20px 16px;
+        @include font-line(16, 22.4);
+
+        &--em {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+@include is-tb {
+  .p-seatmap-attr {
+    &__item {
+      &-body {
+        padding: 0 24px;
+      }
+
+      &-label {
+        &-text {
+          display: block;
+          padding: 20px 0 20px 24px;
+        }
+      }
+    }
+  }
+}

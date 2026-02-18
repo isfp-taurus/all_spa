@@ -1,0 +1,42 @@
+@use "../../core" as *;
+
+.c-heading {
+  &-1 {
+    @include font-line(18, 21.6);
+
+    font-weight: bold;
+  }
+
+  &-2 {
+    @include font-line(24, 28.8);
+
+    font-weight: bold;
+  }
+
+  &-3 {
+    @include font-line(20, 26);
+
+    font-weight: bold;
+  }
+}
+@include is-pc {
+  .c-heading {
+    &-1 {
+      @include font-line(22, 26.4);
+
+      font-weight: bold;
+    }
+
+    &-2 {
+      @include font-line(28, 33.6);
+
+      font-weight: bold;
+    }
+
+    &-3 {
+      @include font-line(20, 26);
+
+      font-weight: bold;
+    }
+  }
+}

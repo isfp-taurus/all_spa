@@ -1,0 +1,19 @@
+@use "../../../core" as *;
+
+.p-plan-baggage-rules {
+  margin-top: 16px;
+
+  &__item {
+    padding: 16px;
+    border-radius: 15px;
+    background-color: $color_white;
+  }
+}
+
+@include is-tb {
+  .p-plan-baggage-rules {
+    &__item {
+      padding: 20px 24px;
+    }
+  }
+}

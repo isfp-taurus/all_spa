@@ -1,0 +1,42 @@
+@use "../../../core" as *;
+
+.c-btn-fluctuation {
+  display: inline-flex;
+  color: $color_text_base;
+  @include font-line(16, 22.4);
+
+  &--add {
+    &::after {
+      content: "";
+      flex-shrink: 0;
+      display: block;
+      width: 20px;
+      height: 20px;
+      margin-left: 0.4em;
+      background: url("~/assets/images/icon_add_circle_20.svg") no-repeat right center;
+      background-size: 20px;
+    }
+
+    &.is-disabled {
+      color: $color_gray_30;
+
+      &::after {
+        background: url("~/assets/images/icon_add_circle_gray30_20.svg") no-repeat right center;
+        background-size: 20px;
+      }
+    }
+  }
+
+  &--remove {
+    &::after {
+      content: "";
+      flex-shrink: 0;
+      display: block;
+      width: 20px;
+      height: 20px;
+      margin-left: 0.4em;
+      background: url("~/assets/images/icon_remove_circle_20.svg") no-repeat right center;
+      background-size: 20px;
+    }
+  }
+}

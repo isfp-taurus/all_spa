@@ -1,0 +1,14 @@
+@use "../../../core" as *;
+
+.p-mybooking-services-support {
+  padding: 16px;
+  margin-top: 16px;
+  border-radius: 15px;
+  background-color: $color_white;
+}
+
+@include is-tb {
+  .p-mybooking-services-support {
+    padding: 20px 24px;
+  }
+}

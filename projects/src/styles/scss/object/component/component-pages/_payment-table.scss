@@ -1,0 +1,92 @@
+@use "../../../core" as *;
+
+.c-payment-table {
+  $this: &;
+
+  &__head {
+    padding-bottom: 16px;
+    border-bottom: 1px solid $color_gray_90;
+    font-weight: bold;
+
+    &::after {
+      @include clearfix;
+    }
+
+    &-title {
+      float: left;
+      @include font-line(16, 22.4);
+    }
+
+    &-contents {
+      float: right;
+    }
+
+    &-price {
+      font-size: 0;
+    }
+
+    &-num,
+    &-currency {
+      @include font-line(20, 26);
+    }
+
+    &-num + &-currency,
+    &-currency + &-num {
+      margin-left: 4px;
+    }
+  }
+
+  &__body {
+    &-item {
+      &::after {
+        @include clearfix;
+      }
+
+      &:not(:first-child) {
+        margin-top: 8px;
+      }
+
+      &--miles {
+        #{$this}__body {
+          &-title {
+            margin-top: 3px;
+          }
+
+          &-num,
+          &-currency {
+            font-weight: bold;
+            @include font-line(18, 26);
+          }
+        }
+      }
+    }
+
+    &-title {
+      float: left;
+      color: $color_gray_60;
+    }
+
+    &-contents {
+      float: right;
+      @include font-line(16, 22.4);
+    }
+
+    &-price {
+      font-size: 0;
+    }
+
+    &-num,
+    &-currency {
+      @include font-line(16, 22.4);
+    }
+
+    &-num + &-currency,
+    &-currency + &-num {
+      margin-left: 4px;
+    }
+  }
+
+  &__head + &__body {
+    margin-top: 16px;
+  }
+}

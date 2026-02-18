@@ -1,0 +1,270 @@
+@use "../../../core" as *;
+
+.p-top-seatmap-flight {
+  $this: &;
+
+  position: relative;
+  background-color: $color_white;
+
+  &__wrap {
+    height: 72px;
+    padding: 12px 0;
+  }
+
+  &__head {
+    width: 100%;
+    display: block;
+
+    &-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &-label {
+      padding-right: 16px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: left;
+    }
+
+    &-unit {
+      flex-shrink: 0;
+    }
+    #{$this} {
+      &__airport {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        &-departure,
+        &-arrival {
+          display: inline;
+        }
+      }
+    }
+
+    &.is-open {
+      #{$this} {
+        &__unit {
+          &::after {
+            content: "";
+            display: block;
+            width: 20px;
+            height: 20px;
+            background: url("~/assets/images/icon_chevron_up_ado_blue_20.svg");
+            background-size: 20px auto;
+          }
+        }
+      }
+    }
+  }
+
+  &__body {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 100%;
+    border-radius: 0 0 15px 15px;
+    background-color: $color_white;
+    box-shadow: 0 0 10px rgb(51 51 51 / 20%);
+    z-index: 500;
+
+    &.is-open {
+      display: block;
+    }
+  }
+
+  &__menu {
+    padding-left: $contents-garter-unit;
+
+    &-item {
+      padding-bottom: 1px;
+      border-top: 1px solid $color_gray_10;
+
+      &-wrap {
+        margin-left: -$contents-garter-unit;
+      }
+
+      &:first-child {
+        border-top: 0;
+      }
+    }
+  }
+
+  &__unit {
+    display: flex;
+    align-items: center;
+
+    &-num {
+      color: $color_ado_blue;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: 20px;
+      height: 20px;
+      background: url("~/assets/images/icon_chevron_down_ado_blue_20.svg");
+      background-size: 20px auto;
+      margin-left: 8px;
+    }
+  }
+
+  &__btn {
+    $btn: &;
+
+    width: 100%;
+    padding-right: calc($contents-garter-unit + 36px);
+    padding-left: $contents-garter-unit;
+    position: relative;
+
+    &-wrap {
+      display: block;
+    }
+
+    &-label {
+      display: flex;
+      flex-flow: column;
+      padding: 16px 0;
+      @include font-line(16, 22.4);
+
+      text-align: left;
+    }
+
+    &-cur {
+      content: "";
+      display: none;
+      position: absolute;
+      top: calc(50% - 20px / 2);
+      right: $contents-garter-unit;
+      width: 20px;
+      height: 20px;
+    }
+
+    &.is-current {
+      #{$btn} {
+        &-cur {
+          display: block;
+        }
+      }
+    }
+  }
+
+  &__airport {
+    @include font-line(16, 22.4);
+
+    &-departure,
+    &-arrival {
+      display: inline-block;
+      font-weight: bold;
+    }
+
+    &-to {
+      margin-right: 4px;
+      margin-left: 4px;
+    }
+  }
+
+  &__status {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &-airframe {
+      font-weight: bold;
+      @include font-line(16, 22.4);
+    }
+
+    &-operation {
+      margin-left: 8px;
+      font-weight: normal;
+      @include font-line(14, 19.6);
+
+      &--gray60 {
+        color: $color_gray_60;
+      }
+    }
+
+    &::after {
+      @include clearfix;
+    }
+  }
+
+  &__airport + &__status {
+    margin-top: 4px;
+  }
+
+  .l-wrap {
+    &__inner {
+      position: relative;
+    }
+  }
+}
+
+@include is-tb {
+  .p-top-seatmap-flight {
+    &__wrap {
+      height: 80px;
+      padding: 16px 0;
+    }
+
+    &__body {
+      position: absolute;
+      top: 80px;
+    }
+
+    &__menu {
+      padding-left: $contents-garter-tb-unit;
+
+      &-item {
+        &-wrap {
+          margin-left: -$contents-garter-tb-unit;
+        }
+      }
+    }
+
+    &__btn {
+      padding-right: calc($contents-garter-tb-unit + 36px);
+      padding-left: $contents-garter-tb-unit;
+
+      &-cur {
+        right: $contents-garter-tb-unit;
+      }
+    }
+  }
+}
+
+@include is-pc {
+  .p-top-seatmap-flight {
+    &__body {
+      left: 0;
+      width: calc(100% - $contents-garter-tb-unit * 2);
+    }
+
+    &__menu {
+      padding-left: 28px;
+
+      &-item {
+        &-wrap {
+          margin-left: -28px;
+        }
+      }
+    }
+
+    &__btn {
+      padding-right: 64px;
+      padding-left: 28px;
+
+      &-cur {
+        right: 28px;
+      }
+    }
+  }
+}

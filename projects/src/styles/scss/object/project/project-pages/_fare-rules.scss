@@ -1,0 +1,157 @@
+@use "../../../core" as *;
+
+.p-fare-rules {
+  margin-top: 16px;
+
+  &__box {
+    margin-top: 16px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  &__item {
+    padding: 16px;
+    border-radius: 15px;
+    background-color: $color_white;
+  }
+
+  &__text {
+    &-em {
+      font-weight: bold;
+    }
+  }
+
+  &__table {
+    $table: &;
+
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+
+    &-head {
+      #{$table} {
+        &-col {
+          font-weight: bold;
+        }
+      }
+    }
+
+    &-body {
+      #{$table} {
+        &-item {
+          &:first-child {
+            #{$table} {
+              &-col {
+                border-top: 1px solid $color_gray_90;
+              }
+            }
+          }
+
+          &:last-child {
+            #{$table} {
+              &-col {
+                padding-bottom: 0;
+              }
+            }
+          }
+        }
+
+        &-col {
+          font-weight: normal;
+
+          &:first-child {
+            color: $color_gray_60;
+          }
+
+          &:not(:first-child) {
+            @include font-line(16, 22.4);
+          }
+        }
+      }
+    }
+
+    &-item {
+      &--has {
+        &-border {
+          &-gray {
+            &10 {
+              #{$table} {
+                &-col {
+                  border-top: 1px solid $color_gray_10;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &--pb {
+        &0 {
+          #{$table} {
+            &-col {
+              padding-bottom: 0;
+            }
+          }
+        }
+      }
+    }
+
+    &-col {
+      padding: 12px 0;
+      vertical-align: top;
+
+      &:nth-child(1) {
+        width: 25%;
+      }
+
+      &:nth-child(2) {
+        width: 37.5%;
+      }
+
+      &:nth-child(3) {
+        width: calc(100% - (25% + 37.5%));
+      }
+
+      &:not(:first-child) {
+        padding-left: 16px;
+      }
+    }
+
+    &-title {
+      &-label {
+        @include font-line(16, 22.4);
+      }
+
+      &-lead {
+        font-weight: normal;
+      }
+    }
+
+    &-airport {
+      margin-top: 4px;
+
+      &-departure,
+      &-arrival {
+        display: inline-block;
+      }
+
+      &-to {
+        margin-left: 8px;
+        margin-right: 8px;
+      }
+    }
+  }
+}
+@include is-tb {
+  .p-fare-rules {
+    margin: 16px 0 0;
+
+    &__item {
+      width: 100%;
+      padding: 24px;
+      margin: 0;
+    }
+  }
+}

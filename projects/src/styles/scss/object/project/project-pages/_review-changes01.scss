@@ -1,0 +1,133 @@
+@use "../../../core" as *;
+
+.p-review-changes01 {
+  margin: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+
+  &__item {
+    min-width: 315px;
+    background-color: $color_white;
+    border-radius: 15px;
+  }
+
+  &__title {
+    padding: 16px 16px 12px;
+    font-weight: bold;
+  }
+
+  &__contents {
+    position: relative;
+    padding: 12px 0 16px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: block;
+      width: calc(100% - 32px);
+      height: 1px;
+      margin: auto;
+      background-color: $color_gray_90;
+    }
+  }
+
+  &__date {
+    padding: 0 16px;
+
+    &-label {
+      font-weight: bold;
+      @include font-line(18, 26);
+    }
+
+    &-required {
+      @include font-line(16, 22.4);
+    }
+  }
+
+  .p-flight-detail01 {
+    margin-top: 16px;
+
+    &__detail {
+      &-info {
+        &-title {
+          @include visually-hidden;
+        }
+
+        &-item {
+          &--service {
+            display: block;
+
+            .p-flight-detail01 {
+              &__detail {
+                &-info {
+                  &-title {
+                    @include visually-hidden-reset;
+
+                    margin-bottom: 4px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@include is-tb {
+  .p-review-changes01 {
+    margin: 16px 0 0;
+    padding: 0;
+    display: flex;
+    align-items: stretch;
+
+    &__item {
+      width: 49.1525%;
+    }
+
+    &__title {
+      padding: 20px 24px 12px;
+    }
+
+    &__contents {
+      padding: 12px 0 20px;
+
+      &::before {
+        width: calc(100% - 48px);
+      }
+    }
+
+    &__date {
+      padding: 0 24px;
+    }
+
+    .p-flight-detail01 {
+      &__item {
+        &--2col {
+          .p-flight-detail01 {
+            &__time {
+              width: 135px;
+            }
+
+            &__detail {
+              width: calc(100% - 135px);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@include is-pc {
+  .p-review-changes01 {
+    &__item {
+      width: 49.2788%;
+    }
+  }
+}

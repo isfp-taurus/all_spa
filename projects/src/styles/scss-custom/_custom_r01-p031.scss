@@ -1,0 +1,770 @@
+@charset "UTF-8";
+@use "../scss/core" as *;
+
+asw-fare-family-select-modal {
+  .u-ml-10 {
+    margin-left: 10px;
+  }
+
+  .p-flight-containe__detail-promotion {
+    top: 0;
+    left: unset;
+    right: 20px;
+  }
+
+  .p-fare-panel {
+    &--vertical {
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    &__head--lg-left {
+      padding: 30px 16px 16px;
+    }
+
+    &__head--notavailable {
+      padding-top: 16px;
+      background: #f5f5f5;
+      border-radius: 0 15px 15px 0;
+
+      .p-fare-panel__head-item-rank {
+        margin-top: 0;
+      }
+    }
+
+    &__body--border:not(:first-child)::before {
+      width: calc(100% - 32px);
+    }
+
+    &__body-item--flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__ttl {
+      font-size: 1.6rem;
+      line-height: 1.4;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    &__head-item-rank--fs14 {
+      font-size: 14px;
+    }
+
+    &__head-item-rank--mb10 {
+      margin-bottom: 10px;
+    }
+
+    /* パネル */
+    &__item--eco-left {
+      background: linear-gradient(90deg, #4ab033 0%, #4ab033 15px, #fff 15px, #fff 26%);
+      width: 100%;
+      padding-top: 0;
+      padding-left: 15px;
+      margin-bottom: 10px;
+    }
+
+    &__item--eco-left-red {
+      background: linear-gradient(90deg, #b01f24 0%, #b01f24 15px, #fff 15px, #fff 26%);
+    }
+
+    &__head-price--normal {
+      align-items: normal;
+    }
+
+    &__head-price-item--left,
+    &__head-price-item--right {
+      width: 50%;
+    }
+
+    /* 左側 */
+    &__head-item-rank-notavailable {
+      color: #6e6e6e;
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+    &__head-item--mt0 {
+      margin-top: 0 !important;
+    }
+
+    /* 右側 */
+    &__head-price-item--flex {
+      display: flex;
+      flex-flow: column;
+      align-items: end;
+    }
+
+    &__head-item-correction-currency--fs16,
+    &__head-item-correction-num--fs16 {
+      font-size: 16px;
+    }
+  }
+
+  .c-available-list {
+    &__item--pl0 {
+      padding-left: 0;
+    }
+  }
+
+  .c-btn-primary--mt-auto {
+    margin-top: auto;
+  }
+
+  .u-mb5 {
+    margin-bottom: 5px;
+  }
+
+  /* waiting counts */
+  .c-text--dark-gray {
+    color: #525252;
+  }
+
+  .c-btn-tertiary--arrow-down::after {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin-left: 0.4em;
+    background: url("~/assets/images/icon_arrow_down_20.svg") no-repeat center center;
+    background-size: cover;
+    mask-image: url("~/assets/images/icon_arrow_down_20.svg");
+    mask-repeat: no-repeat;
+    background-color: #00146e;
+  }
+
+  .c-flight-plan__time--change {
+    color: #d91829;
+  }
+}
+
+asw-seat-map-modal {
+  /*
+  * シートマップ選択モーダル No12
+  */
+  .c-def-list01 {
+    &--border-none {
+      border: none;
+    }
+
+    &__item--seat {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+
+      &:not(:first-child) {
+        border-top: 1px solid #e5e5e5;
+      }
+    }
+
+    &__item-title--normal {
+      font-size: 16px;
+      padding-right: 16px;
+      margin-bottom: 0;
+    }
+
+    &__item-title--transit {
+      font-size: 16px;
+      padding: 16px 0 16px 16px;
+      margin-bottom: 0;
+    }
+  }
+
+  .p-drawer-menu-member {
+    &--border-top {
+      border-top: 4px solid #e5e5e5;
+    }
+
+    &__list--border-top {
+      border-top: 4px solid #e5e5e5;
+    }
+
+    &__item--normal {
+      padding: 0 16px !important;
+    }
+
+    &__item--transit {
+      padding: 0 16px !important;
+    }
+
+    &__item--text {
+      padding: 16px;
+    }
+
+    &__item--border-top {
+      border-top: 1px solid #e5e5e5 !important;
+    }
+
+    &__link-label--block {
+      display: block;
+      float: unset;
+    }
+
+    &__link--external::after {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  @media only screen and (min-width: 1025px) {
+    .c-def-list01 {
+      &__item--seat {
+        padding: 0 0 0 16px !important;
+      }
+
+      &__item-title--transit {
+        padding-left: 0 !important;
+      }
+    }
+
+    .p-drawer-menu-member {
+      &__item--transit {
+        padding-left: 0 !important;
+      }
+    }
+  }
+
+  .c-flight-plan__time--change {
+    color: #d91829;
+  }
+
+  // SPA シートマップ最新発着時刻赤字で表示する
+  .c-flight-plan__time--change .c-flight-plan__time-val {
+    color: #d91829;
+  }
+}
+
+.p-vacant-seat01 {
+  .c-flight-plan {
+    .c-flight-plan__time {
+      &.c-flight-plan__item-6 {
+        order: 6;
+        width: 100%;
+      }
+    }
+  }
+}
+
+/* 最後のアイテム */
+.p-vacant-seat01__scroll-item--end {
+  background: #fff;
+  position: sticky;
+  min-width: 160px;
+  width: 100%;
+  top: 0;
+  right: 0;
+}
+
+// 240425 No.14.htmlの日付表示について変更
+.c-flight-plan__time-fulldate {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 5px;
+
+  .c-flight-plan__time-box {
+    width: auto;
+    flex-shrink: 0;
+  }
+}
+
+/*
+* 空席照会(国内)
+*/
+asw-roundtrip-flight-availability-domestic-cont {
+  .p-result-function__btn--favorite .c-btn-add-to-favorite-dom__icon {
+    width: unset;
+    height: unset;
+  }
+
+  .p-result-function__btn--favorite .c-btn-add-to-favorite-dom__icon::after {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-image: url("~/assets/images/icon_addtofavorite_primary_20.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0 7px;
+  }
+
+  .p-result-function__btn--favorite.is-added .c-btn-add-to-favorite-dom__icon::after {
+    background-image: url("~/assets/images/icon_addedtofavorite_20.svg");
+  }
+
+  .p-result-function {
+    &__btn--left {
+      border-radius: 20px 0 0 20px;
+    }
+
+    &__btn--right {
+      border-radius: 0 20px 20px 0;
+    }
+
+    &__btn--radio {
+      font-weight: 400;
+      border: none;
+
+      &::after {
+        display: none;
+      }
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .c-radio-list02 {
+    &__list--gap0 {
+      gap: 0;
+    }
+
+    &__item-input:checked + .p-result-function__btn--radio {
+      color: #00146e;
+      font-weight: 700;
+    }
+  }
+
+  .p-vacant-seat01__promotion {
+    display: flex;
+    margin-bottom: 20px;
+  }
+
+  .u-ml-10 {
+    margin-left: 10px;
+  }
+
+  .p-vacant-seat01__heading-right--hidden {
+    overflow: hidden;
+  }
+
+  .p-vacant-seat01__item--zindex0 {
+    position: relative;
+    z-index: 0;
+  }
+
+  /* スクロール */
+  .p-vacant-seat01__scroll-list {
+    position: relative;
+    overflow-x: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    /* スクロールバーを非表示 */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  /* アイテム */
+  .p-vacant-seat01__scroll-item {
+    min-width: 125px;
+    flex-grow: 1;
+  }
+
+  .c-flight-plan__time-box--inline {
+    display: inline;
+  }
+
+  .c-flight-plan__separator {
+    display: inline;
+    position: relative;
+    top: -10%;
+    font-weight: bold;
+  }
+
+  .c-flight-plan__time-date--ta-right {
+    text-align: right;
+  }
+
+  .c-flight-plan__time--change {
+    color: #d91829;
+  }
+
+  .p-vacant-seat01__cell--unavailable {
+    background: $color_gray_10 !important;
+  }
+
+  .c-flight-plan__time-date--mt-negative18 {
+    margin-top: -18px;
+  }
+
+  /* SPAカスタム add &:not(.p-vacant-seat01__scroll-item--end) */
+  .p-vacant-seat01__scroll-item.p-vacant-seat01__cell--unavailable {
+    background: $color_gray_10;
+
+    &:not(.p-vacant-seat01__scroll-item--end) {
+      z-index: -1;
+    }
+  }
+
+  // 240619 No13.htmlの表示修正
+  .p-vacant-seat01__heading-list.p-vacant-seat01__scroll-list {
+    background-color: #fff;
+
+    .p-vacant-seat01__heading-item {
+      background: none;
+      z-index: inherit;
+    }
+
+    .p-vacant-seat01__scroll-item--end {
+      background-color: #fff;
+    }
+  }
+
+  /**
+  13,14html　時間日付等の位置の共通化
+  .p-flight-container.l-core-contents__item :14html
+  .p-vacant-seat01__item--unavailable:13html
+  .p-vacant-seat01__item--zindex0:13html
+  **/
+  .p-vacant-seat01__item--unavailable,
+  .p-vacant-seat01__item--zindex0,
+  .p-flight-container.l-core-contents__item {
+    .c-flight-plan {
+      &__container {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      &__time-box {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      &__time-box--narrow {
+        width: 200px;
+      }
+
+      &__time-val-meridian {
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+      }
+
+      &__time-val--inline {
+        display: inline;
+      }
+
+      &__time-meridian {
+        margin-left: 4px;
+        display: inline-block;
+      }
+
+      &__time-val-meridian-date span {
+        display: block;
+
+        .time-val--inline {
+          display: inline;
+        }
+      }
+
+      &__separator {
+        margin-top: 17px;
+        margin-right: 10px;
+      }
+
+      &__time-date {
+        &--right {
+          display: flex;
+          justify-content: flex-end;
+          width: 103px;
+          text-align: right;
+        }
+
+        &--left {
+          text-align: left;
+        }
+      }
+    }
+  }
+
+  // TS別FF情報のunavailable状態を追加する(SPAカスタム)
+  .p-vacant-seat01__unavailable {
+    justify-content: center;
+  }
+
+  // SPAカスタム
+  .p-vacant-seat01__cell-border-left--none {
+    border-left: none !important;
+  }
+
+  .p-vacant-seat01__cell--unavailable.p-vacant-seat01__scroll-item--end {
+    //PC_TS別FF情報(SPA)
+    box-shadow: 1px 0 $color_gray_10;
+  }
+
+  .p-vacant-seat01__heading-list.p-vacant-seat01__scroll-list .p-vacant-seat01__scroll-item {
+    z-index: -1;
+  }
+
+  .p-vacant-seat01__scroll-item--shadow {
+    filter: drop-shadow(0 0 10px rgba(28 28 28 / 40%));
+
+    //PC_TS別FF情報(SPA)
+    box-shadow: 1px 0 $color_white;
+  }
+
+  .p-vacant-seat01__scroll-item--shadow-right {
+    box-shadow: 15px 0 13px -10px rgba(28 28 28 / 40%) inset;
+  }
+
+  /* スクロールボタン */
+  .p-vacant-seat01__scroll-btn {
+    position: sticky;
+    top: 50%;
+    z-index: 5;
+    opacity: 0;
+    transition: 0.4s;
+  }
+
+  .p-vacant-seat01__item:hover .p-vacant-seat01__scroll-btn {
+    opacity: 1;
+    transition: 0.4s;
+  }
+
+  /* 次へ */
+  .p-vacant-seat01__scroll-btn--prev {
+    left: 20px;
+  }
+
+  /* 前へ */
+  .p-vacant-seat01__scroll-btn--next {
+    right: 216px;
+  }
+
+  /* flight detailsの部分 */
+  .c-flight-detail-overview01__2col-right-item--flex {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
+  .c-flight-detail-overview01__2col-right-item-link {
+    font-size: 1.4rem;
+    line-height: 1.4286;
+    color: $color_linktext_primary_blue;
+  }
+
+  .p-bottom-float-function-icon__add-to-favorite--icon {
+    width: 24px;
+    height: 24px;
+    background-image: url("~/assets/images/icon_addtofavorite_primary_20.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .p-bottom-float-function-icon__btn.is-added .p-bottom-float-function-icon__add-to-favorite--icon {
+    background-image: url("~/assets/images/icon_addedtofavorite_20.svg");
+  }
+
+  /* 大枠 */
+  .p-flight-container--gray {
+    background: #e5e5e5;
+  }
+
+  /* 上部 */
+  .p-flight-container__plan--sp {
+    display: block;
+  }
+
+  .p-flight-container--applied {
+    .p-flight-container__plan--sp {
+      padding-top: 12px;
+    }
+
+    .p-flight-container__inner-item2 {
+      padding-bottom: 16px;
+    }
+  }
+
+  .p-flight-container__plan--tb {
+    display: none;
+  }
+
+  .p-flight-containe__detail-promotion {
+    top: 0;
+    left: unset;
+    right: 20px;
+  }
+
+  .c-flight-plan__location--w100 {
+    width: 100%;
+  }
+
+  .c-flight-plan__location--mb10 {
+    margin-bottom: 10px;
+  }
+
+  .p-flight-container__inner--flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    padding-top: 12px;
+  }
+
+  .p-flight-container__inner-item1--left {
+    width: 50%;
+    flex-shrink: 0;
+    padding: 0;
+  }
+
+  .p-flight-container__inner-item2--right {
+    width: 50%;
+    padding-top: 0 !important;
+    text-align: right;
+  }
+
+  .p-flight-container__inner-item2--right::before {
+    content: none;
+  }
+
+  .p-flight-container__icon {
+    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7500%) hue-rotate(124deg) brightness(107%)
+      contrast(100%);
+    margin-top: -3px;
+  }
+
+  .c-flight-detail-overview02__item--mb10 {
+    margin-bottom: 10px;
+  }
+
+  .p-flight-container__info--pm {
+    padding: 0 0 0 16px;
+    margin: 0;
+  }
+
+  /* 右側 */
+  .p-flight-container__fare--flex {
+    justify-content: start;
+    height: 100%;
+    padding-left: 0;
+  }
+
+  .p-flight-container__fare-item--mt-auto {
+    margin: auto 0 0;
+  }
+
+  .p-flight-container__fare-item--flex {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+
+  .p-flight-container__fare-price--mb8 {
+    margin-bottom: 8px;
+  }
+
+  .p-flight-container__fare-del--mb10 {
+    margin-bottom: 10px;
+  }
+
+  .js-p-flight-container__inner-item2--full {
+    width: 100% !important;
+
+    .p-flight-container__fare-price-num {
+      font-size: 21px;
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+    .p-flight-container--applied {
+      .p-flight-container__inner-item2 {
+        padding-bottom: 0;
+      }
+    }
+
+    .p-flight-container__inner-item1--left {
+      width: 66%;
+      border-right: 1px solid #c7c7c7;
+    }
+
+    .p-flight-container__inner-item2--right {
+      width: 34%;
+      margin: auto 0 0;
+      padding: 0 20px 0 0;
+    }
+
+    .p-flight-container__plan--sp {
+      display: none;
+    }
+
+    .p-flight-container__plan--tb {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .c-flight-plan__time--w100 {
+      width: 100%;
+    }
+
+    .p-flight-container__info--pm {
+      padding: 0 20px;
+    }
+  }
+
+  .p-flight-container {
+    .c-text-with-tooltip__text {
+      color: #00146e;
+    }
+
+    .p-flight-container__fare-item-seats {
+      color: #222;
+    }
+  }
+
+  // 240521 No14.htmlの日付箇所の表示崩れについて対応
+  .c-flight-plan__item-2 {
+    &--w100 {
+      width: 100%;
+    }
+  }
+
+  // 240525 No14.htmlの表示変更について対応
+  .c-flight-plan__time--only-arrival {
+    width: 232.5px;
+
+    .c-flight-plan__time-fulldate {
+      justify-content: flex-end;
+    }
+  }
+
+  //7日間カレンダーの表示で、SP版とTAB版の場合、"X月X日"の日の部分が改行されてしまうため(SPA)
+  .c-result-date-navi {
+    @include is-tb {
+      &__btn-date {
+        font-size: 1.6rem;
+      }
+    }
+
+    @include is-sp {
+      &__btn-date {
+        font-size: 2rem;
+      }
+    }
+
+    @include is-pc {
+      &__btn-date {
+        font-size: 2.8rem;
+      }
+    }
+  }
+}
+
+/*
+  RangeSlider 操作ポイントにフォーカスをすると枠が出る(SPAカスタム)
+　focus:マウス操作とキーボード操作の両方に有効
+  focus-visible:キーボード操作時のみ
+*/
+.c-form-element-range__handle:focus {
+  outline: auto;
+}

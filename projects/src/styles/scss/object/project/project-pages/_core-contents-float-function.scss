@@ -1,0 +1,104 @@
+@use "../../../core" as *;
+
+.p-core-contents-float-function {
+  &01 {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    @include contents-garter;
+
+    padding-bottom: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 12px;
+
+    &__col {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+
+      &:last-child {
+        margin-left: auto;
+      }
+    }
+
+    &__btn {
+      box-shadow: 0 0 12px rgb(0 0 0 / 20%);
+
+      &-text {
+        text-align: left;
+
+        &--em {
+          font-weight: bold;
+        }
+      }
+
+      &-seat {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        min-width: 20px;
+        height: 20px;
+        margin-left: 8px;
+        background: url("~/assets/images/icon_circle_primary_20.svg") no-repeat center center;
+        background-size: 20px;
+        font-weight: bold;
+        font-size: 1.6rem;
+        line-height: 1;
+        color: $color_white;
+      }
+
+      &--icon {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+
+      &--text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: auto;
+        height: auto;
+        padding: 8px 16px;
+        border-radius: 20px;
+        background-color: $color_white;
+      }
+
+      &--has-seat {
+        padding: 8px 8px 8px 16px;
+      }
+    }
+  }
+}
+
+@include is-tb {
+  .p-core-contents-float-function {
+    &01 {
+      &__item {
+        &--child-seat {
+          display: none;
+        }
+
+        &--seat-type {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@include is-pc {
+  .p-core-contents-float-function {
+    &01 {
+      &__item {
+        &--legends {
+          display: none;
+        }
+      }
+    }
+  }
+}

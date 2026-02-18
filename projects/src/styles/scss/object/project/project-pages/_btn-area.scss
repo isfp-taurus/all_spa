@@ -1,0 +1,33 @@
+@use "../../../core" as *;
+
+.p-btn-area {
+  &01 {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+  }
+
+  &02 {
+    display: flex;
+    justify-content: center;
+  }
+}
+@include is-tb {
+  .p-btn-area {
+    &01 {
+      margin-top: 24px;
+    }
+
+    &02 {
+      justify-content: flex-end;
+    }
+  }
+}
+@include is-pc {
+  .p-btn-area {
+    &01 {
+      margin-top: 32px;
+      justify-content: flex-end;
+    }
+  }
+}

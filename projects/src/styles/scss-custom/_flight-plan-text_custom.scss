@@ -1,0 +1,6 @@
+@use "../scss/core" as *;
+
+.custom-late-night-departure {
+  $this: &;
+  @include font-line(14, 19.6);
+}

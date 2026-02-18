@@ -1,0 +1,50 @@
+@use "../../../core" as *;
+
+.c-asam-icon {
+  &01 {
+    $this01: &;
+
+    display: flex;
+
+    &__text {
+      display: block;
+      margin-left: 4px;
+      @include font-line(14, 19.6);
+
+      color: $color_gray_60;
+
+      &--dark {
+        color: $color_gray_70;
+      }
+    }
+
+    &__img {
+      flex-shrink: 0;
+    }
+
+    &--large {
+      #{$this01}__text {
+        @include font-line(16, 22.4);
+      }
+    }
+
+    &--medium {
+      #{$this01}__text {
+        @include font-line(14, 22);
+      }
+    }
+  }
+}
+@include is-tb {
+  .c-asam-icon {
+    &01 {
+      $this01: &;
+
+      &--medium {
+        #{$this01}__text {
+          @include font-line(16, 22);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+@use "../../../core" as *;
+
+.p-flight-miles {
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 15px;
+  background-color: $color_white;
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+
+    &--center {
+      align-items: center;
+    }
+
+    &-title {
+      &-label {
+        &--em {
+          font-weight: bold;
+        }
+      }
+
+      &-lead {
+        &--gray60 {
+          color: $color_gray_60;
+        }
+      }
+    }
+
+    &-contents {
+      &-item {
+        margin-top: 4px;
+
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+
+  &__text {
+    &-em {
+      font-weight: bold;
+    }
+  }
+}
+@include is-tb {
+  .p-flight-miles {
+    padding: 24px;
+  }
+}

@@ -1,0 +1,22 @@
+@use "../../../core" as *;
+
+.c-btn-edit {
+  display: flex;
+  position: relative;
+  color: $color_text_primary_blue;
+  @include font-line(16, 22.4);
+
+  &::before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    margin-right: 0.4em;
+    background: url("~/assets/images/icon_edit_primary_20.svg") no-repeat;
+  }
+
+  &--done {
+    &::before {
+      background: url("~/assets/images/icon_check_primary_20.svg") no-repeat;
+    }
+  }
+}

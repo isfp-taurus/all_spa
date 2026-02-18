@@ -1,0 +1,57 @@
+@use "../core" as *;
+
+.l-tab {
+  &-style01 {
+    margin-top: 16px;
+    border-radius: 15px;
+    background-color: $color_white;
+
+    &__list {
+      display: flex;
+      width: 100%;
+      text-align: center;
+      border-radius: 18px 18px 0 0;
+      background-color: $color_gray_80;
+
+      &-btn {
+        flex-grow: 1;
+        padding: 16px 28px;
+        color: $color_text_white;
+        @include font-line(16, 22.4);
+
+        font-weight: bold;
+        outline-offset: -1px;
+        border-radius: 15px 15px 0 0;
+
+        &.is-current {
+          color: $color_text_base;
+          background-color: $color_white;
+        }
+      }
+    }
+
+    &__contents {
+      display: none;
+
+      &:focus {
+        outline-offset: 4px;
+      }
+
+      &.is-current {
+        display: block;
+      }
+    }
+  }
+}
+
+@include is-tb {
+  .l-tab {
+    &-style01 {
+      &__list {
+        &-btn {
+          width: 50%;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,183 @@
+@use "../../core" as *;
+
+.p-drawer-menu-member {
+  $this: &;
+
+  &__block {
+    border-bottom: 8px solid $color_gray_10;
+    padding: 0 16px;
+  }
+
+  &__item {
+    padding: 16px 0;
+
+    &:not(:first-child) {
+      border-top: 1px solid $color_gray_10;
+    }
+
+    &-heading {
+      float: left;
+      @include font-line(14, 19.6);
+
+      &--gray70 {
+        color: $color_gray_70;
+      }
+    }
+
+    &-body {
+      float: right;
+      @include font-line(16, 20.8);
+
+      font-weight: bold;
+      padding-left: 16px;
+    }
+  }
+
+  &__name {
+    display: flex;
+    align-items: center;
+    @include font-line(16, 22.4);
+
+    font-weight: bold;
+
+    &-status {
+      flex-shrink: 0;
+      margin-right: 16px;
+    }
+  }
+
+  &__status {
+    @include font-line(14, 19.6);
+  }
+
+  &__unit {
+    margin-left: 0.2em;
+  }
+
+  &__def {
+    #{$this}__item {
+      &:first-child {
+        border-top: 1px solid $color_gray_10;
+      }
+
+      &::after {
+        @include clearfix;
+      }
+    }
+  }
+
+  &__list {
+    #{$this}__item {
+      padding: 0;
+    }
+  }
+
+  &__def + &__list {
+    border-top: 1px solid $color_gray_10;
+  }
+
+  &__link {
+    $link: &;
+
+    width: 100%;
+    padding: 16px 32px 16px 0;
+    display: block;
+    position: relative;
+    @include font-line(16, 22.4);
+
+    &-wrap {
+      width: 100%;
+      display: block;
+
+      &::after {
+        @include clearfix;
+      }
+    }
+
+    &-label {
+      float: left;
+
+      &--em {
+        font-weight: bold;
+      }
+    }
+
+    &-status {
+      float: right;
+      padding-left: 16px;
+      font-weight: bold;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      width: 20px;
+      height: 20px;
+      background: url("~/assets/images/icon_chevron_right_20.svg") no-repeat center center;
+      background-size: cover;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+    }
+
+    &--external {
+      &::after {
+        content: "";
+        display: block;
+        width: 16px;
+        height: 16px;
+        background: url("~/assets/images/icon_external_ado_blue_16.svg") no-repeat center center;
+        background-size: cover;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  &__company {
+    padding: 16px 0;
+
+    &-label {
+      display: flex;
+      flex-flow: column;
+
+      &-main {
+        font-weight: bold;
+        @include font-line(16, 22.4);
+      }
+    }
+
+    &-btn {
+      margin-top: 8px;
+    }
+  }
+
+  &__btn {
+    &-area {
+      padding: 16px;
+    }
+  }
+
+  &__help {
+    @include font-line(12, 16.8);
+  }
+
+  &__info {
+    &-item {
+      margin-top: 12px;
+      @include font-line(12, 16.8);
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+
+  &__help + &__logout,
+  &__info + &__logout {
+    margin-top: 24px;
+  }
+}

@@ -1,0 +1,53 @@
+@use "../../../core" as *;
+
+.p-modal-next-step {
+  &__list {
+    &-item {
+      border-top: 1px solid $color_gray_10;
+
+      &:first-child {
+        border-top: 0;
+      }
+    }
+
+    &-link {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px;
+      outline-offset: -4px;
+      @include font-line(16, 22.4);
+
+      &::after {
+        content: "";
+        display: block;
+        width: 20px;
+        height: 20px;
+        background-image: url("~/assets/images/icon_chevron_right_20.svg");
+        background-size: 20px;
+        margin-left: 8px;
+        flex-shrink: 0;
+      }
+    }
+  }
+}
+
+@include is-tb {
+  .p-modal-next-step {
+    &__list {
+      &-link {
+        padding: 16px 24px;
+      }
+    }
+  }
+}
+
+@include is-pc {
+  .p-modal-next-step {
+    &__list {
+      &-link {
+        padding: 16px 16px 16px 24px;
+      }
+    }
+  }
+}

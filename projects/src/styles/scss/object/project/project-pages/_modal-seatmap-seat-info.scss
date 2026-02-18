@@ -1,0 +1,217 @@
+@use "../../../core" as *;
+
+.p-modal-seatmap-seat-info {
+  $this: &;
+
+  &__item {
+    padding: 0 16px 16px;
+
+    &:first-child {
+      margin-top: 16px;
+    }
+
+    &--list {
+      padding: 0;
+    }
+  }
+
+  &__row {
+    & + & {
+      margin-top: 8px;
+    }
+  }
+
+  &__title {
+    &-wrap {
+      &::after {
+        @include clearfix;
+      }
+    }
+
+    &-label {
+      float: left;
+      padding-right: left;
+
+      &-text {
+        @include font-line(16, 22.4);
+
+        &--em {
+          font-weight: bold;
+        }
+      }
+
+      &--has-icon {
+        display: flex;
+        gap: 8px;
+      }
+    }
+
+    &-price {
+      float: right;
+      @include font-line(16, 22.4);
+
+      &--em {
+        font-weight: bold;
+      }
+    }
+
+    &-supp {
+      text-align: right;
+
+      &--fs10 {
+        @include font-line(10, 14);
+      }
+
+      &--gray60 {
+        color: $color_gray_60;
+      }
+    }
+  }
+
+  &__text {
+    &--fs16 {
+      @include font-line(16, 22.4);
+    }
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+  }
+
+  &__list {
+    padding-left: 16px;
+
+    &-item {
+      border-top: 1px solid $color_gray_10;
+
+      &-wrap {
+        margin-left: -16px;
+        border: 2px solid $color_white;
+      }
+
+      &.is-selected {
+        #{$this} {
+          &__btn {
+            &-title {
+              font-weight: bold;
+
+              &-num {
+                background: url("~/assets/images/icon_square_primary_30.svg") center no-repeat;
+                background-size: cover;
+                color: $color_white;
+              }
+
+              &-label {
+                &-member,
+                &-sub {
+                  color: $color_primary_blue;
+                }
+              }
+            }
+
+            &-status {
+              color: $color_primary_blue;
+            }
+          }
+        }
+      }
+
+      &.is-unchangeable {
+        #{$this} {
+          &__btn {
+            &-label {
+              cursor: default;
+            }
+
+            &-title {
+              font-weight: bold;
+
+              &-num {
+                background: url("~/assets/images/icon_square_diagonal_line_gray40_30.svg") center no-repeat;
+                background-size: cover;
+              }
+            }
+
+            &-title,
+            &-status {
+              color: $color_gray_60;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__fieldset {
+    font-size: 0;
+
+    &-legend {
+      @include visually-hidden;
+    }
+
+    &-wrap {
+      position: relative;
+    }
+  }
+
+  &__btn {
+    $btn: &;
+    @include font-line(16, 22.4);
+
+    &-input {
+      @include visually-hidden;
+
+      &:focus-visible {
+        + #{$btn}-label {
+          @include form-element-checkbox-radio-focus;
+        }
+      }
+    }
+
+    &-label {
+      padding: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    &-title {
+      padding-right: 16px;
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &-num {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        width: 30px;
+        height: 30px;
+        margin-right: 8px;
+        background: url("~/assets/images/icon_square_line_gray20_30.svg") center no-repeat;
+        background-size: cover;
+      }
+
+      &-label {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-between;
+
+        &-sub {
+          @include font-line(14, 19.6);
+
+          color: $color_gray_60;
+        }
+      }
+    }
+
+    &-status {
+      font-weight: bold;
+      color: $color_gray_30;
+    }
+  }
+}

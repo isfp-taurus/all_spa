@@ -1,0 +1,173 @@
+@use "../../../core" as *;
+
+.p-family-miles {
+  margin-top: 16px;
+  padding: 16px;
+  background-color: $color_white;
+  border-radius: 15px;
+
+  &__title {
+    &-label {
+      font-weight: bold;
+      @include font-line(20, 26);
+    }
+
+    &-btn {
+      margin-top: 16px;
+    }
+  }
+
+  &__contents {
+    display: none;
+    margin-top: 16px;
+
+    &.is-open {
+      display: block;
+    }
+
+    &-item {
+      padding-top: 16px;
+
+      &:not(:first-child) {
+        margin-top: 16px;
+        border-top: 1px solid $color_gray_10;
+      }
+    }
+  }
+
+  &__title + &__contents {
+    border-top: 1px solid $color_gray_90;
+  }
+
+  &__table {
+    $table: &;
+
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+
+    &-head {
+      #{$table} {
+        &-col {
+          padding-bottom: 8px;
+          border-bottom: 1px solid $color_gray_90;
+          font-weight: normal;
+          color: $color_gray_60;
+        }
+      }
+    }
+
+    &-body {
+      #{$table} {
+        &-col {
+          padding: 12px 0;
+          font-weight: bold;
+        }
+      }
+    }
+
+    &-inner {
+      &:not(:first-child) {
+        #{$table} {
+          &-col {
+            border-top: 1px solid $color_gray_10;
+          }
+        }
+      }
+    }
+
+    &-col {
+      width: calc(100% / 4);
+      vertical-align: top;
+
+      &:not(:first-child) {
+        padding-left: 8px;
+        text-align: right;
+      }
+
+      &:nth-child(1) {
+        width: calc(100% - (23.6364% + 23.0303% + 24.2424%));
+      }
+
+      &:nth-child(2) {
+        width: 23.6364%;
+      }
+
+      &:nth-child(3) {
+        width: 23.0303%;
+      }
+
+      &:nth-child(4) {
+        width: 24.2424%;
+      }
+    }
+  }
+
+  .c-form-element-toggle {
+    &__text {
+      font-weight: normal !important;
+    }
+  }
+
+  .c-float-list01 {
+    margin-top: 16px;
+
+    &__item {
+      &:not(:first-child) {
+        margin-top: 12px;
+      }
+    }
+  }
+}
+@include is-tb {
+  .p-family-miles {
+    padding: 20px 24px;
+
+    &__title {
+      display: flex;
+      align-items: center;
+
+      &-label {
+        width: 28.9394%;
+        padding-right: 8px;
+      }
+
+      &-btn {
+        margin-top: 0;
+      }
+    }
+
+    &__title + &__contents {
+      border-top: 0;
+    }
+  }
+}
+@include is-pc {
+  .p-family-miles {
+    &__title {
+      &-label {
+        width: 23.5294%;
+      }
+    }
+
+    &__table {
+      &-col {
+        &:nth-child(1) {
+          width: calc(100% - (26.087% + 26.5985% + 23.2737%));
+        }
+
+        &:nth-child(2) {
+          width: 26.087%;
+        }
+
+        &:nth-child(3) {
+          width: 26.5985%;
+        }
+
+        &:nth-child(4) {
+          width: 23.2737%;
+        }
+      }
+    }
+  }
+}

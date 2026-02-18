@@ -1,0 +1,14 @@
+@use "../../../core" as *;
+
+.p-modal-use-coupon {
+  &__body {
+    padding: 16px;
+  }
+}
+@include is-tb {
+  .p-modal-use-coupon {
+    .c-form-element-input {
+      max-width: 345px;
+    }
+  }
+}

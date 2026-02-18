@@ -1,0 +1,30 @@
+@use "../../core" as *;
+
+.p-modal-head04 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+
+  &__title {
+    @include font-line(18, 26);
+
+    font-weight: bold;
+
+    &--fs16 {
+      @include font-line(16, 22.4);
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: -40px;
+    right: 8px;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    background: url("~/assets/images/icon_close_white_24.svg") no-repeat center center;
+    background-size: 24px auto;
+    z-index: 10;
+  }
+}

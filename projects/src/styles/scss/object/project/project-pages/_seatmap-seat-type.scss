@@ -1,0 +1,57 @@
+@use "../../../core" as *;
+
+.p-seatmap-seat-type {
+  margin-top: 16px;
+
+  &__item {
+    margin-top: 16px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  &__link {
+    $link: &;
+
+    display: block;
+
+    &-title {
+      padding: 8px;
+      background-color: $color_white;
+      border-radius: 10px 10px 0 0;
+
+      &--em {
+        font-weight: bold;
+      }
+    }
+
+    &-contents {
+      overflow: hidden;
+      border-radius: 0 0 10px 10px;
+    }
+
+    &-img {
+      display: block;
+      width: 100%;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &--external {
+      #{$link} {
+        &-title {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          &-label {
+            padding-right: 8px;
+          }
+        }
+      }
+    }
+  }
+}

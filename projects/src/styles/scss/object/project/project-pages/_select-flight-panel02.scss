@@ -1,0 +1,179 @@
+@use "../../../core" as *;
+
+.p-select-flight-panel02 {
+  $this: &;
+
+  margin-top: 16px;
+  padding: 16px;
+  background-color: $color_white;
+  border-radius: 15px;
+
+  &__head + &__body {
+    margin-top: 16px;
+    border-top: 1px solid $color_gray_90;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      padding-bottom: 16px;
+      border-bottom: 1px solid $color_gray_10;
+    }
+
+    &-text {
+      &-link {
+        display: inline-block;
+        color: $color_primary_blue;
+      }
+
+      &-price {
+        font-size: 0;
+      }
+
+      &-num,
+      &-currency {
+        @include font-line(16, 22.4);
+      }
+
+      &-num + &-currency,
+      &-currency + &-num {
+        margin-left: 4px;
+      }
+    }
+  }
+
+  &__title {
+    margin-top: 16px;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+
+  &__class {
+    padding: 0 12px;
+    border: 1px solid $color_gray_10;
+    border-left: 10px solid $color_class_eco;
+    border-radius: 10px;
+
+    &--eco {
+      border-left-color: $color_class_eco;
+    }
+
+    &--ecoPremium {
+      border-left-color: $color_class_eco_premium;
+    }
+
+    &--business {
+      border-left-color: $color_class_business;
+    }
+
+    &--first {
+      border-left-color: $color_class_first;
+    }
+
+    &-item {
+      padding: 16px 0;
+
+      &:not(:first-child) {
+        border-top: 1px solid $color_gray_10;
+      }
+      #{$this}__title {
+        margin-top: 0;
+      }
+    }
+  }
+
+  &__move {
+    margin-top: 16px;
+
+    &::after {
+      @include clearfix;
+    }
+
+    &-note {
+      float: left;
+      padding-right: 8px;
+      color: $color_gray_60;
+    }
+
+    &-btn {
+      float: right;
+    }
+  }
+
+  &__cur {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    border: 1px solid $color_gray_10;
+    border-radius: 10px;
+
+    &-class {
+      font-weight: bold;
+      @include font-line(16, 22.4);
+    }
+  }
+
+  &__upg {
+    display: flex;
+    justify-content: space-between;
+
+    &-title {
+      @include font-line(16, 22.4);
+
+      &-label {
+        font-weight: bold;
+      }
+    }
+
+    &-contents {
+      text-align: right;
+
+      &-seat {
+        color: $color_gray_60;
+      }
+
+      &-map {
+        @include font-line(16, 22.4);
+      }
+    }
+  }
+
+  &__amt {
+    &-info {
+      $this: &;
+
+      &-item {
+        &--status {
+          #{$this}-title {
+            display: flex;
+            flex-flow: row wrap;
+            align-items: center;
+            gap: 8px;
+          }
+        }
+
+        &::after {
+          @include clearfix;
+        }
+
+        & + & {
+          margin-top: 8px;
+        }
+      }
+
+      &-title {
+        float: left;
+        padding-right: 8px;
+        color: $color_gray_60;
+      }
+
+      &-contents {
+        float: right;
+        font-weight: bold;
+        @include font-line(16, 22.4);
+
+        text-align: right;
+      }
+    }
+  }
+}

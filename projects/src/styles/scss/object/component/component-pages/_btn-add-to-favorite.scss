@@ -1,0 +1,29 @@
+@use "../../../core" as *;
+
+.c-btn-add-to-favorite {
+  display: flex;
+  align-items: center;
+  height: 34px;
+  padding: 0 4px 0 16px;
+  border-radius: 20px;
+  background: $color_white;
+  @include font-line(14, 19.6);
+
+  outline-offset: -1px;
+  font-weight: bold;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &__icon {
+    display: block;
+    width: 34px;
+    height: 34px;
+    margin-left: 0;
+  }
+
+  &__text {
+    display: block;
+  }
+}

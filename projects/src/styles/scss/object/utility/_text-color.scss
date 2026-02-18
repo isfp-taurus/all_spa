@@ -1,0 +1,11 @@
+@use "../../core" as *;
+
+/* text color - utility
+--------------------------------------------------------- */
+.u-text-color-red {
+  color: $color_text_ado_red01;
+}
+
+.u-text-color-gray70 {
+  color: $color_gray_70;
+}

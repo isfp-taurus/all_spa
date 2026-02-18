@@ -1,0 +1,17 @@
+@use "../../../core" as *;
+
+.p-fare-title {
+  &__title {
+    @include font-line(24, 28.8);
+
+    font-weight: bold;
+  }
+}
+
+@include is-tb {
+  .p-fare-title {
+    &__title {
+      @include font-line(28, 33.6);
+    }
+  }
+}

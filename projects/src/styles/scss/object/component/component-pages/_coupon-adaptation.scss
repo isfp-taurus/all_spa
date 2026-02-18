@@ -1,0 +1,41 @@
+@use "../../../core" as *;
+
+.c-coupon-adaptation {
+  $this: &;
+
+  width: 100%;
+  padding: 16px 12px;
+  box-shadow: 0 0 0 1px $color_gray_40 inset;
+  border-radius: 10px;
+  background-color: $color_white;
+  display: block;
+
+  &::after {
+    @include clearfix;
+  }
+
+  &--select {
+    box-shadow: 0 0 0 2px $color_primary_blue inset;
+    #{$this} {
+      &__label {
+        color: $color_primary_blue;
+      }
+    }
+  }
+
+  &__label {
+    float: left;
+    padding-right: 8px;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  &__status {
+    float: right;
+    margin-top: 2px;
+    @include font-line(12, 16.8);
+
+    text-align: right;
+    color: $color_primary_blue;
+  }
+}

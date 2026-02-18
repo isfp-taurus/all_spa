@@ -1,0 +1,50 @@
+@use "../core" as *;
+
+.l-bottom-aside {
+  &__section {
+    background: $color_white;
+    border-bottom: 1px solid $color_gray_10;
+    padding: 16px 0;
+  }
+
+  &__block {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    @include contents-garter;
+
+    &:not(:first-child) {
+      border-top: 1px solid $color_gray_10;
+    }
+
+    &:first-child {
+      padding-top: 0;
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+}
+@include is-tb {
+  .l-bottom-aside {
+    &__section {
+      padding: 24px 0;
+    }
+
+    &__block {
+      padding-top: 24px;
+      padding-bottom: 24px;
+      @include contents-garter-tb;
+    }
+  }
+}
+@include is-pc {
+  .l-bottom-aside {
+    &__block {
+      @include pc-core-main-contents-width;
+
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}

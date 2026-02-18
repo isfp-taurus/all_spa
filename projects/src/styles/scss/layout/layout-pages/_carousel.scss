@@ -1,0 +1,145 @@
+@use "../../core" as *;
+
+.l-carousel {
+  &01 {
+    $this: &;
+
+    &__view {
+      max-width: 1366px;
+      padding: 16px 0;
+      margin: -16px auto;
+      overflow-x: hidden;
+    }
+
+    &__wrap {
+      max-width: $contents-max-width-unit;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    &__inner {
+      @include contents-garter;
+    }
+
+    &__arrow {
+      display: none;
+      position: absolute;
+      top: 50%;
+      width: 36px;
+      height: 36px;
+      z-index: 3;
+      transform: translate(0, -50%) translateZ(0);
+      filter: drop-shadow(0 0 10px rgb(51 51 51 / 20%));
+      pointer-events: visible;
+
+      &.is-available {
+        display: block;
+      }
+
+      &--prev {
+        left: 4px;
+      }
+
+      &--next {
+        right: 4px;
+      }
+    }
+
+    &--in-main {
+      margin-left: -$contents-garter + vw;
+      margin-right: -$contents-garter + vw;
+    }
+
+    &--in-modal-body05 {
+      margin-left: -16px;
+      margin-right: -16px;
+      #{$this}__inner {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+    }
+
+    &--in-modal-body09 {
+      margin-left: -16px;
+      margin-right: -16px;
+      #{$this}__inner {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+    }
+
+    &--in-modal-body12 {
+      margin-left: -16px;
+      margin-right: -16px;
+      #{$this}__inner {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+    }
+  }
+}
+@include is-tb {
+  .l-carousel {
+    &01 {
+      $this: &;
+
+      &__inner {
+        @include contents-garter-tb;
+      }
+
+      &__arrow {
+        &--prev {
+          left: calc($contents-garter-tb-unit - 18px);
+        }
+
+        &--next {
+          right: calc($contents-garter-tb-unit - 18px);
+        }
+      }
+
+      &--in-main {
+        margin-left: -$contents-garter-tb + vw;
+        margin-right: -$contents-garter-tb + vw;
+      }
+
+      &--in-modal-body05 {
+        margin-left: -24px;
+        margin-right: -24px;
+      }
+
+      &--in-modal-body09 {
+        margin-left: -24px;
+        margin-right: -24px;
+        #{$this}__view {
+          padding: 20px 0;
+          margin: -20px auto;
+        }
+        #{$this}__inner {
+          padding-left: 24px;
+          padding-right: 24px;
+        }
+      }
+
+      &--in-modal-body12 {
+        margin-left: -24px;
+        margin-right: -24px;
+      }
+    }
+  }
+}
+@include is-pc {
+  .l-carousel {
+    &01 {
+      $this: &;
+
+      &--in-main {
+        margin-left: 0;
+        margin-right: 0;
+        #{$this}__inner {
+          padding-left: 0;
+          padding-right: 0;
+        }
+      }
+    }
+  }
+}

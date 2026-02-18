@@ -1,0 +1,32 @@
+@use "../../core" as *;
+
+.p-modal-foot05 {
+  padding: 16px 16px 32px;
+
+  &__item {
+    margin-top: 12px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  &__btn {
+    &-item {
+      &--center {
+        display: flex;
+        justify-content: center;
+      }
+
+      &--mt8 {
+        margin-top: 8px;
+      }
+    }
+  }
+}
+
+@include is-tb {
+  .p-modal-foot05 {
+    padding: 20px 24px 32px;
+  }
+}

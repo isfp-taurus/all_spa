@@ -1,0 +1,85 @@
+@use "../../../core" as *;
+
+.p-completed {
+  &__body {
+    &-item {
+      margin-top: 16px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+
+  &__head + &__body {
+    margin-top: 32px;
+  }
+
+  &__title {
+    @include font-line(16, 22.4);
+
+    &-label {
+      @include font-line(32, 38.4);
+
+      &--em {
+        font-weight: bold;
+      }
+
+      &--blue {
+        color: $color_primary_blue;
+      }
+    }
+
+    &-status {
+      &--em {
+        font-weight: bold;
+      }
+
+      &--blue {
+        color: $color_primary_blue;
+      }
+    }
+
+    &-ticket {
+      margin-top: 4px;
+    }
+  }
+}
+
+@include is-tb {
+  .p-completed {
+    &__body {
+      &-item {
+        &--service,
+        &--email {
+          margin-top: 24px;
+        }
+
+        &--service + &,
+        &--service-has-title + & {
+          margin-top: 24px;
+        }
+      }
+    }
+
+    &__head + &__body {
+      margin-top: 40px;
+    }
+  }
+}
+
+@include is-pc {
+  .p-completed {
+    &__body {
+      &-item {
+        &--service-has-title {
+          margin-top: 20px;
+        }
+      }
+    }
+
+    &__head + &__body {
+      margin-top: 56px;
+    }
+  }
+}

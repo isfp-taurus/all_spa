@@ -1,0 +1,67 @@
+@use "../../../core" as *;
+
+.c-passenger-select-list {
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+
+    &:not(:first-child) {
+      border-top: 1px solid $color_gray_10;
+    }
+
+    &-head {
+      padding: 0 16px;
+    }
+
+    &-label {
+      @include font-line(16, 22.4);
+
+      font-weight: bold;
+    }
+
+    &-lead {
+      color: $color_gray_60;
+      @include font-line(14, 19.6);
+    }
+
+    &-body {
+      display: flex;
+      align-items: center;
+      padding: 0 8px;
+    }
+
+    &-value {
+      padding: 0 8px;
+      @include font-line(18, 18);
+    }
+
+    &-button {
+      width: 32px;
+      height: 32px;
+
+      &--minus {
+        background: url("~/assets/images/icon_remove_circle_20.svg") no-repeat center center;
+        background-size: 20px 20px;
+
+        &:disabled {
+          pointer-events: none;
+          background: url("~/assets/images/icon_remove_circle_gray30_20.svg") no-repeat center center;
+          background-size: 20px 20px;
+        }
+      }
+
+      &--plus {
+        background: url("~/assets/images/icon_add_circle_20.svg") no-repeat center center;
+        background-size: 20px 20px;
+
+        &:disabled {
+          pointer-events: none;
+          background: url("~/assets/images/icon_add_circle_gray30_20.svg") no-repeat center center;
+          background-size: 20px 20px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,79 @@
+@use "../../../core" as *;
+
+.p-form-layout02 {
+  &:not(:first-child) {
+    margin-top: 16px;
+  }
+
+  border-radius: 15px;
+  background-color: $color_white;
+
+  &__item {
+    padding: 16px;
+
+    & + & {
+      border-top: 1px solid $color_gray_10;
+    }
+
+    &-title {
+      font-weight: bold;
+
+      &--l {
+        @include font-line(20, 26);
+      }
+
+      &--m {
+        @include font-line(16, 22.4);
+      }
+    }
+
+    &-text {
+      color: $color_gray_60;
+      @include font-line(16, 22.4);
+
+      font-weight: normal;
+    }
+
+    &-body {
+      margin-top: 16px;
+
+      &-box {
+        &--w325 {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@include is-tb {
+  .p-form-layout02 {
+    &__item {
+      padding: 20px 24px;
+
+      &-body {
+        &-box {
+          &--w325 {
+            width: 325px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include is-pc {
+  .p-form-layout02 {
+    &__item {
+      display: flex;
+
+      &-title {
+        width: 184px;
+      }
+
+      &-body {
+        margin-top: 0;
+      }
+    }
+  }
+}

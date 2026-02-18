@@ -1,0 +1,195 @@
+@use "../../../core" as *;
+
+.p-lowest-calendar {
+  $this: &;
+
+  display: flex;
+  gap: 0 16px;
+
+  &__item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    width: 255px;
+    border-radius: 15px;
+    background-color: $color_white;
+
+    &--selected {
+      box-shadow: 0 0 0 4px $color_ado_blue inset;
+      #{$this}__item-foot {
+        &::before {
+          left: 4px;
+          width: calc(100% - 8px);
+        }
+      }
+    }
+
+    &--none {
+      background-color: $color_gray_10;
+      #{$this}__item-foot {
+        justify-content: center;
+      }
+    }
+
+    &-head {
+      display: flex;
+      flex-flow: column;
+      gap: 12px 0;
+      padding: 16px 16px 12px;
+
+      &-title {
+        @include font-line(18, 21.6);
+
+        font-weight: bold;
+      }
+
+      &-airport {
+        font-size: 0;
+
+        &-name,
+        &-separator {
+          display: inline-block;
+          @include font-line(14, 19.6);
+        }
+
+        &-separator {
+          margin: 0 4px;
+        }
+      }
+
+      &-via {
+        @include font-line(14, 19.6);
+      }
+    }
+
+    &-foot {
+      display: flex;
+      justify-content: space-between;
+      position: relative;
+      margin-top: auto;
+      padding: 12px 16px 16px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: #d9d9d9;
+      }
+
+      &-fare {
+        &-price {
+          color: $color_text_ado_blue;
+          font-weight: bold;
+          font-size: 0;
+
+          &-currency {
+            @include font-line(16, 22.4);
+          }
+
+          &-num {
+            @include font-line(24, 28.8);
+          }
+
+          &-currency + &-num,
+          &-num + &-currency {
+            margin-left: 4px;
+          }
+        }
+
+        &-text {
+          @include font-line(12, 16.8);
+        }
+      }
+
+      &-btn {
+        flex-shrink: 0;
+        margin-left: 8px;
+      }
+
+      &-none {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 45px;
+        color: $color_gray_70;
+        @include font-line(16, 22.4);
+      }
+    }
+  }
+}
+
+/*
+  &__pager-btn {
+    display: none;
+    position: absolute;
+    top: 146px;
+    width: 24px;
+    height: 24px;
+    transform: translateZ(0);
+    filter: drop-shadow(0px 0px 10px rgba(51, 51, 51, 0.2));
+    pointer-events: visible;
+    &--left {
+      left: -12px;
+    }
+    &--right {
+      right: -12px;
+    }
+  }
+  &__control {
+    max-width: $contents-max-width-unit;
+    margin: 0 auto;
+    padding-top: 10px;
+    &-inner {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
+*/
+
+@include is-tb {
+  .p-lowest-calendar {
+    &__item {
+      width: 277px;
+    }
+  }
+}
+
+/*
+    &__control {
+      padding: 20px 0 4px;
+    }
+*/
+
+@include is-pc {
+  .p-lowest-calendar {
+    &__item {
+      width: 264px;
+    }
+  }
+}
+
+/*
+      &-control {
+        display: block;
+        &--left {
+          left: 72px;
+        }
+        &--right {
+          right: 72px;
+        }
+      }
+    }
+    &__control {
+      padding: 20px 0;
+    }
+    &__pager-btn {
+      display: block;
+    }
+  }
+}
+*/

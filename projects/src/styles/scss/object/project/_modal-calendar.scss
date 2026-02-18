@@ -1,0 +1,35 @@
+@use "../../core" as *;
+
+.p-modal-calendar {
+  padding: 16px 0;
+
+  &__body {
+    &-inner {
+      .c-calendar {
+        &:not(:first-child) {
+          margin-top: 40px;
+        }
+      }
+    }
+  }
+}
+
+@include is-pc {
+  .p-modal-calendar {
+    &__body {
+      position: relative;
+
+      &-inner {
+        display: flex;
+        justify-content: space-between;
+        padding: 16px 60px 24px;
+
+        .c-calendar {
+          &:not(:first-child) {
+            margin-top: 0;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+@use "../../../core" as *;
+
+.p-separate-2items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}

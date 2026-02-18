@@ -1,0 +1,9 @@
+@use "../../core" as *;
+
+.c-text-link-external {
+  margin-left: 2px;
+
+  &--large {
+    margin-left: 0;
+  }
+}

@@ -1,0 +1,15 @@
+@use "../../core" as *;
+
+.l-top-float {
+  &--has-border {
+    border-top: 1px solid $color_gray_7;
+  }
+}
+
+@include is-pc {
+  .l-top-float {
+    &--pc-has-border {
+      border-top: 1px solid $color_gray_7;
+    }
+  }
+}

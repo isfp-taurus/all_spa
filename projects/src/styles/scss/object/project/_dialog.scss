@@ -1,0 +1,37 @@
+@use "../../core" as *;
+
+.p-dialog {
+  background-color: $color_white;
+  box-shadow: 0 0 10px rgb(51 51 51 / 20%);
+  border-radius: 15px;
+  padding: 15px;
+
+  &__lead {
+    @include font-line(16, 22.4);
+
+    margin-bottom: 8px;
+  }
+
+  &__text {
+    @include font-line(14, 19.6);
+  }
+
+  &-btn {
+    margin-top: 15px;
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+
+    &--2btn {
+      justify-content: space-between;
+    }
+
+    .c-btn-primary,
+    .c-btn-secondary,
+    .c-btn-warn {
+      justify-content: center;
+      min-width: 100px;
+      padding: 4px 8px;
+    }
+  }
+}

@@ -1,0 +1,354 @@
+@use "../../core" as *;
+
+/* display - utility
+ - block
+ - inline-block
+ - inline
+ - flex
+ - inline-flex
+ - table
+ - table-cell
+--------------------------------------------------------- */
+
+/* block */
+.u-display-block {
+  display: block !important;
+
+  &-sp {
+    display: block !important;
+  }
+
+  &-tb {
+    display: none !important;
+
+    &-only {
+      display: none !important;
+    }
+  }
+
+  &-pc {
+    display: none !important;
+  }
+}
+@include is-tb {
+  .u-display-block {
+    &-sp {
+      display: none !important;
+    }
+
+    &-tb {
+      display: block !important;
+
+      &-only {
+        display: block !important;
+      }
+    }
+  }
+}
+@include is-pc {
+  .u-display-block {
+    &-tb {
+      &-only {
+        display: none !important;
+      }
+    }
+
+    &-pc {
+      display: block !important;
+    }
+  }
+}
+
+/* inline-block */
+.u-display-in-block {
+  display: inline-block !important;
+
+  &-sp {
+    display: inline-block !important;
+  }
+
+  &-tb {
+    display: none !important;
+
+    &-only {
+      display: none !important;
+    }
+  }
+
+  &-pc {
+    display: none !important;
+  }
+}
+@include is-tb {
+  .u-display-in-block {
+    &-sp {
+      display: none !important;
+    }
+
+    &-tb {
+      display: inline-block !important;
+
+      &-only {
+        display: inline-block !important;
+      }
+    }
+  }
+}
+@include is-pc {
+  .u-display-in-block {
+    &-tb {
+      &-only {
+        display: none !important;
+      }
+    }
+
+    &-pc {
+      display: inline-block !important;
+    }
+  }
+}
+
+/* inline */
+.u-display-inline {
+  display: inline !important;
+
+  &-sp {
+    display: inline !important;
+  }
+
+  &-tb {
+    display: none !important;
+
+    &-only {
+      display: none !important;
+    }
+  }
+
+  &-pc {
+    display: none !important;
+  }
+}
+@include is-tb {
+  .u-display-inline {
+    &-sp {
+      display: none !important;
+    }
+
+    &-tb {
+      display: inline !important;
+
+      &-only {
+        display: inline !important;
+      }
+    }
+  }
+}
+@include is-pc {
+  .u-display-inline {
+    &-tb {
+      &-only {
+        display: none !important;
+      }
+    }
+
+    &-pc {
+      display: inline !important;
+    }
+  }
+}
+
+/* flex */
+.u-display-flex {
+  display: flex !important;
+
+  &-sp {
+    display: flex !important;
+  }
+
+  &-tb {
+    display: none !important;
+
+    &-only {
+      display: none !important;
+    }
+  }
+
+  &-pc {
+    display: none !important;
+  }
+}
+@include is-tb {
+  .u-display-flex {
+    &-sp {
+      display: none !important;
+    }
+
+    &-tb {
+      display: flex !important;
+
+      &-only {
+        display: flex !important;
+      }
+    }
+  }
+}
+@include is-pc {
+  .u-display-flex {
+    &-tb {
+      &-only {
+        display: none !important;
+      }
+    }
+
+    &-pc {
+      display: flex !important;
+    }
+  }
+}
+
+/* inline-flex */
+.u-display-in-flex {
+  display: inline-flex !important;
+
+  &-sp {
+    display: inline-flex !important;
+  }
+
+  &-tb {
+    display: none !important;
+
+    &-only {
+      display: none !important;
+    }
+  }
+
+  &-pc {
+    display: none !important;
+  }
+}
+@include is-tb {
+  .u-display-in-flex {
+    &-sp {
+      display: none !important;
+    }
+
+    &-tb {
+      display: inline-flex !important;
+
+      &-only {
+        display: inline-flex !important;
+      }
+    }
+  }
+}
+@include is-pc {
+  .u-display-in-flex {
+    &-tb {
+      &-only {
+        display: none !important;
+      }
+    }
+
+    &-pc {
+      display: inline-flex !important;
+    }
+  }
+}
+
+/* table */
+.u-display-table {
+  display: table !important;
+
+  &-sp {
+    display: table !important;
+  }
+
+  &-tb {
+    display: none !important;
+
+    &-only {
+      display: none !important;
+    }
+  }
+
+  &-pc {
+    display: none !important;
+  }
+}
+@include is-tb {
+  .u-display-table {
+    &-sp {
+      display: none !important;
+    }
+
+    &-tb {
+      display: table !important;
+
+      &-only {
+        display: table !important;
+      }
+    }
+  }
+}
+@include is-pc {
+  .u-display-table {
+    &-tb {
+      &-only {
+        display: none !important;
+      }
+    }
+
+    &-pc {
+      display: table !important;
+    }
+  }
+}
+
+/* table-cell */
+.u-display-table-cell {
+  display: table-cell !important;
+
+  &-sp {
+    display: table-cell !important;
+  }
+
+  &-tb {
+    display: none !important;
+
+    &-only {
+      display: none !important;
+    }
+  }
+
+  &-pc {
+    display: none !important;
+  }
+}
+@include is-tb {
+  .u-display-table-cell {
+    &-sp {
+      display: none !important;
+    }
+
+    &-tb {
+      display: table-cell !important;
+
+      &-only {
+        display: table-cell !important;
+      }
+    }
+  }
+}
+@include is-pc {
+  .u-display-table-cell {
+    &-tb {
+      &-only {
+        display: none !important;
+      }
+    }
+
+    &-pc {
+      display: table-cell !important;
+    }
+  }
+}

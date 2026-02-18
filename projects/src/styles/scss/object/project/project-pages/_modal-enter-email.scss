@@ -1,0 +1,23 @@
+@use "../../../core" as *;
+
+.p-modal-enter-email {
+  &__row {
+    margin-top: 12px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+@include is-tb {
+  .p-modal-enter-email {
+    &__row {
+      &-box {
+        &--w345 {
+          width: 345px;
+        }
+      }
+    }
+  }
+}

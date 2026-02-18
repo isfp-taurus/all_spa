@@ -1,0 +1,52 @@
+@use "../../../core" as *;
+
+.c-disc-list {
+  &01 {
+    $list: &;
+
+    margin-left: 20px;
+
+    &__item {
+      position: relative;
+      display: flex;
+      margin-top: 4px;
+
+      &-link {
+        display: inline-block;
+        color: $color_primary_blue;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 8px;
+        left: -12px;
+        width: 3px;
+        height: 3px;
+        border-radius: 100%;
+        background-color: $color_gray_90;
+      }
+    }
+
+    &--fs16 {
+      #{$list} {
+        &__item {
+          @include font-line(16, 22.4);
+
+          &::before {
+            top: 10px;
+          }
+        }
+      }
+    }
+  }
+}

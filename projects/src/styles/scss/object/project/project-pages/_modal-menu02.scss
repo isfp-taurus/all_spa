@@ -1,0 +1,145 @@
+@use "../../../core" as *;
+
+.p-modal-menu02 {
+  $menu: &;
+
+  &__title {
+    padding: 16px;
+    background-color: $color_white;
+
+    &-label {
+      @include font-line(16, 22.4);
+
+      &--em {
+        font-weight: bold;
+      }
+    }
+
+    .c-inline-list01 {
+      margin-top: 4px;
+    }
+
+    &-sub {
+      margin-left: 16px;
+      padding: 16px 0 8px;
+      border-top: 1px solid $color_gray_10;
+      border-bottom: 1px solid $color_gray_10;
+
+      &-label {
+        &--em {
+          font-weight: bold;
+        }
+      }
+    }
+
+    & + &-sub {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    &:not(:first-child) {
+      border-top: 4px solid $color_gray_5;
+    }
+  }
+
+  &__btn {
+    width: 100%;
+    padding: 16px 12px 16px 0;
+    display: block;
+    text-align: left;
+    cursor: pointer;
+    @include font-line(16, 22.4);
+
+    &-inner {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &-label {
+      &--em {
+        font-weight: bold;
+      }
+    }
+
+    &-status {
+      flex-shrink: 0;
+      padding-left: 16px;
+      @include font-line(20, 26);
+
+      &--em {
+        font-weight: bold;
+      }
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &--arrow {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &::after {
+        content: "";
+        display: block;
+        width: 20px;
+        height: 20px;
+        margin-left: 8px;
+        background: url("~/assets/images/icon_chevron_right_20.svg") no-repeat center center;
+        background-size: cover;
+      }
+    }
+  }
+
+  &__list {
+    $menu-list: &;
+
+    padding-left: 16px;
+    background-color: $color_white;
+
+    &-item {
+      &:not(:first-child) {
+        border-top: 1px solid $color_gray_10;
+      }
+    }
+
+    &-text {
+      &-inner {
+        padding: 16px 40px 16px 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      &-label {
+        @include font-line(16, 22.4);
+
+        &--em {
+          font-weight: bold;
+        }
+      }
+
+      &-status {
+        @include font-line(20, 26);
+
+        &--em {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  &__title + &__list {
+    #{$menu} {
+      &__list {
+        &-item {
+          border-top: 1px solid $color_gray_10;
+        }
+      }
+    }
+  }
+}

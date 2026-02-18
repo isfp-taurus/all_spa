@@ -1,0 +1,42 @@
+@use "../../../core" as *;
+
+.c-payment-detail-list {
+  &__item {
+    padding: 16px;
+    background-color: $color_white;
+    border-radius: 15px;
+
+    &:not(:first-child) {
+      margin-top: 12px;
+    }
+  }
+
+  &__head {
+    &::after {
+      @include clearfix;
+    }
+
+    &-label {
+      float: left;
+      font-weight: bold;
+      @include font-line(20, 26);
+    }
+
+    &-lead {
+      float: right;
+      @include font-line(16, 22.4);
+    }
+  }
+
+  &__body {
+    &-item {
+      &:not(:first-child) {
+        margin-top: 24px;
+      }
+    }
+  }
+
+  &__head + &__body {
+    margin-top: 24px;
+  }
+}

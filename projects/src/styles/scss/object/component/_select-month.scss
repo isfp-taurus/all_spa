@@ -1,0 +1,54 @@
+@use "../../core" as *;
+
+.c-select-month {
+  display: flex;
+  padding: 0 16px;
+
+  &-area {
+    flex-shrink: 0;
+  }
+
+  &__year {
+    margin: 0 4px 4px 0;
+    @include font-line(16, 22.4);
+
+    font-weight: bold;
+  }
+
+  &__list {
+    display: flex;
+
+    &-item {
+      flex-shrink: 0;
+      margin-right: 6px;
+
+      &-btn {
+        min-width: 60px;
+        padding: 0 8px;
+        @include font-line(16, 36);
+
+        text-align: center;
+        border: 1px solid $color_ado_gray;
+        border-radius: 19px;
+
+        &.is-current {
+          color: $color_text_base;
+          font-weight: bold;
+          border: 1px solid $color_gray_90;
+          background-color: $color_ado_yellow;
+        }
+
+        &:hover,
+        &:focus {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+@include is-pc {
+  .c-select-month {
+    justify-content: center;
+  }
+}

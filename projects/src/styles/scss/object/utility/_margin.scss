@@ -1,0 +1,40 @@
+@use "../../core" as *;
+
+/* margin - utility
+--------------------------------------------------------- */
+@include is-sp {
+  @for $value from 0 to 7 {
+    .u-mt-sp-#{$value * 4} {
+      margin-top: #{$value * 4} + px !important;
+    }
+  }
+  @for $value from 4 to 8 {
+    .u-mt-sp-#{$value * 8} {
+      margin-top: #{$value * 8} + px !important;
+    }
+  }
+}
+@include is-tb {
+  @for $value from 0 to 7 {
+    .u-mt-tb-#{$value * 4} {
+      margin-top: #{$value * 4} + px !important;
+    }
+  }
+  @for $value from 4 to 8 {
+    .u-mt-tb-#{$value * 8} {
+      margin-top: #{$value * 8} + px !important;
+    }
+  }
+}
+@include is-pc {
+  @for $value from 0 to 7 {
+    .u-mt-pc-#{$value * 4} {
+      margin-top: #{$value * 4} + px !important;
+    }
+  }
+  @for $value from 4 to 8 {
+    .u-mt-pc-#{$value * 8} {
+      margin-top: #{$value * 8} + px !important;
+    }
+  }
+}

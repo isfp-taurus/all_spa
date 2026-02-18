@@ -1,0 +1,566 @@
+@use "../../../core" as *;
+
+.p-flight-container {
+  $this: &;
+
+  position: relative;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-radius: 15px;
+  background-color: $color_white;
+  & + #{$this} {
+    margin-top: 16px;
+  }
+
+  &--selected {
+    padding: 24px 0 0;
+    box-shadow: 0 0 0 4px $color_ado_blue inset;
+    #{$this}__inner {
+      padding-top: 12px;
+
+      &-item2 {
+        &::before {
+          left: 4px;
+          width: calc(100% - 8px);
+        }
+      }
+    }
+  }
+
+  &--cancelled {
+    background-color: $color_gray_10;
+    #{$this}__inner {
+      &-item2 {
+        border-top: 1px solid $color_gray_20;
+      }
+    }
+  }
+
+  &--applied {
+    #{$this}__inner {
+      padding-top: 12px;
+
+      &-item2 {
+        padding-top: 28px;
+      }
+    }
+  }
+
+  &--has-tag {
+    padding: 24px 0 0;
+    #{$this}__inner {
+      padding-top: 12px;
+    }
+  }
+
+  &__announce {
+    margin-bottom: 8px;
+    padding: 0 16px;
+
+    &-outer {
+      margin-bottom: 8px;
+      padding: 0 16px;
+
+      &-item {
+        &:not(:first-child) {
+          margin-top: 8px;
+        }
+      }
+    }
+
+    &-item {
+      &:not(:first-child) {
+        margin-top: 8px;
+      }
+    }
+  }
+
+  &__tag {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+
+    &-item {
+      padding: 4px 16px;
+      color: $color_text_white;
+      @include font-line(14, 19.6);
+
+      font-weight: bold;
+      border-radius: 15px 0;
+      background-color: $color_ado_blue;
+      position: relative;
+      z-index: 1;
+
+      &:nth-child(2) {
+        position: relative;
+        z-index: 0;
+      }
+
+      &:not(:first-child) {
+        margin-left: -16px;
+        padding-left: 32px;
+      }
+
+      &--selected {
+        background-color: $color_ado_blue;
+      }
+
+      &--current {
+        background-color: $color_gray_70;
+      }
+    }
+  }
+
+  &__inner {
+    &-item1 {
+      position: relative;
+      padding: 0 0 12px;
+    }
+
+    &-item2 {
+      position: relative;
+      padding: 12px 0;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: $color_gray_10;
+      }
+    }
+  }
+
+  &__plan {
+    padding: 0 16px;
+  }
+
+  &__info {
+    margin-top: 8px;
+    padding: 0 16px;
+
+    &__list {
+      &:not(:first-child) {
+        margin-top: 8px;
+      }
+
+      &-title {
+        color: $color_gray_60;
+        @include visually-hidden;
+      }
+
+      &-body {
+        &-img {
+          &:not(:first-child) {
+            margin-left: 8px;
+          }
+        }
+      }
+    }
+  }
+
+  &__fare {
+    $fare: &;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+
+    &--waiting {
+      justify-content: flex-end;
+    }
+
+    &-applied {
+      position: absolute;
+      top: 0;
+      line-height: 0;
+    }
+
+    &-icon {
+      margin-bottom: 8px;
+    }
+
+    &-waiver {
+      color: $color_text_ado_blue;
+    }
+
+    &-price {
+      color: $color_text_ado_blue;
+      font-size: 0;
+      font-weight: bold;
+
+      &-text {
+        margin-right: 4px;
+        @include font-line(16, 22.4);
+
+        font-weight: normal;
+      }
+
+      &-from,
+      &-sign,
+      &-currency {
+        margin-right: 4px;
+        @include font-line(16, 22.4);
+      }
+
+      &-from {
+        @include visually-hidden;
+      }
+
+      &-num {
+        @include font-line(24, 28);
+      }
+    }
+
+    &-del {
+      @include font-line(16, 22.4);
+
+      &-text {
+        margin-right: 4px;
+      }
+
+      &-from,
+      &-sign,
+      &-currency {
+        margin-right: 4px;
+        @include font-line(16, 22.4);
+      }
+
+      &-from {
+        @include visually-hidden;
+      }
+    }
+
+    &-text {
+      color: $color_gray_60;
+      @include font-line(14, 19.6);
+    }
+
+    &-item {
+      &-emp {
+        margin-bottom: 8px;
+        color: $color_text_ado_red01;
+        @include font-line(14, 19.6);
+
+        text-align: right;
+
+        &--dark {
+          color: $color_text_ado_red02;
+        }
+      }
+
+      &-seats {
+        margin-bottom: 8px;
+        color: $color_text_secondary_red;
+        @include font-line(14, 19.6);
+
+        text-align: right;
+      }
+
+      &:has(button) {
+        flex-shrink: 0;
+      }
+    }
+
+    &--seats {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      #{$fare}-item {
+        &--1 {
+          grid-row: 1 / 3;
+          grid-column: 1;
+        }
+
+        &--2 {
+          grid-row: 1;
+          grid-column: 2;
+        }
+
+        &--3 {
+          grid-row: 2;
+          grid-column: 2;
+          text-align: right;
+        }
+      }
+    }
+  }
+
+  &__none {
+    text-align: center;
+
+    &-text {
+      color: $color_gray_60;
+      @include font-line(20, 26);
+
+      &--dark {
+        color: $color_gray_70;
+      }
+    }
+  }
+}
+
+@include is-tb {
+  .p-flight-container {
+    $this: &;
+
+    margin-top: 24px;
+    padding: 20px 0;
+
+    &--selected {
+      padding: 28px 0 16px;
+      #{$this}__inner {
+        &-item2 {
+          padding-top: 0;
+        }
+      }
+      #{$this}__fare {
+        &-applied {
+          top: 4px;
+        }
+      }
+    }
+
+    &--cancelled {
+      #{$this}__inner {
+        &-item2 {
+          border: none;
+        }
+      }
+    }
+
+    &--applied {
+      #{$this}__inner {
+        &-item2 {
+          padding-top: 0;
+        }
+      }
+    }
+
+    &--has-tag {
+      padding: 28px 0 20px;
+    }
+
+    &__announce {
+      padding: 0 20px;
+
+      &-outer {
+        margin-bottom: 8px;
+        padding: 0 20px;
+      }
+    }
+
+    &__inner {
+      display: flex;
+      justify-content: space-between;
+      padding: 0;
+
+      &-item1 {
+        width: 69.1983%;
+        padding: 0;
+        flex-shrink: 0;
+        border-right: 1px solid $color_gray_20;
+      }
+
+      &-item2 {
+        position: static;
+        width: 30.8017%;
+        padding: 0 20px;
+        border-top: none;
+
+        &::before {
+          display: none;
+        }
+      }
+    }
+
+    &__plan {
+      padding: 0 20px;
+    }
+
+    &__info {
+      padding: 0 20px;
+    }
+
+    &__fare {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-end;
+      height: 100%;
+      padding: 0;
+      text-align: right;
+
+      &--waiting {
+        justify-content: flex-end;
+      }
+
+      &-applied {
+        position: absolute;
+        top: 0;
+        right: 20px;
+      }
+
+      &-price {
+        &-from {
+          @include visually-hidden-reset;
+
+          margin-right: 4px;
+          font-weight: normal;
+        }
+
+        &-currency {
+          @include font-line(16, 32);
+        }
+
+        &-num {
+          @include font-line(26, 32);
+        }
+      }
+
+      &-del {
+        &-from {
+          @include visually-hidden-reset;
+
+          margin-right: 4px;
+          font-weight: normal;
+        }
+      }
+
+      &-item {
+        &-seats {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    &__none {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      height: 100%;
+      text-align: right;
+    }
+  }
+}
+
+@include is-pc {
+  .p-flight-container {
+    $this: &;
+
+    margin-top: 32px;
+    padding: 20px;
+
+    &--selected {
+      padding: 28px 20px 20px;
+    }
+
+    &__inner {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      &-item1 {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        position: relative;
+        width: 70%;
+      }
+
+      &-item2 {
+        width: 30%;
+        padding: 0 0 0 20px;
+      }
+    }
+
+    &--applied {
+      #{$this}__inner {
+        &-item2 {
+          padding-top: 0;
+        }
+      }
+    }
+
+    &__announce {
+      width: 100%;
+      margin-bottom: 16px;
+      padding: 0 20px 0 0;
+
+      &-outer {
+        margin-bottom: 16px;
+        padding: 0;
+      }
+    }
+
+    &__plan {
+      width: 43.939%;
+      padding: 0 0 30px;
+    }
+
+    &__info {
+      display: flex;
+      justify-content: space-between;
+      width: 42.929%;
+      margin-top: 0;
+      padding-left: 0;
+
+      &__list {
+        &:not(:first-child) {
+          margin-top: 0;
+        }
+
+        &-title {
+          @include visually-hidden-reset;
+        }
+
+        &-body {
+          margin-top: 16px;
+
+          &-img {
+            display: block;
+
+            &:not(:first-child) {
+              margin: 8px 0 0;
+            }
+          }
+        }
+      }
+    }
+
+    &__fare {
+      padding: 0;
+
+      &-item {
+        &:not(:first-child) {
+          margin-top: 8px;
+        }
+      }
+    }
+
+    &--has-class {
+      #{$this}__inner {
+        &-item1 {
+          width: auto;
+          flex: 1;
+          padding-bottom: 34px;
+        }
+
+        &-item2 {
+          width: 17.5%;
+        }
+      }
+      #{$this}__plan {
+        width: 42%;
+        padding-bottom: 0;
+      }
+      #{$this}__info {
+        width: 48%;
+      }
+    }
+  }
+}

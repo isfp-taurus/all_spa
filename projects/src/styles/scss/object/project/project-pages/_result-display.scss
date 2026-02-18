@@ -1,0 +1,31 @@
+@use "../../../core" as *;
+
+.p-result-display {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+
+  &__item {
+    &--fx-start-center {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    &--has-passenger-display {
+      margin-top: 12px;
+      width: 100%;
+    }
+  }
+}
+
+@include is-tb {
+  .p-result-display {
+    &__item {
+      &--has-passenger-display {
+        margin-top: 0;
+        width: auto;
+      }
+    }
+  }
+}

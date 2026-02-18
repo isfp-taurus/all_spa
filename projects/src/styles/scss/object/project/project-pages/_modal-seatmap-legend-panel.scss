@@ -1,0 +1,33 @@
+@use "../../../core" as *;
+
+.p-modal-seatmap-legend-panel {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+
+  &__item {
+    min-width: 220px;
+    display: flex;
+    flex-flow: column;
+    gap: 16px 0;
+  }
+
+  &__row {
+    width: 100%;
+    display: flex;
+
+    &-label {
+      width: 100%;
+      @include font-line(16, 22.4);
+    }
+
+    &-icon {
+      display: flex;
+      flex-shrink: 0;
+    }
+
+    &-icon + &-label {
+      margin-left: 8px;
+    }
+  }
+}

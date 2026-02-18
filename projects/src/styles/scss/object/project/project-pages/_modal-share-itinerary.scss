@@ -1,0 +1,30 @@
+@use "../../../core" as *;
+
+.p-modal-share-itinerary {
+  &__item {
+    & + & {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid $color_gray_10;
+    }
+  }
+
+  &__title {
+    font-weight: bold;
+    @include font-line(16, 22.4);
+  }
+
+  &__list {
+    &-item {
+      margin-top: 12px;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+
+  &__title + &__list {
+    margin-top: 16px;
+  }
+}
