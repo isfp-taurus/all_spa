@@ -1,6 +1,0 @@
-<ng-container *ngIf="type === 'block'; else notBlock"
-  ><span class="c-label-required" [innerHTML]="'message.mandatory' | staticMsg"></span>
-</ng-container>
-<ng-template #notBlock
-  ><span class="c-form-element-{{ type }}__label-required" [innerHTML]="'message.mandatory' | staticMsg"></span
-></ng-template>
