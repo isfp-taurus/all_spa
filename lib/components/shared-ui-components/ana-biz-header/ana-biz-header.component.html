@@ -1,0 +1,419 @@
+<div *ngIf="this.isNotLogin || isError">
+  <!-- [ログイン前ヘッダー] -->
+  <header class="l-biz-header">
+    <div class="l-biz-header__main">
+      <div class="l-wrap">
+        <div class="l-wrap__inner">
+          <div class="l-biz-header__wrap">
+            <div class="l-biz-header__logo-area">
+              <button id="ana-biz-header-logo-ana-biz-not-login" class="l-biz-header__logo-link" aswAllSiteLink>
+                <img [src]="logoFilePath" class="l-biz-header__logo-img" alt="{{ 'alt.logoAnaBiz' | staticMsg }}" />
+              </button>
+            </div>
+            <div class="l-biz-header__sub-area">
+              <ul
+                class="l-biz-header__sub-list u-display-flex-tb"
+                [attr.inert]="this.isAnaBizMenuOpen ? true : null"
+                *ngIf="!isError"
+              >
+                <li class="l-biz-header__sub-item" *ngIf="this.isEnabledLogin">
+                  <button
+                    id="ana-biz-header-amc-login-button"
+                    class="c-btn-quaternary c-btn-quaternary--login"
+                    (click)="clickAMCLoginEvent()"
+                  >
+                    <span class="c-btn-quaternary__text" [innerHTML]="'label.login2' | staticMsg"></span>
+                  </button>
+                </li>
+              </ul>
+              <div class="l-biz-header__close u-display-block-sp">
+                <button
+                  id="ana-biz-header-open-button-not-login-menu"
+                  class="l-biz-header-non-member-drawer-close js-menu-btn"
+                  [attr.aria-label]="'alt.hamburgerMemu' | staticMsg"
+                  aria-controls="drawer-menu"
+                  aria-expanded="false"
+                  (click)="clickMenuSpEvent()"
+                >
+                  <span></span><span></span><span></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ng-container *ngIf="this.isBizHeader">
+      <div class="l-biz-header__block u-display-block-tb">
+        <div class="l-wrap">
+          <div class="l-wrap__inner">
+            <div class="l-biz-header__wrap">
+              <div class="l-biz-header__sub-area">
+                <ul class="l-biz-header__sub-list u-display-flex-tb">
+                  <li class="l-biz-header__sub-item">
+                    <button
+                      id="ana-biz-header-top-page-not-login"
+                      class="c-text-link"
+                      aswAllSiteLink
+                      [innerHTML]="'label.all.topPage' | staticMsg"
+                    ></button>
+                  </li>
+                  <li class="l-biz-header__sub-item" *ngIf="!isError">
+                    <a
+                      id="ana-biz-header-biz-booking-search-link-not-login"
+                      [href]="bookingSearchUrl | headerUrl"
+                      class="c-text-link"
+                      [innerHTML]="'label.searchReservation' | staticMsg"
+                      aswThrottleClick
+                      (throttleClick$)="onClickBoolingSearchUrl($event)"
+                    ></a>
+                  </li>
+                  <li
+                    class="l-biz-header__sub-item"
+                    [innerHTML]="'label.all.contactInformation' | staticMsg : {} : 'ado_blue'"
+                  ></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <div class="l-biz-header__block">
+      <div class="l-wrap">
+        <div class="l-wrap__inner">
+          <div class="l-biz-header__wrap" *ngIf="this.isAnaBizLogin">
+            <div class="l-biz-header__company-area">
+              <span class="l-biz-header__company-main" [innerText]="allBizContext?.companyName"></span>
+              <span class="l-biz-header__company-sub" [innerText]="allBizContext?.departmentName"></span>
+            </div>
+            <div class="l-biz-header__sub-area">
+              <ul class="l-biz-header__sub-list u-display-flex-tb">
+                <li class="l-biz-header__sub-item"></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- [ログイン前メニュー] -->
+    <div id="drawer-menu" class="l-biz-header-drawer u-display-block-sp" aria-hidden="false">
+      <div class="l-biz-header-drawer__inner">
+        <nav class="l-biz-header-drawer__body">
+          <div class="l-biz-header-drawer__menu-area" tabindex="0">
+            <div class="p-drawer-menu-non-member" [attr.inert]="!this.isAnaBizMenuOpen ? true : null">
+              <div class="p-drawer-menu-non-member__block" *ngIf="this.isAnaBizLogin">
+                <div class="p-drawer-menu-non-member__company">
+                  <div class="p-drawer-menu-non-member__company-label">
+                    <span
+                      class="p-drawer-menu-non-member__company-label-main"
+                      [innerText]="allBizContext?.companyName"
+                    ></span>
+                    <span
+                      class="p-drawer-menu-non-member__company-label-sub"
+                      [innerText]="allBizContext?.departmentName"
+                    ></span>
+                  </div>
+                </div>
+              </div>
+
+              <ng-container *ngIf="!isError">
+                <div class="p-drawer-menu-non-member__block">
+                  <ul class="p-drawer-menu-non-member__list">
+                    <li class="p-drawer-menu-non-member__item">
+                      <a
+                        id="ana-biz-header-biz-booking-search-link-not-login-menu"
+                        [href]="bookingSearchUrl | headerUrl"
+                        class="p-drawer-menu-non-member__link"
+                        tabindex="-1"
+                        [innerHTML]="'label.searchReservation' | staticMsg"
+                        aswThrottleClick
+                        (throttleClick$)="onClickBoolingSearchUrl($event)"
+                      ></a>
+                    </li>
+                  </ul>
+                </div>
+              </ng-container>
+              <div class="p-drawer-menu-non-member__btn-area">
+                <ul class="p-drawer-menu-non-member__info">
+                  <li class="p-drawer-menu-non-member__info-item">
+                    <button
+                      id="ana-biz-header-top-page-not-login-menu"
+                      class="p-drawer-menu-non-member__info-link"
+                      tabindex="0"
+                      aswAllSiteLink
+                      [innerHTML]="'label.all.topPage' | staticMsg"
+                    ></button>
+                  </li>
+                  <li
+                    class="p-drawer-menu-non-member__info-item"
+                    [innerHTML]="'label.all.contactInformation' | staticMsg : {} : 'ado_blue'"
+                  ></li>
+                </ul>
+                <div class="p-drawer-menu-non-member__logout" *ngIf="this.isEnabledLogin">
+                  <button
+                    id="ana-biz-header-amc-login-button-not-login-menu"
+                    class="c-btn-primary c-btn-primary--xs"
+                    tabindex="-1"
+                    (click)="clickAMCLoginEvent()"
+                  >
+                    <span class="c-btn-primary__text" [innerHTML]="'label.login2' | staticMsg"></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div class="l-biz-header-drawer__bg"></div>
+    </div>
+    <!-- //[ログイン前メニュー] -->
+  </header>
+  <!-- //[ログイン前ヘッダー] -->
+</div>
+
+<div *ngIf="!this.isNotLogin && !isError">
+  <!-- [ログイン後ヘッダー] -->
+  <header class="l-biz-header">
+    <div class="l-biz-header__main">
+      <div class="l-wrap">
+        <div class="l-wrap__inner">
+          <div class="l-biz-header__wrap">
+            <div class="l-biz-header__logo-area">
+              <button id="ana-biz-header-logo-ana-biz-login" class="l-biz-header__logo-link" aswAllSiteLink>
+                <img [src]="logoFilePath" class="l-biz-header__logo-img" alt="{{ 'alt.logoAnaBiz' | staticMsg }}" />
+              </button>
+            </div>
+            <div class="l-biz-header__sub-area">
+              <ul class="l-biz-header__sub-list">
+                <li class="l-biz-header__sub-item">
+                  <button
+                    id="ana-biz-header-open-button-login"
+                    class="l-biz-header__user js-menu-btn"
+                    [attr.aria-label]="'alt.hamburgerMemu' | staticMsg"
+                    aria-controls="drawer-menu"
+                    aria-expanded="false"
+                    (click)="openMenuEvent()"
+                  >
+                    <span
+                      class="l-biz-header__user-name"
+                      [innerHTML]="
+                        _headerService.getLetrName()
+                          | staticMsg
+                            : {
+                                '0': _headerService.getFullName() ? _headerService.getFullName() || '' : ''
+                              }
+                      "
+                    ></span>
+                  </button>
+                </li>
+                <li
+                  class="l-header__sub-item u-display-block-tb"
+                  [innerHTML]="
+                    'label.mileage'
+                      | staticMsg
+                        : {
+                            '0': amcMemberData.mileBalance ?? 0 | numberFormat : ('label.mileageFormat' | staticMsg)
+                          }
+                  "
+                ></li>
+              </ul>
+              <div class="l-biz-header__close">
+                <button
+                  id="ana-biz-header-close-button-login"
+                  class="l-biz-header-member-drawer-close js-menu-btn"
+                  aria-controls="drawer-menu"
+                  aria-expanded="false"
+                  (click)="closeMenuEvent()"
+                >
+                  <span class="u-visually-hidden" [innerHTML]="'label.close' | staticMsg"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ng-container *ngIf="this.isBizHeader">
+      <div class="l-biz-header__block u-display-block-tb">
+        <div class="l-wrap">
+          <div class="l-wrap__inner">
+            <div class="l-biz-header__wrap">
+              <div class="l-biz-header__sub-area">
+                <ul class="l-biz-header__sub-list u-display-flex-tb">
+                  <li class="l-biz-header__sub-item">
+                    <button
+                      id="ana-biz-header-top-page-login"
+                      class="c-text-link"
+                      aswAllSiteLink
+                      [innerHTML]="'label.all.topPage' | staticMsg"
+                    ></button>
+                  </li>
+                  <li class="l-biz-header__sub-item">
+                    <a
+                      id="ana-biz-header-biz-booking-search-link-login"
+                      [href]="bookingSearchUrl | headerUrl"
+                      class="c-text-link"
+                      [innerHTML]="'label.searchReservation' | staticMsg"
+                      aswThrottleClick
+                      (throttleClick$)="onClickBoolingSearchUrl($event)"
+                    ></a>
+                  </li>
+                  <li
+                    class="l-biz-header__sub-item"
+                    [innerHTML]="'label.all.contactInformation' | staticMsg : {} : 'ado_blue'"
+                  ></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <div class="l-biz-header__block">
+      <div class="l-wrap">
+        <div class="l-wrap__inner">
+          <div class="l-biz-header__wrap" *ngIf="this.isAnaBizLogin">
+            <div class="l-biz-header__company-area">
+              <span class="l-biz-header__company-main" [innerText]="allBizContext?.companyName"></span>
+              <span class="l-biz-header__company-sub" [innerText]="allBizContext?.departmentName"> </span>
+            </div>
+            <div class="l-biz-header__sub-area">
+              <ul class="l-biz-header__sub-list u-display-flex-tb"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- [ログイン後メニュー] -->
+    <div id="drawer-menu" class="l-biz-header-drawer" aria-hidden="false">
+      <div class="l-biz-header-drawer__inner">
+        <nav class="l-biz-header-drawer__body">
+          <div class="l-biz-header-drawer__menu-area" tabindex="0">
+            <div class="p-drawer-menu-member" [attr.inert]="!this.isAnaBizMenuOpen ? true : null">
+              <div class="p-drawer-menu-member__block" *ngIf="this.isAnaBizLogin">
+                <div class="p-drawer-menu-member__company">
+                  <div class="p-drawer-menu-member__company-label">
+                    <span
+                      class="p-drawer-menu-member__company-label-main"
+                      [innerText]="allBizContext?.companyName"
+                    ></span>
+                    <span class="p-drawer-menu-member__company-label-sub" [innerText]="allBizContext?.departmentName">
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="p-drawer-menu-member__block">
+                <div class="p-drawer-menu-member__item">
+                  <div class="p-drawer-menu-member__name">
+                    <div
+                      [innerHTML]="
+                        _headerService.getLetrName()
+                          | staticMsg : { '0': _headerService.getFullName() ? _headerService.getFullName() : '' }
+                      "
+                    ></div>
+                  </div>
+                </div>
+                <dl class="p-drawer-menu-member__def">
+                  <div class="p-drawer-menu-member__item">
+                    <dt
+                      class="p-drawer-menu-member__item-heading p-drawer-menu-member__item-heading--gray70"
+                      [innerHTML]="'label.mileage1' | staticMsg"
+                    ></dt>
+                    <dd
+                      class="p-drawer-menu-member__item-body"
+                      [innerHTML]="
+                        'label.mileage'
+                          | staticMsg
+                            : {
+                                '0': amcMemberData.mileBalance ?? 0 | numberFormat : ('label.mileageFormat' | staticMsg)
+                              }
+                      "
+                    ></dd>
+                  </div>
+                </dl>
+                <ul class="p-drawer-menu-member__list">
+                  <li class="p-drawer-menu-member__item">
+                    <a
+                      id="ana-biz-header-biz-use-miles-login"
+                      href="/"
+                      class="p-drawer-menu-member__link p-drawer-menu-member__link--external"
+                      target="_blank"
+                      tabindex="0"
+                    >
+                      <span class="p-drawer-menu-member__link-wrap">
+                        <span
+                          class="p-drawer-menu-member__link-label"
+                          [innerHTML]="'label.useMiles' | staticMsg"
+                        ></span>
+                      </span>
+                    </a>
+                  </li>
+                  <li class="p-drawer-menu-member__item">
+                    <a
+                      id="ana-biz-header-biz-earn-miles-login"
+                      href="/"
+                      class="p-drawer-menu-member__link p-drawer-menu-member__link--external"
+                      target="_blank"
+                      tabindex="0"
+                    >
+                      <span class="p-drawer-menu-member__link-wrap">
+                        <span
+                          class="p-drawer-menu-member__link-label"
+                          [innerHTML]="'label.earnMiles' | staticMsg"
+                        ></span>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="p-drawer-menu-member__block">
+                <ul class="p-drawer-menu-member__list">
+                  <li class="p-drawer-menu-member__item">
+                    <a
+                      id="ana-biz-header-biz-booking-search-link-login-menu"
+                      [href]="bookingSearchUrl | headerUrl"
+                      class="p-drawer-menu-member__link"
+                      tabindex="0"
+                      aswThrottleClick
+                      (throttleClick$)="onClickBoolingSearchUrl($event)"
+                    >
+                      <span class="p-drawer-menu-member__link-wrap">
+                        <span
+                          class="p-drawer-menu-member__link-label p-drawer-menu-member__link-label--em"
+                          [innerHTML]="'label.searchReservation' | staticMsg"
+                        ></span>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="p-drawer-menu-member__btn-area">
+                <ul class="p-drawer-menu-member__info">
+                  <li class="p-drawer-menu-member__info-item">
+                    <button
+                      id="ana-biz-header-top-page-login-menu"
+                      class="p-drawer-menu-member__info-link"
+                      tabindex="0"
+                      aswAllSiteLink
+                      [innerHTML]="'label.all.topPage' | staticMsg"
+                    ></button>
+                  </li>
+                  <li
+                    class="p-drawer-menu-non-member__info-item"
+                    [innerHTML]="'label.all.contactInformation' | staticMsg : {} : 'ado_blue'"
+                  ></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div class="l-biz-header-drawer__bg"></div>
+    </div>
+    <!-- //[ログイン後メニュー] -->
+  </header>
+  <!-- //[ログイン後ヘッダー] -->
+</div>

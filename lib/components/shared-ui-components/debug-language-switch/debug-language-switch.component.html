@@ -1,0 +1,3 @@
+<asw-select (change$)="changeLang()" [(ngModel)]="selectedLang" label="Language Switch">
+  <option *ngFor="let item of langDetails" [value]="item.value">{{ item.label }}</option>
+</asw-select>

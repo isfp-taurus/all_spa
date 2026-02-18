@@ -1,0 +1,35 @@
+<div [ngClass]="{ 'c-checkbox-list__item': parent }">
+  <div
+    class="c-form-element-checkbox"
+    [ngClass]="{ 'is-disabled': disableForParent || disabled, 'is-error': showError && !parent }"
+  >
+    <div class="c-form-element-checkbox__wrap">
+      <input
+        type="checkbox"
+        name="{{ name }}"
+        id="checkbox_{{ id }}"
+        class="c-form-element-checkbox__input"
+        [attr.aria-invalid]="showError && !parent"
+        [attr.aria-required]="required"
+        attr.aria-describedby="{{ showError && !parent ? 'checkbox_' + id + '_error' : '' }}"
+        [disabled]="disableForParent || disabled"
+        [checked]="checked"
+        [(ngModel)]="data"
+        (change)="onChangeHandle($event)"
+        (blur)="onBlurHandle($event)"
+      />
+      <label for="checkbox_{{ id }}" class="c-form-element-checkbox__label">
+        <span class="c-form-element-checkbox__check"></span>
+        <span class="c-form-element-checkbox__text" [ngClass]="{ 'u-visually-hidden': isHidden }">
+          <span [innerHTML]="label"> </span>
+          <ng-container *ngIf="required">
+            <asw-indicator-required type="checkbox"></asw-indicator-required>
+          </ng-container>
+        </span>
+      </label>
+    </div>
+  </div>
+  <ng-container *ngIf="!parent && showError">
+    <asw-validation-error id="{{ 'checkbox_' + id + '_error' }}" [errorMessage]="errors[0]"></asw-validation-error>
+  </ng-container>
+</div>

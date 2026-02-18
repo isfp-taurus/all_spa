@@ -1,0 +1,33 @@
+<fieldset class="c-select-group" [ngClass]="{ 'is-error': isError }">
+  <legend class="c-select-group__legend u-visually-hidden">{{ title }}</legend>
+  <div class="c-select-group__wrap">
+    <div *ngFor="let data of selectData; index as i" class="c-select-group__item">
+      <div class="c-form-element-select is-selected" [ngClass]="{ 'is-error': isError, 'is-disabled': disabled }">
+        <div class="c-form-element-select__wrap">
+          <label for="{{ data.id }}--select1" class="c-form-element-select__label">
+            <span class="c-form-element-select__label-text" [innerHTML]="data.label | staticMsg"></span>
+          </label>
+          <select
+            [class]="className"
+            id="{{ data.id }}-select1"
+            attr.aria-describedby="{{ id }}"
+            [attr.aria-invalid]="isError"
+            [title]="data.altLabel ? (data.altLabel | staticMsg) : ''"
+            [(ngModel)]="data.num"
+            (change)="onChangeSelect()"
+            (blur)="onBlurSelect()"
+            [disabled]="disabled"
+          >
+            <option value="null"></option>
+            <ng-container *ngFor="let op of data.option">
+              <option *ngIf="data.dateType !== 2 || op.value <= maxDay" [value]="op.value">{{ op.disp }}</option>
+            </ng-container>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</fieldset>
+<ng-container *ngIf="isError">
+  <asw-validation-error [errorMessage]="innerErrors"></asw-validation-error>
+</ng-container>

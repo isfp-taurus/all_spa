@@ -1,0 +1,6 @@
+<div [id]="modalId" [class]="lmodalClass" (keydown)="keyDownModalEvent($event)">
+  <div [class]="lmodalBgClass" (click)="onEscapeEvent()"></div>
+  <div [class]="lmodalInnerClass">
+    <ng-template #view></ng-template>
+  </div>
+</div>

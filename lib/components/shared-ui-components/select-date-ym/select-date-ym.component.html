@@ -1,0 +1,32 @@
+<fieldset class="c-select-group" [ngClass]="{ 'is-error': showError }">
+  <legend class="c-select-group__legend u-visually-hidden">{{ legend }}</legend>
+  <div class="c-select-group__wrap">
+    <ng-container *ngIf="this.displayType === 'ym'; else myDisplay">
+      <asw-select #select label="{{ yearLabel | staticMsg }}">
+        <option *ngFor="let year of years" [value]="year === yearsEmpty ? '' : year">
+          {{ year === yearsEmpty ? (year | staticMsg) : ('dateSelect.year' | staticMsg : { '0': year }) }}
+        </option>
+      </asw-select>
+      <asw-select #select label="{{ monthLabel | staticMsg }}">
+        <option *ngFor="let month of months" [value]="month === monthsEmpty ? '' : month">
+          {{ month === monthsEmpty ? (month | staticMsg) : ('dateSelect.month' | staticMsg : { '0': month }) }}
+        </option>
+      </asw-select>
+    </ng-container>
+    <ng-template #myDisplay>
+      <asw-select #select label="{{ monthLabel | staticMsg }}">
+        <option *ngFor="let month of months" [value]="month === monthsEmpty ? '' : month">
+          {{ month === monthsEmpty ? (month | staticMsg) : ('dateSelect.month' | staticMsg : { '0': month }) }}
+        </option>
+      </asw-select>
+      <asw-select #select label="{{ yearLabel | staticMsg }}">
+        <option *ngFor="let year of years" [value]="year === yearsEmpty ? '' : year">
+          {{ year === yearsEmpty ? (year | staticMsg) : ('dateSelect.year' | staticMsg : { '0': year }) }}
+        </option>
+      </asw-select>
+    </ng-template>
+  </div>
+</fieldset>
+<ng-container *ngIf="showError">
+  <asw-validation-error id="{{ groupId }}_error" [errorMessage]="errors[0]"></asw-validation-error>
+</ng-container>

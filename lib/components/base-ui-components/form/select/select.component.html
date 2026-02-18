@@ -1,0 +1,36 @@
+<div
+  class="c-form-element-select"
+  [ngClass]="{
+    'is-error': showError || isGroupInvalid,
+    'is-disabled': disabled,
+    'is-selected': !showError || (disabled && this.data)
+  }"
+>
+  <div class="c-form-element-select__wrap">
+    <label for="select_{{ id }}" class="c-form-element-select__label">
+      <span class="c-form-element-select__label-text" [innerHTML]="label"></span>
+      <ng-container *ngIf="required">
+        <asw-indicator-required type="select"></asw-indicator-required>
+      </ng-container>
+    </label>
+    <select
+      class="c-form-element-select__select"
+      id="select_{{ id }}"
+      name="{{ name }}"
+      [attr.aria-required]="required"
+      [attr.aria-invalid]="showError || isGroupInvalid"
+      attr.aria-describedby="{{
+        showError || isGroupInvalid ? (parent ? parent.groupId + '_error' : 'select_' + id + '_error') : ''
+      }}"
+      [disabled]="disabled"
+      [(ngModel)]="data"
+      (change)="onChangeHandle($event)"
+      (blur)="onBlurHandle($event)"
+    >
+      <ng-content></ng-content>
+    </select>
+  </div>
+</div>
+<ng-container *ngIf="!parent && showError">
+  <asw-validation-error id="{{ 'select_' + id + '_error' }}" [errorMessage]="errors[0]"></asw-validation-error>
+</ng-container>

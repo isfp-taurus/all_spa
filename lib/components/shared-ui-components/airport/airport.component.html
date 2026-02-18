@@ -1,0 +1,220 @@
+<div
+  class="c-form-element-input c-form-element-input--has-function"
+  [ngClass]="{
+    'is-typed': airportFormControl.value !== '',
+    'is-focus': isFocus,
+    'is-disabled': oldAswTerm,
+    'is-error': ((showError && blurred) || (isInvalid && !isFocus && touched)) && !isModalOpen
+  }"
+>
+  <div class="c-form-element-input__box">
+    <label class="c-form-element-input__wrap" [attr.aria-label]="ariaLabel">
+      <span class="c-form-element-input__label">
+        <span
+          class="c-form-element-input__label-text"
+          [innerHTML]="inputLabel ? inputLabel : (staticMessage.inputLabel | staticMsg)"
+        >
+        </span>
+        <ng-container *ngIf="required">
+          <asw-indicator-required></asw-indicator-required>
+        </ng-container>
+      </span>
+      <span class="c-form-element-input__input">
+        <input
+          #inputAirport
+          type="text"
+          autocomplete="off"
+          [id]="id + 'input2_1'"
+          class="c-form-element-input__input-item"
+          [alt]="staticMessage.howToOpenAirportList | staticMsg"
+          [placeholder]="staticMessage.inputPlaceholder | staticMsg"
+          attr.aria-controls="{{ modalId }}"
+          [formControl]="airportFormControl"
+          (input)="changeInput($event)"
+          (blur)="blurInput()"
+          (focus)="focusInput()"
+          (keydown)="inputKeyDown($event)"
+          [innerHTML]="innerHTML"
+          [attr.disabled]="oldAswTerm ? true : null"
+          [attr.aria-label]="boundIndex === -1 ? null : (ariaLabelSectionNumber | staticMsg : { '0': boundIndex + 1 })"
+        />
+      </span>
+    </label>
+    <!-- サジェストリスト -->
+    <ul
+      *ngIf="!isSP && suggestOpen"
+      class="c-suggest-list js-suggest-body"
+      [ngClass]="{ 'display-none-to-inline': suggestOpen, 'is-open': suggestOpen }"
+      role="listbox"
+      [id]="id + 'suggest-list'"
+      tabindex="0"
+      aria-labelledby="suggest-label"
+    >
+      <li
+        [id]="airport.id"
+        *ngFor="let airport of suggestAirportList"
+        class="c-suggest-list__item"
+        [ngClass]="{ 'is-open': suggestOpen }"
+        role="option"
+        tabindex="0"
+        (mousedown)="clickAirport(airport)"
+      >
+        <p class="c-suggest-list__label js-suggest-label">{{ airport.name }}</p>
+        <p class="c-suggest-list__label">{{ airport.airport_code }}</p>
+      </li>
+    </ul>
+    <!-- //サジェストリスト -->
+    <button
+      id="{{ id }}modalBtn"
+      class="c-form-element-input__function c-form-element-input__function--airport-list"
+      (click)="openAirport()"
+      [disabled]="oldAswTerm"
+    >
+      <span class="u-visually-hidden" [innerHTML]="staticMessage.viewAirportList | staticMsg"></span>
+    </button>
+    <button
+      id="{{ id }}clearBtn"
+      class="c-form-element-input__clear"
+      aria-controls="input2_1"
+      aria-hidden="false"
+      (blur)="blurClear()"
+      (focus)="focusClear()"
+      (throttleClick$)="onClickClear()"
+      aswThrottleClick
+    >
+      <span class="u-visually-hidden" [innerHTML]="'alt.clear' | staticMsg"></span>
+    </button>
+  </div>
+</div>
+<ng-container *ngIf="((showError && blurred) || (isInvalid && !isFocus && touched)) && !isModalOpen">
+  <asw-validation-error [errorMessage]="errors[0]"></asw-validation-error>
+</ng-container>
+
+<!-- [空港一覧モーダル] -->
+<div
+  [id]="modalId"
+  class="l-modal02"
+  [ngClass]="{ 'is-open': isModalOpen, 'display-none-to-inline': isModalOpen, 'is-tb': isTB, 'is-pc': isPC }"
+  (keydown)="keyDownModalEvent($event)"
+>
+  <div class="l-modal02__bg js-modal-close" (click)="closeAirport()"></div>
+  <div class="l-modal02__inner">
+    <div
+      [id]="id + 'modalContents'"
+      class="l-modal02__contents u-modal-size-pc-1000 js-modal-contents"
+      aria-modal="true"
+      role="dialog"
+      attr.aria-labelledby="modalTitle_{{ id }}"
+    >
+      <div #modalHead class="l-modal02__header js-modal-head" [ngClass]="{ 'l-modal02__header--non-border': isSP }">
+        <div class="p-modal-head02">
+          <h2
+            id="modalTitle_{{ id }}"
+            class="p-modal-head02__title"
+            [innerHTML]="
+              staticMessageModalTitle
+                ? (staticMessageModalTitle | staticMsg)
+                : (staticMessage.selectMessage
+                  | staticMsg : { '0': inputLabel ? inputLabel : (staticMessage.inputLabel | staticMsg) })
+            "
+          ></h2>
+          <button id="{{ id }}airport-button1" class="p-modal-head02__close js-modal-close" (click)="closeAirport()">
+            <span class="u-visually-hidden" [innerHTML]="staticMessage.close | staticMsg"></span>
+          </button>
+        </div>
+      </div>
+      <div #modalBody class="l-modal02__body js-modal-body" [ngClass]="{ 'l-modal02__body--bg-gray5': isSP }">
+        <div class="p-airport-list-modal" [ngClass]="{ 'is-open': suggestOpen && isSP }">
+          <div *ngIf="isSP" class="p-airport-list-modal__semifixed">
+            <div class="p-airport-list-modal__input">
+              <div
+                class="c-form-element-input"
+                [ngClass]="{ 'is-typed': airportFormControl.value !== '', 'is-focus': isFocus }"
+              >
+                <div class="c-form-element-input__box">
+                  <label class="c-form-element-input__wrap">
+                    <span class="c-form-element-input__label"
+                      ><span
+                        class="c-form-element-input__label-text"
+                        [innerHTML]="inputLabel ? inputLabel : (staticMessage.inputLabel | staticMsg)"
+                      ></span
+                    ></span>
+                    <span class="c-form-element-input__input">
+                      <input
+                        type="text"
+                        [id]="id + 'input1_1'"
+                        class="c-form-element-input__input-item js-airport-input"
+                        [placeholder]="staticMessage.inputPlaceholder | staticMsg"
+                        aria-required="true"
+                        aria-invalid="false"
+                        [formControl]="airportFormControl"
+                        (input)="changeInput($event)"
+                        (blur)="blurInput(false)"
+                        (focus)="focusInput()"
+                      />
+                    </span>
+                  </label>
+                  <button
+                    id="{{ id }}clearBtnModal"
+                    class="c-form-element-input__clear"
+                    aria-controls="input1_1"
+                    aria-hidden="true"
+                    (blur)="blurClear()"
+                    (focus)="focusClear()"
+                    tabindex="-1"
+                    (throttleClick$)="onClickClear()"
+                    aswThrottleClick
+                  >
+                    <span class="u-visually-hidden" [innerHTML]="'alt.clear' | staticMsg"></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="isSP" class="p-airport-list-modal__suggest">
+            <!-- サジェスト -->
+            <ul
+              [id]="id + 'suggest-list-sp'"
+              class="c-suggest-list js-suggest-body"
+              role="listbox"
+              aria-labelledby="suggest-label"
+            >
+              <li
+                *ngFor="let airport of suggestAirportList; index as i"
+                [id]="id + 'suggestlistsp-' + i"
+                class="c-suggest-list__item"
+                role="option"
+                (mousedown)="clickAirport(airport)"
+              >
+                <p class="c-suggest-list__label js-suggest-label">{{ airport.name }}</p>
+                <p class="c-suggest-list__label">{{ airport.airport_code }}</p>
+              </li>
+            </ul>
+          </div>
+          <div
+            #modalAirportListArea
+            *ngIf="airportFormControl.value?.length === 0 || !isFocus || !isSP"
+            id="area-01"
+            class="p-airport-list-modal__contents js-modal-scroll-pc"
+            tabindex="-1"
+          >
+            <ul class="p-airport-list-modal__airport-list">
+              <li *ngFor="let airport of airportListView; index as i" class="p-airport-list-modal__airport-item">
+                <button
+                  id="{{ id }}-airport-button{{ i }}"
+                  class="p-airport-list-modal__btn"
+                  (throttleClick$)="clickAirport(airport)"
+                  aswThrottleClick
+                >
+                  <span class="p-airport-list-modal__btn-name">{{ airport.name }}</span>
+                  <span class="p-airport-list-modal__btn-id">{{ airport.airport_code }}</span>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- //[モーダル] -->

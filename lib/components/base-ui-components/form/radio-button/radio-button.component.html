@@ -1,0 +1,26 @@
+<div class="c-radio-list__item">
+  <div class="c-form-element-radio" [ngClass]="{ 'is-disabled': parent.disabled || disableForParent || disabled }">
+    <div class="c-form-element-radio__wrap">
+      <input
+        type="radio"
+        name="{{ parent.name }}"
+        id="radio_{{ id }}"
+        class="c-form-element-radio__input"
+        [attr.aria-invalid]="parent.invalid"
+        value="{{ value }}"
+        [disabled]="parent.disabled || disableForParent || disabled"
+        [checked]="parent.data === value"
+        (change)="onChangeHandle($event)"
+        (blur)="onBlurHandle($event)"
+      />
+      <label for="radio_{{ id }}" class="c-form-element-radio__label">
+        <span class="c-form-element-radio__check"></span>
+        <span
+          class="c-form-element-radio__text"
+          [ngClass]="{ 'u-visually-hidden': isHidden }"
+          [innerHTML]="label"
+        ></span>
+      </label>
+    </div>
+  </div>
+</div>
