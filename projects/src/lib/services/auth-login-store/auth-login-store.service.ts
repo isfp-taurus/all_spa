@@ -4,7 +4,7 @@ import { SupportClass } from '@lib/components/support-class';
 import { select, Store } from '@ngrx/store';
 import { filter, Observable, take } from 'rxjs';
 import { AuthLoginRequest, AuthLoginResponse, GetMemberInformationResponse, MemberApiService } from 'src/sdk-member';
-import { HttpHeaders, HttpResponse } from '@angular/common/http';
+import { HttpHeaders, HttpResponse, HttpStatusCode } from '@angular/common/http';
 import { ApiErrorResponseService, CommonLibService, GetMemberInformationStoreService } from '@lib/services';
 import {
   AMCMemberModel,
@@ -64,12 +64,9 @@ export class AuthLoginStoreService extends SupportClass {
                 this._common.amcMemberStoreService.saveMemberInformationToAMCMember$(),
                 (result) => {
                   if (result.isFailure) {
-                    const errorResponse = this._common.apiError;
-
                     const apiError: HttpResponse<object> = new HttpResponse({
-                      status: errorResponse?.['status'],
-                      headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-                      body: errorResponse?.errors,
+                      status: HttpStatusCode.InternalServerError,
+                      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
                     });
                     resolve(apiError);
                   } else {
