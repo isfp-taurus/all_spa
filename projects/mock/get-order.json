@@ -1,0 +1,1148 @@
+{
+    "data": {
+        "orderId": "FXNJVV",
+        "criteoTransactionId": "20260225yoDm+Kt7Lu8=",
+        "linkedOrders": [],
+        "orderStatus": "unpurchased",
+        "nextActions": {
+            "emailAddressRegistration": true,
+            "acknowledgeOrSelfReaccommodation": false,
+            "offlinePayment": false,
+            "payment": true,
+            "paymentDetails": {
+                "paymentDeadline": "2026-02-25T18:03:00",
+                "isCloseToDeadline": true,
+                "applyForTicketing": false
+            },
+            "registrationOfVouchers": {
+                "disabilityDiscount": false,
+                "islandsTicket": false
+            },
+            "onlineCheckin": false,
+            "juniorPilotRequest": false,
+            "seatRequest": false,
+            "regulatoryDetailsRegistration": false
+        },
+        "servicingPointOfSale": {
+            "pointOfSaleId": "KMI6J08DD",
+            "countryCode": "JP"
+        },
+        "creationPointOfSale": {
+            "pointOfSaleId": "KMI6J08DD",
+            "countryCode": "JP"
+        },
+        "air": {
+            "tripType": "domestic",
+            "isContainedCancelledFlight": false,
+            "isContainedCancelledNhFlight": false,
+            "isPartiallyBoarded": false,
+            "isContainedNhGroupMarketingSegment": true,
+            "isContainedNhGroupOperatingSegment": true,
+            "isContainedOtherCarrierMarketingSegment": false,
+            "isContainedOtherCarrierOperatingSegment": false,
+            "isContainedWaitlistedSegment": false,
+            "isContainedScheduleChangedFlight": false,
+            "isCreditCardOnlyFare": false,
+            "isCompanyStaffFare": false,
+            "bounds": [
+                {
+                    "airBoundId": "1",
+                    "originLocationCode": "HND",
+                    "destinationLocationCode": "OKA",
+                    "originLocationName": "TOKYO INTL HANEDA",
+                    "originDepartureDateTime": "2026-05-22T19:10:00",
+                    "originDepartureEstimatedDateTime": "",
+                    "destinationArrivalDateTime": "2026-05-22T21:55:00",
+                    "destinationArrivalEstimatedDateTime": "",
+                    "flights": [
+                        {
+                            "id": "ST1",
+                            "cabin": "eco",
+                            "bookingClass": "B",
+                            "statusCode": "HK",
+                            "statusType": "confirmed",
+                            "arrivalDaysDifferenceByFlight": 0,
+                            "isMultiAirportConnection": false,
+                            "isFlown": false,
+                            "operationStatus": {
+                                "isDelayed": false,
+                                "isCancelled": false
+                            },
+                            "marketingAirlineCode": "6J",
+                            "marketingFlightNumber": "025",
+                            "operatingAirlineCode": "6J",
+                            "operatingAirlineName": "SOLASEED AIR",
+                            "departure": {
+                                "locationCode": "HND",
+                                "locationName": "TOKYO INTL HANEDA",
+                                "terminal": "2",
+                                "dateTime": "2026-05-22T19:10:00",
+                                "gate": "",
+                                "country2letterCode": "JP",
+                                "iataAreaCode": "4",
+                                "cityCode": "TYO",
+                                "cityName": "TOKYO"
+                            },
+                            "arrival": {
+                                "locationCode": "OKA",
+                                "locationName": "NAHA",
+                                "terminal": "D",
+                                "dateTime": "2026-05-22T21:55:00",
+                                "gate": "",
+                                "country2letterCode": "JP",
+                                "iataAreaCode": "4",
+                                "cityCode": "OKA",
+                                "cityName": "OKINAWA"
+                            },
+                            "aircraftCode": "738",
+                            "aircraftName": "BOEING 737-800",
+                            "isSmallAircraft": false,
+                            "duration": 9900,
+                            "isLateNightDeparture": false,
+                            "isOpenSegment": false,
+                            "isSubjectToGovernmentApproval": false,
+                            "stops": [],
+                            "aircraftConfigurationVersion": "382",
+                            "flightServices": {
+                                "isLoungeAvailable": false,
+                                "wiFiType": ""
+                            },
+                            "meal": {
+                                "mealCode": ""
+                            },
+                            "isScheduleChanged": false,
+                            "scheduleChangeType": "",
+                            "isUpgraded": false,
+                            "upgradeType": "",
+                            "isDynamicWaiverApplicable": false,
+                            "isStarAllianceOperated": false,
+                            "availableCabins": [],
+                            "isNhGroupMarketing": true,
+                            "isNhGroupOperated": true,
+                            "operatingType": "nhGroupOperating",
+                            "isNeededToSupplementBookingClass": false,
+                            "fareInfos": {
+                                "fareClass": "B1VR1ZEU",
+                                "fareFamilyCode": "STANDARD",
+                                "priorityCode": "0100",
+                                "fareType": "other",
+                                "services": {
+                                    "seat": {
+                                        "applicability": "included"
+                                    }
+                                },
+                                "ticketDesignator": ""
+                            },
+                            "isDepartedWithin48Hours": false,
+                            "isJapanDomesticFlight": true,
+                            "isDepartedWithin24Hours": false,
+                            "isOnboarded": true
+                        }
+                    ],
+                    "duration": 9900,
+                    "isOtherMethodsConnection": false,
+                    "isContainedWaitlisted": false,
+                    "isFlix": false,
+                    "disruptionStatus": {},
+                    "isNotPassedChangeableTimeLimit": true,
+                    "isContainedChineseSegment": false,
+                    "isContainedDynamicWaiverRefundFlight": false,
+                    "isContainedDynamicWaiverChangeFlight": false,
+                    "isStayedAtNaritaDuringConnection": false,
+                    "cancel": {
+                        "isContainedSegment": false,
+                        "reasonCodes": []
+                    },
+                    "delay": {
+                        "isContainedSegment": false,
+                        "reasonCodes": []
+                    },
+                    "earlyDeparture": {
+                        "isContainedSegment": false,
+                        "reasonCodes": []
+                    },
+                    "isNotEligible": false,
+                    "wiFiType": "",
+                    "isIrregularCompensationEligible": false,
+                    "isDcsWindow": false,
+                    "isAlreadyAcknowledged": false,
+                    "isAutomaticAcknowledge": false
+                },
+                {
+                    "airBoundId": "2",
+                    "originLocationCode": "OKA",
+                    "destinationLocationCode": "ISG",
+                    "originLocationName": "NAHA",
+                    "originDepartureDateTime": "2026-05-23T17:10:00",
+                    "originDepartureEstimatedDateTime": "",
+                    "destinationArrivalDateTime": "2026-05-23T18:10:00",
+                    "destinationArrivalEstimatedDateTime": "",
+                    "flights": [
+                        {
+                            "id": "ST2",
+                            "cabin": "eco",
+                            "bookingClass": "B",
+                            "statusCode": "HK",
+                            "statusType": "confirmed",
+                            "arrivalDaysDifferenceByFlight": 0,
+                            "isMultiAirportConnection": false,
+                            "isFlown": false,
+                            "operationStatus": {
+                                "isDelayed": false,
+                                "isCancelled": false
+                            },
+                            "marketingAirlineCode": "6J",
+                            "marketingFlightNumber": "049",
+                            "operatingAirlineCode": "6J",
+                            "operatingAirlineName": "SOLASEED AIR",
+                            "departure": {
+                                "locationCode": "OKA",
+                                "locationName": "NAHA",
+                                "terminal": "D",
+                                "dateTime": "2026-05-23T17:10:00",
+                                "gate": "",
+                                "country2letterCode": "JP",
+                                "iataAreaCode": "4",
+                                "cityCode": "OKA",
+                                "cityName": "OKINAWA"
+                            },
+                            "arrival": {
+                                "locationCode": "ISG",
+                                "locationName": "ISHIGAKI",
+                                "terminal": "",
+                                "dateTime": "2026-05-23T18:10:00",
+                                "gate": "",
+                                "country2letterCode": "JP",
+                                "iataAreaCode": "4",
+                                "cityCode": "ISG",
+                                "cityName": "ISHIGAKI"
+                            },
+                            "aircraftCode": "738",
+                            "aircraftName": "BOEING 737-800",
+                            "isSmallAircraft": false,
+                            "duration": 3600,
+                            "isLateNightDeparture": false,
+                            "isOpenSegment": false,
+                            "isSubjectToGovernmentApproval": false,
+                            "stops": [],
+                            "aircraftConfigurationVersion": "382",
+                            "flightServices": {
+                                "isLoungeAvailable": false,
+                                "wiFiType": ""
+                            },
+                            "meal": {
+                                "mealCode": ""
+                            },
+                            "isScheduleChanged": false,
+                            "scheduleChangeType": "",
+                            "isUpgraded": false,
+                            "upgradeType": "",
+                            "isDynamicWaiverApplicable": false,
+                            "isStarAllianceOperated": false,
+                            "availableCabins": [],
+                            "isNhGroupMarketing": true,
+                            "isNhGroupOperated": true,
+                            "operatingType": "nhGroupOperating",
+                            "isNeededToSupplementBookingClass": false,
+                            "fareInfos": {
+                                "fareClass": "B1VR1ZEU",
+                                "fareFamilyCode": "STANDARD",
+                                "priorityCode": "0100",
+                                "fareType": "other",
+                                "services": {
+                                    "seat": {
+                                        "applicability": "included"
+                                    }
+                                },
+                                "ticketDesignator": ""
+                            },
+                            "isDepartedWithin48Hours": false,
+                            "isJapanDomesticFlight": true,
+                            "isDepartedWithin24Hours": false,
+                            "isOnboarded": true
+                        }
+                    ],
+                    "duration": 3600,
+                    "isOtherMethodsConnection": false,
+                    "isContainedWaitlisted": false,
+                    "isFlix": false,
+                    "disruptionStatus": {},
+                    "isNotPassedChangeableTimeLimit": true,
+                    "isContainedChineseSegment": false,
+                    "isContainedDynamicWaiverRefundFlight": false,
+                    "isContainedDynamicWaiverChangeFlight": false,
+                    "isStayedAtNaritaDuringConnection": false,
+                    "cancel": {
+                        "isContainedSegment": false,
+                        "reasonCodes": []
+                    },
+                    "delay": {
+                        "isContainedSegment": false,
+                        "reasonCodes": []
+                    },
+                    "earlyDeparture": {
+                        "isContainedSegment": false,
+                        "reasonCodes": []
+                    },
+                    "isNotEligible": false,
+                    "wiFiType": "",
+                    "isIrregularCompensationEligible": false,
+                    "isDcsWindow": false,
+                    "isAlreadyAcknowledged": false,
+                    "isAutomaticAcknowledge": false
+                },
+                {
+                    "airBoundId": "3",
+                    "originLocationCode": "ISG",
+                    "destinationLocationCode": "HND",
+                    "originLocationName": "ISHIGAKI",
+                    "originDepartureDateTime": "2026-05-29T18:50:00",
+                    "originDepartureEstimatedDateTime": "",
+                    "destinationArrivalDateTime": "2026-05-30T12:15:00",
+                    "destinationArrivalEstimatedDateTime": "",
+                    "flights": [
+                        {
+                            "id": "ST3",
+                            "cabin": "eco",
+                            "bookingClass": "B",
+                            "statusCode": "HK",
+                            "statusType": "confirmed",
+                            "arrivalDaysDifferenceByFlight": 0,
+                            "connectionTime": 50400,
+                            "isMultiAirportConnection": false,
+                            "isFlown": false,
+                            "operationStatus": {
+                                "isDelayed": false,
+                                "isCancelled": false
+                            },
+                            "marketingAirlineCode": "6J",
+                            "marketingFlightNumber": "050",
+                            "operatingAirlineCode": "6J",
+                            "operatingAirlineName": "SOLASEED AIR",
+                            "departure": {
+                                "locationCode": "ISG",
+                                "locationName": "ISHIGAKI",
+                                "terminal": "",
+                                "dateTime": "2026-05-29T18:50:00",
+                                "gate": "",
+                                "country2letterCode": "JP",
+                                "iataAreaCode": "4",
+                                "cityCode": "ISG",
+                                "cityName": "ISHIGAKI"
+                            },
+                            "arrival": {
+                                "locationCode": "OKA",
+                                "locationName": "NAHA",
+                                "terminal": "D",
+                                "dateTime": "2026-05-29T19:50:00",
+                                "gate": "",
+                                "country2letterCode": "JP",
+                                "iataAreaCode": "4",
+                                "cityCode": "OKA",
+                                "cityName": "OKINAWA"
+                            },
+                            "aircraftCode": "738",
+                            "aircraftName": "BOEING 737-800",
+                            "isSmallAircraft": false,
+                            "duration": 3600,
+                            "isLateNightDeparture": false,
+                            "isOpenSegment": false,
+                            "isSubjectToGovernmentApproval": false,
+                            "stops": [],
+                            "aircraftConfigurationVersion": "382",
+                            "flightServices": {
+                                "isLoungeAvailable": false,
+                                "wiFiType": ""
+                            },
+                            "meal": {
+                                "mealCode": ""
+                            },
+                            "isScheduleChanged": false,
+                            "scheduleChangeType": "",
+                            "isUpgraded": false,
+                            "upgradeType": "",
+                            "isDynamicWaiverApplicable": false,
+                            "isStarAllianceOperated": false,
+                            "availableCabins": [],
+                            "isNhGroupMarketing": true,
+                            "isNhGroupOperated": true,
+                            "operatingType": "nhGroupOperating",
+                            "isNeededToSupplementBookingClass": false,
+                            "fareInfos": {
+                                "fareClass": "B1VR1ZEU",
+                                "fareFamilyCode": "STANDARD",
+                                "priorityCode": "0100",
+                                "fareType": "other",
+                                "services": {
+                                    "seat": {
+                                        "applicability": "included"
+                                    }
+                                },
+                                "ticketDesignator": ""
+                            },
+                            "isDepartedWithin48Hours": false,
+                            "isJapanDomesticFlight": true,
+                            "isDepartedWithin24Hours": false,
+                            "isOnboarded": true
+                        },
+                        {
+                            "id": "ST4",
+                            "cabin": "eco",
+                            "bookingClass": "B",
+                            "statusCode": "HK",
+                            "statusType": "confirmed",
+                            "departureDaysDifferenceByBound": 1,
+                            "arrivalDaysDifferenceByFlight": 0,
+                            "isMultiAirportConnection": false,
+                            "isFlown": false,
+                            "operationStatus": {
+                                "isDelayed": false,
+                                "isCancelled": false
+                            },
+                            "marketingAirlineCode": "6J",
+                            "marketingFlightNumber": "022",
+                            "operatingAirlineCode": "6J",
+                            "operatingAirlineName": "SOLASEED AIR",
+                            "departure": {
+                                "locationCode": "OKA",
+                                "locationName": "NAHA",
+                                "terminal": "D",
+                                "dateTime": "2026-05-30T09:50:00",
+                                "gate": "",
+                                "country2letterCode": "JP",
+                                "iataAreaCode": "4",
+                                "cityCode": "OKA",
+                                "cityName": "OKINAWA"
+                            },
+                            "arrival": {
+                                "locationCode": "HND",
+                                "locationName": "TOKYO INTL HANEDA",
+                                "terminal": "2",
+                                "dateTime": "2026-05-30T12:15:00",
+                                "gate": "",
+                                "country2letterCode": "JP",
+                                "iataAreaCode": "4",
+                                "cityCode": "TYO",
+                                "cityName": "TOKYO"
+                            },
+                            "aircraftCode": "738",
+                            "aircraftName": "BOEING 737-800",
+                            "isSmallAircraft": false,
+                            "duration": 8700,
+                            "isLateNightDeparture": false,
+                            "isOpenSegment": false,
+                            "isSubjectToGovernmentApproval": false,
+                            "stops": [],
+                            "aircraftConfigurationVersion": "382",
+                            "flightServices": {
+                                "isLoungeAvailable": false,
+                                "wiFiType": ""
+                            },
+                            "meal": {
+                                "mealCode": ""
+                            },
+                            "isScheduleChanged": false,
+                            "scheduleChangeType": "",
+                            "isUpgraded": false,
+                            "upgradeType": "",
+                            "isDynamicWaiverApplicable": false,
+                            "isStarAllianceOperated": false,
+                            "availableCabins": [],
+                            "isNhGroupMarketing": true,
+                            "isNhGroupOperated": true,
+                            "operatingType": "nhGroupOperating",
+                            "isNeededToSupplementBookingClass": false,
+                            "fareInfos": {
+                                "fareClass": "B1VR1ZEU",
+                                "fareFamilyCode": "STANDARD",
+                                "priorityCode": "0100",
+                                "fareType": "other",
+                                "services": {
+                                    "seat": {
+                                        "applicability": "included"
+                                    }
+                                },
+                                "ticketDesignator": ""
+                            },
+                            "isDepartedWithin48Hours": false,
+                            "isJapanDomesticFlight": true,
+                            "isDepartedWithin24Hours": false,
+                            "isOnboarded": true
+                        }
+                    ],
+                    "duration": 62700,
+                    "isOtherMethodsConnection": false,
+                    "isContainedWaitlisted": false,
+                    "isFlix": false,
+                    "disruptionStatus": {},
+                    "isNotPassedChangeableTimeLimit": true,
+                    "isContainedChineseSegment": false,
+                    "isContainedDynamicWaiverRefundFlight": false,
+                    "isContainedDynamicWaiverChangeFlight": false,
+                    "isStayedAtNaritaDuringConnection": false,
+                    "cancel": {
+                        "isContainedSegment": false,
+                        "reasonCodes": []
+                    },
+                    "delay": {
+                        "isContainedSegment": false,
+                        "reasonCodes": []
+                    },
+                    "earlyDeparture": {
+                        "isContainedSegment": false,
+                        "reasonCodes": []
+                    },
+                    "isNotEligible": false,
+                    "wiFiType": "",
+                    "isIrregularCompensationEligible": false,
+                    "isDcsWindow": false,
+                    "isAlreadyAcknowledged": false,
+                    "isAutomaticAcknowledge": false
+                }
+            ],
+            "isContainedSeatRequestableSegmentInLHSite": false,
+            "isContainedHongKongSegment": false,
+            "isContainedChinaSegmentIncludesStops": false,
+            "isContainedRemoteIslandFare": false,
+            "isContainedSlkFare": false,
+            "isContainedDisabilityDiscountFare": false,
+            "isContainedAgeLimitedFares": false,
+            "isContainedBusniessKippuFares": false,
+            "isContainedShareholdersBenefitDiscountFare": false,
+            "isContainedShareholdersBenefitDiscountFareByPostCollection": false,
+            "isContainedInclusiveTourFare": false,
+            "isContainedLawmakerCouponPayment": false,
+            "isContainedUpgradedJapanDomesticSegment": false,
+            "isAllBoundsNoShow": false,
+            "isContainedJapanDomesticSegment": true,
+            "isContainedDynamicWaiverRefundFlight": false,
+            "isAllBoundsNotEligible": false,
+            "isContainedDynamicWaiverChangeFlight": false,
+            "isContainedInfantQuotaShortageSegment": false,
+            "isContainedIrregularFlights": false,
+            "isAfterDcsMigrationTrip": true,
+            "isContainedSuffix": false
+        },
+        "orderEligibilities": {
+            "eligibilityLevel": {
+                "level": "3",
+                "restrictedReasons": []
+            },
+            "payment": {
+                "isEligibleToForward": true,
+                "isEligible": true,
+                "nonEligibilityReasons": [],
+                "isWellnetPaymentEligible": true,
+                "isAnaBizApprovalEligible": false,
+                "isOnholdEligible": true
+            },
+            "upgrade": null,
+            "change": {
+                "isEligibleToForward": true,
+                "isEligible": false,
+                "nonEligibilityReasons": [
+                    "notEligibleByDxApi",
+                    "notRegisteredEmail"
+                ]
+            },
+            "cancel": {
+                "isEligibleToForward": true,
+                "isEligible": false,
+                "nonEligibilityReasons": [
+                    "notRegisteredRepresentativeEmail"
+                ]
+            },
+            "receipt": {
+                "isEligibleToForward": true,
+                "isEligible": true,
+                "nonEligibilityReasons": []
+            },
+            "flightReaccommodation": {
+                "acknowledge": {
+                    "isEligibleToForward": false,
+                    "isEligible": false,
+                    "nonEligibilityReasons": [
+                        "notRegisteredEmail",
+                        "allBoundsNotEligible"
+                    ],
+                    "isCallCenterOperationRequired": false
+                },
+                "change": {
+                    "isEligibleToForward": false,
+                    "isEligible": true,
+                    "nonEligibilityReasons": [],
+                    "isCallCenterOperationRequired": true
+                }
+            },
+            "ancillary": null,
+            "seatmap": {
+                "isEligibilityToForward": true,
+                "isEligible": true,
+                "nonEligibilityReasons": [],
+                "ST1": {
+                    "isEligible": true
+                },
+                "ST2": {
+                    "isEligible": true
+                },
+                "ST3": {
+                    "isEligible": true
+                },
+                "ST4": {
+                    "isEligible": true
+                }
+            },
+            "chargeableLounge": null,
+            "meal": null,
+            "myCarValet": null,
+            "dutyFreePreorder": null,
+            "petRakunori": null,
+            "juniorPilot": {
+                "isEligibleToForward": false,
+                "isEligible": false,
+                "nonEligibilityReasons": [
+                    "forwardIneligible"
+                ],
+                "1": {
+                    "isJuniorPilotEligible": true,
+                    "isExpiredJuniorPilotDeadline": false
+                },
+                "2": {
+                    "isJuniorPilotEligible": true,
+                    "isExpiredJuniorPilotDeadline": false
+                },
+                "3": {
+                    "isJuniorPilotEligible": true,
+                    "isExpiredJuniorPilotDeadline": false
+                }
+            },
+            "travelerInput": {
+                "isEligibleToForward": true,
+                "nonEligibilityReasons": [],
+                "isEligible": true,
+                "isFrequentFlyerCardEligible": true,
+                "isFrequentFlyerCardEditable": true,
+                "isPassengerSupportEligible": true,
+                "isContactEligible": true,
+                "departureArrivalNotification": {
+                    "ST1": {
+                        "isEligible": true
+                    },
+                    "ST2": {
+                        "isEligible": true
+                    },
+                    "ST3": {
+                        "isEligible": true
+                    },
+                    "ST4": {
+                        "isEligible": true
+                    },
+                    "isEligible": true
+                }
+            },
+            "eticketAndEmd": {
+                "isEligibleToForward": false,
+                "isEligible": false,
+                "nonEligibilityReasons": [
+                    "forwardIneligible"
+                ],
+                "numberOfDocuments": 0
+            },
+            "usageDetailsListOfBusinessTrip": {
+                "isEligibleToForward": false,
+                "isEligible": false,
+                "nonEligibilityReasons": [
+                    "forwardIneligible"
+                ],
+                "businessTripNumbers": []
+            },
+            "boardingPassIssuance": {
+                "isEligible": true,
+                "nonEligibilityReasons": null
+            }
+        },
+        "prices": {
+            "isValid": true,
+            "unitPrices": {
+                "PT2": {
+                    "ticketPrices": {
+                        "base": [
+                            {
+                                "value": 132800,
+                                "currencyCode": "JPY",
+                                "decimalPlaces": 0
+                            }
+                        ],
+                        "requiredMileage": 0,
+                        "total": [
+                            {
+                                "value": 147940,
+                                "currencyCode": "JPY",
+                                "decimalPlaces": 0
+                            }
+                        ],
+                        "taxes": [
+                            {
+                                "currencyCode": "JPY",
+                                "decimalPlaces": 0,
+                                "code": "HJ",
+                                "value": 1860,
+                                "isExempted": false
+                            },
+                            {
+                                "currencyCode": "JPY",
+                                "decimalPlaces": 0,
+                                "code": "JP",
+                                "value": 13280,
+                                "isExempted": false
+                            }
+                        ],
+                        "fuelSurcharge": [],
+                        "insuranceSurcharge": [],
+                        "insuranceSurchargeAndFuelSurcharge": [],
+                        "flightSurcharge": [],
+                        "totalTaxes": [
+                            {
+                                "currencyCode": "JPY",
+                                "decimalPlaces": 0,
+                                "value": 15140
+                            }
+                        ]
+                    },
+                    "ticketingFee": [],
+                    "servicePrices": {
+                        "chargeableLounge": [],
+                        "loungeTaxes": [],
+                        "firstBaggage": [],
+                        "firstBaggageTaxes": [],
+                        "meal": [],
+                        "mealTaxes": [],
+                        "chargeableSeatRequest": [],
+                        "chargeableSeatRequestTaxes": [],
+                        "couch": [],
+                        "couchTaxes": [],
+                        "keepMyFare": [],
+                        "keepMyFareTaxes": [],
+                        "hasServicePrices": false
+                    },
+                    "serviceTaxes": [],
+                    "paidKeepMyFarePrices": {
+                        "total": [],
+                        "totalTaxes": []
+                    },
+                    "bidMyPrice": []
+                }
+            },
+            "totalPrices": {
+                "ticketPrices": {
+                    "total": [
+                        {
+                            "value": 147940,
+                            "currencyCode": "JPY",
+                            "decimalPlaces": 0
+                        }
+                    ],
+                    "base": [
+                        {
+                            "value": 132800,
+                            "currencyCode": "JPY",
+                            "decimalPlaces": 0
+                        }
+                    ],
+                    "totalTaxes": [
+                        {
+                            "value": 15140,
+                            "currencyCode": "JPY",
+                            "decimalPlaces": 0
+                        }
+                    ],
+                    "totalFee": [],
+                    "airTransportationCharges": [],
+                    "thirdPartyCharges": [],
+                    "flightSurcharges": [],
+                    "hasInsuranceSurcharge": false
+                },
+                "servicePrices": {
+                    "total": [],
+                    "totalTaxes": [],
+                    "base": []
+                },
+                "keepMyFarePrices": {
+                    "base": [],
+                    "total": [],
+                    "totalTaxes": []
+                },
+                "total": [
+                    {
+                        "value": 147940,
+                        "currencyCode": "JPY",
+                        "decimalPlaces": 0
+                    }
+                ],
+                "isAirPriceChangeRepricing": false,
+                "bidMyPriceTotalPrice": [],
+                "requiredMileage": 0
+            },
+            "exchangePrices": {},
+            "isContainedGmopPayment": false,
+            "isContainedNonGmopPayment": false,
+            "isContainedPaypalPayment": false,
+            "isContainedAnaSkyCoinPayment": false,
+            "isAllAnaSkyCoinPayment": false,
+            "isContainedCreditCardPayment": false
+        },
+        "fares": {
+            "ST1": {
+                "PT2": {
+                    "fareClass": "B1VR1ZEU",
+                    "ticketDesignator": ""
+                }
+            },
+            "ST2": {
+                "PT2": {
+                    "fareClass": "B1VR1ZEU",
+                    "ticketDesignator": ""
+                }
+            },
+            "ST3": {
+                "PT2": {
+                    "fareClass": "B1VR1ZEU",
+                    "ticketDesignator": ""
+                }
+            },
+            "ST4": {
+                "PT2": {
+                    "fareClass": "B1VR1ZEU",
+                    "ticketDesignator": ""
+                }
+            }
+        },
+        "commercialFareFamilyCodes": [],
+        "contacts": {
+            "representative": {
+                "emails": [],
+                "phones": [
+                    {
+                        "id": "OT19",
+                        "type": "M",
+                        "number": "*******678",
+                        "encryptedNumber": "hpyiu6rKISm9e0xNJqmQ7g=="
+                    }
+                ],
+                "contactsDuringStay": []
+            },
+            "upgradeNotification": {},
+            "PT2": {
+                "emails": [],
+                "phones": [],
+                "deduplicatedPhones": [],
+                "isRefused": false,
+                "departureArrivalNotifications": [],
+                "contactEmails": [],
+                "secondContact": [],
+                "deduplicatedSecondContact": []
+            }
+        },
+        "travelers": [
+            {
+                "id": "PT2",
+                "names": [
+                    {
+                        "title": "MR",
+                        "firstName": "TARO",
+                        "middleName": "",
+                        "lastName": "YAMADA"
+                    }
+                ],
+                "passengerTypeCode": "ADT",
+                "hasInfiniNamelessInfant": false,
+                "hasNamelessInfant": false,
+                "dateOfBirth": "****/**/**",
+                "encryptedDateOfBirth": "N0OmjL13K+STWplo0nTZ0Q==",
+                "age": "**",
+                "encryptedAge": "aqiUMObTjCjpgGbncX9Hdw==",
+                "gender": "",
+                "regulatoryDetails": {
+                    "passports": [
+                        {
+                            "encryptedBirthDate": "N0OmjL13K+STWplo0nTZ0Q==",
+                            "gender": "male",
+                            "nationalityCode": "",
+                            "number": "********",
+                            "encryptedNumber": "m1dR7klO2MJFwuydcIO4jw==",
+                            "expiryDate": "",
+                            "issuanceCountryCode": ""
+                        }
+                    ],
+                    "isPassportRegistered": false,
+                    "homeAddressCountries": [],
+                    "ishomeAddressCountriesRegistered": false,
+                    "visas": [],
+                    "isUsVisaRegistered": false,
+                    "isDestinationAddressRegistered": false,
+                    "isGreenCardRegistered": false,
+                    "isKnownTravellerNumberRegistered": false,
+                    "isRedressNumberRegistered": false,
+                    "isChineseCitizenIdentificationNumberRegistered": false
+                },
+                "isChildMealRecommendedAge": false,
+                "disabilityDiscountInformation": {},
+                "isDisabilityDiscountInformationRegistered": false,
+                "islandCard": {},
+                "isIslandCardRegistered": false
+            }
+        ],
+        "frequentFlyerCards": {
+            "PT2": {
+                "fqtv": [],
+                "fqtr": null,
+                "fqts": [],
+                "fqtu": [],
+                "isAmcMember": false
+            }
+        },
+        "travelerSupports": {
+            "PT2": {
+                "isSupportRegistered": false,
+                "serviceStatus": ""
+            }
+        },
+        "passengerSupport": {
+            "isContainedRequested": false
+        },
+        "seats": {
+            "ST1": {
+                "PT2": {
+                    "seatSelection": {
+                        "seatNumbers": [],
+                        "cancelledSeatNumbers": [],
+                        "couchSeatNumber": "",
+                        "isCouchRepresentative": false,
+                        "characteristicRequestSsrCode": "",
+                        "serviceStatus": "",
+                        "seatCharacteristics": [],
+                        "isCouchEMDRegisteredToOtherSeat": false,
+                        "hasCouchSeatEMD": false,
+                        "hasPaidSeatEMD": false,
+                        "isChargeable": false,
+                        "isMissingCouchRemark": false,
+                        "isStraddleCouchRemark": false,
+                        "seatId": [],
+                        "couchId": "",
+                        "couchServiceId": ""
+                    },
+                    "bassinet": false,
+                    "childSeat": false,
+                    "childSeatType": "",
+                    "isAgentPurchasedCouchSkRegisterd": false,
+                    "isAgentPurchasedSeatSkRegisterd": false
+                },
+                "statusCodes": [],
+                "isCrossingMultiplePnrCouchRequested": false
+            },
+            "ST2": {
+                "PT2": {
+                    "seatSelection": {
+                        "seatNumbers": [],
+                        "cancelledSeatNumbers": [],
+                        "couchSeatNumber": "",
+                        "isCouchRepresentative": false,
+                        "characteristicRequestSsrCode": "",
+                        "serviceStatus": "",
+                        "seatCharacteristics": [],
+                        "isCouchEMDRegisteredToOtherSeat": false,
+                        "hasCouchSeatEMD": false,
+                        "hasPaidSeatEMD": false,
+                        "isChargeable": false,
+                        "isMissingCouchRemark": false,
+                        "isStraddleCouchRemark": false,
+                        "seatId": [],
+                        "couchId": "",
+                        "couchServiceId": ""
+                    },
+                    "bassinet": false,
+                    "childSeat": false,
+                    "childSeatType": "",
+                    "isAgentPurchasedCouchSkRegisterd": false,
+                    "isAgentPurchasedSeatSkRegisterd": false
+                },
+                "statusCodes": [],
+                "isCrossingMultiplePnrCouchRequested": false
+            },
+            "ST3": {
+                "PT2": {
+                    "seatSelection": {
+                        "seatNumbers": [],
+                        "cancelledSeatNumbers": [],
+                        "couchSeatNumber": "",
+                        "isCouchRepresentative": false,
+                        "characteristicRequestSsrCode": "",
+                        "serviceStatus": "",
+                        "seatCharacteristics": [],
+                        "isCouchEMDRegisteredToOtherSeat": false,
+                        "hasCouchSeatEMD": false,
+                        "hasPaidSeatEMD": false,
+                        "isChargeable": false,
+                        "isMissingCouchRemark": false,
+                        "isStraddleCouchRemark": false,
+                        "seatId": [],
+                        "couchId": "",
+                        "couchServiceId": ""
+                    },
+                    "bassinet": false,
+                    "childSeat": false,
+                    "childSeatType": "",
+                    "isAgentPurchasedCouchSkRegisterd": false,
+                    "isAgentPurchasedSeatSkRegisterd": false
+                },
+                "statusCodes": [],
+                "isCrossingMultiplePnrCouchRequested": false
+            },
+            "ST4": {
+                "PT2": {
+                    "seatSelection": {
+                        "seatNumbers": [],
+                        "cancelledSeatNumbers": [],
+                        "couchSeatNumber": "",
+                        "isCouchRepresentative": false,
+                        "characteristicRequestSsrCode": "",
+                        "serviceStatus": "",
+                        "seatCharacteristics": [],
+                        "isCouchEMDRegisteredToOtherSeat": false,
+                        "hasCouchSeatEMD": false,
+                        "hasPaidSeatEMD": false,
+                        "isChargeable": false,
+                        "isMissingCouchRemark": false,
+                        "isStraddleCouchRemark": false,
+                        "seatId": [],
+                        "couchId": "",
+                        "couchServiceId": ""
+                    },
+                    "bassinet": false,
+                    "childSeat": false,
+                    "childSeatType": "",
+                    "isAgentPurchasedCouchSkRegisterd": false,
+                    "isAgentPurchasedSeatSkRegisterd": false
+                },
+                "statusCodes": [],
+                "isCrossingMultiplePnrCouchRequested": false
+            },
+            "isContainedCouchFlight": false,
+            "isChargeableSeatFlight": false,
+            "isContainedRequested": false,
+            "isContainedFreeSeatRequestInNhGroupFlight": false,
+            "isContainedChargeableSeatRequestInNhGroupFlight": false,
+            "isContainedCouchSeatRequestInNhGroupFlight": false
+        },
+        "services": {
+            "airportService": {},
+            "serviceSupport": {},
+            "juniorPilot": {},
+            "couchSeat": {
+                "PT2": {}
+            },
+            "chargeableSeat": {
+                "PT2": {}
+            }
+        },
+        "orderType": {
+            "isStaffBooking": false,
+            "isAwardBooking": false,
+            "channelType": "nh",
+            "channelDetail": "asw",
+            "isGroupBooking": false,
+            "isPrebooking": true,
+            "isInternationalTourBooking": false,
+            "isInfiniBooking": false,
+            "isInfiniTourBooking": false,
+            "isBusinessTripBooking": false,
+            "isBusinessTripFare": false,
+            "isBusinessTripNotAppliableFare": false,
+            "companyId": "",
+            "organizationId": "",
+            "isSoloChildBooking": false
+        },
+        "tasks": {
+            "isHomeAddressRequired": false,
+            "isRedressNumberRegistrationRequired": false,
+            "isKnownTravelerNumberRegistrationRequired": false,
+            "isChineseCitizenIdentificationNumberRegistrationRequired": false,
+            "isUsContactRequired": false,
+            "isUsContactRequiredForOriginalFlights": false
+        },
+        "ticketingDeadline": "2026-02-28T17:34:00.000+09:00",
+        "paymentTimeLimit": "2026-02-25T18:03:00.000+09:00",
+        "isRepricingFailedWithCallCenterContact": false,
+        "travelersSummary": {
+            "travelerNumbers": {
+                "ADT": 1,
+                "B15": 0,
+                "CHD": 0,
+                "INF": 0,
+                "INS": 0,
+                "totalWithoutINF": 1,
+                "total": 1
+            },
+            "isContainedNamelessInfant": false,
+            "loggedInAmcMemberTravelerId": "",
+            "isNotBookableUnccompaniedMinors": false,
+            "isContainedUnder14AtCanadianFlight": false,
+            "isContainedUnder18AtFirstFlight": false,
+            "isContainedWalkingDegreeSpecialServiceRegistered": false,
+            "isContainedSeatRequestLimitedSupportRegistered": false,
+            "isContainedAirlineSuppliedOxygenSpecialServiceRegistered": false
+        },
+        "serviceSummary": {
+            "hasRequested": {
+                "keepMyFare": false,
+                "chargeableSeat": false,
+                "couch": false,
+                "chargeableLounge": false,
+                "myLounge": false,
+                "chargeableMeal": false
+            },
+            "lowestPrice": {
+                "chargeableLounge": 0,
+                "currencyCode": "",
+                "decimalPlaces": 0
+            },
+            "bounds": {
+                "1": {
+                    "isNeededSsrSkLostConfirmationForSelfReaccommodation": false
+                },
+                "2": {
+                    "isNeededSsrSkLostConfirmationForSelfReaccommodation": false
+                },
+                "3": {
+                    "isNeededSsrSkLostConfirmationForSelfReaccommodation": false
+                }
+            },
+            "emds": {
+                "PT2": {
+                    "chargeableLounge": {
+                        "hasEmd": false,
+                        "hasSegmentAssociatedEmd": false
+                    },
+                    "meal": {
+                        "hasEmd": false,
+                        "hasSegmentAssociatedEmd": false
+                    }
+                }
+            },
+            "isContainedPetRakunoriSpecialServiceRegistered": false
+        },
+        "travelDocuments": [],
+        "paymentRecords": [],
+        "anaBizTicketingRequests": [],
+        "travelDocumentsSummary": {
+            "isAirExchanged": false,
+            "isPartiallyAirExchanged": false,
+            "isWithin24HoursAfterTicketing": false
+        },
+        "miscAncillaries": {
+            "decimalPlaces": 0
+        },
+        "shareholderCoupons": null,
+        "bankAccount": null
+    }
+}
