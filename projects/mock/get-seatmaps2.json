@@ -10,7 +10,7 @@
       "isChangeRestrictedAllSeat": false
     },
     "seatmaps": {
-      "numberOfAvailableSeats": 105,
+      "numberOfAvailableSeats": 68,
       "isCotaninedRearFacingSeat": false,
       "isContainedChargeableAsrSeat": false,
       "isContainedCouchSeat": false,
@@ -983,7 +983,7 @@
                       "W",
                       "LS"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "occupied",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": true,
@@ -997,7 +997,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -1158,7 +1157,7 @@
                       "W",
                       "LS"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "occupied",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": true,
@@ -1172,7 +1171,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -1860,7 +1858,7 @@
                       "W",
                       "LS"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "occupied",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": true,
@@ -1874,7 +1872,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -1941,7 +1938,7 @@
                     "seatCharacteristicsCodes": [
                       "A"
                     ],
-                    "seatAvailabilityStatus": "blocked",
+                    "seatAvailabilityStatus": "available",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": false,
@@ -1955,6 +1952,7 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
+                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -1966,7 +1964,7 @@
                     "seatCharacteristicsCodes": [
                       "9"
                     ],
-                    "seatAvailabilityStatus": "blocked",
+                    "seatAvailabilityStatus": "available",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": false,
@@ -1980,6 +1978,7 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
+                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -1993,7 +1992,7 @@
                       "W",
                       "RS"
                     ],
-                    "seatAvailabilityStatus": "blocked",
+                    "seatAvailabilityStatus": "available",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": true,
@@ -2007,6 +2006,7 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
+                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -2126,7 +2126,7 @@
                       "A",
                       "V"
                     ],
-                    "seatAvailabilityStatus": "blocked",
+                    "seatAvailabilityStatus": "available",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": false,
@@ -2140,6 +2140,7 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
+                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -2153,7 +2154,7 @@
                       "9",
                       "V"
                     ],
-                    "seatAvailabilityStatus": "blocked",
+                    "seatAvailabilityStatus": "available",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": false,
@@ -2167,6 +2168,7 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
+                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -2182,7 +2184,7 @@
                       "W",
                       "RS"
                     ],
-                    "seatAvailabilityStatus": "blocked",
+                    "seatAvailabilityStatus": "available",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": true,
@@ -2196,6 +2198,7 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
+                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -2230,7 +2233,7 @@
                       "W",
                       "LS"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "blocked",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": true,
@@ -2244,7 +2247,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -2260,7 +2262,7 @@
                       "L",
                       "V"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "blocked",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": false,
@@ -2274,7 +2276,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -2290,7 +2291,7 @@
                       "L",
                       "V"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "blocked",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": false,
@@ -2304,7 +2305,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -2516,7 +2516,7 @@
                       "E",
                       "L"
                     ],
-                    "seatAvailabilityStatus": "blocked",
+                    "seatAvailabilityStatus": "available",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": false,
@@ -2530,6 +2530,7 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
+                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -2543,7 +2544,7 @@
                       "E",
                       "L"
                     ],
-                    "seatAvailabilityStatus": "blocked",
+                    "seatAvailabilityStatus": "available",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": false,
@@ -2557,6 +2558,7 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
+                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -2572,7 +2574,7 @@
                       "W",
                       "RS"
                     ],
-                    "seatAvailabilityStatus": "blocked",
+                    "seatAvailabilityStatus": "available",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": true,
@@ -2586,6 +2588,7 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
+                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -2668,7 +2671,7 @@
                     "seatCharacteristicsCodes": [
                       "A"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "occupied",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": false,
@@ -2682,7 +2685,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -3588,7 +3590,7 @@
                     "seatCharacteristicsCodes": [
                       "A"
                     ],
-                    "seatAvailabilityStatus": "blocked",
+                    "seatAvailabilityStatus": "available",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": false,
@@ -3602,6 +3604,7 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
+                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -3613,7 +3616,7 @@
                     "seatCharacteristicsCodes": [
                       "9"
                     ],
-                    "seatAvailabilityStatus": "blocked",
+                    "seatAvailabilityStatus": "available",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": false,
@@ -3627,6 +3630,7 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
+                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -3639,7 +3643,7 @@
                       "W",
                       "RS"
                     ],
-                    "seatAvailabilityStatus": "blocked",
+                    "seatAvailabilityStatus": "available",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": true,
@@ -3653,6 +3657,7 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
+                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -3682,7 +3687,7 @@
                       "W",
                       "LS"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "blocked",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": true,
@@ -3696,7 +3701,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -3708,7 +3712,7 @@
                     "seatCharacteristicsCodes": [
                       "9"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "blocked",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": false,
@@ -3722,7 +3726,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -3734,7 +3737,7 @@
                     "seatCharacteristicsCodes": [
                       "A"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "blocked",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": false,
@@ -3748,7 +3751,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -3763,7 +3765,7 @@
                     "seatCharacteristicsCodes": [
                       "A"
                     ],
-                    "seatAvailabilityStatus": "blocked",
+                    "seatAvailabilityStatus": "available",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": false,
@@ -3777,6 +3779,7 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
+                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -3788,7 +3791,7 @@
                     "seatCharacteristicsCodes": [
                       "9"
                     ],
-                    "seatAvailabilityStatus": "blocked",
+                    "seatAvailabilityStatus": "available",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": false,
@@ -3802,6 +3805,7 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
+                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -3814,7 +3818,7 @@
                       "W",
                       "RS"
                     ],
-                    "seatAvailabilityStatus": "blocked",
+                    "seatAvailabilityStatus": "available",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": true,
@@ -3828,6 +3832,7 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
+                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -3857,7 +3862,7 @@
                       "W",
                       "LS"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "blocked",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": true,
@@ -3871,7 +3876,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -3883,7 +3887,7 @@
                     "seatCharacteristicsCodes": [
                       "9"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "blocked",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": false,
@@ -3897,7 +3901,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -3909,7 +3912,7 @@
                     "seatCharacteristicsCodes": [
                       "A"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "occupied",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": false,
@@ -3923,7 +3926,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -3938,7 +3940,7 @@
                     "seatCharacteristicsCodes": [
                       "A"
                     ],
-                    "seatAvailabilityStatus": "blocked",
+                    "seatAvailabilityStatus": "occupied",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": false,
@@ -3963,7 +3965,7 @@
                     "seatCharacteristicsCodes": [
                       "9"
                     ],
-                    "seatAvailabilityStatus": "blocked",
+                    "seatAvailabilityStatus": "occupied",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": false,
@@ -3989,7 +3991,7 @@
                       "W",
                       "RS"
                     ],
-                    "seatAvailabilityStatus": "blocked",
+                    "seatAvailabilityStatus": "occupied",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": true,
@@ -4032,7 +4034,7 @@
                       "W",
                       "LS"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "occupied",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": true,
@@ -4046,7 +4048,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -4058,7 +4059,7 @@
                     "seatCharacteristicsCodes": [
                       "9"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "occupied",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": false,
@@ -4072,7 +4073,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -4084,7 +4084,7 @@
                     "seatCharacteristicsCodes": [
                       "A"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "blocked",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": false,
@@ -4098,7 +4098,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -4207,7 +4206,7 @@
                       "W",
                       "LS"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "blocked",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": true,
@@ -4221,7 +4220,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -4233,7 +4231,7 @@
                     "seatCharacteristicsCodes": [
                       "9"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "blocked",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": false,
@@ -4247,7 +4245,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -4259,7 +4256,7 @@
                     "seatCharacteristicsCodes": [
                       "A"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "blocked",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": false,
@@ -4273,7 +4270,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -4288,7 +4284,7 @@
                     "seatCharacteristicsCodes": [
                       "A"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "blocked",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": false,
@@ -4302,7 +4298,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -4314,7 +4309,7 @@
                     "seatCharacteristicsCodes": [
                       "9"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "blocked",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": false,
@@ -4328,7 +4323,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -4341,7 +4335,7 @@
                       "W",
                       "RS"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "blocked",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": true,
@@ -4355,7 +4349,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -4385,7 +4378,7 @@
                       "W",
                       "LS"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "blocked",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": true,
@@ -4399,7 +4392,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -4411,7 +4403,7 @@
                     "seatCharacteristicsCodes": [
                       "9"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "blocked",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": false,
@@ -4425,7 +4417,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -4437,7 +4428,7 @@
                     "seatCharacteristicsCodes": [
                       "A"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "blocked",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": false,
@@ -4451,7 +4442,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -4466,7 +4456,7 @@
                     "seatCharacteristicsCodes": [
                       "A"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "blocked",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": false,
@@ -4480,7 +4470,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -4492,7 +4481,7 @@
                     "seatCharacteristicsCodes": [
                       "9"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "blocked",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": false,
@@ -4506,7 +4495,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -4519,7 +4507,7 @@
                       "W",
                       "RS"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "blocked",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": true,
@@ -4533,7 +4521,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -4563,7 +4550,7 @@
                       "W",
                       "LS"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "blocked",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": true,
@@ -4577,7 +4564,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -4589,7 +4575,7 @@
                     "seatCharacteristicsCodes": [
                       "9"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "blocked",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": false,
@@ -4603,7 +4589,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -4615,7 +4600,7 @@
                     "seatCharacteristicsCodes": [
                       "A"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "blocked",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": false,
@@ -4629,7 +4614,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -4644,7 +4628,7 @@
                     "seatCharacteristicsCodes": [
                       "A"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "blocked",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": false,
@@ -4658,7 +4642,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -4670,7 +4653,7 @@
                     "seatCharacteristicsCodes": [
                       "9"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "blocked",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": false,
@@ -4684,7 +4667,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -4697,7 +4679,7 @@
                       "W",
                       "RS"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "blocked",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": true,
@@ -4711,7 +4693,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -4741,7 +4722,7 @@
                       "W",
                       "LS"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "blocked",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": true,
@@ -4755,7 +4736,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -4767,7 +4747,7 @@
                     "seatCharacteristicsCodes": [
                       "9"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "blocked",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": false,
@@ -4781,7 +4761,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -4793,7 +4772,7 @@
                     "seatCharacteristicsCodes": [
                       "A"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "blocked",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": false,
@@ -4807,7 +4786,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -4822,7 +4800,7 @@
                     "seatCharacteristicsCodes": [
                       "A"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "blocked",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": false,
@@ -4836,7 +4814,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -4848,7 +4825,7 @@
                     "seatCharacteristicsCodes": [
                       "9"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "blocked",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": false,
@@ -4862,7 +4839,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -4875,7 +4851,7 @@
                       "W",
                       "RS"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "blocked",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": true,
@@ -4889,7 +4865,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -4919,7 +4894,7 @@
                       "W",
                       "LS"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "blocked",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": true,
@@ -4933,7 +4908,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -4945,7 +4919,7 @@
                     "seatCharacteristicsCodes": [
                       "9"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "blocked",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": false,
@@ -4959,7 +4933,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -4971,7 +4944,7 @@
                     "seatCharacteristicsCodes": [
                       "A"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "blocked",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": false,
@@ -4985,7 +4958,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -5000,7 +4972,7 @@
                     "seatCharacteristicsCodes": [
                       "A"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "blocked",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": false,
@@ -5014,7 +4986,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -5026,7 +4997,7 @@
                     "seatCharacteristicsCodes": [
                       "9"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "blocked",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": false,
@@ -5040,7 +5011,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -5053,7 +5023,7 @@
                       "W",
                       "RS"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "blocked",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": true,
@@ -5067,7 +5037,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -5097,7 +5066,7 @@
                       "W",
                       "LS"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "blocked",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": true,
@@ -5111,7 +5080,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -5123,7 +5091,7 @@
                     "seatCharacteristicsCodes": [
                       "9"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "blocked",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": false,
@@ -5137,7 +5105,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -5149,7 +5116,7 @@
                     "seatCharacteristicsCodes": [
                       "A"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "blocked",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": false,
@@ -5163,7 +5130,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -5178,7 +5144,7 @@
                     "seatCharacteristicsCodes": [
                       "A"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "blocked",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": false,
@@ -5192,7 +5158,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -5204,7 +5169,7 @@
                     "seatCharacteristicsCodes": [
                       "9"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "blocked",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": false,
@@ -5218,7 +5183,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]
@@ -5231,7 +5195,7 @@
                       "W",
                       "RS"
                     ],
-                    "seatAvailabilityStatus": "available",
+                    "seatAvailabilityStatus": "blocked",
                     "isCouchSeat": false,
                     "isChargeableAsrSeat": false,
                     "isChildSeatAttachable": true,
@@ -5245,7 +5209,6 @@
                       {
                         "id": "PT2",
                         "isChildSeatRequested": false,
-                        "seatAvailabilityStatus": "available",
                         "isExempted": false
                       }
                     ]

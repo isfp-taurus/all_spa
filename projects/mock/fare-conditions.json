@@ -1,0 +1,164 @@
+{
+  "warnings": [
+    
+  ],
+  "data": {
+    "airOfferConditions": {
+      "airOfferConditionBounds": [
+        {
+          "originLocationCode": "HND",
+          "originLocationName": "TOKYO INTL HANEDA",
+          "destinationLocationCode": "KMI",
+          "destinationLocationName": "MIYAZAKI",
+          "fareFamilyCode": "JPJPY0100",
+          "fareBasis": "B1ZR1ZEU",
+          "priorityCode": "0100"
+        },
+        {
+          "originLocationCode": "KMI",
+          "originLocationName": "MIYAZAKI",
+          "destinationLocationCode": "HND",
+          "destinationLocationName": "TOKYO INTL HANEDA",
+          "fareFamilyCode": "JPJPY0100",
+          "fareBasis": "B1ZR1ZEU",
+          "priorityCode": "0100"
+        }
+      ],
+      "ADT": {
+        "changeConditions": [
+          {
+            "beforeDeparture": {
+              "defaultDescription": "予約変更: 可 <br />予約変更手数料: 0 JPY ~ 0 JPY (本日の為替レート 0 JPY ~ 0 JPY)"
+            },
+            "afterDeparture": {
+              "defaultDescription": "予約変更: 不可"
+            },
+            "beforeDepartureNoShow": {
+              "defaultDescription": "予約変更: 不可"
+            },
+            "afterDepartureNoShow": {
+              "defaultDescription": "予約変更: 不可"
+            }
+          },
+          {
+            "beforeDeparture": {
+              "defaultDescription": "予約変更: 可 <br />予約変更手数料: 0 JPY ~ 0 JPY (本日の為替レート 0 JPY ~ 0 JPY)"
+            },
+            "afterDeparture": {
+              "defaultDescription": "予約変更: 可 <br />予約変更手数料: 0 JPY ~ 0 JPY (本日の為替レート 0 JPY ~ 0 JPY)"
+            },
+            "beforeDepartureNoShow": {
+              "defaultDescription": "予約変更: 不可"
+            },
+            "afterDepartureNoShow": {
+              "defaultDescription": "予約変更: 不可"
+            }
+          }
+        ],
+        "refundConditions": [
+          {
+            "beforeDeparture": {
+              "defaultDescription": "払い戻し: 可 <br />取消手数料: 500 JPY ~ 500 JPY (本日の為替レート 500 JPY ~ 500 JPY)"
+            },
+            "afterDeparture": {
+              "defaultDescription": "払い戻し: 不可"
+            },
+            "beforeDepartureNoShow": {
+              "defaultDescription": "払い戻し: 可 <br />取消手数料: 20350 JPY ~ 20350 JPY (本日の為替レート 20350 JPY ~ 20350 JPY)"
+            },
+            "afterDepartureNoShow": {
+              "defaultDescription": "払い戻し: 不可"
+            }
+          },
+          {
+            "beforeDeparture": {
+              "defaultDescription": "払い戻し: 可 <br />取消手数料: 500 JPY ~ 500 JPY (本日の為替レート 500 JPY ~ 500 JPY)"
+            },
+            "afterDeparture": {
+              "defaultDescription": "払い戻し: 可 <br />取消手数料: 500 JPY ~ 20350 JPY (本日の為替レート 500 JPY ~ 20350 JPY)"
+            },
+            "beforeDepartureNoShow": {
+              "defaultDescription": "払い戻し: 可 <br />取消手数料: 20350 JPY ~ 20350 JPY (本日の為替レート 20350 JPY ~ 20350 JPY)"
+            },
+            "afterDepartureNoShow": {
+              "defaultDescription": "払い戻し: 可 <br />取消手数料: 20350 JPY ~ 20350 JPY (本日の為替レート 20350 JPY ~ 20350 JPY)"
+            }
+          }
+        ],
+        "minimumStays": [
+          "",
+          ""
+        ],
+        "maximumStays": [
+          "",
+          ""
+        ]
+      }
+    },
+    "baggagePolicies": {
+      "policyRegulations": "IATA RESO 302",
+      "baggageAllowance": {
+        "SKH-1-EXT": {
+          "baggageBounds": [
+            {
+              "departure": {
+                "locationCode": "HND",
+                "locationName": "TOKYO INTL HANEDA"
+              },
+              "arrival": {
+                "locationCode": "KMI",
+                "locationName": "MIYAZAKI"
+              },
+              "checkedBaggageAllowance": {
+                "quantity": 2,
+                "flightIds": [
+                  "EAI-2-OFF"
+                ],
+                "airlineCode": "6J",
+                "airlineName": "SOLASEED AIR",
+                "isNhGroupOperating": true
+              },
+              "carryOnAllowance": {
+                "quantity": 1,
+                "flightIds": [
+                  "EAI-2-OFF"
+                ],
+                "airlineCode": "6J",
+                "airlineName": "SOLASEED AIR",
+                "isNhGroupOperating": true
+              }
+            },
+            {
+              "departure": {
+                "locationCode": "KMI",
+                "locationName": "MIYAZAKI"
+              },
+              "arrival": {
+                "locationCode": "HND",
+                "locationName": "TOKYO INTL HANEDA"
+              },
+              "checkedBaggageAllowance": {
+                "quantity": 2,
+                "flightIds": [
+                  "EAI-3-OFF"
+                ],
+                "airlineCode": "6J",
+                "airlineName": "SOLASEED AIR",
+                "isNhGroupOperating": true
+              },
+              "carryOnAllowance": {
+                "quantity": 1,
+                "flightIds": [
+                  "EAI-3-OFF"
+                ],
+                "airlineCode": "6J",
+                "airlineName": "SOLASEED AIR",
+                "isNhGroupOperating": true
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

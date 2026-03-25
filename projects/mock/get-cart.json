@@ -1,0 +1,836 @@
+{
+  "warnings": [
+    
+  ],
+  "data": {
+    "cartId": "1YQM24YYK2QDUBHJ",
+    "creationDate": "2026-03-16T00:22:45.6691895Z",
+    "plan": {
+      "airOfferIds": [
+        {
+          "cartAirOfferId": "OFF-1-OFF",
+          "offerNdcId": "1I16JZ_IXY5EJ7DU3PHCT275S988E74Z4HU"
+        }
+      ],
+      "airOffer": {
+        "bounds": [
+          {
+            "airBoundId": "BND-1",
+            "originLocationCode": "HND",
+            "destinationLocationCode": "KMI",
+            "originLocationName": "TOKYO INTL HANEDA",
+            "originDepartureDateTime": "2026-06-01T06:45:00",
+            "originDepartureEstimatedDateTime": "",
+            "destinationLocationName": "MIYAZAKI",
+            "destinationArrivalDateTime": "2026-06-01T08:30:00",
+            "destinationArrivalEstimatedDateTime": "",
+            "destinationArrivalDaysDifference": 0,
+            "destinationArrivalEstimatedDaysDifference": null,
+            "flights": [
+              {
+                "id": "EAI-2-OFF",
+                "cabin": "eco",
+                "bookingClass": "B",
+                "statusCode": "HK",
+                "statusType": "other",
+                "departureDaysDifferenceByBound": 0,
+                "arrivalDaysDifferenceByFlight": 0,
+                "connectionTime": null,
+                "isMultiAirportConnection": false,
+                "marketingAirlineCode": "6J",
+                "marketingFlightNumber": "051",
+                "operatingAirlineCode": "6J",
+                "operatingAirlineName": "ソラシドエア",
+                "departure": {
+                  "locationCode": "HND",
+                  "locationName": "TOKYO INTL HANEDA",
+                  "terminal": "2",
+                  "gate": "",
+                  "dateTime": "2026-06-01T06:45:00",
+                  "estimatedDateTime": "",
+                  "country2letterCode": "JP"
+                },
+                "arrival": {
+                  "locationCode": "KMI",
+                  "locationName": "MIYAZAKI",
+                  "terminal": "",
+                  "gate": "",
+                  "dateTime": "2026-06-01T08:30:00",
+                  "estimatedDateTime": "",
+                  "country2letterCode": "JP"
+                },
+                "aircraftCode": "738",
+                "duration": 6300,
+                "isLateNightDeparture": false,
+                "isOpenSegment": false,
+                "isSubjectToGovernmentApproval": false,
+                "stops": null,
+                "aircraftConfigurationVersion": "382",
+                "flightServices": {
+                  "isLoungeAvailable": false,
+                  "wiFiType": "0"
+                },
+                "meal": {
+                  "mealCode": null
+                },
+                "isStarAllianceOperated": false,
+                "isNhGroupMarketing": true,
+                "isNhGroupOperated": true,
+                "fareInfos": {
+                  "fareClass": "B1ZR1ZEU",
+                  "fareFamilyCode": "JPJPY0100",
+                  "priorityCode": "0100",
+                  "fareCabinClass": "eco",
+                  "fareType": "other",
+                  "services": {
+                    "seat": {
+                      "applicability": "included"
+                    }
+                  }
+                },
+                "upgradableCabins": [
+                  
+                ],
+                "isJapanDomesticFlight": true
+              }
+            ],
+            "duration": 6300,
+            "isOtherMethodsConnection": false,
+            "isContainedDelayedFlight": false,
+            "isContainedEarlyDepartureFlight": false,
+            "numberOfConnections": 0,
+            "operatingAirlines": [
+              
+            ],
+            "isAllStarAllianceOperated": false,
+            "isAllNhGroupOperated": true,
+            "isContainedSubjectToGovernmentApproval": false
+          },
+          {
+            "airBoundId": "BND-2",
+            "originLocationCode": "KMI",
+            "destinationLocationCode": "HND",
+            "originLocationName": "MIYAZAKI",
+            "originDepartureDateTime": "2026-06-02T07:35:00",
+            "originDepartureEstimatedDateTime": "",
+            "destinationLocationName": "TOKYO INTL HANEDA",
+            "destinationArrivalDateTime": "2026-06-02T09:15:00",
+            "destinationArrivalEstimatedDateTime": "",
+            "destinationArrivalDaysDifference": 0,
+            "destinationArrivalEstimatedDaysDifference": null,
+            "flights": [
+              {
+                "id": "EAI-3-OFF",
+                "cabin": "eco",
+                "bookingClass": "B",
+                "statusCode": "HK",
+                "statusType": "other",
+                "departureDaysDifferenceByBound": 0,
+                "arrivalDaysDifferenceByFlight": 0,
+                "connectionTime": null,
+                "isMultiAirportConnection": false,
+                "marketingAirlineCode": "6J",
+                "marketingFlightNumber": "052",
+                "operatingAirlineCode": "6J",
+                "operatingAirlineName": "ソラシドエア",
+                "departure": {
+                  "locationCode": "KMI",
+                  "locationName": "MIYAZAKI",
+                  "terminal": "",
+                  "gate": "",
+                  "dateTime": "2026-06-02T07:35:00",
+                  "estimatedDateTime": "",
+                  "country2letterCode": "JP"
+                },
+                "arrival": {
+                  "locationCode": "HND",
+                  "locationName": "TOKYO INTL HANEDA",
+                  "terminal": "2",
+                  "gate": "",
+                  "dateTime": "2026-06-02T09:15:00",
+                  "estimatedDateTime": "",
+                  "country2letterCode": "JP"
+                },
+                "aircraftCode": "738",
+                "duration": 6000,
+                "isLateNightDeparture": false,
+                "isOpenSegment": false,
+                "isSubjectToGovernmentApproval": false,
+                "stops": null,
+                "aircraftConfigurationVersion": "382",
+                "flightServices": {
+                  "isLoungeAvailable": false,
+                  "wiFiType": "0"
+                },
+                "meal": {
+                  "mealCode": null
+                },
+                "isStarAllianceOperated": false,
+                "isNhGroupMarketing": true,
+                "isNhGroupOperated": true,
+                "fareInfos": {
+                  "fareClass": "B1ZR1ZEU",
+                  "fareFamilyCode": "JPJPY0100",
+                  "priorityCode": "0100",
+                  "fareCabinClass": "eco",
+                  "fareType": "other",
+                  "services": {
+                    "seat": {
+                      "applicability": "included"
+                    }
+                  }
+                },
+                "upgradableCabins": [
+                  
+                ],
+                "isJapanDomesticFlight": true
+              }
+            ],
+            "duration": 6000,
+            "isOtherMethodsConnection": false,
+            "isContainedDelayedFlight": false,
+            "isContainedEarlyDepartureFlight": false,
+            "numberOfConnections": 0,
+            "operatingAirlines": [
+              
+            ],
+            "isAllStarAllianceOperated": false,
+            "isAllNhGroupOperated": true,
+            "isContainedSubjectToGovernmentApproval": false
+          }
+        ],
+        "accrualMiles": 0,
+        "fareFamilyWithService": null,
+        "existsTravelSkyHostedAirline": false,
+        "tripType": "domestic",
+        "statusType": "other"
+      },
+      "services": {
+        "pet": {
+          "registeredPets": {
+            
+          },
+          "hasCatalogue": true
+        }
+      },
+      "chargeableAncillarySummary": null,
+      "contacts": {
+        "representative": {
+          "emails": [
+            {
+              "address": "abc@gmail.com"
+            }
+          ],
+          "phones": [
+            {
+              "type": "M",
+              "countryPhoneExtension": "81",
+              "number": "9001234567"
+            }
+          ],
+          "contactsDuringStay": [
+            
+          ]
+        },
+        "SKH-1-EXT": {
+          "emails": [
+            {
+              "address": "abc@gmail.com",
+              "isSameAsRepresentative": true,
+              "requestmailmagazine": true
+            }
+          ],
+          "phones": [
+            {
+              "countryPhoneExtension": "",
+              "number": "",
+              "isSameAsRepresentative": false
+            }
+          ],
+          "departureArrivalNotifications": [
+            {
+              "emails": {
+                "address": "",
+                "recipient": "",
+                "lang": ""
+              },
+              "isRegisteredEmail": false
+            },
+            {
+              "emails": {
+                "address": "",
+                "recipient": "",
+                "lang": ""
+              },
+              "isRegisteredEmail": false
+            }
+          ],
+          "secondContact": [
+            
+          ],
+          "deduplicatedSecondContact": [
+            
+          ]
+        }
+      },
+      "travelers": [
+        {
+          "id": "SKH-1-EXT",
+          "names": [
+            {
+              "title": "MS",
+              "firstName": "TARO",
+              "middleName": "",
+              "lastName": "SOLANO"
+            }
+          ],
+          "passengerTypeCode": "ADT",
+          "accompanyingTravelerId": null,
+          "dateOfBirth": "1993/04/03",
+          "gender": "female",
+          "regulatoryDetails": {
+            "passports": [
+              
+            ]
+          },
+          "isChildMealRecommendedAge": false,
+          "disabilityDiscountInfomation": {
+            
+          },
+          "islandCard": {
+            
+          }
+        }
+      ],
+      "travelersSummary": {
+        "isRegistered": true,
+        "numberOfTraveler": {
+          "ADT": 1,
+          "CHD": 0,
+          "INF": 0,
+          "totalWithoutINF": 1
+        },
+        "hasAccompaniedInAnotherReservation": false
+      },
+      "prices": {
+        "unitPrices": {
+          "SKH-1-EXT": {
+            "ticketPrices": {
+              "total": 90440,
+              "base": 81400,
+              "currencyCode": "JPY",
+              "airTransportationCharges": "",
+              "thirdPartyCharges": "",
+              "totalTaxes": 9040,
+              "totalFlightSurcharges": "",
+              "taxes": [
+                {
+                  "code": "HJ",
+                  "value": 900,
+                  "currencyCode": "JPY"
+                },
+                {
+                  "code": "JP",
+                  "value": 8140,
+                  "currencyCode": "JPY"
+                }
+              ],
+              "fuelSurcharge": {
+                "value": 0,
+                "currencyCode": "JPY"
+              },
+              "insuranceSurcharge": {
+                "value": 0,
+                "currencyCode": "JPY"
+              },
+              "flightSurcharge": {
+                "value": 0,
+                "currencyCode": "JPY"
+              },
+              "ticketingFee": {
+                "value": 0,
+                "currencyCode": "JPY"
+              }
+            },
+            "servicePrices": {
+              "lounge": {
+                
+              },
+              "firstBaggage": {
+                
+              },
+              "meal": {
+                
+              }
+            },
+            "serviceTaxes": [
+              
+            ]
+          }
+        },
+        "totalPrices": {
+          "ticketPrices": {
+            "total": {
+              "value": 90440,
+              "currencyCode": "JPY"
+            },
+            "base": {
+              "value": 81400,
+              "currencyCode": "JPY"
+            },
+            "totalTaxes": {
+              "value": 9040,
+              "currencyCode": "JPY"
+            },
+            "totalFee": {
+              "value": 0,
+              "currencyCode": "JPY"
+            },
+            "airTransportationCharges": {
+              
+            },
+            "thirdPartyCharges": {
+              
+            },
+            "totalFlightSurcharges": 0
+          },
+          "servicePrices": {
+            "total": 0,
+            "totalTaxes": 0
+          },
+          "total": {
+            "value": 90440,
+            "currencyCode": "JPY"
+          },
+          "discount": {
+            
+          }
+        }
+      },
+      "cartEligibilities": {
+        "isDepartureArrivalNotificationEligible": true,
+        "isTravelerSupportsEligible": true,
+        "isPetRakunoriCageLendingEligible": true
+      },
+      "travelerSupports": {
+        "SKH-1-EXT": {
+          "isSupportRegistered": false,
+          "walking": {
+            
+          },
+          "blind": {
+            "isRequested": false
+          },
+          "deaf": {
+            "isRequested": false
+          }
+        }
+      },
+      "frequentFlyerCards": {
+        "SKH-1-EXT": {
+          
+        }
+      }
+    },
+    "previousPlan": {
+      "airOfferIds": [
+        {
+          "cartAirOfferId": "OFF-1-OFF",
+          "offerNdcId": "1I16JZ_IXY5EJ7DU3PHCT275S988E74Z4HU"
+        }
+      ],
+      "airOffer": {
+        "bounds": [
+          {
+            "airBoundId": "BND-1",
+            "originLocationCode": "HND",
+            "destinationLocationCode": "KMI",
+            "originLocationName": "TOKYO INTL HANEDA",
+            "originDepartureDateTime": "2026-06-01T06:45:00",
+            "originDepartureEstimatedDateTime": "",
+            "destinationLocationName": "MIYAZAKI",
+            "destinationArrivalDateTime": "2026-06-01T08:30:00",
+            "destinationArrivalEstimatedDateTime": "",
+            "destinationArrivalDaysDifference": 0,
+            "destinationArrivalEstimatedDaysDifference": null,
+            "flights": [
+              {
+                "id": "EAI-2-OFF",
+                "cabin": "eco",
+                "bookingClass": "B",
+                "statusCode": "HK",
+                "statusType": "other",
+                "departureDaysDifferenceByBound": 0,
+                "arrivalDaysDifferenceByFlight": 0,
+                "connectionTime": null,
+                "isMultiAirportConnection": false,
+                "marketingAirlineCode": "6J",
+                "marketingFlightNumber": "051",
+                "operatingAirlineCode": "6J",
+                "operatingAirlineName": "ソラシドエア",
+                "departure": {
+                  "locationCode": "HND",
+                  "locationName": "TOKYO INTL HANEDA",
+                  "terminal": "2",
+                  "gate": "",
+                  "dateTime": "2026-06-01T06:45:00",
+                  "estimatedDateTime": "",
+                  "country2letterCode": "JP"
+                },
+                "arrival": {
+                  "locationCode": "KMI",
+                  "locationName": "MIYAZAKI",
+                  "terminal": "",
+                  "gate": "",
+                  "dateTime": "2026-06-01T08:30:00",
+                  "estimatedDateTime": "",
+                  "country2letterCode": "JP"
+                },
+                "aircraftCode": "738",
+                "duration": 6300,
+                "isLateNightDeparture": false,
+                "isOpenSegment": false,
+                "isSubjectToGovernmentApproval": false,
+                "stops": null,
+                "aircraftConfigurationVersion": "382",
+                "flightServices": {
+                  "isLoungeAvailable": false,
+                  "wiFiType": "0"
+                },
+                "meal": {
+                  "mealCode": null
+                },
+                "isStarAllianceOperated": false,
+                "isNhGroupMarketing": true,
+                "isNhGroupOperated": true,
+                "fareInfos": {
+                  "fareClass": "B1ZR1ZEU",
+                  "fareFamilyCode": "JPJPY0100",
+                  "priorityCode": "0100",
+                  "fareCabinClass": "eco",
+                  "fareType": "other",
+                  "services": {
+                    "seat": {
+                      "applicability": "included"
+                    }
+                  }
+                },
+                "upgradableCabins": [
+                  
+                ],
+                "isJapanDomesticFlight": true
+              }
+            ],
+            "duration": 6300,
+            "isOtherMethodsConnection": false,
+            "isContainedDelayedFlight": false,
+            "isContainedEarlyDepartureFlight": false,
+            "numberOfConnections": 0,
+            "operatingAirlines": [
+              
+            ],
+            "isAllStarAllianceOperated": false,
+            "isAllNhGroupOperated": true,
+            "isContainedSubjectToGovernmentApproval": false
+          },
+          {
+            "airBoundId": "BND-2",
+            "originLocationCode": "KMI",
+            "destinationLocationCode": "HND",
+            "originLocationName": "MIYAZAKI",
+            "originDepartureDateTime": "2026-06-02T07:35:00",
+            "originDepartureEstimatedDateTime": "",
+            "destinationLocationName": "TOKYO INTL HANEDA",
+            "destinationArrivalDateTime": "2026-06-02T09:15:00",
+            "destinationArrivalEstimatedDateTime": "",
+            "destinationArrivalDaysDifference": 0,
+            "destinationArrivalEstimatedDaysDifference": null,
+            "flights": [
+              {
+                "id": "EAI-3-OFF",
+                "cabin": "eco",
+                "bookingClass": "B",
+                "statusCode": "HK",
+                "statusType": "other",
+                "departureDaysDifferenceByBound": 0,
+                "arrivalDaysDifferenceByFlight": 0,
+                "connectionTime": null,
+                "isMultiAirportConnection": false,
+                "marketingAirlineCode": "6J",
+                "marketingFlightNumber": "052",
+                "operatingAirlineCode": "6J",
+                "operatingAirlineName": "ソラシドエア",
+                "departure": {
+                  "locationCode": "KMI",
+                  "locationName": "MIYAZAKI",
+                  "terminal": "",
+                  "gate": "",
+                  "dateTime": "2026-06-02T07:35:00",
+                  "estimatedDateTime": "",
+                  "country2letterCode": "JP"
+                },
+                "arrival": {
+                  "locationCode": "HND",
+                  "locationName": "TOKYO INTL HANEDA",
+                  "terminal": "2",
+                  "gate": "",
+                  "dateTime": "2026-06-02T09:15:00",
+                  "estimatedDateTime": "",
+                  "country2letterCode": "JP"
+                },
+                "aircraftCode": "738",
+                "duration": 6000,
+                "isLateNightDeparture": false,
+                "isOpenSegment": false,
+                "isSubjectToGovernmentApproval": false,
+                "stops": null,
+                "aircraftConfigurationVersion": "382",
+                "flightServices": {
+                  "isLoungeAvailable": false,
+                  "wiFiType": "0"
+                },
+                "meal": {
+                  "mealCode": null
+                },
+                "isStarAllianceOperated": false,
+                "isNhGroupMarketing": true,
+                "isNhGroupOperated": true,
+                "fareInfos": {
+                  "fareClass": "B1ZR1ZEU",
+                  "fareFamilyCode": "JPJPY0100",
+                  "priorityCode": "0100",
+                  "fareCabinClass": "eco",
+                  "fareType": "other",
+                  "services": {
+                    "seat": {
+                      "applicability": "included"
+                    }
+                  }
+                },
+                "upgradableCabins": [
+                  
+                ],
+                "isJapanDomesticFlight": true
+              }
+            ],
+            "duration": 6000,
+            "isOtherMethodsConnection": false,
+            "isContainedDelayedFlight": false,
+            "isContainedEarlyDepartureFlight": false,
+            "numberOfConnections": 0,
+            "operatingAirlines": [
+              
+            ],
+            "isAllStarAllianceOperated": false,
+            "isAllNhGroupOperated": true,
+            "isContainedSubjectToGovernmentApproval": false
+          }
+        ],
+        "accrualMiles": 0,
+        "fareFamilyWithService": null,
+        "existsTravelSkyHostedAirline": false,
+        "tripType": "domestic",
+        "statusType": "other"
+      },
+      "services": {
+        "pet": {
+          "registeredPets": {
+            
+          },
+          "hasCatalogue": true
+        }
+      },
+      "chargeableAncillarySummary": null,
+      "contacts": {
+        "representative": {
+          
+        },
+        "SKH-1-EXT": {
+          
+        }
+      },
+      "travelers": [
+        {
+          "id": "SKH-1-EXT",
+          "names": [
+            {
+              "title": null,
+              "firstName": "",
+              "middleName": "",
+              "lastName": ""
+            }
+          ],
+          "passengerTypeCode": "ADT",
+          "accompanyingTravelerId": null,
+          "dateOfBirth": "",
+          "gender": null,
+          "regulatoryDetails": {
+            "passports": [
+              
+            ]
+          },
+          "isChildMealRecommendedAge": false,
+          "disabilityDiscountInfomation": {
+            
+          },
+          "islandCard": {
+            
+          }
+        }
+      ],
+      "travelersSummary": {
+        "isRegistered": false,
+        "numberOfTraveler": {
+          "ADT": 1,
+          "CHD": 0,
+          "INF": 0,
+          "totalWithoutINF": 1
+        },
+        "hasAccompaniedInAnotherReservation": false
+      },
+      "prices": {
+        "unitPrices": {
+          "SKH-1-EXT": {
+            "ticketPrices": {
+              "total": 90440,
+              "base": 81400,
+              "currencyCode": "JPY",
+              "airTransportationCharges": "",
+              "thirdPartyCharges": "",
+              "totalTaxes": 9040,
+              "totalFlightSurcharges": "",
+              "taxes": [
+                {
+                  "code": "HJ",
+                  "value": 900,
+                  "currencyCode": "JPY"
+                },
+                {
+                  "code": "JP",
+                  "value": 8140,
+                  "currencyCode": "JPY"
+                }
+              ],
+              "fuelSurcharge": {
+                "value": 0,
+                "currencyCode": "JPY"
+              },
+              "insuranceSurcharge": {
+                "value": 0,
+                "currencyCode": "JPY"
+              },
+              "flightSurcharge": {
+                "value": 0,
+                "currencyCode": "JPY"
+              },
+              "ticketingFee": {
+                "value": 0,
+                "currencyCode": "JPY"
+              }
+            },
+            "servicePrices": {
+              "lounge": {
+                
+              },
+              "firstBaggage": {
+                
+              },
+              "meal": {
+                
+              }
+            },
+            "serviceTaxes": [
+              
+            ]
+          }
+        },
+        "totalPrices": {
+          "ticketPrices": {
+            "total": {
+              "value": 90440,
+              "currencyCode": "JPY"
+            },
+            "base": {
+              "value": 81400,
+              "currencyCode": "JPY"
+            },
+            "totalTaxes": {
+              "value": 9040,
+              "currencyCode": "JPY"
+            },
+            "totalFee": {
+              "value": 0,
+              "currencyCode": "JPY"
+            },
+            "airTransportationCharges": {
+              
+            },
+            "thirdPartyCharges": {
+              
+            },
+            "totalFlightSurcharges": 0
+          },
+          "servicePrices": {
+            "total": 0,
+            "totalTaxes": 0
+          },
+          "total": {
+            "value": 90440,
+            "currencyCode": "JPY"
+          },
+          "discount": {
+            
+          }
+        }
+      },
+      "cartEligibilities": {
+        "isDepartureArrivalNotificationEligible": true,
+        "isTravelerSupportsEligible": true,
+        "isPetRakunoriCageLendingEligible": true
+      },
+      "travelerSupports": {
+        "SKH-1-EXT": {
+          "isSupportRegistered": false,
+          "walking": {
+            
+          },
+          "blind": {
+            "isRequested": false
+          },
+          "deaf": {
+            "isRequested": false
+          }
+        }
+      },
+      "frequentFlyerCards": {
+        "SKH-1-EXT": {
+          
+        }
+      }
+    },
+    "searchCriteria": {
+      "searchAirOffer": {
+        "itineraries": [
+          {
+            "originLocationCode": "HND",
+            "destinationLocationCode": "KMI",
+            "departureDate": "2026-06-01"
+          },
+          {
+            "originLocationCode": "KMI",
+            "destinationLocationCode": "HND",
+            "departureDate": "2026-06-02"
+          }
+        ],
+        "fare": {
+          "isMixedCabin": false,
+          "cabinClass": "eco",
+          "fareOptionType": "0"
+        },
+        "promotion": {
+          "code": ""
+        }
+      }
+    }
+  }
+}

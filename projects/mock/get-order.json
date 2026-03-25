@@ -1,7 +1,7 @@
 {
     "data": {
-        "orderId": "FXNJVV",
-        "criteoTransactionId": "20260225yoDm+Kt7Lu8=",
+        "orderId": "DFLQGX",
+        "criteoTransactionId": "20260316I8BDMDZIVwQ=",
         "linkedOrders": [],
         "orderStatus": "unpurchased",
         "nextActions": {
@@ -10,7 +10,7 @@
             "offlinePayment": false,
             "payment": true,
             "paymentDetails": {
-                "paymentDeadline": "2026-02-25T18:03:00",
+                "paymentDeadline": "2026-03-16T09:55:00",
                 "isCloseToDeadline": true,
                 "applyForTicketing": false
             },
@@ -48,11 +48,11 @@
                 {
                     "airBoundId": "1",
                     "originLocationCode": "HND",
-                    "destinationLocationCode": "OKA",
+                    "destinationLocationCode": "KMI",
                     "originLocationName": "TOKYO INTL HANEDA",
-                    "originDepartureDateTime": "2026-05-22T19:10:00",
+                    "originDepartureDateTime": "2026-06-01T06:45:00",
                     "originDepartureEstimatedDateTime": "",
-                    "destinationArrivalDateTime": "2026-05-22T21:55:00",
+                    "destinationArrivalDateTime": "2026-06-01T08:30:00",
                     "destinationArrivalEstimatedDateTime": "",
                     "flights": [
                         {
@@ -69,14 +69,14 @@
                                 "isCancelled": false
                             },
                             "marketingAirlineCode": "6J",
-                            "marketingFlightNumber": "025",
+                            "marketingFlightNumber": "051",
                             "operatingAirlineCode": "6J",
                             "operatingAirlineName": "SOLASEED AIR",
                             "departure": {
                                 "locationCode": "HND",
                                 "locationName": "TOKYO INTL HANEDA",
                                 "terminal": "2",
-                                "dateTime": "2026-05-22T19:10:00",
+                                "dateTime": "2026-06-01T06:45:00",
                                 "gate": "",
                                 "country2letterCode": "JP",
                                 "iataAreaCode": "4",
@@ -84,20 +84,20 @@
                                 "cityName": "TOKYO"
                             },
                             "arrival": {
-                                "locationCode": "OKA",
-                                "locationName": "NAHA",
-                                "terminal": "D",
-                                "dateTime": "2026-05-22T21:55:00",
+                                "locationCode": "KMI",
+                                "locationName": "MIYAZAKI",
+                                "terminal": "",
+                                "dateTime": "2026-06-01T08:30:00",
                                 "gate": "",
                                 "country2letterCode": "JP",
                                 "iataAreaCode": "4",
-                                "cityCode": "OKA",
-                                "cityName": "OKINAWA"
+                                "cityCode": "KMI",
+                                "cityName": "MIYAZAKI"
                             },
                             "aircraftCode": "738",
                             "aircraftName": "BOEING 737-800",
                             "isSmallAircraft": false,
-                            "duration": 9900,
+                            "duration": 6300,
                             "isLateNightDeparture": false,
                             "isOpenSegment": false,
                             "isSubjectToGovernmentApproval": false,
@@ -122,7 +122,7 @@
                             "operatingType": "nhGroupOperating",
                             "isNeededToSupplementBookingClass": false,
                             "fareInfos": {
-                                "fareClass": "B1VR1ZEU",
+                                "fareClass": "B1ZR1ZEU",
                                 "fareFamilyCode": "STANDARD",
                                 "priorityCode": "0100",
                                 "fareType": "other",
@@ -139,7 +139,7 @@
                             "isOnboarded": true
                         }
                     ],
-                    "duration": 9900,
+                    "duration": 6300,
                     "isOtherMethodsConnection": false,
                     "isContainedWaitlisted": false,
                     "isFlix": false,
@@ -170,12 +170,12 @@
                 },
                 {
                     "airBoundId": "2",
-                    "originLocationCode": "OKA",
-                    "destinationLocationCode": "ISG",
-                    "originLocationName": "NAHA",
-                    "originDepartureDateTime": "2026-05-23T17:10:00",
+                    "originLocationCode": "KMI",
+                    "destinationLocationCode": "HND",
+                    "originLocationName": "MIYAZAKI",
+                    "originDepartureDateTime": "2026-06-02T07:35:00",
                     "originDepartureEstimatedDateTime": "",
-                    "destinationArrivalDateTime": "2026-05-23T18:10:00",
+                    "destinationArrivalDateTime": "2026-06-02T09:15:00",
                     "destinationArrivalEstimatedDateTime": "",
                     "flights": [
                         {
@@ -192,233 +192,25 @@
                                 "isCancelled": false
                             },
                             "marketingAirlineCode": "6J",
-                            "marketingFlightNumber": "049",
+                            "marketingFlightNumber": "052",
                             "operatingAirlineCode": "6J",
                             "operatingAirlineName": "SOLASEED AIR",
                             "departure": {
-                                "locationCode": "OKA",
-                                "locationName": "NAHA",
-                                "terminal": "D",
-                                "dateTime": "2026-05-23T17:10:00",
-                                "gate": "",
-                                "country2letterCode": "JP",
-                                "iataAreaCode": "4",
-                                "cityCode": "OKA",
-                                "cityName": "OKINAWA"
-                            },
-                            "arrival": {
-                                "locationCode": "ISG",
-                                "locationName": "ISHIGAKI",
+                                "locationCode": "KMI",
+                                "locationName": "MIYAZAKI",
                                 "terminal": "",
-                                "dateTime": "2026-05-23T18:10:00",
+                                "dateTime": "2026-06-02T07:35:00",
                                 "gate": "",
                                 "country2letterCode": "JP",
                                 "iataAreaCode": "4",
-                                "cityCode": "ISG",
-                                "cityName": "ISHIGAKI"
-                            },
-                            "aircraftCode": "738",
-                            "aircraftName": "BOEING 737-800",
-                            "isSmallAircraft": false,
-                            "duration": 3600,
-                            "isLateNightDeparture": false,
-                            "isOpenSegment": false,
-                            "isSubjectToGovernmentApproval": false,
-                            "stops": [],
-                            "aircraftConfigurationVersion": "382",
-                            "flightServices": {
-                                "isLoungeAvailable": false,
-                                "wiFiType": ""
-                            },
-                            "meal": {
-                                "mealCode": ""
-                            },
-                            "isScheduleChanged": false,
-                            "scheduleChangeType": "",
-                            "isUpgraded": false,
-                            "upgradeType": "",
-                            "isDynamicWaiverApplicable": false,
-                            "isStarAllianceOperated": false,
-                            "availableCabins": [],
-                            "isNhGroupMarketing": true,
-                            "isNhGroupOperated": true,
-                            "operatingType": "nhGroupOperating",
-                            "isNeededToSupplementBookingClass": false,
-                            "fareInfos": {
-                                "fareClass": "B1VR1ZEU",
-                                "fareFamilyCode": "STANDARD",
-                                "priorityCode": "0100",
-                                "fareType": "other",
-                                "services": {
-                                    "seat": {
-                                        "applicability": "included"
-                                    }
-                                },
-                                "ticketDesignator": ""
-                            },
-                            "isDepartedWithin48Hours": false,
-                            "isJapanDomesticFlight": true,
-                            "isDepartedWithin24Hours": false,
-                            "isOnboarded": true
-                        }
-                    ],
-                    "duration": 3600,
-                    "isOtherMethodsConnection": false,
-                    "isContainedWaitlisted": false,
-                    "isFlix": false,
-                    "disruptionStatus": {},
-                    "isNotPassedChangeableTimeLimit": true,
-                    "isContainedChineseSegment": false,
-                    "isContainedDynamicWaiverRefundFlight": false,
-                    "isContainedDynamicWaiverChangeFlight": false,
-                    "isStayedAtNaritaDuringConnection": false,
-                    "cancel": {
-                        "isContainedSegment": false,
-                        "reasonCodes": []
-                    },
-                    "delay": {
-                        "isContainedSegment": false,
-                        "reasonCodes": []
-                    },
-                    "earlyDeparture": {
-                        "isContainedSegment": false,
-                        "reasonCodes": []
-                    },
-                    "isNotEligible": false,
-                    "wiFiType": "",
-                    "isIrregularCompensationEligible": false,
-                    "isDcsWindow": false,
-                    "isAlreadyAcknowledged": false,
-                    "isAutomaticAcknowledge": false
-                },
-                {
-                    "airBoundId": "3",
-                    "originLocationCode": "ISG",
-                    "destinationLocationCode": "HND",
-                    "originLocationName": "ISHIGAKI",
-                    "originDepartureDateTime": "2026-05-29T18:50:00",
-                    "originDepartureEstimatedDateTime": "",
-                    "destinationArrivalDateTime": "2026-05-30T12:15:00",
-                    "destinationArrivalEstimatedDateTime": "",
-                    "flights": [
-                        {
-                            "id": "ST3",
-                            "cabin": "eco",
-                            "bookingClass": "B",
-                            "statusCode": "HK",
-                            "statusType": "confirmed",
-                            "arrivalDaysDifferenceByFlight": 0,
-                            "connectionTime": 50400,
-                            "isMultiAirportConnection": false,
-                            "isFlown": false,
-                            "operationStatus": {
-                                "isDelayed": false,
-                                "isCancelled": false
-                            },
-                            "marketingAirlineCode": "6J",
-                            "marketingFlightNumber": "050",
-                            "operatingAirlineCode": "6J",
-                            "operatingAirlineName": "SOLASEED AIR",
-                            "departure": {
-                                "locationCode": "ISG",
-                                "locationName": "ISHIGAKI",
-                                "terminal": "",
-                                "dateTime": "2026-05-29T18:50:00",
-                                "gate": "",
-                                "country2letterCode": "JP",
-                                "iataAreaCode": "4",
-                                "cityCode": "ISG",
-                                "cityName": "ISHIGAKI"
-                            },
-                            "arrival": {
-                                "locationCode": "OKA",
-                                "locationName": "NAHA",
-                                "terminal": "D",
-                                "dateTime": "2026-05-29T19:50:00",
-                                "gate": "",
-                                "country2letterCode": "JP",
-                                "iataAreaCode": "4",
-                                "cityCode": "OKA",
-                                "cityName": "OKINAWA"
-                            },
-                            "aircraftCode": "738",
-                            "aircraftName": "BOEING 737-800",
-                            "isSmallAircraft": false,
-                            "duration": 3600,
-                            "isLateNightDeparture": false,
-                            "isOpenSegment": false,
-                            "isSubjectToGovernmentApproval": false,
-                            "stops": [],
-                            "aircraftConfigurationVersion": "382",
-                            "flightServices": {
-                                "isLoungeAvailable": false,
-                                "wiFiType": ""
-                            },
-                            "meal": {
-                                "mealCode": ""
-                            },
-                            "isScheduleChanged": false,
-                            "scheduleChangeType": "",
-                            "isUpgraded": false,
-                            "upgradeType": "",
-                            "isDynamicWaiverApplicable": false,
-                            "isStarAllianceOperated": false,
-                            "availableCabins": [],
-                            "isNhGroupMarketing": true,
-                            "isNhGroupOperated": true,
-                            "operatingType": "nhGroupOperating",
-                            "isNeededToSupplementBookingClass": false,
-                            "fareInfos": {
-                                "fareClass": "B1VR1ZEU",
-                                "fareFamilyCode": "STANDARD",
-                                "priorityCode": "0100",
-                                "fareType": "other",
-                                "services": {
-                                    "seat": {
-                                        "applicability": "included"
-                                    }
-                                },
-                                "ticketDesignator": ""
-                            },
-                            "isDepartedWithin48Hours": false,
-                            "isJapanDomesticFlight": true,
-                            "isDepartedWithin24Hours": false,
-                            "isOnboarded": true
-                        },
-                        {
-                            "id": "ST4",
-                            "cabin": "eco",
-                            "bookingClass": "B",
-                            "statusCode": "HK",
-                            "statusType": "confirmed",
-                            "departureDaysDifferenceByBound": 1,
-                            "arrivalDaysDifferenceByFlight": 0,
-                            "isMultiAirportConnection": false,
-                            "isFlown": false,
-                            "operationStatus": {
-                                "isDelayed": false,
-                                "isCancelled": false
-                            },
-                            "marketingAirlineCode": "6J",
-                            "marketingFlightNumber": "022",
-                            "operatingAirlineCode": "6J",
-                            "operatingAirlineName": "SOLASEED AIR",
-                            "departure": {
-                                "locationCode": "OKA",
-                                "locationName": "NAHA",
-                                "terminal": "D",
-                                "dateTime": "2026-05-30T09:50:00",
-                                "gate": "",
-                                "country2letterCode": "JP",
-                                "iataAreaCode": "4",
-                                "cityCode": "OKA",
-                                "cityName": "OKINAWA"
+                                "cityCode": "KMI",
+                                "cityName": "MIYAZAKI"
                             },
                             "arrival": {
                                 "locationCode": "HND",
                                 "locationName": "TOKYO INTL HANEDA",
                                 "terminal": "2",
-                                "dateTime": "2026-05-30T12:15:00",
+                                "dateTime": "2026-06-02T09:15:00",
                                 "gate": "",
                                 "country2letterCode": "JP",
                                 "iataAreaCode": "4",
@@ -428,7 +220,7 @@
                             "aircraftCode": "738",
                             "aircraftName": "BOEING 737-800",
                             "isSmallAircraft": false,
-                            "duration": 8700,
+                            "duration": 6000,
                             "isLateNightDeparture": false,
                             "isOpenSegment": false,
                             "isSubjectToGovernmentApproval": false,
@@ -453,7 +245,7 @@
                             "operatingType": "nhGroupOperating",
                             "isNeededToSupplementBookingClass": false,
                             "fareInfos": {
-                                "fareClass": "B1VR1ZEU",
+                                "fareClass": "B1ZR1ZEU",
                                 "fareFamilyCode": "STANDARD",
                                 "priorityCode": "0100",
                                 "fareType": "other",
@@ -470,7 +262,7 @@
                             "isOnboarded": true
                         }
                     ],
-                    "duration": 62700,
+                    "duration": 6000,
                     "isOtherMethodsConnection": false,
                     "isContainedWaitlisted": false,
                     "isFlix": false,
@@ -584,12 +376,6 @@
                 },
                 "ST2": {
                     "isEligible": true
-                },
-                "ST3": {
-                    "isEligible": true
-                },
-                "ST4": {
-                    "isEligible": true
                 }
             },
             "chargeableLounge": null,
@@ -610,10 +396,6 @@
                 "2": {
                     "isJuniorPilotEligible": true,
                     "isExpiredJuniorPilotDeadline": false
-                },
-                "3": {
-                    "isJuniorPilotEligible": true,
-                    "isExpiredJuniorPilotDeadline": false
                 }
             },
             "travelerInput": {
@@ -629,12 +411,6 @@
                         "isEligible": true
                     },
                     "ST2": {
-                        "isEligible": true
-                    },
-                    "ST3": {
-                        "isEligible": true
-                    },
-                    "ST4": {
                         "isEligible": true
                     },
                     "isEligible": true
@@ -668,7 +444,7 @@
                     "ticketPrices": {
                         "base": [
                             {
-                                "value": 132800,
+                                "value": 81400,
                                 "currencyCode": "JPY",
                                 "decimalPlaces": 0
                             }
@@ -676,7 +452,7 @@
                         "requiredMileage": 0,
                         "total": [
                             {
-                                "value": 147940,
+                                "value": 90440,
                                 "currencyCode": "JPY",
                                 "decimalPlaces": 0
                             }
@@ -686,14 +462,14 @@
                                 "currencyCode": "JPY",
                                 "decimalPlaces": 0,
                                 "code": "HJ",
-                                "value": 1860,
+                                "value": 900,
                                 "isExempted": false
                             },
                             {
                                 "currencyCode": "JPY",
                                 "decimalPlaces": 0,
                                 "code": "JP",
-                                "value": 13280,
+                                "value": 8140,
                                 "isExempted": false
                             }
                         ],
@@ -705,7 +481,7 @@
                             {
                                 "currencyCode": "JPY",
                                 "decimalPlaces": 0,
-                                "value": 15140
+                                "value": 9040
                             }
                         ]
                     },
@@ -737,21 +513,21 @@
                 "ticketPrices": {
                     "total": [
                         {
-                            "value": 147940,
+                            "value": 90440,
                             "currencyCode": "JPY",
                             "decimalPlaces": 0
                         }
                     ],
                     "base": [
                         {
-                            "value": 132800,
+                            "value": 81400,
                             "currencyCode": "JPY",
                             "decimalPlaces": 0
                         }
                     ],
                     "totalTaxes": [
                         {
-                            "value": 15140,
+                            "value": 9040,
                             "currencyCode": "JPY",
                             "decimalPlaces": 0
                         }
@@ -774,7 +550,7 @@
                 },
                 "total": [
                     {
-                        "value": 147940,
+                        "value": 90440,
                         "currencyCode": "JPY",
                         "decimalPlaces": 0
                     }
@@ -794,25 +570,13 @@
         "fares": {
             "ST1": {
                 "PT2": {
-                    "fareClass": "B1VR1ZEU",
+                    "fareClass": "B1ZR1ZEU",
                     "ticketDesignator": ""
                 }
             },
             "ST2": {
                 "PT2": {
-                    "fareClass": "B1VR1ZEU",
-                    "ticketDesignator": ""
-                }
-            },
-            "ST3": {
-                "PT2": {
-                    "fareClass": "B1VR1ZEU",
-                    "ticketDesignator": ""
-                }
-            },
-            "ST4": {
-                "PT2": {
-                    "fareClass": "B1VR1ZEU",
+                    "fareClass": "B1ZR1ZEU",
                     "ticketDesignator": ""
                 }
             }
@@ -823,10 +587,10 @@
                 "emails": [],
                 "phones": [
                     {
-                        "id": "OT19",
+                        "id": "OT17",
                         "type": "M",
-                        "number": "*******678",
-                        "encryptedNumber": "hpyiu6rKISm9e0xNJqmQ7g=="
+                        "number": "*******567",
+                        "encryptedNumber": "/oZeDlOlNQyPc5CpCRLMCA=="
                     }
                 ],
                 "contactsDuringStay": []
@@ -848,25 +612,25 @@
                 "id": "PT2",
                 "names": [
                     {
-                        "title": "MR",
+                        "title": "MS",
                         "firstName": "TARO",
                         "middleName": "",
-                        "lastName": "YAMADA"
+                        "lastName": "SOLANO"
                     }
                 ],
                 "passengerTypeCode": "ADT",
                 "hasInfiniNamelessInfant": false,
                 "hasNamelessInfant": false,
                 "dateOfBirth": "****/**/**",
-                "encryptedDateOfBirth": "N0OmjL13K+STWplo0nTZ0Q==",
+                "encryptedDateOfBirth": "QKvrEpKw0jJRJZF9Nf407g==",
                 "age": "**",
-                "encryptedAge": "aqiUMObTjCjpgGbncX9Hdw==",
+                "encryptedAge": "62GeXLHo+3eGwwXt8CCJmA==",
                 "gender": "",
                 "regulatoryDetails": {
                     "passports": [
                         {
-                            "encryptedBirthDate": "N0OmjL13K+STWplo0nTZ0Q==",
-                            "gender": "male",
+                            "encryptedBirthDate": "QKvrEpKw0jJRJZF9Nf407g==",
+                            "gender": "female",
                             "nationalityCode": "",
                             "number": "********",
                             "encryptedNumber": "m1dR7klO2MJFwuydcIO4jw==",
@@ -969,64 +733,6 @@
                 "statusCodes": [],
                 "isCrossingMultiplePnrCouchRequested": false
             },
-            "ST3": {
-                "PT2": {
-                    "seatSelection": {
-                        "seatNumbers": [],
-                        "cancelledSeatNumbers": [],
-                        "couchSeatNumber": "",
-                        "isCouchRepresentative": false,
-                        "characteristicRequestSsrCode": "",
-                        "serviceStatus": "",
-                        "seatCharacteristics": [],
-                        "isCouchEMDRegisteredToOtherSeat": false,
-                        "hasCouchSeatEMD": false,
-                        "hasPaidSeatEMD": false,
-                        "isChargeable": false,
-                        "isMissingCouchRemark": false,
-                        "isStraddleCouchRemark": false,
-                        "seatId": [],
-                        "couchId": "",
-                        "couchServiceId": ""
-                    },
-                    "bassinet": false,
-                    "childSeat": false,
-                    "childSeatType": "",
-                    "isAgentPurchasedCouchSkRegisterd": false,
-                    "isAgentPurchasedSeatSkRegisterd": false
-                },
-                "statusCodes": [],
-                "isCrossingMultiplePnrCouchRequested": false
-            },
-            "ST4": {
-                "PT2": {
-                    "seatSelection": {
-                        "seatNumbers": [],
-                        "cancelledSeatNumbers": [],
-                        "couchSeatNumber": "",
-                        "isCouchRepresentative": false,
-                        "characteristicRequestSsrCode": "",
-                        "serviceStatus": "",
-                        "seatCharacteristics": [],
-                        "isCouchEMDRegisteredToOtherSeat": false,
-                        "hasCouchSeatEMD": false,
-                        "hasPaidSeatEMD": false,
-                        "isChargeable": false,
-                        "isMissingCouchRemark": false,
-                        "isStraddleCouchRemark": false,
-                        "seatId": [],
-                        "couchId": "",
-                        "couchServiceId": ""
-                    },
-                    "bassinet": false,
-                    "childSeat": false,
-                    "childSeatType": "",
-                    "isAgentPurchasedCouchSkRegisterd": false,
-                    "isAgentPurchasedSeatSkRegisterd": false
-                },
-                "statusCodes": [],
-                "isCrossingMultiplePnrCouchRequested": false
-            },
             "isContainedCouchFlight": false,
             "isChargeableSeatFlight": false,
             "isContainedRequested": false,
@@ -1070,8 +776,8 @@
             "isUsContactRequired": false,
             "isUsContactRequiredForOriginalFlights": false
         },
-        "ticketingDeadline": "2026-02-28T17:34:00.000+09:00",
-        "paymentTimeLimit": "2026-02-25T18:03:00.000+09:00",
+        "ticketingDeadline": "2026-03-19T09:25:00.000+09:00",
+        "paymentTimeLimit": "2026-03-16T09:55:00.000+09:00",
         "isRepricingFailedWithCallCenterContact": false,
         "travelersSummary": {
             "travelerNumbers": {
@@ -1111,9 +817,6 @@
                     "isNeededSsrSkLostConfirmationForSelfReaccommodation": false
                 },
                 "2": {
-                    "isNeededSsrSkLostConfirmationForSelfReaccommodation": false
-                },
-                "3": {
                     "isNeededSsrSkLostConfirmationForSelfReaccommodation": false
                 }
             },

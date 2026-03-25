@@ -138,13 +138,15 @@ export class ServicingSeatmapCommonErrorService extends SupportClass {
         const availabilityStatus = seatInformationMap.get(
           convertCouchSeatNumberToSeatNumberList(seatInfoPassenger.seatNumber)?.[0] ?? ''
         )?.seatAvailabilityStatus;
+        // W0575 は「一時選択した座席が利用不可になった」場合のみ表示する
         if (
-          availabilityStatus ===
+          seatInfoPassenger.seatNumber && // 座席番号が存在する場合のみ判定
+          seatInfoPassenger.seatNumber !== seatInfoPassenger.ssrInformation?.ssrSeatNumber && // PNR未登録の一時選択のみ対象
+          availabilityStatus !== // シートマップ上で利用可能でない場合
             GetSeatmapsResponseDataSeatmapsDecksInnerSeatsInnerRowsInnerColumnsInner.SeatAvailabilityStatusEnum
-              .Available &&
-          seatInfoPassenger.seatNumber
+              .Available // available 以外（blocked/occupied）
         ) {
-          seatInfoPassenger.seatNumber && canceledSeatNumberList.push(seatInfoPassenger.seatNumber);
+          canceledSeatNumberList.push(seatInfoPassenger.seatNumber); // 対象座席として追加
         }
       });
     if (canceledSeatNumberList.length > 0) {

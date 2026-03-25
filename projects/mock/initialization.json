@@ -1,0 +1,198 @@
+{
+  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL3NwYS5zb2xhc2VlZGFpci5qcCIsInV1aWQiOiI1YmU2NTAzMi05YTQ0LTQ1MGItYjU1Yy00MzYxYmYzYjQ5MDgifQ.QfaGh1C69G9-8GhZ5HbHrgLPwLuRLv3orcn69kH3K4Q",
+  "data": {
+    "aswContext": {
+      "metaConnectionKind": "jp ",
+      "metaLang": "j",
+      "pointOfSaleId": "KMI6J08DD",
+      "bookingType": "R",
+      "currencyCode": "JPY",
+      "lang": "ja",
+      "posCountryCode": "JP",
+      "apfCode": "",
+      "isViaGoshokaiNet": false,
+      "introduceNumber": "",
+      "introducerLastName": "",
+      "introducerFirstName": "",
+      "deviceType": "PC",
+      "browserType": "UNKNOWN",
+      "mobileDeviceType": "UNKNOWN",
+      "osVersion": "",
+      "isAnaApl": false,
+      "loginStatus": "NOT_LOGIN",
+      "anaBizLoginStatus": "NOT_LOGIN",
+      "isDummyOffice": false,
+      "returnUrl": ""
+    },
+    "memberInfo": {
+      "amcNumber": "",
+      "memberKindCode": "",
+      "cardStatusCode": "",
+      "letterName": "",
+      "alteaName": {
+        "lastName": "",
+        "firstName": ""
+      },
+      "gender": "",
+      "mileBalance": null,
+      "premiumStatus": "",
+      "afaPrimeMemberIdentification": "",
+      "bookDate": "",
+      "upgradePointBalanceThisYear": null,
+      "upgradePointBalanceNextYear": null,
+      "mileBalanceAfa": null,
+      "premiumPointTotal": null,
+      "premiumPointAnaTotal": null,
+      "skyCoinBalance": null,
+      "tierLevel": "",
+      "iFlyMemberInfo": {
+        "companyCode": "",
+        "membershipNumber": "",
+        "profileDetails": {
+          "customerNumber": "",
+          "customerType": "",
+          "enrollmentSource": "",
+          "enrollmentSourceCode": "",
+          "customerHierarchy": "",
+          "customerSince": "",
+          "webLoginDisabled": null,
+          "webLoginReason": "",
+          "status": "",
+          "individualInfo": {
+            "nationality": "",
+            "preferredLanguage": "",
+            "preferredAddress": "",
+            "preferredEmailAddress": "",
+            "preferredPhoneNumber": "",
+            "title": "",
+            "givenName": "",
+            "familyName": "",
+            "displayName": "",
+            "middleName": "",
+            "secondName": "",
+            "secondLastName": "",
+            "marriedName": "",
+            "salutation": "",
+            "initials": "",
+            "gender": "",
+            "maritalStatus": "",
+            "dateOfBirth": "",
+            "countryOfResidence": "",
+            "companyName": "",
+            "position": "",
+            "memberContactInfos": null,
+            "staffId": "",
+            "typeOfIndustry": "",
+            "incomeBand": ""
+          },
+          "customerPreference": {
+            "preferenceCode": null,
+            "sequenceNumber": null,
+            "preferenceGroupName": "",
+            "preferenceValue": ""
+          },
+          "customerDynamicAttribute": null
+        },
+        "programDetails": null,
+        "document": null,
+        "documentInfoPrivacySetting": {
+          "isPrivate": null
+        }
+      }
+    },
+    "anaBizContext": {
+      "authInfo": {
+        "companyCode": "",
+        "companyAccountCode": "",
+        "contractType": "",
+        "companyInfoA": {
+          "cancellationDate": "",
+          "companyAdminCodeEditRestrict": "",
+          "companyName": "",
+          "companyNameEn": "",
+          "issueFlag": "",
+          "pauseFlag": "",
+          "onePaxFlag": "",
+          "eCffList": [
+            
+          ],
+          "fCffList": [
+            
+          ]
+        },
+        "companyInfoC": {
+          "cancellationDate": "",
+          "companyAdminCodeEditRestrict": "",
+          "contractSecName": "",
+          "contractSecNameEn": "",
+          "issueFlag": "",
+          "pauseFlag": "",
+          "onePaxFlag": "",
+          "eCffList": [
+            
+          ],
+          "fCffList": [
+            
+          ]
+        },
+        "companyManagementCodeInfo": {
+          "texts": [
+            
+          ],
+          "comboNames": [
+            
+          ]
+        },
+        "roles": [
+          
+        ]
+      },
+      "seamlessParameter": {
+        "amcMemberNumber": "",
+        "companyManagementCode1": "",
+        "companyManagementCode2": "",
+        "companyManagementCode3": "",
+        "companyManagementCode4": "",
+        "departureDate1": "",
+        "departureDate2": "",
+        "sendDataFlag": "",
+        "sendDataUrl": "",
+        "sendDataType": ""
+      },
+      "allBizContext": {
+        "companyId": "",
+        "loginUserID": "",
+        "companyName": "",
+        "creditId": null,
+        "isIssuable": null,
+        "commercialFareFamilyList": "",
+        "issueType": null,
+        "familyName": "",
+        "givenName": "",
+        "emailAddress": "",
+        "dateOfBirth": "",
+        "gender": "",
+        "passengerMembershipNumber": null,
+        "addressType": "",
+        "phoneISDCode": "",
+        "phoneNumber": null,
+        "customerId": null,
+        "departmentId": null,
+        "departmentName": "",
+        "userSeq": "",
+        "agentSeq": "",
+        "bizGeneralItem1": "",
+        "bizGeneralItem2": "",
+        "bizGeneralItem3": ""
+      }
+    },
+    "confidential": {
+      "roles": [
+        
+      ],
+      "loginId": "",
+      "loginPassword": "",
+      "adminUserId": ""
+    }
+  }
+}

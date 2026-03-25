@@ -1,0 +1,824 @@
+{
+  "warnings": [
+    
+  ],
+  "data": {
+    "airBound": {
+      "isAllSoldOut": false,
+      "travelSolutionsSummary": {
+        "numbersOfConnections": [
+          0
+        ],
+        "minDuration": 6000,
+        "maxDuration": 6300,
+        "originDepartures": [
+          {
+            "locationCode": "KMI",
+            "locationName": "MIYAZAKI"
+          }
+        ],
+        "destinationArrivals": [
+          {
+            "locationCode": "HND",
+            "locationName": "TOKYO INTL HANEDA"
+          }
+        ],
+        "connections": [
+          
+        ],
+        "operatingAirlines": [
+          {
+            "airlineCode": "6J",
+            "airlineName": "SOLASEED AIR"
+          }
+        ],
+        "aircraftCodes": [
+          "738"
+        ]
+      },
+      "airBoundGroups": [
+        {
+          "boundDetails": {
+            "isLateNightDeparture": false,
+            "originDepartureDateTime": "2026-06-02T07:35:00",
+            "destinationArrivalDateTime": "2026-06-02T09:15:00",
+            "duration": 6000,
+            "numberOfConnection": 0,
+            "connectionTime": 0,
+            "isContainedDelayedFlight": false,
+            "isContainedEarlyDepartureFlight": false,
+            "originLocationCode": "KMI",
+            "originLocationName": "MIYAZAKI",
+            "destinationLocationCode": "HND",
+            "destinationLocationName": "TOKYO INTL HANEDA",
+            "operatingAirlines": [
+              
+            ],
+            "isContainedPendingGovernmentApproval": false,
+            "aircraftConfigurationVersions": [
+              null
+            ],
+            "isSmallAircraft": false,
+            "isAllNhGroupOperated": true,
+            "ranking": 1,
+            "segments": [
+              {
+                "id": "SEG-6J52-KMIHND-2026-06-02-0735",
+                "departure": {
+                  "locationCode": "KMI",
+                  "cityCode": "KMI",
+                  "locationName": "MIYAZAKI",
+                  "dateTime": "2026-06-02T07:35:00"
+                },
+                "arrival": {
+                  "locationCode": "HND",
+                  "cityCode": "TYO",
+                  "locationName": "TOKYO INTL HANEDA",
+                  "terminal": "2",
+                  "dateTime": "2026-06-02T09:15:00"
+                },
+                "marketingAirlineCode": "6J",
+                "operatingAirlineCode": "6J",
+                "cabin": "eco",
+                "operatingAirlineName": "SOLASEED AIR",
+                "marketingFlightNumber": "052",
+                "arrivalDaysDifferenceByFlight": 0,
+                "departureDaysDifferenceByBound": 0,
+                "isNhMarketingAirlineCode": true,
+                "isNhGroupOperated": true,
+                "aircraftCode": "738",
+                "aircraftName": "BOEING 737-800",
+                "duration": 6000,
+                "stops": [
+                  
+                ],
+                "isSubjectToGovernmentApproval": false,
+                "isMultiAirportConnection": false,
+                "isLateNightDeparture": false
+              }
+            ],
+            "travelSolutionsAvailability": {
+              "isUnavailable": false
+            },
+            "destinationArrivalDaysDifference": 0
+          },
+          "JPJPY0100": {
+            "isHandicappedFare": false,
+            "cabin": "eco",
+            "airBound": {
+              "prices": {
+                "totalPrice": {
+                  "price": {
+                    "total": 45220,
+                    "base": 40700,
+                    "currencyCode": "JPY"
+                  },
+                  "totalTaxes": 4520
+                },
+                "isCheapest": true,
+                "unitPrices": {
+                  "ADT": {
+                    "base": 40700,
+                    "totalTaxes": 4520,
+                    "currencyCode": "JPY"
+                  }
+                }
+              }
+            },
+            "isUnavailable": false,
+            "minFreeCheckedBaggageQuantity": 2,
+            "isWaitlisted": false,
+            "quotaType": "available",
+            "refundConditionsType": "chargeable",
+            "isIncludedSeatAssignment": true,
+            "SEG-6J52-KMIHND-2026-06-02-0735": {
+              "service": {
+                "bookingClass": "B"
+              }
+            },
+            "fareInfos": {
+              "fareClass": "B1ZR1ZEU"
+            },
+            "changeConditionsType": "withPenalty",
+            "priorityCode": "0100",
+            "airBoundId": "BU2-2-1I16JZ_QICCRHLWI2IO234HG8YC7W3R6ZO4",
+            "fareType": "other"
+          }
+        },
+        {
+          "boundDetails": {
+            "isLateNightDeparture": false,
+            "originDepartureDateTime": "2026-06-02T11:25:00",
+            "destinationArrivalDateTime": "2026-06-02T13:05:00",
+            "duration": 6000,
+            "numberOfConnection": 0,
+            "connectionTime": 0,
+            "isContainedDelayedFlight": false,
+            "isContainedEarlyDepartureFlight": false,
+            "originLocationCode": "KMI",
+            "originLocationName": "MIYAZAKI",
+            "destinationLocationCode": "HND",
+            "destinationLocationName": "TOKYO INTL HANEDA",
+            "operatingAirlines": [
+              
+            ],
+            "isContainedPendingGovernmentApproval": false,
+            "aircraftConfigurationVersions": [
+              null
+            ],
+            "isSmallAircraft": false,
+            "isAllNhGroupOperated": true,
+            "ranking": 2,
+            "segments": [
+              {
+                "id": "SEG-6J56-KMIHND-2026-06-02-1125",
+                "departure": {
+                  "locationCode": "KMI",
+                  "cityCode": "KMI",
+                  "locationName": "MIYAZAKI",
+                  "dateTime": "2026-06-02T11:25:00"
+                },
+                "arrival": {
+                  "locationCode": "HND",
+                  "cityCode": "TYO",
+                  "locationName": "TOKYO INTL HANEDA",
+                  "terminal": "2",
+                  "dateTime": "2026-06-02T13:05:00"
+                },
+                "marketingAirlineCode": "6J",
+                "operatingAirlineCode": "6J",
+                "cabin": "eco",
+                "operatingAirlineName": "SOLASEED AIR",
+                "marketingFlightNumber": "056",
+                "arrivalDaysDifferenceByFlight": 0,
+                "departureDaysDifferenceByBound": 0,
+                "isNhMarketingAirlineCode": true,
+                "isNhGroupOperated": true,
+                "aircraftCode": "738",
+                "aircraftName": "BOEING 737-800",
+                "duration": 6000,
+                "stops": [
+                  
+                ],
+                "isSubjectToGovernmentApproval": false,
+                "isMultiAirportConnection": false,
+                "isLateNightDeparture": false
+              }
+            ],
+            "travelSolutionsAvailability": {
+              "isUnavailable": false
+            },
+            "destinationArrivalDaysDifference": 0
+          },
+          "JPJPY0100": {
+            "isHandicappedFare": false,
+            "cabin": "eco",
+            "airBound": {
+              "prices": {
+                "totalPrice": {
+                  "price": {
+                    "total": 45220,
+                    "base": 40700,
+                    "currencyCode": "JPY"
+                  },
+                  "totalTaxes": 4520
+                },
+                "isCheapest": true,
+                "unitPrices": {
+                  "ADT": {
+                    "base": 40700,
+                    "totalTaxes": 4520,
+                    "currencyCode": "JPY"
+                  }
+                }
+              }
+            },
+            "isUnavailable": false,
+            "minFreeCheckedBaggageQuantity": 2,
+            "isWaitlisted": false,
+            "quotaType": "available",
+            "refundConditionsType": "chargeable",
+            "isIncludedSeatAssignment": true,
+            "SEG-6J56-KMIHND-2026-06-02-1125": {
+              "service": {
+                "bookingClass": "B"
+              }
+            },
+            "fareInfos": {
+              "fareClass": "B1ZR1ZEU"
+            },
+            "changeConditionsType": "withPenalty",
+            "priorityCode": "0100",
+            "airBoundId": "BU2-2-1I16JZ_KJUGJUIMQLDCDEWKMMBNRGOXMWOJ",
+            "fareType": "other"
+          }
+        },
+        {
+          "boundDetails": {
+            "isLateNightDeparture": false,
+            "originDepartureDateTime": "2026-06-02T12:35:00",
+            "destinationArrivalDateTime": "2026-06-02T14:15:00",
+            "duration": 6000,
+            "numberOfConnection": 0,
+            "connectionTime": 0,
+            "isContainedDelayedFlight": false,
+            "isContainedEarlyDepartureFlight": false,
+            "originLocationCode": "KMI",
+            "originLocationName": "MIYAZAKI",
+            "destinationLocationCode": "HND",
+            "destinationLocationName": "TOKYO INTL HANEDA",
+            "operatingAirlines": [
+              
+            ],
+            "isContainedPendingGovernmentApproval": false,
+            "aircraftConfigurationVersions": [
+              null
+            ],
+            "isSmallAircraft": false,
+            "isAllNhGroupOperated": true,
+            "ranking": 3,
+            "segments": [
+              {
+                "id": "SEG-6J58-KMIHND-2026-06-02-1235",
+                "departure": {
+                  "locationCode": "KMI",
+                  "cityCode": "KMI",
+                  "locationName": "MIYAZAKI",
+                  "dateTime": "2026-06-02T12:35:00"
+                },
+                "arrival": {
+                  "locationCode": "HND",
+                  "cityCode": "TYO",
+                  "locationName": "TOKYO INTL HANEDA",
+                  "terminal": "2",
+                  "dateTime": "2026-06-02T14:15:00"
+                },
+                "marketingAirlineCode": "6J",
+                "operatingAirlineCode": "6J",
+                "cabin": "eco",
+                "operatingAirlineName": "SOLASEED AIR",
+                "marketingFlightNumber": "058",
+                "arrivalDaysDifferenceByFlight": 0,
+                "departureDaysDifferenceByBound": 0,
+                "isNhMarketingAirlineCode": true,
+                "isNhGroupOperated": true,
+                "aircraftCode": "738",
+                "aircraftName": "BOEING 737-800",
+                "duration": 6000,
+                "stops": [
+                  
+                ],
+                "isSubjectToGovernmentApproval": false,
+                "isMultiAirportConnection": false,
+                "isLateNightDeparture": false
+              }
+            ],
+            "travelSolutionsAvailability": {
+              "isUnavailable": false
+            },
+            "destinationArrivalDaysDifference": 0
+          },
+          "JPJPY0100": {
+            "isHandicappedFare": false,
+            "cabin": "eco",
+            "airBound": {
+              "prices": {
+                "totalPrice": {
+                  "price": {
+                    "total": 45220,
+                    "base": 40700,
+                    "currencyCode": "JPY"
+                  },
+                  "totalTaxes": 4520
+                },
+                "isCheapest": true,
+                "unitPrices": {
+                  "ADT": {
+                    "base": 40700,
+                    "totalTaxes": 4520,
+                    "currencyCode": "JPY"
+                  }
+                }
+              }
+            },
+            "isUnavailable": false,
+            "minFreeCheckedBaggageQuantity": 2,
+            "isWaitlisted": false,
+            "quotaType": "available",
+            "refundConditionsType": "chargeable",
+            "isIncludedSeatAssignment": true,
+            "fareInfos": {
+              "fareClass": "B1ZR1ZEU"
+            },
+            "changeConditionsType": "withPenalty",
+            "priorityCode": "0100",
+            "airBoundId": "BU2-2-1I16JZ_YLLMJTQJ2KYU2CHIBMXOB0JLDCFN",
+            "SEG-6J58-KMIHND-2026-06-02-1235": {
+              "service": {
+                "bookingClass": "B"
+              }
+            },
+            "fareType": "other"
+          }
+        },
+        {
+          "boundDetails": {
+            "isLateNightDeparture": false,
+            "originDepartureDateTime": "2026-06-02T14:15:00",
+            "destinationArrivalDateTime": "2026-06-02T15:55:00",
+            "duration": 6000,
+            "numberOfConnection": 0,
+            "connectionTime": 0,
+            "isContainedDelayedFlight": false,
+            "isContainedEarlyDepartureFlight": false,
+            "originLocationCode": "KMI",
+            "originLocationName": "MIYAZAKI",
+            "destinationLocationCode": "HND",
+            "destinationLocationName": "TOKYO INTL HANEDA",
+            "operatingAirlines": [
+              
+            ],
+            "isContainedPendingGovernmentApproval": false,
+            "aircraftConfigurationVersions": [
+              null
+            ],
+            "isSmallAircraft": false,
+            "isAllNhGroupOperated": true,
+            "ranking": 4,
+            "segments": [
+              {
+                "id": "SEG-6J60-KMIHND-2026-06-02-1415",
+                "departure": {
+                  "locationCode": "KMI",
+                  "cityCode": "KMI",
+                  "locationName": "MIYAZAKI",
+                  "dateTime": "2026-06-02T14:15:00"
+                },
+                "arrival": {
+                  "locationCode": "HND",
+                  "cityCode": "TYO",
+                  "locationName": "TOKYO INTL HANEDA",
+                  "terminal": "2",
+                  "dateTime": "2026-06-02T15:55:00"
+                },
+                "marketingAirlineCode": "6J",
+                "operatingAirlineCode": "6J",
+                "cabin": "eco",
+                "operatingAirlineName": "SOLASEED AIR",
+                "marketingFlightNumber": "060",
+                "arrivalDaysDifferenceByFlight": 0,
+                "departureDaysDifferenceByBound": 0,
+                "isNhMarketingAirlineCode": true,
+                "isNhGroupOperated": true,
+                "aircraftCode": "738",
+                "aircraftName": "BOEING 737-800",
+                "duration": 6000,
+                "stops": [
+                  
+                ],
+                "isSubjectToGovernmentApproval": false,
+                "isMultiAirportConnection": false,
+                "isLateNightDeparture": false
+              }
+            ],
+            "travelSolutionsAvailability": {
+              "isUnavailable": false
+            },
+            "destinationArrivalDaysDifference": 0
+          },
+          "JPJPY0100": {
+            "isHandicappedFare": false,
+            "cabin": "eco",
+            "airBound": {
+              "prices": {
+                "totalPrice": {
+                  "price": {
+                    "total": 45220,
+                    "base": 40700,
+                    "currencyCode": "JPY"
+                  },
+                  "totalTaxes": 4520
+                },
+                "isCheapest": true,
+                "unitPrices": {
+                  "ADT": {
+                    "base": 40700,
+                    "totalTaxes": 4520,
+                    "currencyCode": "JPY"
+                  }
+                }
+              }
+            },
+            "isUnavailable": false,
+            "SEG-6J60-KMIHND-2026-06-02-1415": {
+              "service": {
+                "bookingClass": "B"
+              }
+            },
+            "minFreeCheckedBaggageQuantity": 2,
+            "isWaitlisted": false,
+            "quotaType": "available",
+            "refundConditionsType": "chargeable",
+            "isIncludedSeatAssignment": true,
+            "fareInfos": {
+              "fareClass": "B1ZR1ZEU"
+            },
+            "changeConditionsType": "withPenalty",
+            "priorityCode": "0100",
+            "airBoundId": "BU2-2-1I16JZ_FGB7L9RYOKZ46C0UH9CTWCVN1ZES",
+            "fareType": "other"
+          }
+        },
+        {
+          "boundDetails": {
+            "isLateNightDeparture": false,
+            "originDepartureDateTime": "2026-06-02T16:50:00",
+            "destinationArrivalDateTime": "2026-06-02T18:35:00",
+            "duration": 6300,
+            "numberOfConnection": 0,
+            "connectionTime": 0,
+            "isContainedDelayedFlight": false,
+            "isContainedEarlyDepartureFlight": false,
+            "originLocationCode": "KMI",
+            "originLocationName": "MIYAZAKI",
+            "destinationLocationCode": "HND",
+            "destinationLocationName": "TOKYO INTL HANEDA",
+            "operatingAirlines": [
+              
+            ],
+            "isContainedPendingGovernmentApproval": false,
+            "aircraftConfigurationVersions": [
+              null
+            ],
+            "isSmallAircraft": false,
+            "isAllNhGroupOperated": true,
+            "ranking": 5,
+            "segments": [
+              {
+                "id": "SEG-6J62-KMIHND-2026-06-02-1650",
+                "departure": {
+                  "locationCode": "KMI",
+                  "cityCode": "KMI",
+                  "locationName": "MIYAZAKI",
+                  "dateTime": "2026-06-02T16:50:00"
+                },
+                "arrival": {
+                  "locationCode": "HND",
+                  "cityCode": "TYO",
+                  "locationName": "TOKYO INTL HANEDA",
+                  "terminal": "2",
+                  "dateTime": "2026-06-02T18:35:00"
+                },
+                "marketingAirlineCode": "6J",
+                "operatingAirlineCode": "6J",
+                "cabin": "eco",
+                "operatingAirlineName": "SOLASEED AIR",
+                "marketingFlightNumber": "062",
+                "arrivalDaysDifferenceByFlight": 0,
+                "departureDaysDifferenceByBound": 0,
+                "isNhMarketingAirlineCode": true,
+                "isNhGroupOperated": true,
+                "aircraftCode": "738",
+                "aircraftName": "BOEING 737-800",
+                "duration": 6300,
+                "stops": [
+                  
+                ],
+                "isSubjectToGovernmentApproval": false,
+                "isMultiAirportConnection": false,
+                "isLateNightDeparture": false
+              }
+            ],
+            "travelSolutionsAvailability": {
+              "isUnavailable": false
+            },
+            "destinationArrivalDaysDifference": 0
+          },
+          "JPJPY0100": {
+            "isHandicappedFare": false,
+            "cabin": "eco",
+            "airBound": {
+              "prices": {
+                "totalPrice": {
+                  "price": {
+                    "total": 45220,
+                    "base": 40700,
+                    "currencyCode": "JPY"
+                  },
+                  "totalTaxes": 4520
+                },
+                "isCheapest": true,
+                "unitPrices": {
+                  "ADT": {
+                    "base": 40700,
+                    "totalTaxes": 4520,
+                    "currencyCode": "JPY"
+                  }
+                }
+              }
+            },
+            "isUnavailable": false,
+            "minFreeCheckedBaggageQuantity": 2,
+            "isWaitlisted": false,
+            "SEG-6J62-KMIHND-2026-06-02-1650": {
+              "service": {
+                "bookingClass": "B"
+              }
+            },
+            "quotaType": "available",
+            "refundConditionsType": "chargeable",
+            "isIncludedSeatAssignment": true,
+            "fareInfos": {
+              "fareClass": "B1ZR1ZEU"
+            },
+            "changeConditionsType": "withPenalty",
+            "priorityCode": "0100",
+            "airBoundId": "BU2-2-1I16JZ_STZBP15ALDBXPPTY40QF1U29HLZD",
+            "fareType": "other"
+          }
+        },
+        {
+          "boundDetails": {
+            "isLateNightDeparture": false,
+            "originDepartureDateTime": "2026-06-02T18:30:00",
+            "destinationArrivalDateTime": "2026-06-02T20:10:00",
+            "duration": 6000,
+            "numberOfConnection": 0,
+            "connectionTime": 0,
+            "isContainedDelayedFlight": false,
+            "isContainedEarlyDepartureFlight": false,
+            "originLocationCode": "KMI",
+            "originLocationName": "MIYAZAKI",
+            "destinationLocationCode": "HND",
+            "destinationLocationName": "TOKYO INTL HANEDA",
+            "operatingAirlines": [
+              
+            ],
+            "isContainedPendingGovernmentApproval": false,
+            "aircraftConfigurationVersions": [
+              null
+            ],
+            "isSmallAircraft": false,
+            "isAllNhGroupOperated": true,
+            "ranking": 6,
+            "segments": [
+              {
+                "id": "SEG-6J64-KMIHND-2026-06-02-1830",
+                "departure": {
+                  "locationCode": "KMI",
+                  "cityCode": "KMI",
+                  "locationName": "MIYAZAKI",
+                  "dateTime": "2026-06-02T18:30:00"
+                },
+                "arrival": {
+                  "locationCode": "HND",
+                  "cityCode": "TYO",
+                  "locationName": "TOKYO INTL HANEDA",
+                  "terminal": "2",
+                  "dateTime": "2026-06-02T20:10:00"
+                },
+                "marketingAirlineCode": "6J",
+                "operatingAirlineCode": "6J",
+                "cabin": "eco",
+                "operatingAirlineName": "SOLASEED AIR",
+                "marketingFlightNumber": "064",
+                "arrivalDaysDifferenceByFlight": 0,
+                "departureDaysDifferenceByBound": 0,
+                "isNhMarketingAirlineCode": true,
+                "isNhGroupOperated": true,
+                "aircraftCode": "738",
+                "aircraftName": "BOEING 737-800",
+                "duration": 6000,
+                "stops": [
+                  
+                ],
+                "isSubjectToGovernmentApproval": false,
+                "isMultiAirportConnection": false,
+                "isLateNightDeparture": false
+              }
+            ],
+            "travelSolutionsAvailability": {
+              "isUnavailable": false
+            },
+            "destinationArrivalDaysDifference": 0
+          },
+          "JPJPY0100": {
+            "isHandicappedFare": false,
+            "cabin": "eco",
+            "airBound": {
+              "prices": {
+                "totalPrice": {
+                  "price": {
+                    "total": 45220,
+                    "base": 40700,
+                    "currencyCode": "JPY"
+                  },
+                  "totalTaxes": 4520
+                },
+                "isCheapest": true,
+                "unitPrices": {
+                  "ADT": {
+                    "base": 40700,
+                    "totalTaxes": 4520,
+                    "currencyCode": "JPY"
+                  }
+                }
+              }
+            },
+            "isUnavailable": false,
+            "minFreeCheckedBaggageQuantity": 2,
+            "isWaitlisted": false,
+            "quotaType": "available",
+            "SEG-6J64-KMIHND-2026-06-02-1830": {
+              "service": {
+                "bookingClass": "B"
+              }
+            },
+            "refundConditionsType": "chargeable",
+            "isIncludedSeatAssignment": true,
+            "fareInfos": {
+              "fareClass": "B1ZR1ZEU"
+            },
+            "changeConditionsType": "withPenalty",
+            "priorityCode": "0100",
+            "airBoundId": "BU2-2-1I16JZ_87TBTN2EMG7PB4XBOSG839MCYOZW",
+            "fareType": "other"
+          }
+        }
+      ],
+      "fareFamilies": [
+        {
+          "fareFamilyCode": "JPJPY0100",
+          "fareFamilyWithService": {
+            "priorityCode": "0100",
+            "cabin": "eco",
+            "groupId": "0"
+          },
+          "changeConditionsType": "withPenalty",
+          "refundConditionsType": "chargeable",
+          "minFreeCheckedBaggageQuantity": 2,
+          "isIncludedSeatAssignment": true,
+          "fareType": "other"
+        }
+      ]
+    },
+    "airCalendar": {
+      "isAllSoldOut": false,
+      "airCalendarPeriod": {
+        "departureDates": [
+          {
+            "date": "2026-06-01",
+            "cheapestPrice": {
+              "value": 90440,
+              "currencyCode": "JPY"
+            },
+            "isCheapest": true,
+            "isAvailable": true
+          }
+        ],
+        "returnDates": [
+          {
+            "date": "2026-05-30",
+            "isCheapest": false,
+            "isAvailable": false
+          },
+          {
+            "date": "2026-05-31",
+            "isCheapest": false,
+            "isAvailable": false
+          },
+          {
+            "date": "2026-06-01",
+            "cheapestPrice": {
+              "value": 90440,
+              "currencyCode": "JPY"
+            },
+            "isCheapest": true,
+            "isAvailable": true
+          },
+          {
+            "date": "2026-06-02",
+            "cheapestPrice": {
+              "value": 90440,
+              "currencyCode": "JPY"
+            },
+            "isCheapest": true,
+            "isAvailable": true
+          },
+          {
+            "date": "2026-06-03",
+            "cheapestPrice": {
+              "value": 90440,
+              "currencyCode": "JPY"
+            },
+            "isCheapest": true,
+            "isAvailable": true
+          },
+          {
+            "date": "2026-06-04",
+            "cheapestPrice": {
+              "value": 90440,
+              "currencyCode": "JPY"
+            },
+            "isCheapest": true,
+            "isAvailable": true
+          },
+          {
+            "date": "2026-06-05",
+            "cheapestPrice": {
+              "value": 90440,
+              "currencyCode": "JPY"
+            },
+            "isCheapest": true,
+            "isAvailable": true
+          }
+        ]
+      },
+      "airCalender": {
+        "2026-06-01": {
+          "2026-06-01": {
+            "cheapestPrice": {
+              "value": 90440,
+              "currencyCode": "JPY"
+            },
+            "isCheapest": true,
+            "isAvailable": true
+          },
+          "2026-06-02": {
+            "cheapestPrice": {
+              "value": 90440,
+              "currencyCode": "JPY"
+            },
+            "isCheapest": true,
+            "isAvailable": true
+          },
+          "2026-06-03": {
+            "cheapestPrice": {
+              "value": 90440,
+              "currencyCode": "JPY"
+            },
+            "isCheapest": true,
+            "isAvailable": true
+          },
+          "2026-06-04": {
+            "cheapestPrice": {
+              "value": 90440,
+              "currencyCode": "JPY"
+            },
+            "isCheapest": true,
+            "isAvailable": true
+          },
+          "2026-06-05": {
+            "cheapestPrice": {
+              "value": 90440,
+              "currencyCode": "JPY"
+            },
+            "isCheapest": true,
+            "isAvailable": true
+          }
+        }
+      }
+    },
+    "isResearched": false
+  }
+}
